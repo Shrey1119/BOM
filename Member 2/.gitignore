@@ -1,0 +1,5 @@
+# Ignore Trivy executable and zip-extracted assets
+trivy.exe
+contrib/
+LICENSE
+README.md

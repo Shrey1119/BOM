@@ -1,0 +1,4179 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:62532943-f3d6-4494-821b-1ca4fb43086c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-25T10:14:56+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.71.2"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "2689ea7d-c2cf-4eac-8994-17f11405ce34",
+      "type": "application",
+      "name": "C:/Users/ADMIN/OneDrive/Desktop/BOM/BOM/Member 2/mock_project",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "3fde3e79-abdb-408a-a596-3a7d7ff0f177",
+      "type": "application",
+      "name": "requirements.txt",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/jinja2@2.10",
+      "type": "library",
+      "name": "jinja2",
+      "version": "2.10",
+      "purl": "pkg:pypi/jinja2@2.10",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/requests@2.20.0",
+      "type": "library",
+      "name": "requests",
+      "version": "2.20.0",
+      "purl": "pkg:pypi/requests@2.20.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/urllib3@1.24.1",
+      "type": "library",
+      "name": "urllib3",
+      "version": "1.24.1",
+      "purl": "pkg:pypi/urllib3@1.24.1",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "pip"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2689ea7d-c2cf-4eac-8994-17f11405ce34",
+      "dependsOn": [
+        "3fde3e79-abdb-408a-a596-3a7d7ff0f177"
+      ]
+    },
+    {
+      "ref": "3fde3e79-abdb-408a-a596-3a7d7ff0f177",
+      "dependsOn": [
+        "pkg:pypi/jinja2@2.10",
+        "pkg:pypi/requests@2.20.0",
+        "pkg:pypi/urllib3@1.24.1"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/jinja2@2.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/requests@2.20.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/urllib3@1.24.1",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "id": "CVE-2018-25091",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        601
+      ],
+      "description": "urllib3 before 1.24.2 does not remove the authorization HTTP header when following a cross-origin redirect (i.e., a redirect that differs in host, port, or scheme). This can allow for credentials in the authorization header to be exposed to unintended hosts or transmitted in cleartext. NOTE: this issue exists because of an incomplete fix for CVE-2018-20060 (which was case-sensitive).",
+      "recommendation": "Upgrade urllib3 to version 1.24.2",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2018-25091"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2018-25091"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1983596"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1989575"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2132867"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2132868"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2132872"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2228743"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2237773"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2237776"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2237777"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2237778"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2244340"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2246840"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2253193"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2253330"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2254210"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2262272"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25091"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33198"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-34558"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-2879"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-2880"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-41715"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-29409"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39318"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39319"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39321"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39322"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39326"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45287"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45803"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-48795"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-23650"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2024:2988"
+        },
+        {
+          "url": "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2023-207.yaml"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/adb358f8e06865406d1f05e581a16cbea2136fbc"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/compare/1.24.1...1.24.2"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/issues/1510"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2018-25091.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2024-2988.html"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25091"
+        },
+        {
+          "url": "https://security.snyk.io/vuln/SNYK-PYTHON-URLLIB3-5969479"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-6473-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-6473-2"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2018-25091"
+        }
+      ],
+      "published": "2023-10-15T19:15:09+00:00",
+      "updated": "2026-06-17T01:54:41+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.1",
+          "versions": [
+            {
+              "version": "1.24.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2019-10906",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 8.6,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.7,
+          "severity": "high",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:N/SC:H/SI:N/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 5,
+          "severity": "medium",
+          "method": "CVSSv2",
+          "vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 8.6,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 9,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "description": "In Pallets Jinja before 2.10.1, str.format_map allows a sandbox escape.",
+      "recommendation": "Upgrade jinja2 to version 2.10.1",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2019-10906"
+        },
+        {
+          "url": "http://lists.opensuse.org/opensuse-security-announce/2019-05/msg00030.html"
+        },
+        {
+          "url": "http://lists.opensuse.org/opensuse-security-announce/2019-06/msg00064.html"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2019:1152"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2019:1237"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2019:1329"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2019-10906"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1698839"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-10906"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2019:1152"
+        },
+        {
+          "url": "https://github.com/advisories/GHSA-462w-v97r-4m45"
+        },
+        {
+          "url": "https://github.com/pallets/jinja"
+        },
+        {
+          "url": "https://github.com/pypa/advisory-database/tree/main/vulns/jinja2/PYSEC-2019-217.yaml"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2019-10906.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2019-1152.html"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/09fc842ff444cd43d9d4c510756fec625ef8eb1175f14fd21de2605f%40%3Cdevnull.infra.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/09fc842ff444cd43d9d4c510756fec625ef8eb1175f14fd21de2605f@%3Cdevnull.infra.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/2b52b9c8b9d6366a4f1b407a8bde6af28d9fc73fdb3b37695fd0d9ac%40%3Cdevnull.infra.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/2b52b9c8b9d6366a4f1b407a8bde6af28d9fc73fdb3b37695fd0d9ac@%3Cdevnull.infra.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/320441dccbd9a545320f5f07306d711d4bbd31ba43dc9eebcfc602df%40%3Cdevnull.infra.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/320441dccbd9a545320f5f07306d711d4bbd31ba43dc9eebcfc602df@%3Cdevnull.infra.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/46c055e173b52d599c648a98199972dbd6a89d2b4c4647b0500f2284%40%3Cdevnull.infra.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/46c055e173b52d599c648a98199972dbd6a89d2b4c4647b0500f2284@%3Cdevnull.infra.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/57673a78c4d5c870d3f21465c7e2946b9f8285c7c57e54c2ae552f02%40%3Ccommits.airflow.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/57673a78c4d5c870d3f21465c7e2946b9f8285c7c57e54c2ae552f02@%3Ccommits.airflow.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/7f39f01392d320dfb48e4901db68daeece62fd60ef20955966739993%40%3Ccommits.airflow.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/7f39f01392d320dfb48e4901db68daeece62fd60ef20955966739993@%3Ccommits.airflow.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/b2380d147b508bbcb90d2cad443c159e63e12555966ab4f320ee22da%40%3Ccommits.airflow.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/b2380d147b508bbcb90d2cad443c159e63e12555966ab4f320ee22da@%3Ccommits.airflow.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/f0c4a03418bcfe70c539c5dbaf99c04c98da13bfa1d3266f08564316%40%3Ccommits.airflow.apache.org%3E"
+        },
+        {
+          "url": "https://lists.apache.org/thread.html/f0c4a03418bcfe70c539c5dbaf99c04c98da13bfa1d3266f08564316@%3Ccommits.airflow.apache.org%3E"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/DSW3QZMFVVR7YE3UT4YRQA272TYAL5AF/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/QCDYIS254EJMBNWOG4S5QY6AOTOR4TZU/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/TS7IVZAJBWOHNRDMFJDIZVFCMRP6YIUQ/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DSW3QZMFVVR7YE3UT4YRQA272TYAL5AF"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QCDYIS254EJMBNWOG4S5QY6AOTOR4TZU"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TS7IVZAJBWOHNRDMFJDIZVFCMRP6YIUQ"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-10906"
+        },
+        {
+          "url": "https://palletsprojects.com/blog/jinja-2-10-1-released"
+        },
+        {
+          "url": "https://palletsprojects.com/blog/jinja-2-10-1-released/"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-4011-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-4011-2"
+        },
+        {
+          "url": "https://usn.ubuntu.com/4011-1"
+        },
+        {
+          "url": "https://usn.ubuntu.com/4011-1/"
+        },
+        {
+          "url": "https://usn.ubuntu.com/4011-2"
+        },
+        {
+          "url": "https://usn.ubuntu.com/4011-2/"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2019-10906"
+        }
+      ],
+      "published": "2019-04-07T00:29:00+00:00",
+      "updated": "2026-06-17T02:11:52+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10",
+          "versions": [
+            {
+              "version": "2.10",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2019-11236",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 4.3,
+          "severity": "medium",
+          "method": "CVSSv2",
+          "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 6.5,
+          "severity": "medium",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        93
+      ],
+      "description": "In the urllib3 library through 1.24.1 for Python, CRLF injection is possible if the attacker controls the request parameter.",
+      "recommendation": "Upgrade urllib3 to version 1.24.3",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2019-11236"
+        },
+        {
+          "url": "http://lists.opensuse.org/opensuse-security-announce/2019-09/msg00039.html"
+        },
+        {
+          "url": "http://lists.opensuse.org/opensuse-security-announce/2019-09/msg00041.html"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2019:2272"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2019:3335"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2019:3590"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2019-11236"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1643829"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1649153"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1659551"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1700824"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1702473"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1740347"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1749839"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1762422"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18074"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20060"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20852"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11236"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11324"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16056"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16935"
+        },
+        {
+          "url": "https://errata.almalinux.org/8/ALSA-2020-1605.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2020:1605"
+        },
+        {
+          "url": "https://github.com/advisories/GHSA-r64q-w8jr-g9qp"
+        },
+        {
+          "url": "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2019-132.yaml"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/issues/1553"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2019-11236.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2020-2081.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2019/06/msg00016.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2021/06/msg00015.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/NKGPJLVLVYCL4L4B4G5TIOTVK4BKPG72/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/R62XGEYPUTXMRHGX5I37EBCGQ5COHGKR/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/TBI45HO533KYHNB5YRO43TBYKA3E3VRL/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/XOSA2NT4DUQDBEIWE6O7KKD24XND7TE2/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NKGPJLVLVYCL4L4B4G5TIOTVK4BKPG72"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/R62XGEYPUTXMRHGX5I37EBCGQ5COHGKR"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TBI45HO533KYHNB5YRO43TBYKA3E3VRL"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/XOSA2NT4DUQDBEIWE6O7KKD24XND7TE2"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-11236"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-3990-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-3990-2"
+        },
+        {
+          "url": "https://usn.ubuntu.com/3990-1"
+        },
+        {
+          "url": "https://usn.ubuntu.com/3990-1/"
+        },
+        {
+          "url": "https://usn.ubuntu.com/3990-2"
+        },
+        {
+          "url": "https://usn.ubuntu.com/3990-2/"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2019-11236"
+        }
+      ],
+      "published": "2019-04-15T15:29:00+00:00",
+      "updated": "2026-06-17T02:12:35+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.1",
+          "versions": [
+            {
+              "version": "1.24.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2019-11324",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 8.7,
+          "severity": "high",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 5,
+          "severity": "medium",
+          "method": "CVSSv2",
+          "vector": "AV:N/AC:L/Au:N/C:N/I:P/A:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 7.5,
+          "severity": "medium",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        295
+      ],
+      "description": "The urllib3 library before 1.24.2 for Python mishandles certain cases where the desired set of CA certificates is different from the OS store of CA certificates, which results in SSL connections succeeding in situations where a verification failure is the correct outcome. This is related to use of the ssl_context, ca_certs, or ca_certs_dir argument.",
+      "recommendation": "Upgrade urllib3 to version 1.24.2",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2019-11324"
+        },
+        {
+          "url": "http://lists.opensuse.org/opensuse-security-announce/2019-09/msg00039.html"
+        },
+        {
+          "url": "http://lists.opensuse.org/opensuse-security-announce/2019-09/msg00041.html"
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2019/04/19/1"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2019:3335"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2019:3590"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2019-11324"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1643829"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1649153"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1659551"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1700824"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1702473"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1740347"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1749839"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1762422"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18074"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20060"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20852"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11236"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11324"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16056"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16935"
+        },
+        {
+          "url": "https://errata.almalinux.org/8/ALSA-2020-1605.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2020:1605"
+        },
+        {
+          "url": "https://github.com/advisories/GHSA-mh33-7rrq-662w"
+        },
+        {
+          "url": "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2019-133.yaml"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/1efadf43dc63317cd9eaa3e0fdb9e05ab07254b1"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/compare/a6ec68a...1efadf4"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2019-11324.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2020-2068.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2021/06/msg00015.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/NKGPJLVLVYCL4L4B4G5TIOTVK4BKPG72/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/XOSA2NT4DUQDBEIWE6O7KKD24XND7TE2/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NKGPJLVLVYCL4L4B4G5TIOTVK4BKPG72"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/XOSA2NT4DUQDBEIWE6O7KKD24XND7TE2"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-11324"
+        },
+        {
+          "url": "https://pypi.org/project/urllib3/1.24.2"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-3990-1"
+        },
+        {
+          "url": "https://usn.ubuntu.com/3990-1"
+        },
+        {
+          "url": "https://usn.ubuntu.com/3990-1/"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2019-11324"
+        },
+        {
+          "url": "https://www.openwall.com/lists/oss-security/2019/04/17/3"
+        }
+      ],
+      "published": "2019-04-18T21:29:00+00:00",
+      "updated": "2026-06-17T02:12:42+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.1",
+          "versions": [
+            {
+              "version": "1.24.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2020-26137",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 6.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 6.9,
+          "severity": "medium",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 6.4,
+          "severity": "medium",
+          "method": "CVSSv2",
+          "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 6.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 6.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        74
+      ],
+      "description": "urllib3 before 1.25.9 allows CRLF injection if the attacker controls the HTTP request method, as demonstrated by inserting CR and LF control characters in the first argument of putrequest(). NOTE: this is similar to CVE-2020-26116.",
+      "recommendation": "Upgrade urllib3 to version 1.25.9",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2020-26137"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2020-26137"
+        },
+        {
+          "url": "https://bugs.python.org/issue39603"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1883632"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-26137"
+        },
+        {
+          "url": "https://errata.almalinux.org/8/ALSA-2021-1761.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2021:1631"
+        },
+        {
+          "url": "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2020-148.yaml"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/1dd69c5c5982fae7c87a620d487c2ebf7a6b436b"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/pull/1800"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2020-26137.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2022-5235.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2021/06/msg00015.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-26137"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-4570-1"
+        },
+        {
+          "url": "https://usn.ubuntu.com/4570-1"
+        },
+        {
+          "url": "https://usn.ubuntu.com/4570-1/"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2020-26137"
+        },
+        {
+          "url": "https://www.oracle.com/security-alerts/cpujul2022.html"
+        },
+        {
+          "url": "https://www.oracle.com/security-alerts/cpuoct2021.html"
+        }
+      ],
+      "published": "2020-09-30T18:15:26+00:00",
+      "updated": "2026-06-17T03:07:39+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.1",
+          "versions": [
+            {
+              "version": "1.24.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2020-28493",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 6.9,
+          "severity": "medium",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 5,
+          "severity": "medium",
+          "method": "CVSSv2",
+          "vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 7.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "low"
+        }
+      ],
+      "cwes": [
+        400
+      ],
+      "description": "This affects the package jinja2 from 0.0.0 and before 2.11.3. The ReDoS vulnerability is mainly due to the `_punctuation_re regex` operator and its use of multiple wildcards. The last wildcard is the most exploitable as it searches for trailing punctuation. This issue can be mitigated by Markdown to format user content instead of the urlize filter, or by implementing request timeouts and limiting process memory.",
+      "recommendation": "Upgrade jinja2 to version 2.11.3",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2020-28493"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2020-28493"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1772014"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1928707"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1928904"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1935913"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1941534"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1955615"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1957458"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1962856"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=1968074"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18874"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27619"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28493"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-20095"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23336"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28957"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29921"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33503"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3426"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3572"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42771"
+        },
+        {
+          "url": "https://errata.almalinux.org/8/ALSA-2021-4162.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2021:4162"
+        },
+        {
+          "url": "https://github.com/advisories/GHSA-g3rq-g295-4j3m"
+        },
+        {
+          "url": "https://github.com/pallets/jinja"
+        },
+        {
+          "url": "https://github.com/pallets/jinja/blob/ab81fd9c277900c85da0c322a2ff9d68a235b2e6/src/jinja2/utils.py%23L20"
+        },
+        {
+          "url": "https://github.com/pallets/jinja/commit/15ef8f09b659f9100610583938005a7a10472d4d"
+        },
+        {
+          "url": "https://github.com/pallets/jinja/pull/1343"
+        },
+        {
+          "url": "https://github.com/pypa/advisory-database/tree/main/vulns/jinja2/PYSEC-2021-66.yaml"
+        },
+        {
+          "url": "https://github.com/yetingli/PoCs/tree/main/CVE-2020-28493"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2020-28493.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2021-4162.html"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/PVAKCOO7VBVUBM3Q6CBBTPBFNP5NDXF4/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PVAKCOO7VBVUBM3Q6CBBTPBFNP5NDXF4"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-28493"
+        },
+        {
+          "url": "https://security.gentoo.org/glsa/202107-19"
+        },
+        {
+          "url": "https://snyk.io/vuln/SNYK-PYTHON-JINJA2-1012994"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-5701-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-6599-1"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2020-28493"
+        }
+      ],
+      "published": "2021-02-01T20:15:12+00:00",
+      "updated": "2026-06-17T03:10:32+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10",
+          "versions": [
+            {
+              "version": "2.10",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2023-32681",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        200
+      ],
+      "description": "Requests is a HTTP library. Since Requests 2.3.0, Requests has been leaking Proxy-Authorization headers to destination servers when redirected to an HTTPS endpoint. This is a product of how we use `rebuild_proxies` to reattach the `Proxy-Authorization` header to requests. For HTTP connections sent through the tunnel, the proxy will identify the header in the request itself and remove it prior to forwarding to the destination server. However when sent over HTTPS, the `Proxy-Authorization` header must be sent in the CONNECT request as the proxy has no visibility into the tunneled request. This results in Requests forwarding proxy credentials to the destination server unintentionally, allowing a malicious actor to potentially exfiltrate sensitive information. This issue has been patched in version 2.31.0.",
+      "recommendation": "Upgrade requests to version 2.31.0",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2023-32681"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2023:4350"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2023-32681"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2209469"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2209469"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32681"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2023-4350.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2023:4520"
+        },
+        {
+          "url": "https://github.com/psf/requests"
+        },
+        {
+          "url": "https://github.com/psf/requests/commit/74ea7cf7a6a27a4eeb2ae24e162bcc942a6706d5"
+        },
+        {
+          "url": "https://github.com/psf/requests/releases/tag/v2.31.0"
+        },
+        {
+          "url": "https://github.com/psf/requests/security/advisories/GHSA-j8r2-6x86-q33q"
+        },
+        {
+          "url": "https://github.com/pypa/advisory-database/tree/main/vulns/requests/PYSEC-2023-74.yaml"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2023-32681.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2023-7050.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2023/06/msg00018.html"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AW7HNFGYP44RT3DUDQXG2QT3OEV2PJ7Y"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AW7HNFGYP44RT3DUDQXG2QT3OEV2PJ7Y/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KOYASTZDGQG2BWLSNBPL3TQRL2G7QYNZ"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KOYASTZDGQG2BWLSNBPL3TQRL2G7QYNZ/"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-32681"
+        },
+        {
+          "url": "https://security.gentoo.org/glsa/202309-08"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-6155-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-6155-2"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7568-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7762-1"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2023-32681"
+        }
+      ],
+      "published": "2023-05-26T18:15:14+00:00",
+      "updated": "2026-06-17T05:59:22+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.20.0",
+          "versions": [
+            {
+              "version": "2.20.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2023-43804",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.9,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.4,
+          "severity": "high",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:N/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 8.1,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 5.9,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        200
+      ],
+      "description": "urllib3 is a user-friendly HTTP client library for Python. urllib3 doesn't treat the `Cookie` HTTP header special or provide any helpers for managing cookies over HTTP, that is the responsibility of the user. However, it is possible for a user to specify a `Cookie` header and unknowingly leak information via HTTP redirects to a different origin if that user doesn't disable redirects explicitly. This issue has been patched in urllib3 version 1.26.17 or 2.0.5.",
+      "recommendation": "Upgrade urllib3 to version 2.0.6, 1.26.17",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2023-43804"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2024:2159"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2023-43804"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2242493"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2158559"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2240059"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2242493"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2249755"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2257854"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-40897"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48560"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-48565"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-43804"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22195"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2024-2159.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2024:2987"
+        },
+        {
+          "url": "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2023-192.yaml"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/01220354d389cd05474713f8c982d05c9b17aafb"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/644124ecd0b6e417c527191f866daa05a5a2056d"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/security/advisories/GHSA-v845-jxx5-vc9f"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2023-43804.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2024-2987.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2024/12/msg00020.html"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5F5CUBAN5XMEBVBZPHFITBLMJV5FIJJ5"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5F5CUBAN5XMEBVBZPHFITBLMJV5FIJJ5/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/I3PR7C6RJ6JUBQKIJ644DMIJSUP36VDY"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/I3PR7C6RJ6JUBQKIJ644DMIJSUP36VDY/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NDAGZXYJ7H2G3SB47M453VQVNAWKAEJJ"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NDAGZXYJ7H2G3SB47M453VQVNAWKAEJJ/"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-43804"
+        },
+        {
+          "url": "https://security.netapp.com/advisory/ntap-20241213-0007"
+        },
+        {
+          "url": "https://security.netapp.com/advisory/ntap-20241213-0007/"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-6473-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-6473-2"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2023-43804"
+        },
+        {
+          "url": "https://www.vicarius.io/vsociety/posts/cve-2023-43804-urllib3-vulnerability-3"
+        }
+      ],
+      "published": "2023-10-04T17:15:10+00:00",
+      "updated": "2026-06-17T06:26:29+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.1",
+          "versions": [
+            {
+              "version": "1.24.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2023-45803",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 4.2,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:A/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.7,
+          "severity": "medium",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:A/AC:L/AT:P/PR:H/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 4.2,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:A/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 4.2,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:A/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        200
+      ],
+      "description": "urllib3 is a user-friendly HTTP client library for Python. urllib3 previously wouldn't remove the HTTP request body when an HTTP redirect response using status 301, 302, or 303 after the request had its method changed from one that could accept a request body (like `POST`) to `GET` as is required by HTTP RFCs. Although this behavior is not specified in the section for redirects, it can be inferred by piecing together information from different sections and we have observed the behavior in other major HTTP client implementations like curl and web browsers. Because the vulnerability requires a previously trusted service to become compromised in order to have an impact on confidentiality we believe the exploitability of this vulnerability is low. Additionally, many users aren't putting sensitive data in HTTP request bodies, if this is the case then this vulnerability isn't exploitable. Both of the following conditions must be true to be affected by this vulnerability: 1. Using urllib3 and submitting sensitive information in the HTTP request body (such as form data or JSON) and 2. The origin service is compromised and starts redirecting using 301, 302, or 303 to a malicious peer or the redirected-to service becomes compromised. This issue has been addressed in versions 1.26.18 and 2.0.7 and users are advised to update to resolve this issue. Users unable to update should disable redirects for services that aren't expecting to respond with redirects with `redirects=False` and disable automatic redirects with `redirects=False` and handle 301, 302, and 303 redirects manually by stripping the HTTP request body.",
+      "recommendation": "Upgrade urllib3 to version 2.0.7, 1.26.18",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2023-45803"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2024:2132"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2023-45803"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2246840"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2257028"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2257854"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2246840"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45803"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2024-2132.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2024:11238"
+        },
+        {
+          "url": "https://github.com/pypa/advisory-database/tree/main/vulns/urllib3/PYSEC-2023-212.yaml"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/4e50fbc5db74e32cabd5ccc1ab81fc103adfe0b3"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/4e98d57809dacab1cbe625fddeec1a290c478ea9"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/b594c5ceaca38e1ac215f916538fb128e3526a36"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/releases/tag/1.26.18"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/releases/tag/2.0.7"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/security/advisories/GHSA-g4mx-q9vg-27p4"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2023-45803.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2024-2988.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2024/12/msg00020.html"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4R2Y5XK3WALSR3FNAGN7JBYV2B343ZKB"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4R2Y5XK3WALSR3FNAGN7JBYV2B343ZKB/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5F5CUBAN5XMEBVBZPHFITBLMJV5FIJJ5"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5F5CUBAN5XMEBVBZPHFITBLMJV5FIJJ5/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PPDPLM6UUMN55ESPQWJFLLIZY4ZKCNRX"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PPDPLM6UUMN55ESPQWJFLLIZY4ZKCNRX/"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-45803"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-6473-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-6473-2"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7762-1"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2023-45803"
+        },
+        {
+          "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-get"
+        }
+      ],
+      "published": "2023-10-17T20:15:10+00:00",
+      "updated": "2026-06-17T06:29:33+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.1",
+          "versions": [
+            {
+              "version": "1.24.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2024-22195",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 5.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        79
+      ],
+      "description": "Jinja is an extensible templating engine. Special placeholders in the template allow writing code similar to Python syntax. It is possible to inject arbitrary HTML attributes into the rendered HTML template, potentially leading to Cross-Site Scripting (XSS). The Jinja `xmlattr` filter can be abused to inject arbitrary HTML attribute keys and values, bypassing the auto escaping mechanism and potentially leading to XSS. It may also be possible to bypass attribute validation checks if they are blacklist-based.",
+      "recommendation": "Upgrade jinja2 to version 3.1.3",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2024-22195"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2024:2348"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2024-22195"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2257854"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2257854"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22195"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2024-2348.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2024:3102"
+        },
+        {
+          "url": "https://github.com/pallets/jinja"
+        },
+        {
+          "url": "https://github.com/pallets/jinja/commit/716795349a41d4983a9a4771f7d883c96ea17be7"
+        },
+        {
+          "url": "https://github.com/pallets/jinja/releases/tag/3.1.3"
+        },
+        {
+          "url": "https://github.com/pallets/jinja/security/advisories/GHSA-h5c8-rqwp-cp95"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2024-22195.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2024-3102.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2024/01/msg00010.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2024/12/msg00009.html"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5XCWZD464AJJJUBOO7CMPXQ4ROBC6JX2"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5XCWZD464AJJJUBOO7CMPXQ4ROBC6JX2/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DELCVUUYX75I5K4Q5WMJG4MUZJA6VAIP"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DELCVUUYX75I5K4Q5WMJG4MUZJA6VAIP/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/O7YWRBX6JQCWC2XXCTZ55C7DPMGICCN3"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/O7YWRBX6JQCWC2XXCTZ55C7DPMGICCN3/"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-22195"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-6599-1"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-22195"
+        }
+      ],
+      "published": "2024-01-11T03:15:11+00:00",
+      "updated": "2026-06-17T07:10:54+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10",
+          "versions": [
+            {
+              "version": "2.10",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2024-34064",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 5.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        79
+      ],
+      "description": "Jinja is an extensible templating engine. The `xmlattr` filter in affected versions of Jinja accepts keys containing non-attribute characters. XML/HTML attributes cannot contain spaces, `/`, `>`, or `=`, as each would then be interpreted as starting a separate attribute. If an application accepts keys (as opposed to only values) as user input, and renders these in pages that other users see as well, an attacker could use this to inject other attributes and perform XSS. The fix for CVE-2024-22195 only addressed spaces but not other characters. Accepting keys as user input is now explicitly considered an unintended use case of the `xmlattr` filter, and code that does so without otherwise validating the input should be flagged as insecure, regardless of Jinja version. Accepting _values_ as user input continues to be safe. This vulnerability is fixed in 3.1.4.",
+      "recommendation": "Upgrade jinja2 to version 3.1.4",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2024-34064"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2024:9150"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2024-34064"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2279476"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2279476"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34064"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2024-9150.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2024:9150"
+        },
+        {
+          "url": "https://github.com/pallets/jinja"
+        },
+        {
+          "url": "https://github.com/pallets/jinja/commit/0668239dc6b44ef38e7a6c9f91f312fd4ca581cb"
+        },
+        {
+          "url": "https://github.com/pallets/jinja/security/advisories/GHSA-h75v-3vvj-5mfj"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2024-34064.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2024-9150.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2024/12/msg00009.html"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/567XIGSZMABG6TSMYWD7MIYNJSUQQRUC"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/567XIGSZMABG6TSMYWD7MIYNJSUQQRUC/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GCLF44KY43BSVMTE6S53B4V5WP3FRRSE"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GCLF44KY43BSVMTE6S53B4V5WP3FRRSE/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SSCBHIL6BYKR5NRCBXP4XMP2CEEKGFVS"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SSCBHIL6BYKR5NRCBXP4XMP2CEEKGFVS/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZALNWE3TXPPHVPSI3AZ5CTMSTAVN5UMS"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZALNWE3TXPPHVPSI3AZ5CTMSTAVN5UMS/"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-34064"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-6787-1"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-34064"
+        }
+      ],
+      "published": "2024-05-06T15:15:23+00:00",
+      "updated": "2026-06-17T07:32:50+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10",
+          "versions": [
+            {
+              "version": "2.10",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2024-35195",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.6,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 5.6,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        670
+      ],
+      "description": "Requests is a HTTP library. Prior to 2.32.0, when making requests through a Requests `Session`, if the first request is made with `verify=False` to disable cert verification, all subsequent requests to the same host will continue to ignore cert verification regardless of changes to the value of `verify`. This behavior will continue for the lifecycle of the connection in the connection pool. This vulnerability is fixed in 2.32.0.",
+      "recommendation": "Upgrade requests to version 2.32.0",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2024-35195"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2025:7049"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2024-35195"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2282114"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2282114"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35195"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2025-7049.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2025:7049"
+        },
+        {
+          "url": "https://github.com/psf/requests"
+        },
+        {
+          "url": "https://github.com/psf/requests/commit/a58d7f2ffb4d00b46dca2d70a3932a0b37e22fac"
+        },
+        {
+          "url": "https://github.com/psf/requests/pull/6655"
+        },
+        {
+          "url": "https://github.com/psf/requests/security/advisories/GHSA-9wx4-h78v-vm56"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2024-35195.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2025-7049.html"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/IYLSNK5TL46Q6XPRVMHVWS63MVJQOK4Q"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/IYLSNK5TL46Q6XPRVMHVWS63MVJQOK4Q/"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/N7WP6EYDSUOCOJYHDK5NX43PYZ4SNHGZ"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/N7WP6EYDSUOCOJYHDK5NX43PYZ4SNHGZ/"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-35195"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-8344-1"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-35195"
+        }
+      ],
+      "published": "2024-05-20T21:15:09+00:00",
+      "updated": "2026-06-17T07:34:31+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.20.0",
+          "versions": [
+            {
+              "version": "2.20.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2024-37891",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 4.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 6.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 4.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "low"
+        }
+      ],
+      "cwes": [
+        669
+      ],
+      "description": " urllib3 is a user-friendly HTTP client library for Python. When using urllib3's proxy support with `ProxyManager`, the `Proxy-Authorization` header is only sent to the configured proxy, as expected. However, when sending HTTP requests *without* using urllib3's proxy support, it's possible to accidentally configure the `Proxy-Authorization` header even though it won't have any effect as the request is not using a forwarding proxy or a tunneling proxy. In those cases, urllib3 doesn't treat the `Proxy-Authorization` HTTP header as one carrying authentication material and thus doesn't strip the header on cross-origin redirects. Because this is a highly unlikely scenario, we believe the severity of this vulnerability is low for almost all users. Out of an abundance of caution urllib3 will automatically strip the `Proxy-Authorization` header during cross-origin redirects to avoid the small chance that users are doing this on accident. Users should use urllib3's proxy support or disable automatic redirects to achieve safe processing of the `Proxy-Authorization` header, but we still decided to strip the header by default in order to further protect users who aren't using the correct approach. We believe the number of usages affected by this advisory is low. It requires all of the following to be true to be exploited: 1. Setting the `Proxy-Authorization` header without using urllib3's built-in proxy support. 2. Not disabling HTTP redirects. 3. Either not using an HTTPS origin server or for the proxy or target origin to redirect to a malicious origin. Users are advised to update to either version 1.26.19 or version 2.2.2. Users unable to upgrade may use the `Proxy-Authorization` header with urllib3's `ProxyManager`, disable HTTP redirects using `redirects=False` when sending requests, or not user the `Proxy-Authorization` header as mitigations.",
+      "recommendation": "Upgrade urllib3 to version 1.26.19, 2.2.2",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2024-37891"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2024:9458"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2024-37891"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2292788"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2292788"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37891"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2024-9458.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2024:9457"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/40b6d1605814dd1db0a46e202d6e56f2e4c9a468"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/accff72ecc2f6cf5a76d9570198a93ac7c90270e"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/security/advisories/GHSA-34jh-p97f-mpxf"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2024-37891.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2024-9458.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2024/12/msg00020.html"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-37891"
+        },
+        {
+          "url": "https://security.netapp.com/advisory/ntap-20240822-0003"
+        },
+        {
+          "url": "https://security.netapp.com/advisory/ntap-20240822-0003/"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7084-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7084-2"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-37891"
+        },
+        {
+          "url": "https://www.vicarius.io/vsociety/posts/proxy-authorization-header-handling-vulnerability-in-urllib3-cve-2024-37891"
+        }
+      ],
+      "published": "2024-06-17T20:15:13+00:00",
+      "updated": "2026-06-17T07:38:59+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.1",
+          "versions": [
+            {
+              "version": "1.24.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2024-47081",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        522
+      ],
+      "description": "Requests is a HTTP library. Due to a URL parsing issue, Requests releases prior to 2.32.4 may leak .netrc credentials to third parties for specific maliciously-crafted URLs. Users should upgrade to version 2.32.4 to receive a fix. For older versions of Requests, use of the .netrc file can be disabled with `trust_env=False` on one's Requests Session.",
+      "recommendation": "Upgrade requests to version 2.32.4",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2024-47081"
+        },
+        {
+          "url": "http://seclists.org/fulldisclosure/2025/Jun/2"
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2025/06/03/11"
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2025/06/03/9"
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2025/06/04/1"
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2025/06/04/6"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2025:12519"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2024-47081"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2371272"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2371272"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47081"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2025-12519.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2025:12519"
+        },
+        {
+          "url": "https://github.com/psf/requests"
+        },
+        {
+          "url": "https://github.com/psf/requests/commit/96ba401c1296ab1dda74a2365ef36d88f7d144ef"
+        },
+        {
+          "url": "https://github.com/psf/requests/pull/6965"
+        },
+        {
+          "url": "https://github.com/psf/requests/security/advisories/GHSA-9hjg-9r4m-mvj7"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2024-47081.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2025-14999.html"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-47081"
+        },
+        {
+          "url": "https://requests.readthedocs.io/en/latest/api/#requests.Session.trust_env"
+        },
+        {
+          "url": "https://seclists.org/fulldisclosure/2025/Jun/2"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7568-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7762-1"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-47081"
+        },
+        {
+          "url": "https://www.openwall.com/lists/oss-security/2025/06/03/9"
+        }
+      ],
+      "published": "2025-06-09T18:15:24+00:00",
+      "updated": "2026-06-17T07:56:30+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.20.0",
+          "versions": [
+            {
+              "version": "2.20.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2024-56326",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.8,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.4,
+          "severity": "medium",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 6.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:H"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        693,
+        1336
+      ],
+      "description": "Jinja is an extensible templating engine. Prior to 3.1.5, An oversight in how the Jinja sandboxed environment detects calls to str.format allows an attacker that controls the content of a template to execute arbitrary Python code. To exploit the vulnerability, an attacker needs to control the content of a template. Whether that is the case depends on the type of application using Jinja. This vulnerability impacts users of applications which execute untrusted templates. Jinja's sandbox does catch calls to str.format and ensures they don't escape the sandbox. However, it's possible to store a reference to a malicious string's format method, then pass that to a filter that calls it. No such filters are built-in to Jinja, but could be present through custom filters in an application. After the fix, such indirect calls are also handled by the sandbox. This vulnerability is fixed in 3.1.5.",
+      "recommendation": "Upgrade jinja2 to version 3.1.5",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2024-56326"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2025:0667"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2024-56326"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2333856"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2333856"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-56326"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2025-0667.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2025:0667"
+        },
+        {
+          "url": "https://github.com/pallets/jinja"
+        },
+        {
+          "url": "https://github.com/pallets/jinja/commit/48b0687e05a5466a91cd5812d604fa37ad0943b4"
+        },
+        {
+          "url": "https://github.com/pallets/jinja/releases/tag/3.1.5"
+        },
+        {
+          "url": "https://github.com/pallets/jinja/security/advisories/GHSA-q2x7-8rv6-6q7h"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2024-56326.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2025-1250.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2025/04/msg00022.html"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-56326"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7244-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7343-1"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2024-56326"
+        }
+      ],
+      "published": "2024-12-23T16:15:07+00:00",
+      "updated": "2026-06-17T08:12:03+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10",
+          "versions": [
+            {
+              "version": "2.10",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2025-27516",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.4,
+          "severity": "medium",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 8.8,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 7.3,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        1336
+      ],
+      "description": "Jinja is an extensible templating engine. Prior to 3.1.6, an oversight in how the Jinja sandboxed environment interacts with the |attr filter allows an attacker that controls the content of a template to execute arbitrary Python code. To exploit the vulnerability, an attacker needs to control the content of a template. Whether that is the case depends on the type of application using Jinja. This vulnerability impacts users of applications which execute untrusted templates. Jinja's sandbox does catch calls to str.format and ensures they don't escape the sandbox. However, it's possible to use the |attr filter to get a reference to a string's plain format method, bypassing the sandbox. After the fix, the |attr filter no longer bypasses the environment's attribute lookup. This vulnerability is fixed in 3.1.6.",
+      "recommendation": "Upgrade jinja2 to version 3.1.6",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2025-27516"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2025:3406"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2025-27516"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2350190"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2350190"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27516"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2025-3406.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2025:3406"
+        },
+        {
+          "url": "https://github.com/pallets/jinja"
+        },
+        {
+          "url": "https://github.com/pallets/jinja/commit/90457bbf33b8662926ae65cdde4c4c32e756e403"
+        },
+        {
+          "url": "https://github.com/pallets/jinja/security/advisories/GHSA-cpwx-vrp4-4pq7"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2025-27516.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2025-7476.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2025/04/msg00022.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2025/04/msg00045.html"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-27516"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7343-1"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-27516"
+        }
+      ],
+      "published": "2025-03-05T21:15:20+00:00",
+      "updated": "2026-06-17T09:03:44+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10",
+          "versions": [
+            {
+              "version": "2.10",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2025-50181",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        601
+      ],
+      "description": "urllib3 is a user-friendly HTTP client library for Python. Prior to 2.5.0, it is possible to disable redirects for all requests by instantiating a PoolManager and specifying retries in a way that disable redirects. By default, requests and botocore users are not affected. An application attempting to mitigate SSRF or open redirect vulnerabilities by disabling redirects at the PoolManager level will remain vulnerable. This issue has been patched in version 2.5.0.",
+      "recommendation": "Upgrade urllib3 to version 2.5.0",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2025-50181"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2025-50181"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/f05b1329126d5be6de501f9d1e3e36738bc08857"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/releases/tag/2.5.0"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/security/advisories/GHSA-pq67-6m6q-mj2v"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-50181"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7599-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7599-2"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-50181"
+        }
+      ],
+      "published": "2025-06-19T01:15:24+00:00",
+      "updated": "2026-06-17T09:34:48+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.1",
+          "versions": [
+            {
+              "version": "1.24.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2025-66418",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 8.9,
+          "severity": "high",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        770
+      ],
+      "description": "urllib3 is a user-friendly HTTP client library for Python. Starting in version 1.24 and prior to 2.6.0, the number of links in the decompression chain was unbounded allowing a malicious server to insert a virtually unlimited number of compression steps leading to high CPU usage and massive memory allocation for the decompressed data. This vulnerability is fixed in 2.6.0.",
+      "recommendation": "Upgrade urllib3 to version 2.6.0",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2025-66418"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:1239"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2025-66418"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2419455"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2419467"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2427726"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2419455"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2419467"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2427726"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-66418"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-66471"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-21441"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2026-1239.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2026:1087"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/24d7b67eac89f94e11003424bcf0d8f7b72222a8"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/security/advisories/GHSA-gm62-xv2j-4w53"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2025-66418.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2026-1254.html"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66418"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7927-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-8010-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-8344-1"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-66418"
+        },
+        {
+          "url": "https://www.openwall.com/lists/oss-security/2025/12/05/4"
+        }
+      ],
+      "published": "2025-12-05T16:15:51+00:00",
+      "updated": "2026-06-17T09:56:48+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.1",
+          "versions": [
+            {
+              "version": "1.24.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2025-66471",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 8.9,
+          "severity": "high",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        409
+      ],
+      "description": "urllib3 is a user-friendly HTTP client library for Python. Starting in version 1.0 and prior to 2.6.0, the Streaming API improperly handles highly compressed data. urllib3's streaming API is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. When streaming a compressed response, urllib3 can perform decoding or decompression based on the HTTP Content-Encoding header (e.g., gzip, deflate, br, or zstd). The library must read compressed data from the network and decompress it until the requested chunk size is met. Any resulting decompressed data that exceeds the requested amount is held in an internal buffer for the next read operation. The decompression logic could cause urllib3 to fully decode a small amount of highly compressed data in a single operation. This can result in excessive resource consumption (high CPU usage and massive memory allocation for the decompressed data.",
+      "recommendation": "Upgrade urllib3 to version 2.6.0",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2025-66471"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:1239"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2025-66471"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2419455"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2419467"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2427726"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2419455"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2419467"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2427726"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-66418"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-66471"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-21441"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2026-1239.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2026:1087"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/c19571de34c47de3a766541b041637ba5f716ed7"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/security/advisories/GHSA-2xpw-w6gg-jr37"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2025-66471.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2026-1254.html"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66471"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7927-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7927-2"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7927-3"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-8344-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-8344-2"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-8344-3"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-66471"
+        },
+        {
+          "url": "https://www.openwall.com/lists/oss-security/2025/12/05/4"
+        }
+      ],
+      "published": "2025-12-05T17:16:04+00:00",
+      "updated": "2026-06-17T09:56:53+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.1",
+          "versions": [
+            {
+              "version": "1.24.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2026-21441",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "cbl-mariner"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 8.9,
+          "severity": "high",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        409
+      ],
+      "description": "urllib3 is an HTTP client library for Python. urllib3's streaming API is designed for the efficient handling of large HTTP responses by reading the content in chunks, rather than loading the entire response body into memory at once. urllib3 can perform decoding or decompression based on the HTTP `Content-Encoding` header (e.g., `gzip`, `deflate`, `br`, or `zstd`). When using the streaming API, the library decompresses only the necessary bytes, enabling partial content consumption. Starting in version 1.22 and prior to version 2.6.3, for HTTP redirect responses, the library would read the entire response body to drain the connection and decompress the content unnecessarily. This decompression occurred even before any read methods were called, and configured read limits did not restrict the amount of decompressed data. As a result, there was no safeguard against decompression bombs. A malicious server could exploit this to trigger excessive resource consumption on the client. Applications and libraries are affected when they stream content from untrusted sources by setting `preload_content=False` when they do not disable redirects. Users should upgrade to at least urllib3 v2.6.3, in which the library does not decode content of redirect responses when `preload_content=False`. If upgrading is not immediately possible, disable redirects by setting `redirect=False` for requests to untrusted source.",
+      "recommendation": "Upgrade urllib3 to version 2.6.3",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2026-21441"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:1239"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2026-21441"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2419455"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2419467"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2427726"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2419455"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2419467"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2427726"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-66418"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-66471"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-21441"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2026-1239.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2026:1087"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/commit/8864ac407bba8607950025e0979c4c69bc7abc7b"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/security/advisories/GHSA-38jv-5279-wg99"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2026-21441.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2026-1254.html"
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2026/01/msg00017.html"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21441"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7955-1"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-7955-2"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-8010-1"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-21441"
+        }
+      ],
+      "published": "2026-01-07T22:15:44+00:00",
+      "updated": "2026-06-17T10:18:40+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.1",
+          "versions": [
+            {
+              "version": "1.24.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2026-25645",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 4.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:N/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 5.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "photon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 4.7,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:H/A:N"
+        }
+      ],
+      "cwes": [
+        377
+      ],
+      "description": "Requests is a HTTP library. Prior to version 2.33.0, the `requests.utils.extract_zipped_paths()` utility function uses a predictable filename when extracting files from zip archives into the system temporary directory. If the target file already exists, it is reused without validation. A local attacker with write access to the temp directory could pre-create a malicious file that would be loaded in place of the legitimate one. Standard usage of the Requests library is not affected by this vulnerability. Only applications that call `extract_zipped_paths()` directly are impacted. Starting in version 2.33.0, the library extracts files to a non-deterministic location. If developers are unable to upgrade, they can set `TMPDIR` in their environment to a directory with restricted write access.",
+      "recommendation": "Upgrade requests to version 2.33.0",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2026-25645"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2026-25645"
+        },
+        {
+          "url": "https://github.com/psf/requests"
+        },
+        {
+          "url": "https://github.com/psf/requests/commit/66d21cb07bd6255b1280291c4fafb71803cdb3b7"
+        },
+        {
+          "url": "https://github.com/psf/requests/releases/tag/v2.33.0"
+        },
+        {
+          "url": "https://github.com/psf/requests/security/advisories/GHSA-gc5v-m9x4-r6x2"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25645"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-25645"
+        }
+      ],
+      "published": "2026-03-25T17:16:52+00:00",
+      "updated": "2026-06-17T10:25:00+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.20.0",
+          "versions": [
+            {
+              "version": "2.20.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2026-44431",
+      "source": {
+        "name": "ghsa",
+        "url": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "alma"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "amazon"
+          },
+          "severity": "medium"
+        },
+        {
+          "source": {
+            "name": "azure"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.3,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 8.2,
+          "severity": "high",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 5.9,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "cwes": [
+        200
+      ],
+      "description": "urllib3 is an HTTP client library for Python. From 1.23 to before 2.7.0, cross-origin redirects followed from the low-level API via ProxyManager.connection_from_url().urlopen(..., assert_same_host=False) still forward these sensitive headers. This vulnerability is fixed in 2.7.0.",
+      "recommendation": "Upgrade urllib3 to version 2.7.0",
+      "advisories": [
+        {
+          "url": "https://avd.aquasec.com/nvd/cve-2026-44431"
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2026:28000"
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2026-44431"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2477154"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2477167"
+        },
+        {
+          "url": "https://errata.almalinux.org/10/ALSA-2026-28000.html"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3"
+        },
+        {
+          "url": "https://github.com/urllib3/urllib3/security/advisories/GHSA-qccp-gfcp-xxvc"
+        },
+        {
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44431"
+        },
+        {
+          "url": "https://ubuntu.com/security/notices/USN-8379-1"
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-44431"
+        }
+      ],
+      "published": "2026-05-13T16:16:57+00:00",
+      "updated": "2026-06-17T10:50:38+00:00",
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.1",
+          "versions": [
+            {
+              "version": "1.24.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
