@@ -1,0 +1,86 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:d12c8b87-73d8-4f81-ba03-911cb75f1b1b",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-25T11:00:00Z",
+    "tools": [
+      {
+        "vendor": "aquasecurity",
+        "name": "trivy",
+        "version": "0.52.0"
+      }
+    ]
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:pypi/django@2.1",
+      "type": "library",
+      "name": "django",
+      "version": "2.1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8b52f1e67b2d56a31c518eb3d9692bb49c3b8ebbb796df9f086ff507c3d2e1c9"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/requests@2.20.0",
+      "type": "library",
+      "name": "requests",
+      "version": "2.20.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5f13ab1a1200150b07a518bb13898d28e75abccb507d72dfc4b92b67d5e1cc5f"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/urllib3@1.24.2",
+      "type": "library",
+      "name": "urllib3",
+      "version": "1.24.2",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c711aa4b7df75ebcc4e3b1c67d3e6d87130095ea9f6c77174e2d3e1ab1ab9cd4"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/numpy@1.15.0",
+      "type": "library",
+      "name": "numpy",
+      "version": "1.15.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2b11ff3c4e3b1b67f7e3d1ac1b67c77f72dfc4b92b67d5e1ac1b67d5e1cc3aef"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:pypi/django@2.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/requests@2.20.0",
+      "dependsOn": [
+        "pkg:pypi/urllib3@1.24.2"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/urllib3@1.24.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/numpy@1.15.0",
+      "dependsOn": []
+    }
+  ]
+}
