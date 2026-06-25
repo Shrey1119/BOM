@@ -176,14 +176,20 @@ def main():
     # Step 9: Organize Tiers
     organize_outputs()
     
-    # Step 10: Optional GCM Encryption for restricted files
+    # Step 10: Generate Excel Report
+    print("\n--- Step 10: Generating Excel Compliance Report ---")
+    excel_cmd = 'python sbom_toolsuite/excel_reporter.py sbom_output/restricted/sbom_enriched.json sbom_output/public/sbom_report.xlsx'
+    if not run_command(excel_cmd, "Excel SBOM Report Generator"):
+        sys.exit(1)
+        
+    # Step 11: Optional GCM Encryption for restricted files
     passphrase = os.environ.get('SBOM_ENC_KEY')
     if passphrase:
         encrypt_tier1_files(passphrase.encode('utf-8'))
     else:
         print("\n[i] SBOM_ENC_KEY env variable not set. Restricted files left decrypted.")
         
-    # Step 11: Print report status
+    # Step 12: Print report status
     print_final_status()
 
 if __name__ == "__main__":

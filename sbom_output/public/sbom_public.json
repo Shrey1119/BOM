@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",
-  "serialNumber": "urn:uuid:22ececa1-a938-4638-bf30-64518a71093f",
+  "serialNumber": "urn:uuid:d8569ff7-cf2c-45fb-a53f-8c3b5d6f840b",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-25T11:20:54Z",
+    "timestamp": "2026-06-25T11:31:08Z",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
       ]
     },
     "component": {
-      "bom-ref": "2bd3050f-b870-4675-b748-26a49d4cd9c3",
+      "bom-ref": "4789e890-c93b-4a63-99d7-e7090870b510",
       "type": "application",
       "name": "D:/College Work/Internship/BOM/mock_project",
       "properties": [
@@ -39,13 +39,13 @@
     "properties": [
       {
         "name": "signature",
-        "value": "MEUCIQDiiSSbIGJOhA6hrG2SpH6YtbZHgHSPsxwak/6lsAFzOgIgJx07wKJGsJ9pUhm3oRcKiNnp5dEfNZs+XKJeVIJFaeA="
+        "value": "MEYCIQDfY+QgAeLQmkow7kSRgV9ln4y7eDc73bGeszRYmyF8iwIhANQyZumQYtzpSwQtDBB+/30FMuQAIYodwfLSRlaEpyL4"
       }
     ]
   },
   "components": [
     {
-      "bom-ref": "d106677d-de5e-4ad1-8323-7e49aa83d5a3",
+      "bom-ref": "8f1ff182-b3e5-4be2-8244-b8c428ab6260",
       "type": "application",
       "name": "requirements.txt",
       "properties": [
@@ -67,11 +67,11 @@
         },
         {
           "name": "release_date",
-          "value": "2026-06-25T11:20:55.108078Z"
+          "value": "2026-06-25T11:31:08.134073Z"
         },
         {
           "name": "eol_date",
-          "value": "2029-06-24T11:20:55Z"
+          "value": "2029-06-24T11:31:08Z"
         },
         {
           "name": "criticality",
@@ -471,13 +471,13 @@
   ],
   "dependencies": [
     {
-      "ref": "2bd3050f-b870-4675-b748-26a49d4cd9c3",
+      "ref": "4789e890-c93b-4a63-99d7-e7090870b510",
       "dependsOn": [
-        "d106677d-de5e-4ad1-8323-7e49aa83d5a3"
+        "8f1ff182-b3e5-4be2-8244-b8c428ab6260"
       ]
     },
     {
-      "ref": "d106677d-de5e-4ad1-8323-7e49aa83d5a3",
+      "ref": "8f1ff182-b3e5-4be2-8244-b8c428ab6260",
       "dependsOn": [
         "pkg:pypi/django@2.1",
         "pkg:pypi/jinja2@2.10",
@@ -509,7 +509,7 @@
   ],
   "signature": {
     "algorithm": "ECDSA-SHA256",
-    "value": "MEUCIQDiiSSbIGJOhA6hrG2SpH6YtbZHgHSPsxwak/6lsAFzOgIgJx07wKJGsJ9pUhm3oRcKiNnp5dEfNZs+XKJeVIJFaeA=",
+    "value": "MEYCIQDfY+QgAeLQmkow7kSRgV9ln4y7eDc73bGeszRYmyF8iwIhANQyZumQYtzpSwQtDBB+/30FMuQAIYodwfLSRlaEpyL4",
     "publicKey": "-----BEGIN PUBLIC KEY-----\\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAET3LDlOUZsBogDwHvB43iTgilnHZW\\n7/sZr9KZirWo+KWUbnQrfWWQdoJjsjnqxuRkoHW/EUcXDfLivmtdIKG47w==\\n-----END PUBLIC KEY-----\\n"
   }
 }
