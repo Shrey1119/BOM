@@ -1,0 +1,30 @@
+{
+  "author": "Security & Governance Lead (Antigravity AI)",
+  "organization": "Client-Assigned Scanning Service",
+  "structured_property_description": "CycloneDX JSON format compliant with CERT-In Technical Guidelines v2.0",
+  "default_criticality": "medium",
+  "criticality_overrides": {
+    "django": "high",
+    "requests": "medium",
+    "urllib3": "medium",
+    "numpy": "low"
+  },
+  "default_usage_restrictions": "None",
+  "usage_restrictions_overrides": {
+    "django": "Export control evaluation required for encryption submodules",
+    "cryptography": "Subject to US Export Administration Regulations (EAR)"
+  },
+  "default_origin": "open-source",
+  "origin_overrides": {
+    "custom-local-auth": "proprietary"
+  },
+  "comments": {
+    "requests": "Critical HTTP library for client integrations",
+    "django": "Main web framework for the backend application"
+  },
+  "default_eol_offset_years": 3,
+  "signing": {
+    "private_key_path": "sbom_toolsuite/private_key.pem",
+    "public_key_path": "sbom_toolsuite/public_key.pem"
+  }
+}
