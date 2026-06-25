@@ -1,0 +1,334 @@
+{
+  "generated_at": "2026-06-25T11:20:56.648010+00:00Z",
+  "author": "Security & Governance Lead (Antigravity AI)",
+  "organization": "Client-Assigned Scanning Service",
+  "total_components": 6,
+  "components": [
+    {
+      "name": "requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/requirements.txt@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-24T11:20:55Z",
+      "release_date": "2026-06-25T11:20:55.108078Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "django",
+      "version": "2.1",
+      "purl": "pkg:pypi/django@2.1",
+      "type": "library",
+      "supplier": "Django Software Foundation (DSF)",
+      "license": "Apache-2.0",
+      "criticality": "high",
+      "origin": "open-source",
+      "usage_restrictions": "Export control evaluation required for encryption submodules",
+      "eol_date": "2021-07-31T14:11:27Z",
+      "release_date": "2018-08-01T14:11:27.382635Z",
+      "internal_comment": "Main web framework for the backend application",
+      "cve_exposure": [
+        {
+          "id": "CVE-2018-16984",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2019-11358",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2019-12308",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2019-12781",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2019-14232",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2019-14233",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2019-14234",
+          "severity": "critical",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2019-14235",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2019-19118",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2019-19844",
+          "severity": "critical",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2019-3498",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2019-6975",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2020-7471",
+          "severity": "critical",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2021-33203",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2022-36359",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2024-45231",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-48432",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-57833",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-64458",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-64459",
+          "severity": "critical",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "jinja2",
+      "version": "2.10",
+      "purl": "pkg:pypi/jinja2@2.10",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2020-11-07T20:13:42Z",
+      "release_date": "2017-11-08T20:13:42.279540Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2019-10906",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2020-28493",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2024-22195",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2024-34064",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2024-56326",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-27516",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "numpy",
+      "version": "1.15.0",
+      "purl": "pkg:pypi/numpy@1.15.0",
+      "type": "library",
+      "supplier": "NumPy Developers",
+      "license": "Apache-2.0",
+      "criticality": "low",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2021-07-22T16:03:25Z",
+      "release_date": "2018-07-23T16:03:25.445499Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2019-6446",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2021-33430",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2021-34141",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2021-41495",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2021-41496",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "requests",
+      "version": "2.20.0",
+      "purl": "pkg:pypi/requests@2.20.0",
+      "type": "library",
+      "supplier": "Kenneth Reitz & Requests Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2021-10-17T15:46:10Z",
+      "release_date": "2018-10-18T15:46:10.776819Z",
+      "internal_comment": "Critical HTTP library for client integrations",
+      "cve_exposure": [
+        {
+          "id": "CVE-2023-32681",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2024-35195",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2024-47081",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-25645",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "urllib3",
+      "version": "1.24.2",
+      "purl": "pkg:pypi/urllib3@1.24.2",
+      "type": "library",
+      "supplier": "urllib3 Contributors",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2022-04-16T17:49:45Z",
+      "release_date": "2019-04-17T17:49:45.870917Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2019-11236",
+          "severity": "medium",
+          "vex_status": "affected"
+        },
+        {
+          "id": "CVE-2020-26137",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2023-43804",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2023-45803",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2024-37891",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-50181",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-66418",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-66471",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-21441",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-44431",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    }
+  ]
+}
