@@ -2,9 +2,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "version": 1,
-  "serialNumber": "urn:uuid:2b0ab87d-c1a4-43de-b3ad-fd79338b1dae",
+  "serialNumber": "urn:uuid:66fa2bdc-a745-41cf-b98b-ddf54584ea6a",
   "metadata": {
-    "timestamp": "2026-06-25T11:31:09.606205+00:00Z",
+    "timestamp": "2026-06-25T11:48:07.510109+00:00Z",
     "authors": [
       {
         "name": "Security & Governance Lead (Antigravity AI)"
@@ -51,93 +51,7 @@
         "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-11236"
       },
       "ratings": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 4.3,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 6.5,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
+        {}
       ],
       "affects": [
         {
