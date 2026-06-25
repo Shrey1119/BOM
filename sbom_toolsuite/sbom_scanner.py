@@ -57,9 +57,11 @@ def find_trivy(specified_path=None):
     if os.path.exists(local_path) and not is_lfs_pointer(local_path):
         return local_path
         
-    # Check Member 2 directory (same as script_dir in this folder)
-    member2_path = os.path.abspath(os.path.join(script_dir, "trivy.exe"))
-    
+    # Check Member 2 directory
+    member2_path = os.path.abspath(os.path.join(script_dir, "..", "Member 2", "trivy.exe"))
+    if os.path.exists(member2_path) and not is_lfs_pointer(member2_path):
+        return member2_path
+        
     # If the file exists in Member 2 but is an LFS pointer, download/overwrite it there
     if os.path.exists(member2_path) and is_lfs_pointer(member2_path):
         print("[WARN] Member 2/trivy.exe is a Git LFS pointer (not fully downloaded). Fixing...")
@@ -84,7 +86,8 @@ def find_trivy(specified_path=None):
         
     # As a final fallback, download Trivy directly into the Member 2 directory
     print("[WARN] Trivy not found or not working. Downloading a clean copy...")
-    fixed_path = download_trivy(script_dir)
+    fallback_dir = os.path.abspath(os.path.join(script_dir, "..", "Member 2"))
+    fixed_path = download_trivy(fallback_dir)
     if fixed_path:
         return fixed_path
         
@@ -137,10 +140,10 @@ def run_scan(src_dir, output_path, trivy_path):
         sys.exit(1)
 
 def main():
-    parser = argparse.ArgumentParser(description="Trivy SBOM Scan Automation Wrapper (Team Member 2)")
+    parser = argparse.ArgumentParser(description="Trivy SBOM Scan Automation Wrapper")
     parser.add_argument("--src", required=True, help="Path to the source directory to scan")
-    parser.add_argument("--output", default="raw_sbom.json", help="Path to save the generated CycloneDX JSON SBOM (default: raw_sbom.json)")
-    parser.add_argument("--trivy-path", help="Path to the Trivy executable (if not in PATH or local directory)")
+    parser.add_argument("--output", default="sbom_raw.json", help="Path to save the generated CycloneDX JSON SBOM (default: sbom_raw.json)")
+    parser.add_argument("--trivy-path", help="Path to the Trivy executable")
     
     args = parser.parse_args()
     
