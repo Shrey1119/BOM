@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Member 1 — Security &amp; Key Management Runbook</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f5f6fa;
+      color: #1a1d23;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    html { scroll-behavior: smooth; }
+    section { scroll-margin-top: 24px; }
+
+    /* ── Layout ─────────────────────────────────────────── */
+    .container { display: flex; min-height: 100vh; }
+
+    /* ── Sidebar ─────────────────────────────────────────── */
+    .sidebar {
+      width: 272px;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 32px 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
+    .sidebar::-webkit-scrollbar { width: 5px; }
+    .sidebar::-webkit-scrollbar-track { background: #0f172a; }
+    .sidebar::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+
+    .sidebar-header {
+      padding: 0 24px 24px;
+      border-bottom: 1px solid #1e293b;
+      margin-bottom: 20px;
+    }
+    .sidebar-header .badge-role {
+      display: inline-block;
+      background: #2563eb;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .sidebar-header h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #f1f5f9;
+      line-height: 1.45;
+    }
+
+    .nav-list { list-style: none; }
+    .nav-item  { margin-bottom: 2px; }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 24px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 13px;
+      transition: all .15s ease;
+      border-left: 3px solid transparent;
+    }
+    .nav-link:hover { background: #1e293b; color: #f1f5f9; border-left-color: #3b82f6; }
+    .nav-link.active { background: #1e293b; color: #fff; border-left-color: #2563eb; font-weight: 600; }
+
+    .nav-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: #1e293b;
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .nav-link:hover .nav-number,
+    .nav-link.active .nav-number { background: #2563eb; color: #fff; }
+
+    /* ── Page content ────────────────────────────────────── */
+    .page {
+      flex: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 48px 80px;
+    }
+
+    /* ── Header ─────────────────────────────────────────── */
+    header {
+      border-left: 4px solid #2563eb;
+      padding: 4px 0 4px 20px;
+      margin-bottom: 48px;
+    }
+    header .role {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #2563eb;
+      margin-bottom: 6px;
+    }
+    header h1 { font-size: 26px; font-weight: 700; color: #0f172a; }
+    header p  { margin-top: 8px; color: #64748b; font-size: 14px; }
+
+    /* ── Section ─────────────────────────────────────────── */
+    section { margin-bottom: 40px; }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: #2563eb;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .section-title h2 { font-size: 17px; font-weight: 600; color: #0f172a; }
+
+    /* ── Card ────────────────────────────────────────────── */
+    .card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 24px 28px;
+    }
+
+    /* ── Code block ──────────────────────────────────────── */
+    .code-block {
+      background: #0f172a;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 10px;
+      overflow-x: auto;
+    }
+    .code-block pre {
+      font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+      font-size: 13px;
+      color: #e2e8f0;
+      white-space: pre;
+      line-height: 1.65;
+    }
+    .code-block .comment { color: #475569; }
+    .code-block .cmd     { color: #7dd3fc; }
+    .code-block .flag    { color: #a5f3fc; }
+    .code-block .path    { color: #86efac; }
+    .code-block .string  { color: #fde68a; }
+
+    /* ── Inline code ─────────────────────────────────────── */
+    code {
+      background: #f1f5f9;
+      color: #0369a1;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+    }
+
+    /* ── Callouts ─────────────────────────────────────────── */
+    .callout {
+      border-radius: 8px;
+      padding: 13px 18px;
+      font-size: 13.5px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 12px;
+    }
+    .callout-warn { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
+    .callout-info { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
+    .callout-ok   { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+    .callout .icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Table ───────────────────────────────────────────── */
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    th {
+      background: #f8fafc;
+      text-align: left;
+      padding: 9px 14px;
+      font-weight: 600;
+      color: #475569;
+      border-bottom: 2px solid #e2e8f0;
+      font-size: 11.5px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    td { padding: 9px 14px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+    tr:last-child td { border-bottom: none; }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+    .badge-high  { background: #fee2e2; color: #991b1b; }
+    .badge-med   { background: #fef3c7; color: #92400e; }
+    .badge-low   { background: #dcfce7; color: #166534; }
+    .badge-blue  { background: #dbeafe; color: #1d4ed8; }
+
+    /* ── Checklist ───────────────────────────────────────── */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #334155;
+    }
+    .checklist li::before {
+      content: "☐";
+      color: #94a3b8;
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: -1px;
+    }
+
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 36px 0; }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ── SIDEBAR ─────────────────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="badge-role">Team Member 1</div>
+      <h3>Security &amp; Governance Lead</h3>
+    </div>
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#section-1" class="nav-link"><span class="nav-number">1</span><span>Prerequisites</span></a></li>
+        <li class="nav-item"><a href="#section-2" class="nav-link"><span class="nav-number">2</span><span>Generate Key Pair</span></a></li>
+        <li class="nav-item"><a href="#section-3" class="nav-link"><span class="nav-number">3</span><span>File Permissions</span></a></li>
+        <li class="nav-item"><a href="#section-4" class="nav-link"><span class="nav-number">4</span><span>Version Control</span></a></li>
+        <li class="nav-item"><a href="#section-5" class="nav-link"><span class="nav-number">5</span><span>Verify Config</span></a></li>
+        <li class="nav-item"><a href="#section-6" class="nav-link"><span class="nav-number">6</span><span>Storage Policy</span></a></li>
+        <li class="nav-item"><a href="#section-7" class="nav-link"><span class="nav-number">7</span><span>Verify Key Pair</span></a></li>
+        <li class="nav-item"><a href="#section-8" class="nav-link"><span class="nav-number">8</span><span>Completion Checklist</span></a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- ── MAIN CONTENT ────────────────────────────────────── -->
+  <div class="page">
+
+    <header>
+      <div class="role">Team Member 1 · Security &amp; Governance Lead</div>
+      <h1>Security Policies &amp; Key Management Runbook</h1>
+      <p>Step-by-step guide for configuring ECDSA signing keys, access controls, storage policies,
+         VEX/CSAF generation, and secure SBOM distribution. CycloneDX JSON · CERT-In v2.0.</p>
+    </header>
+
+    <!-- 1. Prerequisites -->
+    <section id="section-1">
+      <div class="section-title">
+        <span class="section-number">1</span>
+        <h2>Prerequisites &amp; Environment Setup</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:18px;">Ensure the following tools are installed before proceeding.</p>
+        <table>
+          <thead><tr><th>Tool</th><th>Version</th><th>Purpose</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><code>Python</code></td><td>3.10+</td><td>Runs all toolsuite scripts</td><td><span class="badge badge-blue">Required</span></td></tr>
+            <tr><td><code>cryptography</code> (pip)</td><td>≥ 41.0</td><td>ECDSA key generation &amp; signing</td><td><span class="badge badge-blue">Required</span></td></tr>
+            <tr><td><code>openssl</code></td><td>3.x</td><td>Manual key inspection &amp; verification</td><td><span class="badge badge-med">Recommended</span></td></tr>
+            <tr><td>Secure file store</td><td>—</td><td>RBAC-controlled storage for <code>.pem</code> files</td><td><span class="badge badge-high">Critical</span></td></tr>
+          </tbody>
+        </table>
+        <div class="code-block" style="margin-top:16px;">
+          <pre><span class="comment"># Install required Python library</span>
+<span class="cmd">pip install</span> <span class="flag">cryptography</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Generate Key Pair -->
+    <section id="section-2">
+      <div class="section-title">
+        <span class="section-number">2</span>
+        <h2>Generate ECDSA Key Pair</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:18px;">
+          Run the script below from the project root to generate the ECDSA P-256 key pair.
+          Keys are written to the paths defined in <code>sbom_toolsuite/config.json</code>.
+        </p>
+        <div class="callout callout-warn">
+          <span class="icon">⚠️</span>
+          <span>Never commit <code>private_key.pem</code> to version control. Add it to <code>.gitignore</code> immediately after generation.</span>
+        </div>
+        <div class="code-block">
+          <pre><span class="comment"># Run from project root: c:\Study\Projects\BOM\</span>
+<span class="cmd">python</span> <span class="flag">-c</span> <span class="string">"
+from cryptography.hazmat.primitives.asymmetric import ec
+from cryptography.hazmat.primitives import serialization
+import os
+
+os.makedirs('sbom_toolsuite', exist_ok=True)
+
+private_key = ec.generate_private_key(ec.SECP256R1())
+public_key  = private_key.public_key()
+
+with open('sbom_toolsuite/private_key.pem', 'wb') as f:
+    f.write(private_key.private_bytes(
+        encoding=serialization.Encoding.PEM,
+        format=serialization.PrivateFormat.PKCS8,
+        encryption_algorithm=serialization.NoEncryption()
+    ))
+
+with open('sbom_toolsuite/public_key.pem', 'wb') as f:
+    f.write(public_key.public_bytes(
+        encoding=serialization.Encoding.PEM,
+        format=serialization.PublicFormat.SubjectPublicKeyInfo
+    ))
+
+print('[OK] Keys written to sbom_toolsuite/')
+"</span></pre>
+        </div>
+        <div class="callout callout-ok" style="margin-top:14px;">
+          <span class="icon">✅</span>
+          <span>Expected output: <strong>[OK] Keys written to sbom_toolsuite/</strong><br>
+          Two files appear: <code>private_key.pem</code> and <code>public_key.pem</code>.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Permissions -->
+    <section id="section-3">
+      <div class="section-title">
+        <span class="section-number">3</span>
+        <h2>Restrict Private Key Permissions</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">Lock down the private key so only the scanning service account can read it.</p>
+        <p style="font-size:13px;font-weight:600;color:#64748b;margin-bottom:6px;">Windows (PowerShell — run as Administrator)</p>
+        <div class="code-block">
+          <pre><span class="cmd">$path</span> = <span class="string">"c:\Study\Projects\BOM\sbom_toolsuite\private_key.pem"</span>
+<span class="cmd">icacls</span> <span class="path">$path</span> <span class="flag">/inheritance:r</span>
+<span class="cmd">icacls</span> <span class="path">$path</span> <span class="flag">/grant:r</span> <span class="string">"$($env:USERNAME):(R)"</span></pre>
+        </div>
+        <p style="font-size:13px;font-weight:600;color:#64748b;margin-bottom:6px;margin-top:16px;">Linux / macOS</p>
+        <div class="code-block">
+          <pre><span class="cmd">chmod</span> <span class="flag">600</span> <span class="path">sbom_toolsuite/private_key.pem</span></pre>
+        </div>
+        <div class="callout callout-info" style="margin-top:14px;">
+          <span class="icon">ℹ️</span>
+          <span>The <code>public_key.pem</code> can remain world-readable — it is distributed to clients for signature verification.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Version Control -->
+    <section id="section-4">
+      <div class="section-title">
+        <span class="section-number">4</span>
+        <h2>Protect Keys in Version Control</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:14px;">Append the following entries to the root <code>.gitignore</code> file.</p>
+        <div class="code-block">
+          <pre><span class="comment"># SBOM signing keys — never commit to version control</span>
+<span class="path">sbom_toolsuite/private_key.pem</span>
+<span class="path">sbom_toolsuite/*.sig</span>
+<span class="path">sbom_output/</span></pre>
+        </div>
+        <div class="code-block" style="margin-top:10px;">
+          <pre><span class="comment"># PowerShell — append to .gitignore</span>
+<span class="cmd">Add-Content</span> <span class="path">.gitignore</span> <span class="string">"`nsbom_toolsuite/private_key.pem`nsbom_toolsuite/*.sig`nsbom_output/"</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Verify Config -->
+    <section id="section-5">
+      <div class="section-title">
+        <span class="section-number">5</span>
+        <h2>Verify Security Policy in config.json</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">Confirm the signing block and usage restriction policies in <code>sbom_toolsuite/config.json</code> match the table below.</p>
+        <table>
+          <thead><tr><th>Config Key</th><th>Required Value</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td><code>signing.private_key_path</code></td><td><code>sbom_toolsuite/private_key.pem</code></td><td>Path to ECDSA private key for signing</td></tr>
+            <tr><td><code>signing.public_key_path</code></td><td><code>sbom_toolsuite/public_key.pem</code></td><td>Path to public key for client verification</td></tr>
+            <tr><td><code>usage_restrictions_overrides.cryptography</code></td><td><em>Subject to US EAR</em></td><td>Export control flag — CERT-In requirement</td></tr>
+            <tr><td><code>usage_restrictions_overrides.django</code></td><td><em>Export control evaluation required…</em></td><td>Encryption submodule disclosure</td></tr>
+            <tr><td><code>default_criticality</code></td><td><code>medium</code></td><td>Safe fallback for unlisted components</td></tr>
+          </tbody>
+        </table>
+        <div class="callout callout-info" style="margin-top:14px;">
+          <span class="icon">ℹ️</span>
+          <span>Run <code>python -m json.tool sbom_toolsuite/config.json</code> to verify the JSON is valid before proceeding.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Storage Policy -->
+    <section id="section-6">
+      <div class="section-title">
+        <span class="section-number">6</span>
+        <h2>Secure SBOM Storage Policy</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:18px;">All generated SBOM artifacts must be stored and shared according to the following controls.</p>
+        <table>
+          <thead><tr><th>Artifact</th><th>Classification</th><th>Storage Rule</th><th>Sharing Method</th></tr></thead>
+          <tbody>
+            <tr><td><code>sbom_private.json</code></td><td><span class="badge badge-high">Confidential</span></td><td>RBAC-locked folder, no public read</td><td>Encrypted transfer / HTTPS portal</td></tr>
+            <tr><td><code>sbom_public.json</code></td><td><span class="badge badge-low">Public</span></td><td>Access-logged storage</td><td>HTTPS download link with checksum</td></tr>
+            <tr><td><code>vex.json</code></td><td><span class="badge badge-high">Confidential</span></td><td>Same as private SBOM</td><td>Encrypted transfer only</td></tr>
+            <tr><td><code>csaf.json</code></td><td><span class="badge badge-med">Internal</span></td><td>Internal advisory record</td><td>Shared via authenticated portal</td></tr>
+            <tr><td><code>*.sig</code></td><td><span class="badge badge-blue">Public</span></td><td>Alongside the artifact it signs</td><td>Bundled with signed document</td></tr>
+            <tr><td><code>private_key.pem</code></td><td><span class="badge badge-high">Secret</span></td><td>Local only, never transmitted</td><td>Never shared</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 7. Verify Key Pair -->
+    <section id="section-7">
+      <div class="section-title">
+        <span class="section-number">7</span>
+        <h2>Verify Key Pair Integrity</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:14px;">Sign a test message and verify it to confirm the key pair works correctly before use in production.</p>
+        <div class="code-block">
+          <pre><span class="cmd">python</span> <span class="flag">-c</span> <span class="string">"
+from cryptography.hazmat.primitives.asymmetric import ec
+from cryptography.hazmat.primitives import hashes, serialization
+
+with open('sbom_toolsuite/private_key.pem', 'rb') as f:
+    priv = serialization.load_pem_private_key(f.read(), password=None)
+with open('sbom_toolsuite/public_key.pem', 'rb') as f:
+    pub = serialization.load_pem_public_key(f.read())
+
+message   = b'SBOM-key-pair-verification-test'
+signature = priv.sign(message, ec.ECDSA(hashes.SHA256()))
+pub.verify(signature, message, ec.ECDSA(hashes.SHA256()))
+
+print('[OK] Key pair is valid — ECDSA sign/verify passed.')
+"</span></pre>
+        </div>
+        <div class="callout callout-ok" style="margin-top:14px;">
+          <span class="icon">✅</span>
+          <span>Expected: <strong>[OK] Key pair is valid — ECDSA sign/verify passed.</strong><br>
+          If an exception is raised, regenerate the keys (Section 2) and repeat.</span>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- 8. Checklist -->
+    <section id="section-8">
+      <div class="section-title">
+        <span class="section-number">8</span>
+        <h2>Completion Checklist</h2>
+      </div>
+      <div class="card">
+        <ul class="checklist">
+          <li><code>private_key.pem</code> and <code>public_key.pem</code> generated in <code>sbom_toolsuite/</code></li>
+          <li>File permissions restricted — private key readable only by service account</li>
+          <li><code>private_key.pem</code> added to <code>.gitignore</code> and not tracked by git</li>
+          <li><code>config.json</code> signing paths confirmed and JSON is valid</li>
+          <li>Export control flags present for <code>django</code> and <code>cryptography</code> in config</li>
+          <li>Key pair integrity test passed (Section 7)</li>
+          <li>Storage policy communicated to Team Member 2 &amp; 3</li>
+          <li>Secure storage location provisioned for <code>sbom_private.json</code> and <code>vex.json</code></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Team Member 1 — Security &amp; Governance Lead &nbsp;·&nbsp;
+      BOMB-AE &nbsp;·&nbsp; CycloneDX JSON &nbsp;·&nbsp; CERT-In Technical Guidelines v2.0 &nbsp;·&nbsp;
+      Antigravity AI
+    </footer>
+
+  </div><!-- .page -->
+</div><!-- .container -->
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-link');
+  function setActive() {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', setActive);
+  window.addEventListener('load', setActive);
+</script>
+</body>
+</html>

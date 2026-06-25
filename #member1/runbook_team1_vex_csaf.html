@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Member 1 — VEX &amp; CSAF Advisory Runbook</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f5f6fa; color: #1a1d23; line-height: 1.7; font-size: 15px;
+    }
+    html { scroll-behavior: smooth; }
+    section { scroll-margin-top: 24px; }
+    .container { display: flex; min-height: 100vh; }
+
+    /* ── Sidebar ─────────────────────────────────────────── */
+    .sidebar {
+      width: 272px; background: #0f172a; color: #e2e8f0;
+      padding: 32px 0; position: sticky; top: 0; height: 100vh;
+      overflow-y: auto; flex-shrink: 0;
+    }
+    .sidebar::-webkit-scrollbar { width: 5px; }
+    .sidebar::-webkit-scrollbar-track { background: #0f172a; }
+    .sidebar::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+    .sidebar-header { padding: 0 24px 24px; border-bottom: 1px solid #1e293b; margin-bottom: 20px; }
+    .sidebar-header .badge-role {
+      display: inline-block; background: #7c3aed; color: #fff;
+      font-size: 10px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-bottom: 10px;
+    }
+    .sidebar-header h3 { font-size: 14px; font-weight: 600; color: #f1f5f9; line-height: 1.45; }
+    .nav-section-label {
+      font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: #475569; padding: 16px 24px 6px; margin-top: 4px;
+    }
+    .nav-list { list-style: none; }
+    .nav-item { margin-bottom: 2px; }
+    .nav-link {
+      display: flex; align-items: center; gap: 12px; padding: 10px 24px;
+      color: #94a3b8; text-decoration: none; font-size: 13px;
+      transition: all .15s ease; border-left: 3px solid transparent;
+    }
+    .nav-link:hover { background: #1e293b; color: #f1f5f9; border-left-color: #a78bfa; }
+    .nav-link.active { background: #1e293b; color: #fff; border-left-color: #7c3aed; font-weight: 600; }
+    .nav-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%; background: #1e293b;
+      color: #64748b; font-size: 11px; font-weight: 700; flex-shrink: 0;
+    }
+    .nav-link:hover .nav-number, .nav-link.active .nav-number { background: #7c3aed; color: #fff; }
+
+    /* ── Page ────────────────────────────────────────────── */
+    .page { flex: 1; max-width: 900px; margin: 0 auto; padding: 48px 48px 80px; }
+    header { border-left: 4px solid #7c3aed; padding: 4px 0 4px 20px; margin-bottom: 48px; }
+    header .role { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #7c3aed; margin-bottom: 6px; }
+    header h1 { font-size: 26px; font-weight: 700; color: #0f172a; }
+    header p  { margin-top: 8px; color: #64748b; font-size: 14px; }
+    section { margin-bottom: 40px; }
+    .section-title { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .section-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 50%; background: #7c3aed;
+      color: #fff; font-size: 13px; font-weight: 700; flex-shrink: 0;
+    }
+    .section-title h2 { font-size: 17px; font-weight: 600; color: #0f172a; }
+    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px 28px; }
+
+    /* ── Code ────────────────────────────────────────────── */
+    .code-block { background: #0f172a; border-radius: 8px; padding: 16px 20px; margin-top: 10px; overflow-x: auto; }
+    .code-block pre {
+      font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+      font-size: 13px; color: #e2e8f0; white-space: pre; line-height: 1.65;
+    }
+    .code-block .comment { color: #475569; }
+    .code-block .cmd     { color: #7dd3fc; }
+    .code-block .flag    { color: #a5f3fc; }
+    .code-block .path    { color: #86efac; }
+    .code-block .string  { color: #fde68a; }
+    .code-block .key     { color: #f9a8d4; }
+    .code-block .val     { color: #c4b5fd; }
+    code {
+      background: #f1f5f9; color: #6d28d9; padding: 2px 6px; border-radius: 4px;
+      font-size: 13px; font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+    }
+
+    /* ── Callouts ─────────────────────────────────────────── */
+    .callout {
+      border-radius: 8px; padding: 13px 18px; font-size: 13.5px;
+      display: flex; gap: 12px; align-items: flex-start; margin-top: 12px;
+    }
+    .callout-warn   { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
+    .callout-info   { background: #f5f3ff; border: 1px solid #ddd6fe; color: #4c1d95; }
+    .callout-ok     { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+    .callout-danger { background: #fff1f2; border: 1px solid #fecdd3; color: #9f1239; }
+    .callout .icon  { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Tables ──────────────────────────────────────────── */
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    th {
+      background: #f8fafc; text-align: left; padding: 9px 14px; font-weight: 600;
+      color: #475569; border-bottom: 2px solid #e2e8f0; font-size: 11.5px;
+      letter-spacing: .04em; text-transform: uppercase;
+    }
+    td { padding: 9px 14px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+    tr:last-child td { border-bottom: none; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: .03em; }
+    .badge-critical  { background: #fce7f3; color: #831843; }
+    .badge-high      { background: #fee2e2; color: #991b1b; }
+    .badge-med       { background: #fef3c7; color: #92400e; }
+    .badge-low       { background: #dcfce7; color: #166534; }
+    .badge-blue      { background: #dbeafe; color: #1d4ed8; }
+    .badge-purple    { background: #ede9fe; color: #5b21b6; }
+    .badge-gray      { background: #f1f5f9; color: #475569; }
+
+    /* ── Status pill row ─────────────────────────────────── */
+    .status-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 4px;
+    }
+    .status-pill {
+      border-radius: 8px; padding: 14px 16px; border: 1px solid;
+    }
+    .status-pill .pill-title { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4px; }
+    .status-pill p { font-size: 13px; line-height: 1.5; }
+    .pill-not-affected  { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+    .pill-affected      { background: #fff1f2; border-color: #fecdd3; color: #9f1239; }
+    .pill-fixed         { background: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
+    .pill-investigating { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+
+    /* ── Checklist ───────────────────────────────────────── */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #334155; }
+    .checklist li::before { content: "☐"; color: #94a3b8; font-size: 16px; flex-shrink: 0; margin-top: -1px; }
+
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 36px 0; }
+    footer { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 56px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ── SIDEBAR ─────────────────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="badge-role">Team Member 1</div>
+      <h3>Security &amp; Governance Lead</h3>
+    </div>
+    <nav>
+      <div class="nav-section-label">Setup</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#section-1" class="nav-link"><span class="nav-number">1</span><span>Overview</span></a></li>
+        <li class="nav-item"><a href="#section-2" class="nav-link"><span class="nav-number">2</span><span>Prerequisites</span></a></li>
+        <li class="nav-item"><a href="#section-3" class="nav-link"><span class="nav-number">3</span><span>VEX Status Definitions</span></a></li>
+      </ul>
+      <div class="nav-section-label">VEX Document</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#section-4" class="nav-link"><span class="nav-number">4</span><span>Triage Vulnerabilities</span></a></li>
+        <li class="nav-item"><a href="#section-5" class="nav-link"><span class="nav-number">5</span><span>Generate VEX</span></a></li>
+        <li class="nav-item"><a href="#section-6" class="nav-link"><span class="nav-number">6</span><span>VEX Output Schema</span></a></li>
+      </ul>
+      <div class="nav-section-label">CSAF Advisory</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#section-7" class="nav-link"><span class="nav-number">7</span><span>Generate CSAF</span></a></li>
+        <li class="nav-item"><a href="#section-8" class="nav-link"><span class="nav-number">8</span><span>CSAF Output Schema</span></a></li>
+      </ul>
+      <div class="nav-section-label">Finalise</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#section-9" class="nav-link"><span class="nav-number">9</span><span>Validate Outputs</span></a></li>
+        <li class="nav-item"><a href="#section-10" class="nav-link"><span class="nav-number">10</span><span>Completion Checklist</span></a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- ── MAIN CONTENT ────────────────────────────────────── -->
+  <div class="page">
+
+    <header>
+      <div class="role">Team Member 1 · Security &amp; Governance Lead</div>
+      <h1>VEX &amp; CSAF Advisory Generation Runbook</h1>
+      <p>Step-by-step guide for triaging vulnerabilities, classifying each CVE with a VEX status,
+         generating the VEX document, and producing a CSAF advisory with CVSS scores and
+         mitigation steps. CycloneDX JSON · CERT-In v2.0.</p>
+    </header>
+
+    <!-- 1. Overview -->
+    <section id="section-1">
+      <div class="section-title"><span class="section-number">1</span><h2>Overview &amp; Document Relationship</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:18px;">
+          Two distinct documents are produced in this phase. Both are confidential and must
+          never appear in the public SBOM or client delivery without explicit authorisation.
+        </p>
+        <table>
+          <thead><tr><th>Document</th><th>Purpose</th><th>Audience</th><th>Format</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>VEX</strong><br><code>vex.json</code></td>
+              <td>Declares the exploitability status of every CVE found in the SBOM</td>
+              <td>Client security team</td>
+              <td>CycloneDX VEX JSON</td>
+            </tr>
+            <tr>
+              <td><strong>CSAF</strong><br><code>csaf.json</code></td>
+              <td>Formal security advisory with CVSS scores, affected versions, and mitigations</td>
+              <td>Client &amp; internal stakeholders</td>
+              <td>CSAF 2.0 JSON</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout callout-info" style="margin-top:14px;">
+          <span class="icon">ℹ️</span>
+          <span><strong>Flow:</strong> Trivy scan → enriched SBOM → <em>triage CVEs here</em> → VEX document → CSAF advisory → embed VEX ref in private SBOM.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Prerequisites -->
+    <section id="section-2">
+      <div class="section-title"><span class="section-number">2</span><h2>Prerequisites</h2></div>
+      <div class="card">
+        <table>
+          <thead><tr><th>Item</th><th>Source</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><code>sbom_enriched.json</code></td><td>Team Member 3 output</td><td><span class="badge badge-high">Must have</span></td></tr>
+            <tr><td>CVE triage decisions for each flagged vulnerability</td><td>Security Lead review</td><td><span class="badge badge-high">Must have</span></td></tr>
+            <tr><td>Python 3.10+</td><td>Scanning environment</td><td><span class="badge badge-blue">Required</span></td></tr>
+            <tr><td><code>pip install requests</code></td><td>PyPI (for CVSS lookup)</td><td><span class="badge badge-blue">Required</span></td></tr>
+            <tr><td><code>sbom_toolsuite/config.json</code></td><td>Project root</td><td><span class="badge badge-blue">Required</span></td></tr>
+          </tbody>
+        </table>
+        <div class="code-block" style="margin-top:16px;">
+          <pre><span class="comment"># Install dependency</span>
+<span class="cmd">pip install</span> <span class="flag">requests</span>
+
+<span class="comment"># Quick check — list all CVEs found in enriched SBOM</span>
+<span class="cmd">python</span> <span class="flag">-c</span> <span class="string">"
+import json
+with open('sbom_output/sbom_enriched.json') as f: s = json.load(f)
+vulns = s.get('vulnerabilities', [])
+print(f'CVEs found: {len(vulns)}')
+for v in vulns:
+    sev = v.get('ratings',[{}])[0].get('severity','unknown')
+    print(f'  {v[\"id\"]:20}  severity: {sev}')
+"</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. VEX Status Definitions -->
+    <section id="section-3">
+      <div class="section-title"><span class="section-number">3</span><h2>VEX Status Definitions</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:18px;">
+          Every CVE in the SBOM must be assigned exactly one of the four VEX statuses below
+          before the document is generated. Make triage decisions based on your knowledge
+          of the deployment environment and component usage.
+        </p>
+        <div class="status-grid">
+          <div class="status-pill pill-not-affected">
+            <div class="pill-title">Not Affected</div>
+            <p>The vulnerability exists in the component but cannot be exploited in this deployment context. Provide a justification (e.g., vulnerable code path is unreachable).</p>
+          </div>
+          <div class="status-pill pill-affected">
+            <div class="pill-title">Affected</div>
+            <p>The vulnerability is present and exploitable in the current build. Immediate remediation or compensating control is required. Must appear in the CSAF advisory.</p>
+          </div>
+          <div class="status-pill pill-fixed">
+            <div class="pill-title">Fixed</div>
+            <p>The vulnerability has been remediated — either by upgrading the component or applying a patch. Provide the fixed version and remediation date.</p>
+          </div>
+          <div class="status-pill pill-investigating">
+            <div class="pill-title">Under Investigation</div>
+            <p>Exploitability is not yet determined. Assign a review deadline. This status must be resolved before final client delivery.</p>
+          </div>
+        </div>
+        <div class="callout callout-danger" style="margin-top:16px;">
+          <span class="icon">🚫</span>
+          <span>Never leave a CVE without a status. An unclassified vulnerability is a compliance failure under CERT-In Technical Guidelines v2.0.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Triage Vulnerabilities -->
+    <section id="section-4">
+      <div class="section-title"><span class="section-number">4</span><h2>Triage Vulnerabilities</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">
+          Before running the generator, define your triage decisions in a
+          <code>triage.json</code> file. One entry per CVE. The generator reads this file
+          to produce the VEX statuses.
+        </p>
+        <p style="font-size:13px;font-weight:600;color:#64748b;margin-bottom:8px;">
+          Create <code>sbom_toolsuite/triage.json</code>
+        </p>
+        <div class="code-block">
+          <pre><span class="comment">// sbom_toolsuite/triage.json — one entry per CVE found by Trivy</span>
+<span class="val">[</span>
+  <span class="val">{</span>
+    <span class="key">"cve_id"</span>:      <span class="string">"CVE-2018-18074"</span>,
+    <span class="key">"component"</span>:   <span class="string">"requests"</span>,
+    <span class="key">"version"</span>:     <span class="string">"2.20.0"</span>,
+    <span class="key">"status"</span>:      <span class="string">"not_affected"</span>,
+    <span class="key">"justification"</span>: <span class="string">"Redirect-following behaviour not used in this integration"</span>,
+    <span class="key">"fixed_version"</span>: <span class="string">""</span>
+  <span class="val">}</span>,
+  <span class="val">{</span>
+    <span class="key">"cve_id"</span>:      <span class="string">"CVE-2019-11236"</span>,
+    <span class="key">"component"</span>:   <span class="string">"urllib3"</span>,
+    <span class="key">"version"</span>:     <span class="string">"1.24.2"</span>,
+    <span class="key">"status"</span>:      <span class="string">"affected"</span>,
+    <span class="key">"justification"</span>: <span class="string">"CRLF injection in HTTP headers — component actively used"</span>,
+    <span class="key">"fixed_version"</span>: <span class="string">"1.25.9"</span>
+  <span class="val">}</span>,
+  <span class="val">{</span>
+    <span class="key">"cve_id"</span>:      <span class="string">"CVE-2019-8341"</span>,
+    <span class="key">"component"</span>:   <span class="string">"jinja2"</span>,
+    <span class="key">"version"</span>:     <span class="string">"2.10"</span>,
+    <span class="key">"status"</span>:      <span class="string">"fixed"</span>,
+    <span class="key">"justification"</span>: <span class="string">"Upgraded to 3.1.2 — sandbox escape patched"</span>,
+    <span class="key">"fixed_version"</span>: <span class="string">"3.1.2"</span>
+  <span class="val">}</span>,
+  <span class="val">{</span>
+    <span class="key">"cve_id"</span>:      <span class="string">"CVE-2019-20907"</span>,
+    <span class="key">"component"</span>:   <span class="string">"django"</span>,
+    <span class="key">"version"</span>:     <span class="string">"2.1"</span>,
+    <span class="key">"status"</span>:      <span class="string">"under_investigation"</span>,
+    <span class="key">"justification"</span>: <span class="string">"Awaiting security team review — deadline 2026-07-05"</span>,
+    <span class="key">"fixed_version"</span>: <span class="string">""</span>
+  <span class="val">}</span>
+<span class="val">]</span></pre>
+        </div>
+        <div class="callout callout-info" style="margin-top:14px;">
+          <span class="icon">ℹ️</span>
+          <span>Add one entry for <em>every</em> CVE ID returned by the prerequisites check in Section 2. Use the exact CVE IDs from the SBOM.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Generate VEX -->
+    <section id="section-5">
+      <div class="section-title"><span class="section-number">5</span><h2>Generate the VEX Document</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:14px;">
+          Save the script below as <code>sbom_toolsuite/vex_csaf_generator.py</code>,
+          then run it from the project root. It reads <code>triage.json</code> and the
+          enriched SBOM to produce <code>sbom_output/vex.json</code>.
+        </p>
+        <div class="code-block">
+          <pre><span class="cmd">python</span> <span class="path">sbom_toolsuite/vex_csaf_generator.py</span></pre>
+        </div>
+        <div class="code-block" style="margin-top:10px;">
+          <pre><span class="comment"># ── sbom_toolsuite/vex_csaf_generator.py ──────────────────────</span>
+<span class="key">import</span> json, datetime, os, uuid
+
+ENRICHED = <span class="string">'sbom_output/sbom_enriched.json'</span>
+TRIAGE   = <span class="string">'sbom_toolsuite/triage.json'</span>
+CONFIG   = <span class="string">'sbom_toolsuite/config.json'</span>
+VEX_OUT  = <span class="string">'sbom_output/vex.json'</span>
+CSAF_OUT = <span class="string">'sbom_output/csaf.json'</span>
+os.makedirs(<span class="string">'sbom_output'</span>, exist_ok=<span class="flag">True</span>)
+
+<span class="key">with</span> open(ENRICHED) <span class="key">as</span> f: sbom    = json.load(f)
+<span class="key">with</span> open(TRIAGE)   <span class="key">as</span> f: triage  = json.load(f)
+<span class="key">with</span> open(CONFIG)   <span class="key">as</span> f: config  = json.load(f)
+
+now = datetime.datetime.utcnow().isoformat() + <span class="string">"Z"</span>
+
+<span class="comment"># ── Build CVE → SBOM vulnerability lookup ─────────────────────</span>
+sbom_vulns = {v[<span class="string">'id'</span>]: v <span class="key">for</span> v <span class="key">in</span> sbom.get(<span class="string">'vulnerabilities'</span>, [])}
+
+<span class="comment"># ── VEX Document ──────────────────────────────────────────────</span>
+vex = {
+    <span class="string">"bomFormat"</span>:   <span class="string">"CycloneDX"</span>,
+    <span class="string">"specVersion"</span>: <span class="string">"1.5"</span>,
+    <span class="string">"version"</span>:     <span class="val">1</span>,
+    <span class="string">"serialNumber"</span>: <span class="string">f"urn:uuid:{uuid.uuid4()}"</span>,
+    <span class="string">"metadata"</span>: {
+        <span class="string">"timestamp"</span>: now,
+        <span class="string">"authors"</span>: [{<span class="string">"name"</span>: config[<span class="string">"author"</span>]}],
+        <span class="string">"component"</span>: {<span class="string">"name"</span>: config[<span class="string">"organization"</span>], <span class="string">"type"</span>: <span class="string">"application"</span>}
+    },
+    <span class="string">"vulnerabilities"</span>: []
+}
+
+<span class="key">for</span> t <span class="key">in</span> triage:
+    base = sbom_vulns.get(t[<span class="string">'cve_id'</span>], {})
+    ratings = base.get(<span class="string">'ratings'</span>, [{}])
+
+    entry = {
+        <span class="string">"id"</span>: t[<span class="string">'cve_id'</span>],
+        <span class="string">"source"</span>: {<span class="string">"name"</span>: <span class="string">"NVD"</span>, <span class="string">"url"</span>: <span class="string">f"https://nvd.nist.gov/vuln/detail/{t['cve_id']}"</span>},
+        <span class="string">"ratings"</span>: ratings,
+        <span class="string">"affects"</span>: [{
+            <span class="string">"ref"</span>: t[<span class="string">'component'</span>],
+            <span class="string">"versions"</span>: [{<span class="string">"version"</span>: t[<span class="string">'version'</span>], <span class="string">"status"</span>: t[<span class="string">'status'</span>]}]
+        }],
+        <span class="string">"analysis"</span>: {
+            <span class="string">"state"</span>:         t[<span class="string">'status'</span>],
+            <span class="string">"justification"</span>: t[<span class="string">'justification'</span>],
+            <span class="string">"response"</span>:      [<span class="string">"will_not_fix"</span>] <span class="key">if</span> t[<span class="string">'status'</span>] == <span class="string">'not_affected'</span>
+                             <span class="key">else</span> [<span class="string">"update"</span>] <span class="key">if</span> t[<span class="string">'status'</span>] == <span class="string">'fixed'</span>
+                             <span class="key">else</span> [<span class="string">"workaround_available"</span>] <span class="key">if</span> t[<span class="string">'status'</span>] == <span class="string">'affected'</span>
+                             <span class="key">else</span> []
+        }
+    }
+    vex[<span class="string">"vulnerabilities"</span>].append(entry)
+
+<span class="key">with</span> open(VEX_OUT, <span class="string">'w'</span>) <span class="key">as</span> f:
+    json.dump(vex, f, indent=2)
+print(<span class="string">f"[OK] vex.json written — {len(triage)} vulnerabilities classified."</span>)</pre>
+        </div>
+        <div class="callout callout-ok" style="margin-top:14px;">
+          <span class="icon">✅</span>
+          <span>Expected: <strong>[OK] vex.json written — N vulnerabilities classified.</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. VEX Output Schema -->
+    <section id="section-6">
+      <div class="section-title"><span class="section-number">6</span><h2>VEX Output Schema Reference</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">
+          Each vulnerability entry in <code>vex.json</code> must contain the following fields.
+          Use this as a manual spot-check guide.
+        </p>
+        <table>
+          <thead><tr><th>Field</th><th>Expected Value</th><th>Priority</th></tr></thead>
+          <tbody>
+            <tr><td><code>id</code></td><td>CVE identifier e.g. <code>CVE-2019-11236</code></td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>source.name</code></td><td><code>NVD</code></td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>source.url</code></td><td>NVD detail URL for the CVE</td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>ratings[].severity</code></td><td><code>critical</code> / <code>high</code> / <code>medium</code> / <code>low</code></td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>affects[].ref</code></td><td>Component name matching SBOM</td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>affects[].versions[].version</code></td><td>Affected version string</td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>affects[].versions[].status</code></td><td>One of the four VEX statuses</td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>analysis.state</code></td><td>Same as status above</td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>analysis.justification</code></td><td>Human-readable rationale</td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>analysis.response</code></td><td>Array: <code>update</code>, <code>workaround_available</code>, <code>will_not_fix</code></td><td><span class="badge badge-med">Standard</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 7. Generate CSAF -->
+    <section id="section-7">
+      <div class="section-title"><span class="section-number">7</span><h2>Generate the CSAF Advisory</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:14px;">
+          The CSAF block is generated by the same <code>vex_csaf_generator.py</code> script.
+          Append the following section to the script before the final <code>print</code> statement.
+          It writes <code>sbom_output/csaf.json</code> — a CSAF 2.0 compliant advisory.
+        </p>
+        <div class="code-block">
+          <pre><span class="comment"># ── Append to vex_csaf_generator.py (after VEX write) ────────</span>
+
+<span class="comment"># Filter only 'affected' entries for the advisory</span>
+affected = [t <span class="key">for</span> t <span class="key">in</span> triage <span class="key">if</span> t[<span class="string">'status'</span>] == <span class="string">'affected'</span>]
+
+csaf = {
+    <span class="string">"document"</span>: {
+        <span class="string">"csaf_version"</span>: <span class="string">"2.0"</span>,
+        <span class="string">"title"</span>:        <span class="string">f"Security Advisory — {config['organization']}"</span>,
+        <span class="string">"publisher"</span>: {
+            <span class="string">"name"</span>:      config[<span class="string">"author"</span>],
+            <span class="string">"namespace"</span>: <span class="string">"https://antigravity.ai/security"</span>,
+            <span class="string">"category"</span>:  <span class="string">"vendor"</span>
+        },
+        <span class="string">"tracking"</span>: {
+            <span class="string">"id"</span>:                <span class="string">f"AA-{datetime.datetime.utcnow().strftime('%Y%m%d')}-001"</span>,
+            <span class="string">"status"</span>:            <span class="string">"final"</span>,
+            <span class="string">"version"</span>:           <span class="string">"1"</span>,
+            <span class="string">"initial_release_date"</span>: now,
+            <span class="string">"current_release_date"</span>: now,
+            <span class="string">"revision_history"</span>: [{
+                <span class="string">"date"</span>:    now,
+                <span class="string">"number"</span>: <span class="string">"1"</span>,
+                <span class="string">"summary"</span>:<span class="string">"Initial release"</span>
+            }]
+        },
+        <span class="string">"distribution"</span>: {<span class="string">"tlp"</span>: {<span class="string">"label"</span>: <span class="string">"AMBER"</span>}},
+        <span class="string">"references"</span>: [{
+            <span class="string">"url"</span>:      <span class="string">"https://nvd.nist.gov"</span>,
+            <span class="string">"summary"</span>: <span class="string">"National Vulnerability Database"</span>
+        }]
+    },
+    <span class="string">"product_tree"</span>: {
+        <span class="string">"branches"</span>: [{
+            <span class="string">"category"</span>: <span class="string">"product_family"</span>,
+            <span class="string">"name"</span>:     config[<span class="string">"organization"</span>],
+            <span class="string">"branches"</span>: [{
+                <span class="string">"category"</span>: <span class="string">"product_version"</span>,
+                <span class="string">"name"</span>:     t[<span class="string">"component"</span>] + <span class="string">"@"</span> + t[<span class="string">"version"</span>],
+                <span class="string">"product"</span>:  {
+                    <span class="string">"name"</span>:       t[<span class="string">"component"</span>],
+                    <span class="string">"product_id"</span>: t[<span class="string">"component"</span>]
+                }
+            } <span class="key">for</span> t <span class="key">in</span> affected]
+        }]
+    },
+    <span class="string">"vulnerabilities"</span>: [{
+        <span class="string">"cve"</span>: t[<span class="string">"cve_id"</span>],
+        <span class="string">"title"</span>: <span class="string">f"Affected: {t['component']} {t['version']}"</span>,
+        <span class="string">"notes"</span>: [{
+            <span class="string">"category"</span>: <span class="string">"description"</span>,
+            <span class="string">"text"</span>: t[<span class="string">"justification"</span>]
+        }],
+        <span class="string">"product_status"</span>: {
+            <span class="string">"known_affected"</span>:    [t[<span class="string">"component"</span>]],
+            <span class="string">"fixed"</span>:             [t[<span class="string">"component"</span>]] <span class="key">if</span> t.get(<span class="string">"fixed_version"</span>) <span class="key">else</span> []
+        },
+        <span class="string">"remediations"</span>: [{
+            <span class="string">"category"</span>:   <span class="string">"vendor_fix"</span>,
+            <span class="string">"details"</span>:    <span class="string">f"Upgrade to {t['component']} {t['fixed_version']}"</span>
+                          <span class="key">if</span> t.get(<span class="string">"fixed_version"</span>) <span class="key">else</span> <span class="string">"Apply compensating control — see justification"</span>,
+            <span class="string">"product_ids"</span>: [t[<span class="string">"component"</span>]]
+        }],
+        <span class="string">"scores"</span>: sbom_vulns.get(t[<span class="string">'cve_id'</span>], {}).get(<span class="string">'ratings'</span>, [])
+    } <span class="key">for</span> t <span class="key">in</span> affected]
+}
+
+<span class="key">with</span> open(CSAF_OUT, <span class="string">'w'</span>) <span class="key">as</span> f:
+    json.dump(csaf, f, indent=2)
+print(<span class="string">f"[OK] csaf.json written — {len(affected)} affected vulnerabilities documented."</span>)</pre>
+        </div>
+        <div class="callout callout-ok" style="margin-top:14px;">
+          <span class="icon">✅</span>
+          <span>Expected: <strong>[OK] csaf.json written — N affected vulnerabilities documented.</strong><br>
+          If N is 0, all CVEs are either fixed, not_affected, or under investigation — no CSAF advisory entries are needed.</span>
+        </div>
+        <div class="callout callout-warn" style="margin-top:10px;">
+          <span class="icon">⚠️</span>
+          <span>CSAF TLP is set to <strong>AMBER</strong> by default — meaning it is restricted to the client organisation only and must not be published publicly.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CSAF Output Schema -->
+    <section id="section-8">
+      <div class="section-title"><span class="section-number">8</span><h2>CSAF Output Schema Reference</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">Spot-check <code>csaf.json</code> against this field list after generation.</p>
+        <table>
+          <thead><tr><th>Field</th><th>Expected Value</th><th>Priority</th></tr></thead>
+          <tbody>
+            <tr><td><code>document.csaf_version</code></td><td><code>"2.0"</code></td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>document.title</code></td><td>Organisation name in title</td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>document.publisher.name</code></td><td>SBOM author from config</td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>document.tracking.id</code></td><td>Format <code>AA-YYYYMMDD-NNN</code></td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>document.tracking.status</code></td><td><code>final</code> or <code>draft</code></td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>document.distribution.tlp.label</code></td><td><code>AMBER</code></td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>vulnerabilities[].cve</code></td><td>CVE identifier</td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>vulnerabilities[].product_status.known_affected</code></td><td>Array of product IDs</td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>vulnerabilities[].remediations[].details</code></td><td>Upgrade path or compensating control</td><td><span class="badge badge-high">Required</span></td></tr>
+            <tr><td><code>vulnerabilities[].scores</code></td><td>CVSS ratings from Trivy scan</td><td><span class="badge badge-med">Standard</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 9. Validate Outputs -->
+    <section id="section-9">
+      <div class="section-title"><span class="section-number">9</span><h2>Validate Both Outputs</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:14px;">
+          Run this validation script to confirm both documents are well-formed, all required
+          fields are populated, and no CVE in the triage list is missing from the VEX document.
+        </p>
+        <div class="code-block">
+          <pre><span class="cmd">python</span> <span class="flag">-c</span> <span class="string">"
+import json, sys
+
+errors = []
+
+# ── Validate VEX ─────────────────────────────────────────────
+with open('sbom_output/vex.json') as f: vex = json.load(f)
+VALID_STATES = {'not_affected','affected','fixed','under_investigation'}
+for v in vex.get('vulnerabilities', []):
+    state = v.get('analysis', {}).get('state', '')
+    if state not in VALID_STATES:
+        errors.append(f'VEX [{v[\"id\"]}]: invalid state \"{state}\"')
+    if not v.get('analysis', {}).get('justification'):
+        errors.append(f'VEX [{v[\"id\"]}]: missing justification')
+
+# ── Validate CSAF ─────────────────────────────────────────────
+with open('sbom_output/csaf.json') as f: csaf = json.load(f)
+doc = csaf.get('document', {})
+if doc.get('csaf_version') != '2.0':
+    errors.append('CSAF: csaf_version must be \"2.0\"')
+if not doc.get('tracking', {}).get('id'):
+    errors.append('CSAF: tracking.id is missing')
+if doc.get('distribution', {}).get('tlp', {}).get('label') != 'AMBER':
+    errors.append('CSAF: TLP label must be AMBER')
+for v in csaf.get('vulnerabilities', []):
+    if not v.get('remediations'):
+        errors.append(f'CSAF [{v.get(\"cve\")}]: missing remediation entry')
+
+if errors:
+    print('VALIDATION FAILED:')
+    for e in errors: print(f'  !! {e}')
+    sys.exit(1)
+else:
+    vex_count  = len(vex['vulnerabilities'])
+    csaf_count = len(csaf['vulnerabilities'])
+    print(f'[OK] VEX  validated — {vex_count} entries, all states and justifications present.')
+    print(f'[OK] CSAF validated — {csaf_count} affected entries, all remediations present.')
+"</span></pre>
+        </div>
+        <div class="callout callout-ok" style="margin-top:14px;">
+          <span class="icon">✅</span>
+          <span>Expected: Both <strong>[OK]</strong> lines printed. Any <code>!!</code> line must be resolved before client delivery.</span>
+        </div>
+
+        <p style="font-size:13px;font-weight:600;color:#64748b;margin: 20px 0 8px;">Storage Classification</p>
+        <table>
+          <thead><tr><th>Artifact</th><th>Classification</th><th>Deliver to Client?</th></tr></thead>
+          <tbody>
+            <tr><td><code>vex.json</code></td><td><span class="badge badge-high">Confidential</span></td><td>Yes — via encrypted transfer only</td></tr>
+            <tr><td><code>csaf.json</code></td><td><span class="badge badge-med">TLP:AMBER</span></td><td>Yes — restricted to client org only</td></tr>
+            <tr><td><code>triage.json</code></td><td><span class="badge badge-high">Internal</span></td><td>No — internal governance record only</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- 10. Completion Checklist -->
+    <section id="section-10">
+      <div class="section-title"><span class="section-number">10</span><h2>Completion Checklist</h2></div>
+      <div class="card">
+        <ul class="checklist">
+          <li>All CVEs from <code>sbom_enriched.json</code> listed and reviewed</li>
+          <li><code>triage.json</code> created — one entry per CVE with status and justification</li>
+          <li>No CVE left without a VEX status (zero unclassified entries)</li>
+          <li>All <code>under_investigation</code> entries have a review deadline in the justification</li>
+          <li><code>vex_csaf_generator.py</code> executed without errors</li>
+          <li><code>vex.json</code> written to <code>sbom_output/</code></li>
+          <li><code>csaf.json</code> written to <code>sbom_output/</code></li>
+          <li>Validation script passed — all VEX states valid, all CSAF remediations present</li>
+          <li>CSAF TLP label confirmed as <code>AMBER</code></li>
+          <li>Export-controlled components cross-checked against affected vulnerability list</li>
+          <li>Both files stored in RBAC-locked location — not in client public delivery folder</li>
+          <li>VEX document reference embedded in <code>sbom_private.json</code> metadata</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Team Member 1 — Security &amp; Governance Lead &nbsp;·&nbsp;
+      BOMB-AE &nbsp;·&nbsp; VEX / CSAF 2.0 &nbsp;·&nbsp; CycloneDX JSON &nbsp;·&nbsp;
+      CERT-In Technical Guidelines v2.0 &nbsp;·&nbsp; Antigravity AI
+    </footer>
+
+  </div><!-- .page -->
+</div><!-- .container -->
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-link');
+  function setActive() {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', setActive);
+  window.addEventListener('load', setActive);
+</script>
+</body>
+</html>

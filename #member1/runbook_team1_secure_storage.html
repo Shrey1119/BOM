@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Member 1 — Secure Storage Integration Guidelines Runbook</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f5f6fa; color: #1a1d23; line-height: 1.7; font-size: 15px;
+    }
+    html { scroll-behavior: smooth; }
+    section { scroll-margin-top: 24px; }
+    .container { display: flex; min-height: 100vh; }
+
+    /* ── Sidebar ─────────────────────────────────────────── */
+    .sidebar {
+      width: 272px; background: #0f172a; color: #e2e8f0;
+      padding: 32px 0; position: sticky; top: 0; height: 100vh;
+      overflow-y: auto; flex-shrink: 0;
+    }
+    .sidebar::-webkit-scrollbar { width: 5px; }
+    .sidebar::-webkit-scrollbar-track { background: #0f172a; }
+    .sidebar::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+    .sidebar-header { padding: 0 24px 24px; border-bottom: 1px solid #1e293b; margin-bottom: 20px; }
+    .sidebar-header .badge-role {
+      display: inline-block; background: #b45309; color: #fff;
+      font-size: 10px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-bottom: 10px;
+    }
+    .sidebar-header h3 { font-size: 14px; font-weight: 600; color: #f1f5f9; line-height: 1.45; }
+    .nav-section-label {
+      font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: #475569; padding: 16px 24px 6px;
+    }
+    .nav-list { list-style: none; }
+    .nav-item  { margin-bottom: 2px; }
+    .nav-link {
+      display: flex; align-items: center; gap: 12px; padding: 10px 24px;
+      color: #94a3b8; text-decoration: none; font-size: 13px;
+      transition: all .15s ease; border-left: 3px solid transparent;
+    }
+    .nav-link:hover  { background: #1e293b; color: #f1f5f9; border-left-color: #fbbf24; }
+    .nav-link.active { background: #1e293b; color: #fff; border-left-color: #b45309; font-weight: 600; }
+    .nav-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%; background: #1e293b;
+      color: #64748b; font-size: 11px; font-weight: 700; flex-shrink: 0;
+    }
+    .nav-link:hover .nav-number, .nav-link.active .nav-number { background: #b45309; color: #fff; }
+
+    /* ── Page ────────────────────────────────────────────── */
+    .page { flex: 1; max-width: 900px; margin: 0 auto; padding: 48px 48px 80px; }
+    header { border-left: 4px solid #b45309; padding: 4px 0 4px 20px; margin-bottom: 48px; }
+    header .role { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #b45309; margin-bottom: 6px; }
+    header h1 { font-size: 26px; font-weight: 700; color: #0f172a; }
+    header p  { margin-top: 8px; color: #64748b; font-size: 14px; }
+    section { margin-bottom: 40px; }
+    .section-title { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .section-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 50%; background: #b45309;
+      color: #fff; font-size: 13px; font-weight: 700; flex-shrink: 0;
+    }
+    .section-title h2 { font-size: 17px; font-weight: 600; color: #0f172a; }
+    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px 28px; }
+
+    /* ── Code ────────────────────────────────────────────── */
+    .code-block { background: #0f172a; border-radius: 8px; padding: 16px 20px; margin-top: 10px; overflow-x: auto; }
+    .code-block pre {
+      font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+      font-size: 13px; color: #e2e8f0; white-space: pre; line-height: 1.65;
+    }
+    .code-block .comment { color: #475569; }
+    .code-block .cmd     { color: #7dd3fc; }
+    .code-block .flag    { color: #a5f3fc; }
+    .code-block .path    { color: #86efac; }
+    .code-block .string  { color: #fde68a; }
+    .code-block .key     { color: #f9a8d4; }
+    .code-block .val     { color: #c4b5fd; }
+    code {
+      background: #fef3c7; color: #92400e; padding: 2px 6px; border-radius: 4px;
+      font-size: 13px; font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+    }
+
+    /* ── Callouts ─────────────────────────────────────────── */
+    .callout {
+      border-radius: 8px; padding: 13px 18px; font-size: 13.5px;
+      display: flex; gap: 12px; align-items: flex-start; margin-top: 12px;
+    }
+    .callout-warn   { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
+    .callout-info   { background: #fff7ed; border: 1px solid #fed7aa; color: #7c2d12; }
+    .callout-ok     { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+    .callout-danger { background: #fff1f2; border: 1px solid #fecdd3; color: #9f1239; }
+    .callout .icon  { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Tables ──────────────────────────────────────────── */
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    th {
+      background: #f8fafc; text-align: left; padding: 9px 14px; font-weight: 600;
+      color: #475569; border-bottom: 2px solid #e2e8f0; font-size: 11.5px;
+      letter-spacing: .04em; text-transform: uppercase;
+    }
+    td { padding: 9px 14px; border-bottom: 1px solid #f1f5f9; color: #334155; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: .03em; }
+    .badge-secret   { background: #fce7f3; color: #831843; }
+    .badge-high     { background: #fee2e2; color: #991b1b; }
+    .badge-med      { background: #fef3c7; color: #92400e; }
+    .badge-low      { background: #dcfce7; color: #166534; }
+    .badge-blue     { background: #dbeafe; color: #1d4ed8; }
+    .badge-orange   { background: #ffedd5; color: #9a3412; }
+    .badge-gray     { background: #f1f5f9; color: #475569; }
+
+    /* ── Tier grid ───────────────────────────────────────── */
+    .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 4px; }
+    .tier-card { border-radius: 8px; padding: 16px; border: 1px solid; }
+    .tier-card .tier-label { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+    .tier-card p { font-size: 13px; line-height: 1.55; }
+    .tier-1 { background: #fff1f2; border-color: #fecdd3; color: #881337; }
+    .tier-2 { background: #fffbeb; border-color: #fde68a; color: #78350f; }
+    .tier-3 { background: #f0fdf4; border-color: #bbf7d0; color: #14532d; }
+
+    /* ── Checklist ───────────────────────────────────────── */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #334155; }
+    .checklist li::before { content: "☐"; color: #94a3b8; font-size: 16px; flex-shrink: 0; margin-top: -1px; }
+
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 36px 0; }
+    footer { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 56px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ── SIDEBAR ─────────────────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="badge-role">Team Member 1</div>
+      <h3>Security &amp; Governance Lead</h3>
+    </div>
+    <nav>
+      <div class="nav-section-label">Foundation</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#section-1" class="nav-link"><span class="nav-number">1</span><span>Overview</span></a></li>
+        <li class="nav-item"><a href="#section-2" class="nav-link"><span class="nav-number">2</span><span>Artifact Classification</span></a></li>
+        <li class="nav-item"><a href="#section-3" class="nav-link"><span class="nav-number">3</span><span>Storage Tiers</span></a></li>
+      </ul>
+      <div class="nav-section-label">Implementation</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#section-4" class="nav-link"><span class="nav-number">4</span><span>Directory Structure</span></a></li>
+        <li class="nav-item"><a href="#section-5" class="nav-link"><span class="nav-number">5</span><span>Access Controls</span></a></li>
+        <li class="nav-item"><a href="#section-6" class="nav-link"><span class="nav-number">6</span><span>Encryption at Rest</span></a></li>
+        <li class="nav-item"><a href="#section-7" class="nav-link"><span class="nav-number">7</span><span>Secure Transmission</span></a></li>
+      </ul>
+      <div class="nav-section-label">Governance</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#section-8" class="nav-link"><span class="nav-number">8</span><span>Retention &amp; Archival</span></a></li>
+        <li class="nav-item"><a href="#section-9" class="nav-link"><span class="nav-number">9</span><span>Audit Logging</span></a></li>
+        <li class="nav-item"><a href="#section-10" class="nav-link"><span class="nav-number">10</span><span>Integrity Verification</span></a></li>
+        <li class="nav-item"><a href="#section-11" class="nav-link"><span class="nav-number">11</span><span>Completion Checklist</span></a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- ── MAIN CONTENT ────────────────────────────────────── -->
+  <div class="page">
+
+    <header>
+      <div class="role">Team Member 1 · Security &amp; Governance Lead</div>
+      <h1>Secure Storage Integration Guidelines</h1>
+      <p>Step-by-step guide for classifying, storing, protecting, transmitting, and auditing
+         all SBOM artifacts — keys, documents, advisories, and signatures —
+         in compliance with CERT-In Technical Guidelines v2.0.</p>
+    </header>
+
+    <!-- 1. Overview -->
+    <section id="section-1">
+      <div class="section-title"><span class="section-number">1</span><h2>Overview &amp; Scope</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:18px;">
+          This runbook governs how every artifact produced by the SBOM toolsuite is stored
+          and protected from generation through to final client delivery. It covers
+          file-system permissions, encryption, transmission protocols, retention schedules,
+          and audit trails.
+        </p>
+        <table>
+          <thead><tr><th>Artifact</th><th>Produced By</th><th>Sensitivity</th><th>Governed In</th></tr></thead>
+          <tbody>
+            <tr><td><code>private_key.pem</code></td><td>Team Member 1 — Key Generation</td><td><span class="badge badge-secret">Secret</span></td><td>This runbook</td></tr>
+            <tr><td><code>sbom_enriched.json</code></td><td>Team Member 3 — Enricher</td><td><span class="badge badge-high">Confidential</span></td><td>This runbook</td></tr>
+            <tr><td><code>sbom_private.json</code></td><td>Team Member 2 — Distributor</td><td><span class="badge badge-high">Confidential</span></td><td>This runbook</td></tr>
+            <tr><td><code>sbom_public.json</code></td><td>Team Member 2 — Distributor</td><td><span class="badge badge-low">Public</span></td><td>This runbook</td></tr>
+            <tr><td><code>vex.json</code></td><td>Team Member 1 — VEX/CSAF</td><td><span class="badge badge-high">Confidential</span></td><td>This runbook</td></tr>
+            <tr><td><code>csaf.json</code></td><td>Team Member 1 — VEX/CSAF</td><td><span class="badge badge-med">TLP:AMBER</span></td><td>This runbook</td></tr>
+            <tr><td><code>internal_map.json</code></td><td>Team Member 1 — Internal Map</td><td><span class="badge badge-high">Internal Only</span></td><td>This runbook</td></tr>
+            <tr><td><code>*.sig</code></td><td>Team Member 2 — Distributor</td><td><span class="badge badge-blue">Public</span></td><td>This runbook</td></tr>
+          </tbody>
+        </table>
+        <div class="callout callout-info" style="margin-top:14px;">
+          <span class="icon">ℹ️</span>
+          <span>All output files must be written to <code>sbom_output/</code> during generation, then moved to the appropriate tier storage location described in Sections 3 &amp; 4.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Artifact Classification -->
+    <section id="section-2">
+      <div class="section-title"><span class="section-number">2</span><h2>Artifact Classification Policy</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">
+          Every artifact must carry an explicit classification label. Use these definitions
+          consistently across all storage, transmission, and audit records.
+        </p>
+        <table>
+          <thead><tr><th>Label</th><th>Definition</th><th>Sharing Permitted</th><th>Encryption Required</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-secret">Secret</span></td>
+              <td>Cryptographic key material. Exposure compromises all signed artifacts.</td>
+              <td>Never. Local system only.</td>
+              <td>Yes — at rest &amp; never transmitted</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-high">Confidential</span></td>
+              <td>Contains vulnerability data, internal component details, or proprietary info.</td>
+              <td>Client only via encrypted channel.</td>
+              <td>Yes — at rest &amp; in transit</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-med">TLP:AMBER</span></td>
+              <td>Restricted to client organisation. Not for further redistribution.</td>
+              <td>Client organisation only.</td>
+              <td>Yes — in transit</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-orange">Internal</span></td>
+              <td>Organisation-only records. Not for client delivery.</td>
+              <td>Internal staff with need-to-know.</td>
+              <td>Yes — at rest</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-low">Public</span></td>
+              <td>Non-sensitive. Safe for open distribution.</td>
+              <td>Anyone via HTTPS with integrity checksum.</td>
+              <td>No — but must be checksummed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3. Storage Tiers -->
+    <section id="section-3">
+      <div class="section-title"><span class="section-number">3</span><h2>Storage Tiers</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:18px;">
+          Three storage tiers are defined. Each artifact must be placed in exactly one tier.
+          Tier assignment is permanent — files must not be moved to a lower tier.
+        </p>
+        <div class="tier-grid">
+          <div class="tier-card tier-1">
+            <div class="tier-label">🔴 Tier 1 — Restricted</div>
+            <p>For <strong>Secret</strong> and <strong>Confidential</strong> artifacts. RBAC-locked directory, access-logged, encrypted at rest. No public read permissions under any circumstance.</p>
+          </div>
+          <div class="tier-card tier-2">
+            <div class="tier-label">🟡 Tier 2 — Internal</div>
+            <p>For <strong>TLP:AMBER</strong> and <strong>Internal</strong> artifacts. Access limited to authenticated staff. Read-only for most roles. Encrypted in transit.</p>
+          </div>
+          <div class="tier-card tier-3">
+            <div class="tier-label">🟢 Tier 3 — Public</div>
+            <p>For <strong>Public</strong> artifacts only. Served via HTTPS with a SHA-256 checksum file alongside each artifact. No sensitive data.</p>
+          </div>
+        </div>
+        <table style="margin-top:20px;">
+          <thead><tr><th>Artifact</th><th>Tier</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr><td><code>private_key.pem</code></td><td><span class="badge badge-secret">Tier 1</span></td><td>Key compromise invalidates all signatures</td></tr>
+            <tr><td><code>sbom_private.json</code></td><td><span class="badge badge-high">Tier 1</span></td><td>Contains full CVE details and internal config</td></tr>
+            <tr><td><code>sbom_enriched.json</code></td><td><span class="badge badge-high">Tier 1</span></td><td>Pre-split master — not for client delivery</td></tr>
+            <tr><td><code>vex.json</code></td><td><span class="badge badge-high">Tier 1</span></td><td>Vulnerability exploitability details</td></tr>
+            <tr><td><code>internal_map.json</code></td><td><span class="badge badge-orange">Tier 2</span></td><td>Internal governance record only</td></tr>
+            <tr><td><code>csaf.json</code></td><td><span class="badge badge-med">Tier 2</span></td><td>TLP:AMBER — restricted to client org</td></tr>
+            <tr><td><code>triage.json</code></td><td><span class="badge badge-orange">Tier 2</span></td><td>Internal decision log — not for external use</td></tr>
+            <tr><td><code>sbom_public.json</code></td><td><span class="badge badge-low">Tier 3</span></td><td>Stripped of sensitive data — safe to publish</td></tr>
+            <tr><td><code>*.sig</code></td><td><span class="badge badge-low">Tier 3</span></td><td>Signature files bundled with public artifact</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. Directory Structure -->
+    <section id="section-4">
+      <div class="section-title"><span class="section-number">4</span><h2>Directory Structure</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:14px;">
+          Provision the following folder layout on the scanning environment before running
+          the toolsuite. Each folder maps to a storage tier.
+        </p>
+        <div class="code-block">
+          <pre><span class="comment"># Recommended layout — project root: c:\Study\Projects\BOM\</span>
+<span class="path">sbom_output\</span>
+<span class="path">├── restricted\</span>          <span class="comment">← Tier 1: private_key.pem, sbom_private.json, sbom_enriched.json, vex.json</span>
+<span class="path">├── internal\</span>            <span class="comment">← Tier 2: internal_map.json, csaf.json, triage.json</span>
+<span class="path">└── public\</span>              <span class="comment">← Tier 3: sbom_public.json, *.sig, *.sha256</span></pre>
+        </div>
+        <div class="code-block" style="margin-top:10px;">
+          <pre><span class="comment"># PowerShell — create directory structure</span>
+<span class="cmd">New-Item</span> <span class="flag">-ItemType Directory</span> <span class="flag">-Force</span> <span class="path">sbom_output\restricted</span>
+<span class="cmd">New-Item</span> <span class="flag">-ItemType Directory</span> <span class="flag">-Force</span> <span class="path">sbom_output\internal</span>
+<span class="cmd">New-Item</span> <span class="flag">-ItemType Directory</span> <span class="flag">-Force</span> <span class="path">sbom_output\public</span></pre>
+        </div>
+        <div class="code-block" style="margin-top:10px;">
+          <pre><span class="comment"># Python helper — move outputs to correct tier after generation</span>
+<span class="cmd">python</span> <span class="flag">-c</span> <span class="string">"
+import shutil, os
+
+moves = {
+    'sbom_output/sbom_private.json':  'sbom_output/restricted/',
+    'sbom_output/sbom_enriched.json': 'sbom_output/restricted/',
+    'sbom_output/vex.json':           'sbom_output/restricted/',
+    'sbom_output/internal_map.json':  'sbom_output/internal/',
+    'sbom_output/csaf.json':          'sbom_output/internal/',
+    'sbom_output/sbom_public.json':   'sbom_output/public/',
+}
+
+for src, dst in moves.items():
+    if os.path.exists(src):
+        shutil.move(src, dst)
+        print(f'[moved] {src} -> {dst}')
+    else:
+        print(f'[skip]  {src} not found')
+"</span></pre>
+        </div>
+        <div class="callout callout-warn" style="margin-top:14px;">
+          <span class="icon">⚠️</span>
+          <span>The <code>sbom_output/</code> root directory itself must be added to <code>.gitignore</code>. No generated artifacts should ever be committed to version control.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Access Controls -->
+    <section id="section-5">
+      <div class="section-title"><span class="section-number">5</span><h2>Access Controls</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">
+          Apply OS-level permissions to each tier directory immediately after creation.
+          Review and confirm permissions after every toolsuite run.
+        </p>
+
+        <p style="font-size:13px;font-weight:600;color:#64748b;margin-bottom:8px;">Windows — PowerShell (run as Administrator)</p>
+        <div class="code-block">
+          <pre><span class="comment"># ── Tier 1: Restricted — only scanning service account ────────</span>
+<span class="cmd">icacls</span> <span class="path">sbom_output\restricted</span> <span class="flag">/inheritance:r</span>
+<span class="cmd">icacls</span> <span class="path">sbom_output\restricted</span> <span class="flag">/grant:r</span> <span class="string">"$($env:USERNAME):(OI)(CI)F"</span>
+
+<span class="comment"># ── Tier 2: Internal — service account + security lead ────────</span>
+<span class="cmd">icacls</span> <span class="path">sbom_output\internal</span> <span class="flag">/inheritance:r</span>
+<span class="cmd">icacls</span> <span class="path">sbom_output\internal</span> <span class="flag">/grant:r</span> <span class="string">"$($env:USERNAME):(OI)(CI)F"</span>
+<span class="cmd">icacls</span> <span class="path">sbom_output\internal</span> <span class="flag">/grant:r</span> <span class="string">"BUILTIN\Administrators:(OI)(CI)R"</span>
+
+<span class="comment"># ── Tier 3: Public — read access for delivery group ───────────</span>
+<span class="cmd">icacls</span> <span class="path">sbom_output\public</span> <span class="flag">/grant</span> <span class="string">"Everyone:(OI)(CI)R"</span></pre>
+        </div>
+
+        <p style="font-size:13px;font-weight:600;color:#64748b;margin-top:18px;margin-bottom:8px;">Linux / macOS</p>
+        <div class="code-block">
+          <pre><span class="comment"># Tier 1 — owner only</span>
+<span class="cmd">chmod</span> <span class="flag">700</span> <span class="path">sbom_output/restricted</span>
+<span class="cmd">chmod</span> <span class="flag">600</span> <span class="path">sbom_output/restricted/*</span>
+
+<span class="comment"># Tier 2 — owner + group read</span>
+<span class="cmd">chmod</span> <span class="flag">750</span> <span class="path">sbom_output/internal</span>
+<span class="cmd">chmod</span> <span class="flag">640</span> <span class="path">sbom_output/internal/*</span>
+
+<span class="comment"># Tier 3 — world-readable</span>
+<span class="cmd">chmod</span> <span class="flag">755</span> <span class="path">sbom_output/public</span>
+<span class="cmd">chmod</span> <span class="flag">644</span> <span class="path">sbom_output/public/*</span></pre>
+        </div>
+
+        <p style="font-size:13px;font-weight:600;color:#64748b;margin-top:20px;margin-bottom:10px;">Role-Based Access Summary</p>
+        <table>
+          <thead><tr><th>Role</th><th>Tier 1 Restricted</th><th>Tier 2 Internal</th><th>Tier 3 Public</th></tr></thead>
+          <tbody>
+            <tr><td>Security &amp; Governance Lead (TM1)</td><td><span class="badge badge-secret">Read / Write</span></td><td><span class="badge badge-high">Read / Write</span></td><td><span class="badge badge-low">Read / Write</span></td></tr>
+            <tr><td>Tooling Engineer (TM2)</td><td><span class="badge badge-gray">No Access</span></td><td><span class="badge badge-gray">No Access</span></td><td><span class="badge badge-low">Read / Write</span></td></tr>
+            <tr><td>Compliance Specialist (TM3)</td><td><span class="badge badge-gray">No Access</span></td><td><span class="badge badge-med">Read Only</span></td><td><span class="badge badge-low">Read / Write</span></td></tr>
+            <tr><td>Legal / Audit</td><td><span class="badge badge-gray">No Access</span></td><td><span class="badge badge-med">Read Only</span></td><td><span class="badge badge-low">Read Only</span></td></tr>
+            <tr><td>Client</td><td><span class="badge badge-gray">No Access</span></td><td><span class="badge badge-gray">No Access</span></td><td><span class="badge badge-low">Read Only</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6. Encryption at Rest -->
+    <section id="section-6">
+      <div class="section-title"><span class="section-number">6</span><h2>Encryption at Rest</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">
+          Tier 1 and Tier 2 artifacts must be encrypted at rest. Choose the method appropriate
+          to your environment.
+        </p>
+        <table>
+          <thead><tr><th>Method</th><th>Platform</th><th>Tier Coverage</th><th>Steps</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>BitLocker</strong></td>
+              <td>Windows</td>
+              <td>Tier 1 &amp; 2</td>
+              <td>Enable BitLocker on the drive or volume hosting <code>sbom_output\restricted</code> and <code>sbom_output\internal</code>. Escrow recovery key to a secure vault.</td>
+            </tr>
+            <tr>
+              <td><strong>LUKS</strong></td>
+              <td>Linux</td>
+              <td>Tier 1 &amp; 2</td>
+              <td>Mount <code>sbom_output/restricted</code> on a LUKS-encrypted volume. Key stored in HSM or <code>systemd-creds</code>.</td>
+            </tr>
+            <tr>
+              <td><strong>File-level AES-256</strong></td>
+              <td>Any</td>
+              <td>Tier 1 only</td>
+              <td>Encrypt individual Tier 1 files with AES-256-GCM using the script below. Suitable when full-disk encryption is not available.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="code-block" style="margin-top:14px;">
+          <pre><span class="comment"># File-level AES-256-GCM encryption (Python) — for Tier 1 files</span>
+<span class="cmd">pip install</span> <span class="flag">cryptography</span>
+
+<span class="cmd">python</span> <span class="flag">-c</span> <span class="string">"
+import os, sys
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+def encrypt_file(src, passphrase: bytes):
+    key  = passphrase[:32].ljust(32, b'0')   # 256-bit key
+    aesgcm = AESGCM(key)
+    nonce  = os.urandom(12)
+    with open(src, 'rb') as f: data = f.read()
+    ct = aesgcm.encrypt(nonce, data, None)
+    with open(src + '.enc', 'wb') as f: f.write(nonce + ct)
+    os.remove(src)
+    print(f'[encrypted] {src} -> {src}.enc')
+
+PASSPHRASE = os.environ.get('SBOM_ENC_KEY', '').encode()
+if not PASSPHRASE:
+    print('ERROR: set SBOM_ENC_KEY env variable first.'); sys.exit(1)
+
+for fname in ['sbom_output/restricted/sbom_private.json',
+              'sbom_output/restricted/vex.json',
+              'sbom_output/restricted/sbom_enriched.json']:
+    if os.path.exists(fname):
+        encrypt_file(fname, PASSPHRASE)
+"</span></pre>
+        </div>
+        <div class="callout callout-danger" style="margin-top:14px;">
+          <span class="icon">🚫</span>
+          <span>The encryption passphrase (<code>SBOM_ENC_KEY</code>) must never be stored in any file, script, or environment config file committed to git. Use a secrets manager, HSM, or OS keychain.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Secure Transmission -->
+    <section id="section-7">
+      <div class="section-title"><span class="section-number">7</span><h2>Secure Transmission to Client</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">
+          Artifacts must only leave the secure storage environment using approved transmission
+          methods. Match each artifact to its permitted channel.
+        </p>
+        <table>
+          <thead><tr><th>Artifact</th><th>Permitted Channel</th><th>Required Accompaniment</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>sbom_public.json</code></td>
+              <td>HTTPS download link</td>
+              <td><code>sbom_public.json.sha256</code> checksum file + <code>sbom_public.json.sig</code></td>
+            </tr>
+            <tr>
+              <td><code>sbom_private.json</code></td>
+              <td>Encrypted email (S/MIME or PGP) or SFTP to client-provided endpoint</td>
+              <td><code>sbom_private.json.sig</code> signature file</td>
+            </tr>
+            <tr>
+              <td><code>vex.json</code></td>
+              <td>Encrypted email or authenticated HTTPS portal only</td>
+              <td>Cover note referencing VEX statuses and CSAF tracking ID</td>
+            </tr>
+            <tr>
+              <td><code>csaf.json</code></td>
+              <td>Authenticated HTTPS portal (TLP:AMBER)</td>
+              <td>TLP label explicitly stated in delivery message</td>
+            </tr>
+            <tr>
+              <td><code>private_key.pem</code></td>
+              <td><strong>Never transmitted</strong></td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p style="font-size:13px;font-weight:600;color:#64748b;margin:18px 0 8px;">Generate SHA-256 Checksum for Public Artifacts</p>
+        <div class="code-block">
+          <pre><span class="comment"># PowerShell — generate checksum for public SBOM</span>
+<span class="cmd">$hash</span> = <span class="cmd">Get-FileHash</span> <span class="path">sbom_output\public\sbom_public.json</span> <span class="flag">-Algorithm SHA256</span>
+<span class="cmd">$hash.Hash</span> + <span class="string">"  sbom_public.json"</span> | <span class="cmd">Out-File</span> <span class="path">sbom_output\public\sbom_public.json.sha256</span> <span class="flag">-Encoding ASCII</span>
+<span class="cmd">Write-Host</span> <span class="string">"[OK] Checksum written: $($hash.Hash)"</span></pre>
+        </div>
+        <div class="code-block" style="margin-top:10px;">
+          <pre><span class="comment"># Linux — generate checksum</span>
+<span class="cmd">sha256sum</span> <span class="path">sbom_output/public/sbom_public.json</span> <span class="flag">&gt;</span> <span class="path">sbom_output/public/sbom_public.json.sha256</span></pre>
+        </div>
+        <div class="callout callout-info" style="margin-top:14px;">
+          <span class="icon">ℹ️</span>
+          <span>Instruct the client to verify the checksum before importing the SBOM into their tooling:
+          <code>sha256sum -c sbom_public.json.sha256</code></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Retention & Archival -->
+    <section id="section-8">
+      <div class="section-title"><span class="section-number">8</span><h2>Retention &amp; Archival Policy</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">
+          All artifacts must be retained for the periods below in accordance with
+          CERT-In Technical Guidelines and standard audit requirements.
+        </p>
+        <table>
+          <thead><tr><th>Artifact</th><th>Minimum Retention</th><th>Archival Format</th><th>Deletion Rule</th></tr></thead>
+          <tbody>
+            <tr><td><code>sbom_private.json</code></td><td>3 years</td><td>Timestamped archive in Tier 1 vault</td><td>Secure wipe — overwrite before delete</td></tr>
+            <tr><td><code>sbom_public.json</code></td><td>3 years</td><td>Versioned HTTPS storage</td><td>Standard delete permitted</td></tr>
+            <tr><td><code>vex.json</code></td><td>3 years</td><td>Alongside private SBOM archive</td><td>Secure wipe</td></tr>
+            <tr><td><code>csaf.json</code></td><td>3 years</td><td>Internal advisory archive</td><td>Standard delete permitted</td></tr>
+            <tr><td><code>internal_map.json</code></td><td>3 years</td><td>Timestamped in Tier 2 vault</td><td>Standard delete permitted</td></tr>
+            <tr><td><code>triage.json</code></td><td>3 years</td><td>Alongside VEX archive</td><td>Standard delete permitted</td></tr>
+            <tr><td><code>private_key.pem</code></td><td>Active use period only</td><td>Never archived — rotate annually</td><td>Secure wipe immediately on rotation</td></tr>
+          </tbody>
+        </table>
+        <div class="code-block" style="margin-top:16px;">
+          <pre><span class="comment"># PowerShell — archive with build timestamp (run after every scan)</span>
+<span class="cmd">$ts</span>  = <span class="string">(Get-Date -Format "yyyyMMdd_HHmmss")</span>
+<span class="cmd">$dst</span> = <span class="string">"sbom_output\archive\$ts"</span>
+<span class="cmd">New-Item</span> <span class="flag">-ItemType Directory</span> <span class="flag">-Force</span> <span class="path">$dst</span>
+<span class="cmd">Copy-Item</span> <span class="path">sbom_output\restricted\*</span> <span class="path">$dst</span>
+<span class="cmd">Copy-Item</span> <span class="path">sbom_output\internal\*</span>   <span class="path">$dst</span>
+<span class="cmd">Copy-Item</span> <span class="path">sbom_output\public\*</span>     <span class="path">$dst</span>
+<span class="cmd">Write-Host</span> <span class="string">"[OK] Build archived to $dst"</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Audit Logging -->
+    <section id="section-9">
+      <div class="section-title"><span class="section-number">9</span><h2>Audit Logging</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">
+          Every access, generation, move, and transmission of Tier 1 and Tier 2 artifacts
+          must be logged. The log is itself a Tier 2 artifact.
+        </p>
+        <p style="font-size:13px;font-weight:600;color:#64748b;margin-bottom:8px;">Minimum Required Log Fields</p>
+        <table>
+          <thead><tr><th>Field</th><th>Example Value</th></tr></thead>
+          <tbody>
+            <tr><td><code>timestamp</code></td><td><code>2026-06-25T10:32:11Z</code></td></tr>
+            <tr><td><code>actor</code></td><td>Username or service account name</td></tr>
+            <tr><td><code>action</code></td><td><code>generated</code> / <code>moved</code> / <code>transmitted</code> / <code>accessed</code> / <code>deleted</code></td></tr>
+            <tr><td><code>artifact</code></td><td><code>sbom_private.json</code></td></tr>
+            <tr><td><code>destination</code></td><td><code>sbom_output/restricted/</code> or <code>client-portal</code></td></tr>
+            <tr><td><code>checksum</code></td><td>SHA-256 of the file at time of action</td></tr>
+          </tbody>
+        </table>
+        <div class="code-block" style="margin-top:16px;">
+          <pre><span class="comment"># audit_log.py — append an audit entry (call from any toolsuite script)</span>
+<span class="key">import</span> json, datetime, hashlib, os, getpass
+
+<span class="key">def</span> log_action(artifact_path: str, action: str, destination: str = <span class="string">""</span>):
+    log_file = <span class="string">"sbom_output/internal/audit_log.jsonl"</span>
+    checksum = <span class="string">""</span>
+    <span class="key">if</span> os.path.exists(artifact_path):
+        <span class="key">with</span> open(artifact_path, <span class="string">"rb"</span>) <span class="key">as</span> f:
+            checksum = hashlib.sha256(f.read()).hexdigest()
+    entry = {
+        <span class="string">"timestamp"</span>:   datetime.datetime.utcnow().isoformat() + <span class="string">"Z"</span>,
+        <span class="string">"actor"</span>:       getpass.getuser(),
+        <span class="string">"action"</span>:      action,
+        <span class="string">"artifact"</span>:    os.path.basename(artifact_path),
+        <span class="string">"destination"</span>: destination,
+        <span class="string">"checksum"</span>:    checksum
+    }
+    os.makedirs(os.path.dirname(log_file), exist_ok=<span class="flag">True</span>)
+    <span class="key">with</span> open(log_file, <span class="string">"a"</span>) <span class="key">as</span> f:
+        f.write(json.dumps(entry) + <span class="string">"\n"</span>)
+
+<span class="comment"># Usage example</span>
+log_action(<span class="string">"sbom_output/restricted/sbom_private.json"</span>, <span class="string">"generated"</span>, <span class="string">"sbom_output/restricted/"</span>)
+log_action(<span class="string">"sbom_output/public/sbom_public.json"</span>, <span class="string">"transmitted"</span>, <span class="string">"client-portal"</span>)</pre>
+        </div>
+        <div class="callout callout-info" style="margin-top:14px;">
+          <span class="icon">ℹ️</span>
+          <span><code>audit_log.jsonl</code> uses newline-delimited JSON (one entry per line) for easy parsing and appending without rewriting the whole file.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Integrity Verification -->
+    <section id="section-10">
+      <div class="section-title"><span class="section-number">10</span><h2>Integrity Verification</h2></div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:14px;">
+          Run this script before any client delivery to confirm that all artifacts match
+          their recorded checksums and that no files have been tampered with since generation.
+        </p>
+        <div class="code-block">
+          <pre><span class="cmd">python</span> <span class="flag">-c</span> <span class="string">"
+import hashlib, os, sys
+
+def sha256(path):
+    with open(path, 'rb') as f: return hashlib.sha256(f.read()).hexdigest()
+
+checks = [
+    ('sbom_output/public/sbom_public.json',
+     'sbom_output/public/sbom_public.json.sha256'),
+]
+
+errors = []
+for artifact, checksum_file in checks:
+    if not os.path.exists(artifact):
+        errors.append(f'MISSING: {artifact}'); continue
+    if not os.path.exists(checksum_file):
+        errors.append(f'MISSING CHECKSUM: {checksum_file}'); continue
+    with open(checksum_file) as f:
+        expected = f.read().split()[0].strip()
+    actual = sha256(artifact)
+    if actual != expected:
+        errors.append(f'TAMPERED: {artifact}')
+        errors.append(f'  expected: {expected}')
+        errors.append(f'  actual  : {actual}')
+    else:
+        print(f'[OK] {os.path.basename(artifact)} — checksum verified')
+
+if errors:
+    print('\nINTEGRITY CHECK FAILED:')
+    for e in errors: print(f'  !! {e}')
+    sys.exit(1)
+else:
+    print('[OK] All artifacts passed integrity verification.')
+"</span></pre>
+        </div>
+        <div class="callout callout-ok" style="margin-top:14px;">
+          <span class="icon">✅</span>
+          <span>Expected: <strong>[OK] All artifacts passed integrity verification.</strong><br>
+          Any <code>TAMPERED</code> result must be investigated immediately — do not deliver the artifact to the client.</span>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- 11. Completion Checklist -->
+    <section id="section-11">
+      <div class="section-title"><span class="section-number">11</span><h2>Completion Checklist</h2></div>
+      <div class="card">
+        <ul class="checklist">
+          <li>All artifacts classified with a label from the policy table (Section 2)</li>
+          <li>Three-tier directory structure provisioned: <code>restricted/</code>, <code>internal/</code>, <code>public/</code></li>
+          <li>OS-level permissions applied to all three tier directories (Section 5)</li>
+          <li>Tier 1 and Tier 2 directories confirmed not world-readable</li>
+          <li>All generated artifacts moved to their correct tier folder</li>
+          <li><code>sbom_output/</code> added to <code>.gitignore</code> — confirmed not tracked by git</li>
+          <li>Encryption at rest enabled for Tier 1 (BitLocker / LUKS / file-level AES-256)</li>
+          <li>SHA-256 checksum generated for <code>sbom_public.json</code> and stored alongside it</li>
+          <li>ECDSA signatures (<code>.sig</code> files) present in <code>public/</code> for all signed artifacts</li>
+          <li>Transmission channel confirmed for each artifact (HTTPS / encrypted email / SFTP)</li>
+          <li><code>private_key.pem</code> confirmed: local only, not in any transmission log</li>
+          <li>All artifact movements logged in <code>audit_log.jsonl</code></li>
+          <li>Integrity verification script passed before client delivery</li>
+          <li>Build archive created in <code>sbom_output/archive/</code> with timestamp</li>
+          <li>CERT-In 3-year retention policy confirmed for all Confidential artifacts</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Team Member 1 — Security &amp; Governance Lead &nbsp;·&nbsp;
+      BOMB-AE &nbsp;·&nbsp; Secure Storage Guidelines &nbsp;·&nbsp;
+      CycloneDX JSON &nbsp;·&nbsp; CERT-In Technical Guidelines v2.0 &nbsp;·&nbsp;
+      Antigravity AI
+    </footer>
+
+  </div><!-- .page -->
+</div><!-- .container -->
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-link');
+  function setActive() {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', setActive);
+  window.addEventListener('load', setActive);
+</script>
+</body>
+</html>

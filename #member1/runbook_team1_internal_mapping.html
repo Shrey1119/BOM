@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Member 1 — Internal Mapping Compilation Runbook</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f5f6fa; color: #1a1d23; line-height: 1.7; font-size: 15px;
+    }
+    html { scroll-behavior: smooth; }
+    section { scroll-margin-top: 24px; }
+    .container { display: flex; min-height: 100vh; }
+    .sidebar {
+      width: 272px; background: #0f172a; color: #e2e8f0;
+      padding: 32px 0; position: sticky; top: 0; height: 100vh;
+      overflow-y: auto; flex-shrink: 0;
+    }
+    .sidebar::-webkit-scrollbar { width: 5px; }
+    .sidebar::-webkit-scrollbar-track { background: #0f172a; }
+    .sidebar::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+    .sidebar-header { padding: 0 24px 24px; border-bottom: 1px solid #1e293b; margin-bottom: 20px; }
+    .sidebar-header .badge-role {
+      display: inline-block; background: #0d9488; color: #fff;
+      font-size: 10px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-bottom: 10px;
+    }
+    .sidebar-header h3 { font-size: 14px; font-weight: 600; color: #f1f5f9; line-height: 1.45; }
+    .nav-list { list-style: none; }
+    .nav-item  { margin-bottom: 2px; }
+    .nav-link {
+      display: flex; align-items: center; gap: 12px; padding: 10px 24px;
+      color: #94a3b8; text-decoration: none; font-size: 13px;
+      transition: all .15s ease; border-left: 3px solid transparent;
+    }
+    .nav-link:hover { background: #1e293b; color: #f1f5f9; border-left-color: #2dd4bf; }
+    .nav-link.active { background: #1e293b; color: #fff; border-left-color: #0d9488; font-weight: 600; }
+    .nav-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%; background: #1e293b;
+      color: #64748b; font-size: 11px; font-weight: 700; flex-shrink: 0;
+    }
+    .nav-link:hover .nav-number, .nav-link.active .nav-number { background: #0d9488; color: #fff; }
+    .page { flex: 1; max-width: 900px; margin: 0 auto; padding: 48px 48px 80px; }
+    header { border-left: 4px solid #0d9488; padding: 4px 0 4px 20px; margin-bottom: 48px; }
+    header .role { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #0d9488; margin-bottom: 6px; }
+    header h1 { font-size: 26px; font-weight: 700; color: #0f172a; }
+    header p  { margin-top: 8px; color: #64748b; font-size: 14px; }
+    section { margin-bottom: 40px; }
+    .section-title { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .section-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 50%; background: #0d9488;
+      color: #fff; font-size: 13px; font-weight: 700; flex-shrink: 0;
+    }
+    .section-title h2 { font-size: 17px; font-weight: 600; color: #0f172a; }
+    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px 28px; }
+    .code-block {
+      background: #0f172a; border-radius: 8px; padding: 16px 20px;
+      margin-top: 10px; overflow-x: auto;
+    }
+    .code-block pre {
+      font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+      font-size: 13px; color: #e2e8f0; white-space: pre; line-height: 1.65;
+    }
+    .code-block .comment { color: #475569; }
+    .code-block .cmd     { color: #7dd3fc; }
+    .code-block .flag    { color: #a5f3fc; }
+    .code-block .path    { color: #86efac; }
+    .code-block .string  { color: #fde68a; }
+    .code-block .key     { color: #f9a8d4; }
+    code {
+      background: #f1f5f9; color: #0f766e; padding: 2px 6px; border-radius: 4px;
+      font-size: 13px; font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+    }
+    .callout {
+      border-radius: 8px; padding: 13px 18px; font-size: 13.5px;
+      display: flex; gap: 12px; align-items: flex-start; margin-top: 12px;
+    }
+    .callout-warn { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
+    .callout-info { background: #f0fdfa; border: 1px solid #99f6e4; color: #134e4a; }
+    .callout-ok   { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+    .callout .icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    th {
+      background: #f8fafc; text-align: left; padding: 9px 14px;
+      font-weight: 600; color: #475569; border-bottom: 2px solid #e2e8f0;
+      font-size: 11.5px; letter-spacing: .04em; text-transform: uppercase;
+    }
+    td { padding: 9px 14px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+    tr:last-child td { border-bottom: none; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: .04em; }
+    .badge-high  { background: #fee2e2; color: #991b1b; }
+    .badge-med   { background: #fef3c7; color: #92400e; }
+    .badge-low   { background: #dcfce7; color: #166534; }
+    .badge-teal  { background: #ccfbf1; color: #0f766e; }
+    .badge-blue  { background: #dbeafe; color: #1d4ed8; }
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #334155; }
+    .checklist li::before { content: "☐"; color: #94a3b8; font-size: 16px; flex-shrink: 0; margin-top: -1px; }
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 36px 0; }
+    footer { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 56px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- ── SIDEBAR ─────────────────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="badge-role">Team Member 1</div>
+      <h3>Security &amp; Governance Lead</h3>
+    </div>
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#section-1" class="nav-link"><span class="nav-number">1</span><span>Overview</span></a></li>
+        <li class="nav-item"><a href="#section-2" class="nav-link"><span class="nav-number">2</span><span>Prerequisites</span></a></li>
+        <li class="nav-item"><a href="#section-3" class="nav-link"><span class="nav-number">3</span><span>The 21 Attributes</span></a></li>
+        <li class="nav-item"><a href="#section-4" class="nav-link"><span class="nav-number">4</span><span>Collect SBOM Data</span></a></li>
+        <li class="nav-item"><a href="#section-5" class="nav-link"><span class="nav-number">5</span><span>Build the Map</span></a></li>
+        <li class="nav-item"><a href="#section-6" class="nav-link"><span class="nav-number">6</span><span>Classify &amp; Tag</span></a></li>
+        <li class="nav-item"><a href="#section-7" class="nav-link"><span class="nav-number">7</span><span>Generate Report</span></a></li>
+        <li class="nav-item"><a href="#section-8" class="nav-link"><span class="nav-number">8</span><span>Validate &amp; Store</span></a></li>
+        <li class="nav-item"><a href="#section-9" class="nav-link"><span class="nav-number">9</span><span>Completion Checklist</span></a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- ── MAIN CONTENT ────────────────────────────────────── -->
+  <div class="page">
+
+    <header>
+      <div class="role">Team Member 1 · Security &amp; Governance Lead</div>
+      <h1>Internal Mapping Compilation Runbook</h1>
+      <p>Step-by-step guide for building and maintaining the organization's internal component
+         map — tracking active components, their lifecycle status, ownership, and compliance
+         flags across the current build. CycloneDX JSON · CERT-In v2.0.</p>
+    </header>
+
+    <!-- 1. Overview -->
+    <section id="section-1">
+      <div class="section-title">
+        <span class="section-number">1</span>
+        <h2>Overview &amp; Purpose</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:18px;">
+          The internal mapping is a structured, version-controlled record that your organization
+          maintains independently of the client-facing SBOM. It answers the question:
+          <em>"What exactly is in this build, and do we fully own and understand it?"</em>
+        </p>
+        <table>
+          <thead><tr><th>Input</th><th>Output</th><th>Owner</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Enriched SBOM from Team Member 3 (<code>sbom_enriched.json</code>)</td>
+              <td>Internal component map (<code>internal_map.json</code>)</td>
+              <td>Team Member 1</td>
+            </tr>
+            <tr>
+              <td><code>sbom_toolsuite/config.json</code> (criticality / origin overrides)</td>
+              <td>Usage &amp; risk classification per component</td>
+              <td>Team Member 1</td>
+            </tr>
+            <tr>
+              <td>VEX document (<code>vex.json</code>)</td>
+              <td>Vulnerability exposure status cross-referenced in the map</td>
+              <td>Team Member 1</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout callout-info" style="margin-top:14px;">
+          <span class="icon">ℹ️</span>
+          <span>The internal map is <strong>never shared with the client</strong>. It is an internal governance artifact for audit, legal, and security review only.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Prerequisites -->
+    <section id="section-2">
+      <div class="section-title">
+        <span class="section-number">2</span>
+        <h2>Prerequisites</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">Confirm the following artifacts and tools are ready before starting.</p>
+        <table>
+          <thead><tr><th>Item</th><th>Source</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><code>sbom_enriched.json</code></td><td>Team Member 3 output</td><td><span class="badge badge-high">Must have</span></td></tr>
+            <tr><td><code>vex.json</code></td><td>Generated by Team Member 1 (VEX step)</td><td><span class="badge badge-high">Must have</span></td></tr>
+            <tr><td><code>sbom_toolsuite/config.json</code></td><td>Project root</td><td><span class="badge badge-high">Must have</span></td></tr>
+            <tr><td>Python 3.10+</td><td>Scanning environment</td><td><span class="badge badge-blue">Required</span></td></tr>
+            <tr><td><code>jq</code> (optional)</td><td>CLI JSON processor for quick inspection</td><td><span class="badge badge-med">Recommended</span></td></tr>
+          </tbody>
+        </table>
+        <div class="code-block" style="margin-top:16px;">
+          <pre><span class="comment"># Confirm enriched SBOM exists and is valid JSON</span>
+<span class="cmd">python</span> <span class="flag">-m json.tool</span> <span class="path">sbom_output/sbom_enriched.json</span> <span class="flag">&gt; nul</span> <span class="comment">&amp;&amp; echo [OK]</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. The 21 Attributes -->
+    <section id="section-3">
+      <div class="section-title">
+        <span class="section-number">3</span>
+        <h2>The 21 Client Attributes — Reference Table</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">
+          Each component in the internal map must record these fields. Fields marked
+          <span class="badge badge-high">Critical</span> are required for compliance; others are
+          best-effort enriched.
+        </p>
+        <table>
+          <thead><tr><th>#</th><th>Attribute</th><th>CycloneDX Field</th><th>Priority</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Component Name</td><td><code>components[].name</code></td><td><span class="badge badge-high">Critical</span></td></tr>
+            <tr><td>2</td><td>Version</td><td><code>components[].version</code></td><td><span class="badge badge-high">Critical</span></td></tr>
+            <tr><td>3</td><td>Component Type</td><td><code>components[].type</code></td><td><span class="badge badge-high">Critical</span></td></tr>
+            <tr><td>4</td><td>Supplier / Publisher</td><td><code>components[].supplier.name</code></td><td><span class="badge badge-high">Critical</span></td></tr>
+            <tr><td>5</td><td>License</td><td><code>components[].licenses[].license.id</code></td><td><span class="badge badge-high">Critical</span></td></tr>
+            <tr><td>6</td><td>Description</td><td><code>components[].description</code></td><td><span class="badge badge-med">Standard</span></td></tr>
+            <tr><td>7</td><td>Checksum / Hash</td><td><code>components[].hashes[]</code></td><td><span class="badge badge-high">Critical</span></td></tr>
+            <tr><td>8</td><td>Known Vulnerabilities (CVEs)</td><td><code>vulnerabilities[].id</code></td><td><span class="badge badge-high">Critical</span></td></tr>
+            <tr><td>9</td><td>Dependency Relationships</td><td><code>dependencies[]</code></td><td><span class="badge badge-high">Critical</span></td></tr>
+            <tr><td>10</td><td>Release Date</td><td><code>components[].releaseNotes.timestamp</code></td><td><span class="badge badge-med">Standard</span></td></tr>
+            <tr><td>11</td><td>End-of-Life (EOL) Date</td><td><code>components[].properties[] (eol_date)</code></td><td><span class="badge badge-high">Critical</span></td></tr>
+            <tr><td>12</td><td>Criticality</td><td><code>components[].properties[] (criticality)</code></td><td><span class="badge badge-high">Critical</span></td></tr>
+            <tr><td>13</td><td>Origin</td><td><code>components[].properties[] (origin)</code></td><td><span class="badge badge-med">Standard</span></td></tr>
+            <tr><td>14</td><td>Download / Source URL</td><td><code>components[].externalReferences[]</code></td><td><span class="badge badge-med">Standard</span></td></tr>
+            <tr><td>15</td><td>Usage Restrictions</td><td><code>components[].properties[] (usage_restrictions)</code></td><td><span class="badge badge-high">Critical</span></td></tr>
+            <tr><td>16</td><td>Author of SBOM Data</td><td><code>metadata.authors[]</code></td><td><span class="badge badge-med">Standard</span></td></tr>
+            <tr><td>17</td><td>SBOM Timestamp</td><td><code>metadata.timestamp</code></td><td><span class="badge badge-high">Critical</span></td></tr>
+            <tr><td>18</td><td>Executable / Binary Flag</td><td><code>components[].properties[] (is_executable)</code></td><td><span class="badge badge-low">Optional</span></td></tr>
+            <tr><td>19</td><td>Archive / Package Flag</td><td><code>components[].properties[] (is_archive)</code></td><td><span class="badge badge-low">Optional</span></td></tr>
+            <tr><td>20</td><td>Internal Comments</td><td><code>components[].properties[] (comments)</code></td><td><span class="badge badge-low">Optional</span></td></tr>
+            <tr><td>21</td><td>Unique Identifier (PURL)</td><td><code>components[].purl</code></td><td><span class="badge badge-high">Critical</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. Collect SBOM Data -->
+    <section id="section-4">
+      <div class="section-title">
+        <span class="section-number">4</span>
+        <h2>Collect &amp; Inspect SBOM Data</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:14px;">
+          Load the enriched SBOM and do a quick field-coverage check before building the map.
+          This confirms Team Member 3's enrichment ran successfully.
+        </p>
+        <div class="code-block">
+          <pre><span class="comment"># inspect_sbom.py — run from project root</span>
+<span class="cmd">python</span> <span class="flag">-c</span> <span class="string">"
+import json, sys
+
+with open('sbom_output/sbom_enriched.json') as f:
+    sbom = json.load(f)
+
+components = sbom.get('components', [])
+print(f'Total components : {len(components)}')
+
+REQUIRED = ['name', 'version', 'purl', 'licenses', 'hashes']
+missing  = {k: 0 for k in REQUIRED}
+
+for c in components:
+    for field in REQUIRED:
+        if not c.get(field):
+            missing[field] += 1
+
+print('\nMissing field counts:')
+for field, count in missing.items():
+    status = '[OK]' if count == 0 else '[!!]'
+    print(f'  {status}  {field}: {count} missing')
+"</span></pre>
+        </div>
+        <div class="callout callout-warn" style="margin-top:14px;">
+          <span class="icon">⚠️</span>
+          <span>If any critical field shows missing count &gt; 0, notify Team Member 3 to re-run the enricher before proceeding.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Build the Map -->
+    <section id="section-5">
+      <div class="section-title">
+        <span class="section-number">5</span>
+        <h2>Build the Internal Component Map</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:14px;">
+          The script below reads the enriched SBOM, merges config overrides, cross-references
+          the VEX document, and writes <code>sbom_output/internal_map.json</code>.
+        </p>
+        <div class="code-block">
+          <pre><span class="comment"># build_internal_map.py — save to sbom_toolsuite/ then run from project root</span>
+<span class="cmd">python</span> <span class="path">sbom_toolsuite/build_internal_map.py</span></pre>
+        </div>
+        <div class="code-block" style="margin-top:10px;">
+          <pre><span class="comment"># ── sbom_toolsuite/build_internal_map.py ──────────────────────</span>
+<span class="key">import</span> json, datetime, os
+
+<span class="comment"># Paths</span>
+ENRICHED = <span class="string">'sbom_output/sbom_enriched.json'</span>
+VEX      = <span class="string">'sbom_output/vex.json'</span>
+CONFIG   = <span class="string">'sbom_toolsuite/config.json'</span>
+OUTPUT   = <span class="string">'sbom_output/internal_map.json'</span>
+
+os.makedirs(<span class="string">'sbom_output'</span>, exist_ok=<span class="flag">True</span>)
+
+<span class="key">with</span> open(ENRICHED) <span class="key">as</span> f: sbom   = json.load(f)
+<span class="key">with</span> open(CONFIG)   <span class="key">as</span> f: config = json.load(f)
+
+<span class="comment"># Load VEX vulnerability statuses (keyed by CVE id)</span>
+vex_status = {}
+<span class="key">if</span> os.path.exists(VEX):
+    <span class="key">with</span> open(VEX) <span class="key">as</span> f: vex = json.load(f)
+    <span class="key">for</span> v <span class="key">in</span> vex.get(<span class="string">'vulnerabilities'</span>, []):
+        vex_status[v[<span class="string">'id'</span>]] = v.get(<span class="string">'analysis'</span>, {}).get(<span class="string">'state'</span>, <span class="string">'unknown'</span>)
+
+components = sbom.get(<span class="string">'components'</span>, [])
+crit_map   = config.get(<span class="string">'criticality_overrides'</span>, {})
+origin_map = config.get(<span class="string">'origin_overrides'</span>, {})
+restr_map  = config.get(<span class="string">'usage_restrictions_overrides'</span>, {})
+comments   = config.get(<span class="string">'comments'</span>, {})
+
+internal_map = {
+    <span class="string">"generated_at"</span>: datetime.datetime.utcnow().isoformat() + <span class="string">"Z"</span>,
+    <span class="string">"author"</span>: config.get(<span class="string">"author"</span>),
+    <span class="string">"organization"</span>: config.get(<span class="string">"organization"</span>),
+    <span class="string">"total_components"</span>: len(components),
+    <span class="string">"components"</span>: []
+}
+
+<span class="key">for</span> c <span class="key">in</span> components:
+    name = c.get(<span class="string">'name'</span>, <span class="string">''</span>).lower()
+    props = {p[<span class="string">'name'</span>]: p.get(<span class="string">'value'</span>) <span class="key">for</span> p <span class="key">in</span> c.get(<span class="string">'properties'</span>, [])}
+
+    <span class="comment"># Resolve CVE statuses for this component</span>
+    vulns = sbom.get(<span class="string">'vulnerabilities'</span>, [])
+    comp_cves = [
+        {<span class="string">"id"</span>: v[<span class="string">"id"</span>], <span class="string">"severity"</span>: v.get(<span class="string">"ratings"</span>,[{}])[0].get(<span class="string">"severity"</span>,<span class="string">"unknown"</span>),
+         <span class="string">"vex_status"</span>: vex_status.get(v[<span class="string">"id"</span>], <span class="string">"not_evaluated"</span>)}
+        <span class="key">for</span> v <span class="key">in</span> vulns
+        <span class="key">if</span> any(a.get(<span class="string">"ref"</span>) == c.get(<span class="string">"bom-ref"</span>) <span class="key">for</span> a <span class="key">in</span> v.get(<span class="string">"affects"</span>,[]))
+    ]
+
+    entry = {
+        <span class="string">"name"</span>:               c.get(<span class="string">'name'</span>),
+        <span class="string">"version"</span>:            c.get(<span class="string">'version'</span>),
+        <span class="string">"purl"</span>:               c.get(<span class="string">'purl'</span>),
+        <span class="string">"type"</span>:               c.get(<span class="string">'type'</span>, <span class="string">'library'</span>),
+        <span class="string">"supplier"</span>:           c.get(<span class="string">'supplier'</span>, {}).get(<span class="string">'name'</span>, <span class="string">'unknown'</span>),
+        <span class="string">"license"</span>:            <span class="string">', '</span>.join(l.get(<span class="string">'license'</span>,{}).get(<span class="string">'id'</span>,<span class="string">'unknown'</span>) <span class="key">for</span> l <span class="key">in</span> c.get(<span class="string">'licenses'</span>,[])),
+        <span class="string">"criticality"</span>:        crit_map.get(name, config.get(<span class="string">'default_criticality'</span>, <span class="string">'medium'</span>)),
+        <span class="string">"origin"</span>:             origin_map.get(name, config.get(<span class="string">'default_origin'</span>, <span class="string">'open-source'</span>)),
+        <span class="string">"usage_restrictions"</span>: restr_map.get(name, config.get(<span class="string">'default_usage_restrictions'</span>, <span class="string">'None'</span>)),
+        <span class="string">"eol_date"</span>:           props.get(<span class="string">'eol_date'</span>, <span class="string">'unknown'</span>),
+        <span class="string">"release_date"</span>:       props.get(<span class="string">'release_date'</span>, <span class="string">'unknown'</span>),
+        <span class="string">"internal_comment"</span>:   comments.get(name, <span class="string">''</span>),
+        <span class="string">"cve_exposure"</span>:       comp_cves,
+        <span class="string">"active_in_build"</span>:    <span class="flag">True</span>
+    }
+    internal_map[<span class="string">"components"</span>].append(entry)
+
+<span class="key">with</span> open(OUTPUT, <span class="string">'w'</span>) <span class="key">as</span> f:
+    json.dump(internal_map, f, indent=2)
+
+print(f<span class="string">'[OK] internal_map.json written — {len(components)} components mapped.'</span>)</pre>
+        </div>
+        <div class="callout callout-ok" style="margin-top:14px;">
+          <span class="icon">✅</span>
+          <span>Expected: <strong>[OK] internal_map.json written — N components mapped.</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Classify & Tag -->
+    <section id="section-6">
+      <div class="section-title">
+        <span class="section-number">6</span>
+        <h2>Classify &amp; Tag Components</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">
+          After the map is generated, apply the following classification rules manually or via the
+          config overrides. Every component must have a confirmed criticality and origin tag.
+        </p>
+        <table>
+          <thead><tr><th>Tag</th><th>Rule</th><th>Action Required</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-high">High Criticality</span></td>
+              <td>Listed in <code>criticality_overrides</code> as <em>high</em>, or has active CVE with severity CRITICAL/HIGH</td>
+              <td>Flag for immediate review; include in VEX document</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-med">Export Controlled</span></td>
+              <td>Component name matches <code>usage_restrictions_overrides</code> containing "EAR" or "export"</td>
+              <td>Legal review required before distribution to client</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-teal">EOL Within 6 Months</span></td>
+              <td><code>eol_date</code> is within 180 days of today</td>
+              <td>Notify client; recommend upgrade path in advisory</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-blue">Proprietary Origin</span></td>
+              <td>Component listed in <code>origin_overrides</code> as <em>proprietary</em></td>
+              <td>Strip from public SBOM; retain only in private SBOM</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-low">Low / Clean</span></td>
+              <td>No CVEs, open-source, EOL &gt; 1 year away</td>
+              <td>No action — document as compliant</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout callout-info" style="margin-top:14px;">
+          <span class="icon">ℹ️</span>
+          <span>Add or update overrides in <code>config.json</code> to persist classification decisions permanently across future scans.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Generate Report -->
+    <section id="section-7">
+      <div class="section-title">
+        <span class="section-number">7</span>
+        <h2>Generate Summary Report</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:14px;">
+          Run this script to print a human-readable summary of the internal map — useful for
+          stakeholder reviews and audit records.
+        </p>
+        <div class="code-block">
+          <pre><span class="cmd">python</span> <span class="flag">-c</span> <span class="string">"
+import json
+from collections import Counter
+
+with open('sbom_output/internal_map.json') as f:
+    m = json.load(f)
+
+comps = m['components']
+crit  = Counter(c['criticality'] for c in comps)
+orig  = Counter(c['origin']      for c in comps)
+vuln_count = sum(1 for c in comps if c['cve_exposure'])
+export_ctrl = [c['name'] for c in comps if 'export' in c.get('usage_restrictions','').lower() or 'EAR' in c.get('usage_restrictions','')]
+
+print(f'=== INTERNAL MAP SUMMARY ===')
+print(f'Generated   : {m[\"generated_at\"]}')
+print(f'Organization: {m[\"organization\"]}')
+print(f'Total       : {m[\"total_components\"]} components')
+print(f'\nCriticality breakdown:')
+for k, v in crit.items():   print(f'  {k:<12}: {v}')
+print(f'\nOrigin breakdown:')
+for k, v in orig.items():   print(f'  {k:<12}: {v}')
+print(f'\nComponents with CVE exposure : {vuln_count}')
+print(f'Export-controlled components : {len(export_ctrl)}')
+if export_ctrl:
+    for name in export_ctrl: print(f'  - {name}')
+"</span></pre>
+        </div>
+        <div class="callout callout-ok" style="margin-top:14px;">
+          <span class="icon">✅</span>
+          <span>Expected: A printed summary table. Review <em>export-controlled</em> and <em>high criticality</em> entries with the legal/security team before client delivery.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Validate & Store -->
+    <section id="section-8">
+      <div class="section-title">
+        <span class="section-number">8</span>
+        <h2>Validate &amp; Store the Internal Map</h2>
+      </div>
+      <div class="card">
+        <p style="color:#475569;font-size:14px;margin-bottom:16px;">
+          Before archiving, confirm the map is complete and stored in the correct location with proper access controls.
+        </p>
+        <div class="code-block">
+          <pre><span class="comment"># Quick validation — ensure every component has the 5 required fields</span>
+<span class="cmd">python</span> <span class="flag">-c</span> <span class="string">"
+import json, sys
+REQUIRED = ['name','version','purl','criticality','license']
+with open('sbom_output/internal_map.json') as f:
+    m = json.load(f)
+errors = []
+for i, c in enumerate(m['components']):
+    for field in REQUIRED:
+        if not c.get(field):
+            errors.append(f'Component [{i}] {c.get(\"name\",\"?\")} missing: {field}')
+if errors:
+    print('VALIDATION FAILED:')
+    for e in errors: print(f'  {e}')
+    sys.exit(1)
+else:
+    print(f'[OK] All {len(m[\"components\"])} components pass internal map validation.')
+"</span></pre>
+        </div>
+        <p style="font-size:13px;font-weight:600;color:#64748b;margin:18px 0 8px;">Storage Rules for <code>internal_map.json</code></p>
+        <table>
+          <thead><tr><th>Rule</th><th>Detail</th></tr></thead>
+          <tbody>
+            <tr><td>Classification</td><td><span class="badge badge-high">Confidential — Internal Only</span></td></tr>
+            <tr><td>Access</td><td>Read/Write: Team Member 1 only. Read: Security Lead, Legal, Audit.</td></tr>
+            <tr><td>Location</td><td>RBAC-locked internal share or encrypted vault. Never in the client delivery folder.</td></tr>
+            <tr><td>Retention</td><td>Minimum 3 years per CERT-In guidelines. Label with build ID and timestamp.</td></tr>
+            <tr><td>Format</td><td>JSON, UTF-8, pretty-printed. Filename: <code>internal_map_YYYYMMDD_HHMMSS.json</code></td></tr>
+          </tbody>
+        </table>
+        <div class="code-block" style="margin-top:14px;">
+          <pre><span class="comment"># PowerShell — archive with timestamp</span>
+<span class="cmd">$ts</span> = <span class="string">(Get-Date -Format "yyyyMMdd_HHmmss")</span>
+<span class="cmd">Copy-Item</span> <span class="path">sbom_output\internal_map.json</span> <span class="path">sbom_output\internal_map_$ts.json</span>
+<span class="cmd">Write-Host</span> <span class="string">"[OK] Archived as internal_map_$ts.json"</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- 9. Completion Checklist -->
+    <section id="section-9">
+      <div class="section-title">
+        <span class="section-number">9</span>
+        <h2>Completion Checklist</h2>
+      </div>
+      <div class="card">
+        <ul class="checklist">
+          <li>Received <code>sbom_enriched.json</code> from Team Member 3 and confirmed it is valid JSON</li>
+          <li>Field coverage check run — no critical fields missing across all components</li>
+          <li>21-attribute reference table reviewed; all critical attributes confirmed present</li>
+          <li><code>build_internal_map.py</code> executed — <code>internal_map.json</code> generated without errors</li>
+          <li>All components classified: criticality, origin, and usage restrictions tagged</li>
+          <li>Export-controlled components identified and flagged for legal review</li>
+          <li>EOL-within-6-months components noted in advisory notes</li>
+          <li>Summary report printed and reviewed with security/legal stakeholders</li>
+          <li>Internal map validation passed — zero missing required fields</li>
+          <li><code>internal_map.json</code> archived with timestamp to RBAC-controlled storage</li>
+          <li>Proprietary-origin components confirmed absent from public SBOM</li>
+          <li>Map handed off to audit trail — not included in client delivery package</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Team Member 1 — Security &amp; Governance Lead &nbsp;·&nbsp;
+      BOMB-AE &nbsp;·&nbsp; CycloneDX JSON &nbsp;·&nbsp; CERT-In Technical Guidelines v2.0 &nbsp;·&nbsp;
+      Antigravity AI
+    </footer>
+
+  </div><!-- .page -->
+</div><!-- .container -->
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-link');
+  function setActive() {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', setActive);
+  window.addEventListener('load', setActive);
+</script>
+</body>
+</html>
