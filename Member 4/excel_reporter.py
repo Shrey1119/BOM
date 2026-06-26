@@ -275,15 +275,15 @@ def create_component_data_sheet(wb, sbom):
         for a in v.get("affects", []):
             vuln_map.setdefault(a.get("ref", ""), []).append(v.get("id", ""))
 
-    # Title
-    ws.merge_cells("A1:V1")
+    # Title - merged up to AB for 28 columns
+    ws.merge_cells("A1:AB1")
     ws.cell(row=1, column=1, value="SBOM Component Data - All 21 Client Attributes").font = Theme.title_font()
     ws.row_dimensions[1].height = 35
 
-    ws.merge_cells("A2:V2")
+    ws.merge_cells("A2:AB2")
     ws.cell(row=2, column=1, value="Author: {}  |  Generated: {}".format(author, timestamp)).font = Theme.subtitle_font()
 
-    # Headers - exact 21 attribute names from client requirements
+    # Headers - exact 21 attribute names from client requirements + sub-attributes & audit proof
     headers = [
         "Sr No",                     # index
         "Component Name",            # 1
@@ -298,15 +298,21 @@ def create_component_data_sheet(wb, sbom):
         "Release Date",              # 10
         "End-of-Life (EOL) Date",    # 11
         "Criticality",               # 12
+        "Criticality Rationale",     # (sub-12)
         "Usage Restrictions",        # 13
         "Checksums or Hashes",       # 14
         "Comments or Notes",         # 15
         "Author of SBOM Data",       # 16
         "Timestamp",                 # 17
         "Executable Property",       # 18
+        "Executable Evidence",       # (sub-18)
         "Archive Property",          # 19
+        "Archive Metadata Details",  # (sub-19)
         "Structured Property",       # 20
         "Unique Identifier (PURL)",  # 21
+        "Trust Score",               # (Score)
+        "Identification Evidence",   # (Reasons)
+        "Repository Source",         # (Ecosystem Registry)
     ]
 
     header_row = 4
@@ -316,7 +322,7 @@ def create_component_data_sheet(wb, sbom):
     ws.row_dimensions[header_row].height = 30
 
     # Column alignment rules: center these column indices (1-based)
-    center_cols = {1, 3, 10, 11, 12, 13, 17, 18, 19, 20}
+    center_cols = {1, 3, 11, 12, 13, 15, 19, 20, 22, 24, 26}
 
     for idx, comp in enumerate(components, 1):
         r = header_row + idx
@@ -359,22 +365,28 @@ def create_component_data_sheet(wb, sbom):
             props.get("release_date", ""),
             props.get("eol_date", ""),
             crit.upper(),
+            props.get("criticality_reason", "None"),
             props.get("usage_restrictions", "None"),
             hash_str,
             props.get("comments", ""),
             author,
             timestamp,
             props.get("executable", "false"),
+            props.get("executable_evidence", "None"),
             props.get("archive", "true"),
+            props.get("archive_metadata", "None"),
             props.get("structured", "CycloneDX JSON"),
             comp.get("purl", ""),
+            props.get("trust_score", "0%"),
+            props.get("evidence_findings", "None"),
+            props.get("repository_source", "Unknown"),
         ]
 
         for ci, val in enumerate(row_values, 1):
             cell = ws.cell(row=r, column=ci, value=val)
             style_data_cell(cell, is_alt=is_alt, center=(ci in center_cols))
 
-            # Special criticality column styling
+            # Special criticality column styling (now column 13)
             if ci == 13:
                 fill, font = Theme.criticality_style(crit)
                 cell.fill = fill
@@ -388,6 +400,7 @@ def create_component_data_sheet(wb, sbom):
         ws.row_dimensions[r].height = 22
 
     auto_fit_columns(ws, start_row=header_row)
+
 
 
 # ------------------------------------------------------------------

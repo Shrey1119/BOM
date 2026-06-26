@@ -80,11 +80,18 @@ def validate_sbom(enriched_sbom_path):
             'release_date': "Attr 10: Release Date",
             'eol_date': "Attr 11: End-of-Life (EOL) Date",
             'criticality': "Attr 12: Criticality",
+            'criticality_reason': "Attr 12 sub: Criticality Rationale",
             'usage_restrictions': "Attr 13: Usage Restrictions",
             'comments': "Attr 15: Comments or Notes",
             'executable': "Attr 18: Executable Property",
+            'executable_evidence': "Attr 18 sub: Executable Evidence",
             'archive': "Attr 19: Archive Property",
-            'structured': "Attr 20: Structured Property"
+            'archive_metadata': "Attr 19 sub: Archive Metadata Info",
+            'structured': "Attr 20: Structured Property",
+            'trust_score': "Evidence: Trust Score %",
+            'trust_score_reason': "Evidence: Trust Score Reason Rationale",
+            'evidence_findings': "Evidence: Detection Evidence Findings",
+            'repository_source': "Ecosystem: Repository Source Registry"
         }
         
         for prop_name, label in required_properties.items():
@@ -105,12 +112,12 @@ def validate_sbom(enriched_sbom_path):
     # Output report
     print("\n--- Validation Results Table ---")
     print(f"{'Component Name':<20} | {'Version':<10} | {'Status':<8} | {'Errors'}")
-    print("-" * 70)
+    print("-" * 100)
     for rep in comp_reports:
         err_str = "; ".join(rep["errors"]) if rep["errors"] else "None"
         print(f"{rep['name']:<20} | {rep['version']:<10} | {rep['status']:<8} | {err_str}")
         
-    print("-" * 70)
+    print("-" * 100)
     
     if metadata_errors:
         print("\nMetadata Validation Errors:")
@@ -127,7 +134,7 @@ def validate_sbom(enriched_sbom_path):
 
 if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    enriched_path = os.path.join(base_dir, "sbom_enriched.json")
+    enriched_path = os.path.join(base_dir, "sbom_final.json")
     
     if len(sys.argv) > 1:
         enriched_path = sys.argv[1]
