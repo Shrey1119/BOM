@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-06-25T11:48:07.613822+00:00Z",
+  "generated_at": "2026-06-26T06:19:16.097022+00:00Z",
   "author": "Security & Governance Lead (Antigravity AI)",
   "organization": "Client-Assigned Scanning Service",
   "total_components": 139,
   "components": [
     {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
       "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
       "internal_comment": "",
       "cve_exposure": [
         {
-          "id": "CVE-2026-41488",
-          "severity": "low",
+          "id": "CVE-2026-28684",
+          "severity": "medium",
           "vex_status": "not_evaluated"
         }
       ],
@@ -49,51 +49,188 @@
       "active_in_build": true
     },
     {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/20-multi-agent-debate/requirements.txt",
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain@0.3.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:45:08Z",
+      "release_date": "2024-09-13T22:45:08.089462Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-45134",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "GHSA-gr75-jv2w-4656",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/requirements.txt",
       "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/20-multi-agent-debate/requirements.txt@1.0.0",
+      "purl": "pkg:pypi/system scanner/requirements.txt@1.0.0",
       "type": "application",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:04Z",
-      "release_date": "2026-06-25T11:47:04.272939Z",
+      "eol_date": "2029-06-25T06:19:02Z",
+      "release_date": "2026-06-26T06:19:02.781387Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
     },
     {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/01-web-research-agent/requirements.txt",
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/08-data-analysis-agent/requirements.txt",
       "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/01-web-research-agent/requirements.txt@1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/08-data-analysis-agent/requirements.txt@1.0.0",
       "type": "application",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:04Z",
-      "release_date": "2026-06-25T11:47:04.273073Z",
+      "eol_date": "2029-06-25T06:19:02Z",
+      "release_date": "2026-06-26T06:19:02.854169Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
     },
     {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/03-pdf-qa-agent/requirements.txt",
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/crewai_mcp_course/lesson_03/requirements.txt",
       "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/03-pdf-qa-agent/requirements.txt@1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/crewai_mcp_course/lesson_03/requirements.txt@1.0.0",
       "type": "application",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:04Z",
-      "release_date": "2026-06-25T11:47:04.273156Z",
+      "eol_date": "2029-06-25T06:19:02Z",
+      "release_date": "2026-06-26T06:19:02.854270Z",
       "internal_comment": "",
       "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
       "active_in_build": true
     },
     {
@@ -119,102 +256,37 @@
       "active_in_build": true
     },
     {
-      "name": "langgraph",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langgraph@0.2.0",
-      "type": "library",
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/18-job-application-agent/requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/18-job-application-agent/requirements.txt@1.0.0",
+      "type": "application",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2027-08-07T03:33:55Z",
-      "release_date": "2024-08-07T03:33:55.923964Z",
+      "eol_date": "2029-06-25T06:19:02Z",
+      "release_date": "2026-06-26T06:19:02.986953Z",
       "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28277",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
+      "cve_exposure": [],
       "active_in_build": true
     },
     {
-      "name": "langchain",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain@0.3.0",
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
       "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:45:08Z",
-      "release_date": "2024-09-13T22:45:08.089462Z",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
       "internal_comment": "",
       "cve_exposure": [
         {
-          "id": "CVE-2026-45134",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "GHSA-gr75-jv2w-4656",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain@0.3.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:45:08Z",
-      "release_date": "2024-09-13T22:45:08.089462Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-45134",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "GHSA-gr75-jv2w-4656",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain@0.3.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:45:08Z",
-      "release_date": "2024-09-13T22:45:08.089462Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-45134",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "GHSA-gr75-jv2w-4656",
+          "id": "CVE-2026-28684",
           "severity": "medium",
           "vex_status": "not_evaluated"
         }
@@ -274,108 +346,132 @@
       "active_in_build": true
     },
     {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "requests",
-      "version": "2.32.3",
-      "purl": "pkg:pypi/requests@2.32.3",
-      "type": "library",
-      "supplier": "Kenneth Reitz & Requests Community",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-05-29T15:37:47Z",
-      "release_date": "2024-05-29T15:37:47.027275Z",
-      "internal_comment": "Critical HTTP library for client integrations",
-      "cve_exposure": [
-        {
-          "id": "CVE-2024-47081",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-25645",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/02-code-review-agent/requirements.txt",
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/01-web-research-agent/requirements.txt",
       "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/02-code-review-agent/requirements.txt@1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/01-web-research-agent/requirements.txt@1.0.0",
       "type": "application",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:06Z",
-      "release_date": "2026-06-25T11:47:06.569867Z",
+      "eol_date": "2029-06-25T06:19:03Z",
+      "release_date": "2026-06-26T06:19:03.100369Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
     },
     {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "name": "langchain-core",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain-core@0.3.0",
       "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
+      "eol_date": "2027-09-13T22:06:42Z",
+      "release_date": "2024-09-13T22:06:42.931742Z",
       "internal_comment": "",
       "cve_exposure": [
         {
-          "id": "CVE-2026-28684",
+          "id": "CVE-2024-10940",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-65106",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-68664",
+          "severity": "critical",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-26013",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-34070",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-40087",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-44843",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/20-multi-agent-debate/requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/20-multi-agent-debate/requirements.txt@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-25T06:19:03Z",
+      "release_date": "2026-06-26T06:19:03.227455Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-41488",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain@0.3.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:45:08Z",
+      "release_date": "2024-09-13T22:45:08.089462Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-45134",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "GHSA-gr75-jv2w-4656",
           "severity": "medium",
           "vex_status": "not_evaluated"
         }
@@ -432,19 +528,402 @@
       "active_in_build": true
     },
     {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/16-documentation-writer/requirements.txt",
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/09-resume-parser-agent/requirements.txt",
       "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/16-documentation-writer/requirements.txt@1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/09-resume-parser-agent/requirements.txt@1.0.0",
       "type": "application",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:07Z",
-      "release_date": "2026-06-25T11:47:07.073316Z",
+      "eol_date": "2029-06-25T06:19:03Z",
+      "release_date": "2026-06-26T06:19:03.651882Z",
       "internal_comment": "",
       "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "crewai",
+      "version": "0.80.0",
+      "purl": "pkg:pypi/crewai@0.80.0",
+      "type": "library",
+      "supplier": "Joao Moura <joao@crewai.com>",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-11-14T04:55:55Z",
+      "release_date": "2024-11-14T04:55:55.405999Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/16-documentation-writer/requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/16-documentation-writer/requirements.txt@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-25T06:19:03Z",
+      "release_date": "2026-06-26T06:19:03.744829Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-core",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain-core@0.3.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:06:42Z",
+      "release_date": "2024-09-13T22:06:42.931742Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2024-10940",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-65106",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-68664",
+          "severity": "critical",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-26013",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-34070",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-40087",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-44843",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "crewai",
+      "version": "0.80.0",
+      "purl": "pkg:pypi/crewai@0.80.0",
+      "type": "library",
+      "supplier": "Joao Moura <joao@crewai.com>",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-11-14T04:55:55Z",
+      "release_date": "2024-11-14T04:55:55.405999Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-core",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain-core@0.3.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:06:42Z",
+      "release_date": "2024-09-13T22:06:42.931742Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2024-10940",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-65106",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-68664",
+          "severity": "critical",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-26013",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-34070",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-40087",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-44843",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "crewai",
+      "version": "0.80.0",
+      "purl": "pkg:pypi/crewai@0.80.0",
+      "type": "library",
+      "supplier": "Joao Moura <joao@crewai.com>",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-11-14T04:55:55Z",
+      "release_date": "2024-11-14T04:55:55.405999Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/13-customer-support-agent/requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/13-customer-support-agent/requirements.txt@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-25T06:19:04Z",
+      "release_date": "2026-06-26T06:19:04.125467Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-41488",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-core",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain-core@0.3.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:06:42Z",
+      "release_date": "2024-09-13T22:06:42.931742Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2024-10940",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-65106",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-68664",
+          "severity": "critical",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-26013",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-34070",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-40087",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-44843",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-41488",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain@0.3.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:45:08Z",
+      "release_date": "2024-09-13T22:45:08.089462Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-45134",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "GHSA-gr75-jv2w-4656",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/06-news-summarizer-agent/requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/06-news-summarizer-agent/requirements.txt@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-25T06:19:04Z",
+      "release_date": "2026-06-26T06:19:04.599715Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/crewai_mcp_course/lesson_02/requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/crewai_mcp_course/lesson_02/requirements.txt@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-25T06:19:04Z",
+      "release_date": "2026-06-26T06:19:04.599803Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-41488",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        }
+      ],
       "active_in_build": true
     },
     {
@@ -486,118 +965,6 @@
       "active_in_build": true
     },
     {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/07-github-issue-triager/requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/07-github-issue-triager/requirements.txt@1.0.0",
-      "type": "application",
-      "supplier": "Unknown / Open Source Community",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:09Z",
-      "release_date": "2026-06-25T11:47:09.025247Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-core",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain-core@0.3.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:06:42Z",
-      "release_date": "2024-09-13T22:06:42.931742Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2024-10940",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-65106",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-68664",
-          "severity": "critical",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-26013",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-34070",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-40087",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-44843",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-41488",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-41488",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
       "name": "crewai",
       "version": "0.80.0",
       "purl": "pkg:pypi/crewai@0.80.0",
@@ -614,99 +981,49 @@
       "active_in_build": true
     },
     {
-      "name": "langchain-community",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain-community@0.3.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T23:01:13Z",
-      "release_date": "2024-09-13T23:01:13.310721Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2025-6984",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "System Scanner/System Scanner/requirements.txt",
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/03-pdf-qa-agent/requirements.txt",
       "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/requirements.txt@1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/03-pdf-qa-agent/requirements.txt@1.0.0",
       "type": "application",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:10Z",
-      "release_date": "2026-06-25T11:47:10.117350Z",
+      "eol_date": "2029-06-25T06:19:05Z",
+      "release_date": "2026-06-26T06:19:05.066790Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
     },
     {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-41488",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/04-sql-query-agent/requirements.txt",
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/07-github-issue-triager/requirements.txt",
       "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/04-sql-query-agent/requirements.txt@1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/07-github-issue-triager/requirements.txt@1.0.0",
       "type": "application",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:11Z",
-      "release_date": "2026-06-25T11:47:11.202372Z",
+      "eol_date": "2029-06-25T06:19:05Z",
+      "release_date": "2026-06-26T06:19:05.066860Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/02-code-review-agent/requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/02-code-review-agent/requirements.txt@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-25T06:19:05Z",
+      "release_date": "2026-06-26T06:19:05.066914Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -757,72 +1074,6 @@
         },
         {
           "id": "CVE-2026-44843",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-41488",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-community",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain-community@0.3.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T23:01:13Z",
-      "release_date": "2024-09-13T23:01:13.310721Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2025-6984",
           "severity": "high",
           "vex_status": "not_evaluated"
         }
@@ -857,17 +1108,173 @@
       "active_in_build": true
     },
     {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/15-unit-test-generator/requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/15-unit-test-generator/requirements.txt@1.0.0",
-      "type": "application",
+      "name": "langgraph",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langgraph@0.2.0",
+      "type": "library",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:13Z",
-      "release_date": "2026-06-25T11:47:13.172429Z",
+      "eol_date": "2027-08-07T03:33:55Z",
+      "release_date": "2024-08-07T03:33:55.923964Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28277",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-core",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain-core@0.3.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:06:42Z",
+      "release_date": "2024-09-13T22:06:42.931742Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2024-10940",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-65106",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-68664",
+          "severity": "critical",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-26013",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-34070",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-40087",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-44843",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "crewai",
+      "version": "0.80.0",
+      "purl": "pkg:pypi/crewai@0.80.0",
+      "type": "library",
+      "supplier": "Joao Moura <joao@crewai.com>",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-11-14T04:55:55Z",
+      "release_date": "2024-11-14T04:55:55.405999Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "crewai",
+      "version": "0.80.0",
+      "purl": "pkg:pypi/crewai@0.80.0",
+      "type": "library",
+      "supplier": "Joao Moura <joao@crewai.com>",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-11-14T04:55:55Z",
+      "release_date": "2024-11-14T04:55:55.405999Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -895,143 +1302,17 @@
       "active_in_build": true
     },
     {
-      "name": "langchain-core",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain-core@0.3.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:06:42Z",
-      "release_date": "2024-09-13T22:06:42.931742Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2024-10940",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-65106",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-68664",
-          "severity": "critical",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-26013",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-34070",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-40087",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-44843",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-core",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain-core@0.3.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:06:42Z",
-      "release_date": "2024-09-13T22:06:42.931742Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2024-10940",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-65106",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-68664",
-          "severity": "critical",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-26013",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-34070",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-40087",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-44843",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-41488",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "System Scanner/System Scanner/venv/Lib/site-packages/pythonnet/runtime/Python.Runtime.deps.json",
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/15-unit-test-generator/requirements.txt",
       "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/venv/lib/site-packages/pythonnet/runtime/python.runtime.deps.json@1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/15-unit-test-generator/requirements.txt@1.0.0",
       "type": "application",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:14Z",
-      "release_date": "2026-06-25T11:47:14.067926Z",
+      "eol_date": "2029-06-25T06:19:06Z",
+      "release_date": "2026-06-26T06:19:06.237902Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -1086,33 +1367,39 @@
       "active_in_build": true
     },
     {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/17-recipe-agent/requirements.txt",
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-41488",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/17-recipe-agent/requirements.txt",
       "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/17-recipe-agent/requirements.txt@1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/17-recipe-agent/requirements.txt@1.0.0",
       "type": "application",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:14Z",
-      "release_date": "2026-06-25T11:47:14.530277Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "crewai",
-      "version": "0.80.0",
-      "purl": "pkg:pypi/crewai@0.80.0",
-      "type": "library",
-      "supplier": "Joao Moura <joao@crewai.com>",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-11-14T04:55:55Z",
-      "release_date": "2024-11-14T04:55:55.405999Z",
+      "eol_date": "2029-06-25T06:19:06Z",
+      "release_date": "2026-06-26T06:19:06.544936Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -1170,63 +1457,25 @@
       "active_in_build": true
     },
     {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
       "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/11-stock-research-agent/requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/11-stock-research-agent/requirements.txt@1.0.0",
-      "type": "application",
       "supplier": "Unknown / Open Source Community",
-      "license": "Apache-2.0",
+      "license": "MIT",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:15Z",
-      "release_date": "2026-06-25T11:47:15.700796Z",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
       "internal_comment": "",
-      "cve_exposure": [],
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-41488",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        }
+      ],
       "active_in_build": true
     },
     {
@@ -1274,6 +1523,87 @@
       "active_in_build": true
     },
     {
+      "name": "crewai",
+      "version": "0.80.0",
+      "purl": "pkg:pypi/crewai@0.80.0",
+      "type": "library",
+      "supplier": "Joao Moura <joao@crewai.com>",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-11-14T04:55:55Z",
+      "release_date": "2024-11-14T04:55:55.405999Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/04-sql-query-agent/requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/04-sql-query-agent/requirements.txt@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-25T06:19:06Z",
+      "release_date": "2026-06-26T06:19:06.906666Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-41488",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain@0.3.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:45:08Z",
+      "release_date": "2024-09-13T22:45:08.089462Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-45134",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "GHSA-gr75-jv2w-4656",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
       "name": "python-dotenv",
       "version": "1.0.1",
       "purl": "pkg:pypi/python-dotenv@1.0.1",
@@ -1296,22 +1626,81 @@
       "active_in_build": true
     },
     {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/10-meeting-notes-agent/requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/10-meeting-notes-agent/requirements.txt@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-25T06:19:07Z",
+      "release_date": "2026-06-26T06:19:07.202009Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/12-travel-planner-agent/requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/12-travel-planner-agent/requirements.txt@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-25T06:19:07Z",
+      "release_date": "2026-06-26T06:19:07.202100Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain@0.3.0",
       "type": "library",
       "supplier": "Unknown / Open Source Community",
       "license": "MIT",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
+      "eol_date": "2027-09-13T22:45:08Z",
+      "release_date": "2024-09-13T22:45:08.089462Z",
       "internal_comment": "",
       "cve_exposure": [
         {
-          "id": "CVE-2026-41488",
-          "severity": "low",
+          "id": "CVE-2026-45134",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "GHSA-gr75-jv2w-4656",
+          "severity": "medium",
           "vex_status": "not_evaluated"
         }
       ],
@@ -1367,6 +1756,74 @@
       "active_in_build": true
     },
     {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/14-social-media-agent/requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/14-social-media-agent/requirements.txt@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-25T06:19:07Z",
+      "release_date": "2026-06-26T06:19:07.535490Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-core",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain-core@0.3.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:06:42Z",
+      "release_date": "2024-09-13T22:06:42.931742Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2024-10940",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-65106",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-68664",
+          "severity": "critical",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-26013",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-34070",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-40087",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-44843",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
       "name": "langchain",
       "version": "0.3.0",
       "purl": "pkg:pypi/langchain@0.3.0",
@@ -1394,6 +1851,71 @@
       "active_in_build": true
     },
     {
+      "name": "pydantic",
+      "version": "2.9.0",
+      "purl": "pkg:pypi/pydantic@2.9.0",
+      "type": "library",
+      "supplier": "Samuel Colvin <s@muelcolvin.com>, Eric Jolibois <em.jolibois@gmail.com>, Hasan Ramezani <hasan.r67@gmail.com>, Adrian Garcia Badaracco <1755071+adriangb@users.noreply.github.com>, Terrence Dorsey <terry@pydantic.dev>, David Montague <david@pydantic.dev>, Serge Matveenko <lig@countzero.co>, Marcelo Trylesinski <marcelotryle@gmail.com>, Sydney Runkle <sydneymarierunkle@gmail.com>, David Hewitt <mail@davidhewitt.dev>, Alex Hall <alex.mojaki@gmail.com>, Victorien Plot <contact@vctrn.dev>",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-05T16:23:47Z",
+      "release_date": "2024-09-05T16:23:47.683058Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain@0.3.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:45:08Z",
+      "release_date": "2024-09-13T22:45:08.089462Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-45134",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "GHSA-gr75-jv2w-4656",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langgraph",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langgraph@0.2.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-08-07T03:33:55Z",
+      "release_date": "2024-08-07T03:33:55.923964Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28277",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
       "name": "langchain-openai",
       "version": "0.2.0",
       "purl": "pkg:pypi/langchain-openai@0.2.0",
@@ -1410,6 +1932,162 @@
         {
           "id": "CVE-2026-41488",
           "severity": "low",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-41488",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/19-competitive-analysis-agent/requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/19-competitive-analysis-agent/requirements.txt@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-25T06:19:08Z",
+      "release_date": "2026-06-26T06:19:08.427359Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-41488",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-41488",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-core",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain-core@0.3.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:06:42Z",
+      "release_date": "2024-09-13T22:06:42.931742Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2024-10940",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-65106",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-68664",
+          "severity": "critical",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-26013",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-34070",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-40087",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-44843",
+          "severity": "high",
           "vex_status": "not_evaluated"
         }
       ],
@@ -1497,22 +2175,134 @@
       "active_in_build": true
     },
     {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
+      "name": "System Scanner/venv/Lib/site-packages/pythonnet/runtime/Python.Runtime.deps.json",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/system scanner/venv/lib/site-packages/pythonnet/runtime/python.runtime.deps.json@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-25T06:19:08Z",
+      "release_date": "2026-06-26T06:19:08.980361Z",
+      "internal_comment": "",
+      "cve_exposure": [],
+      "active_in_build": true
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-core",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain-core@0.3.0",
       "type": "library",
       "supplier": "Unknown / Open Source Community",
       "license": "MIT",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
+      "eol_date": "2027-09-13T22:06:42Z",
+      "release_date": "2024-09-13T22:06:42.931742Z",
       "internal_comment": "",
       "cve_exposure": [
         {
-          "id": "CVE-2026-41488",
+          "id": "CVE-2024-10940",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-65106",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-68664",
+          "severity": "critical",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-26013",
           "severity": "low",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-34070",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-40087",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-44843",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-community",
+      "version": "0.3.0",
+      "purl": "pkg:pypi/langchain-community@0.3.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T23:01:13Z",
+      "release_date": "2024-09-13T23:01:13.310721Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2025-6984",
+          "severity": "high",
           "vex_status": "not_evaluated"
         }
       ],
@@ -1568,120 +2358,66 @@
       "active_in_build": true
     },
     {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/06-news-summarizer-agent/requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/06-news-summarizer-agent/requirements.txt@1.0.0",
-      "type": "application",
-      "supplier": "Unknown / Open Source Community",
+      "name": "requests",
+      "version": "2.32.3",
+      "purl": "pkg:pypi/requests@2.32.3",
+      "type": "library",
+      "supplier": "Kenneth Reitz & Requests Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:30Z",
-      "release_date": "2026-06-25T11:47:30.133970Z",
-      "internal_comment": "",
-      "cve_exposure": [],
+      "eol_date": "2027-05-29T15:37:47Z",
+      "release_date": "2024-05-29T15:37:47.027275Z",
+      "internal_comment": "Critical HTTP library for client integrations",
+      "cve_exposure": [
+        {
+          "id": "CVE-2024-47081",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-25645",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
       "active_in_build": true
     },
     {
-      "name": "langchain",
+      "name": "langchain-community",
       "version": "0.3.0",
-      "purl": "pkg:pypi/langchain@0.3.0",
+      "purl": "pkg:pypi/langchain-community@0.3.0",
       "type": "library",
       "supplier": "Unknown / Open Source Community",
       "license": "MIT",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:45:08Z",
-      "release_date": "2024-09-13T22:45:08.089462Z",
+      "eol_date": "2027-09-13T23:01:13Z",
+      "release_date": "2024-09-13T23:01:13.310721Z",
       "internal_comment": "",
       "cve_exposure": [
         {
-          "id": "CVE-2026-45134",
+          "id": "CVE-2025-6984",
           "severity": "high",
           "vex_status": "not_evaluated"
-        },
-        {
-          "id": "GHSA-gr75-jv2w-4656",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
         }
       ],
       "active_in_build": true
     },
     {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/crewai_mcp_course/lesson_03/requirements.txt",
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/crewai_mcp_course/lesson_01/requirements.txt",
       "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/crewai_mcp_course/lesson_03/requirements.txt@1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/crewai_mcp_course/lesson_01/requirements.txt@1.0.0",
       "type": "application",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:30Z",
-      "release_date": "2026-06-25T11:47:30.521264Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "pydantic",
-      "version": "2.9.0",
-      "purl": "pkg:pypi/pydantic@2.9.0",
-      "type": "library",
-      "supplier": "Samuel Colvin <s@muelcolvin.com>, Eric Jolibois <em.jolibois@gmail.com>, Hasan Ramezani <hasan.r67@gmail.com>, Adrian Garcia Badaracco <1755071+adriangb@users.noreply.github.com>, Terrence Dorsey <terry@pydantic.dev>, David Montague <david@pydantic.dev>, Serge Matveenko <lig@countzero.co>, Marcelo Trylesinski <marcelotryle@gmail.com>, Sydney Runkle <sydneymarierunkle@gmail.com>, David Hewitt <mail@davidhewitt.dev>, Alex Hall <alex.mojaki@gmail.com>, Victorien Plot <contact@vctrn.dev>",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-05T16:23:47Z",
-      "release_date": "2024-09-05T16:23:47.683058Z",
+      "eol_date": "2029-06-25T06:19:09Z",
+      "release_date": "2026-06-26T06:19:09.724705Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -1709,240 +2445,82 @@
       "active_in_build": true
     },
     {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/18-job-application-agent/requirements.txt",
+      "name": "python-dotenv",
+      "version": "1.0.1",
+      "purl": "pkg:pypi/python-dotenv@1.0.1",
+      "type": "library",
+      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
+      "license": "BSD-3-Clause",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-01-22T06:32:58Z",
+      "release_date": "2024-01-23T06:32:58.246675Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-28684",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/05-email-drafting-agent/requirements.txt",
       "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/18-job-application-agent/requirements.txt@1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/05-email-drafting-agent/requirements.txt@1.0.0",
       "type": "application",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:31Z",
-      "release_date": "2026-06-25T11:47:31.217721Z",
+      "eol_date": "2029-06-25T06:19:09Z",
+      "release_date": "2026-06-26T06:19:09.879208Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
     },
     {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-core",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain-core@0.3.0",
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
       "type": "library",
       "supplier": "Unknown / Open Source Community",
       "license": "MIT",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:06:42Z",
-      "release_date": "2024-09-13T22:06:42.931742Z",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
       "internal_comment": "",
       "cve_exposure": [
         {
-          "id": "CVE-2024-10940",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-65106",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-68664",
-          "severity": "critical",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-26013",
+          "id": "CVE-2026-41488",
           "severity": "low",
           "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-34070",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-40087",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-44843",
-          "severity": "high",
-          "vex_status": "not_evaluated"
         }
       ],
       "active_in_build": true
     },
     {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/12-travel-planner-agent/requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/12-travel-planner-agent/requirements.txt@1.0.0",
-      "type": "application",
-      "supplier": "Unknown / Open Source Community",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:31Z",
-      "release_date": "2026-06-25T11:47:31.731389Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-core",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain-core@0.3.0",
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
       "type": "library",
       "supplier": "Unknown / Open Source Community",
       "license": "MIT",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:06:42Z",
-      "release_date": "2024-09-13T22:06:42.931742Z",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
       "internal_comment": "",
       "cve_exposure": [
         {
-          "id": "CVE-2024-10940",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-65106",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-68664",
-          "severity": "critical",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-26013",
+          "id": "CVE-2026-41488",
           "severity": "low",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-34070",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-40087",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-44843",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/crewai_mcp_course/lesson_02/requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/crewai_mcp_course/lesson_02/requirements.txt@1.0.0",
-      "type": "application",
-      "supplier": "Unknown / Open Source Community",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:32Z",
-      "release_date": "2026-06-25T11:47:32.227866Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
           "vex_status": "not_evaluated"
         }
       ],
@@ -1976,261 +2554,90 @@
       "active_in_build": true
     },
     {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/19-competitive-analysis-agent/requirements.txt",
+      "name": "System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/11-stock-research-agent/requirements.txt",
       "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/19-competitive-analysis-agent/requirements.txt@1.0.0",
+      "purl": "pkg:pypi/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/11-stock-research-agent/requirements.txt@1.0.0",
       "type": "application",
       "supplier": "Unknown / Open Source Community",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:32Z",
-      "release_date": "2026-06-25T11:47:32.985019Z",
+      "eol_date": "2029-06-25T06:19:10Z",
+      "release_date": "2026-06-26T06:19:10.164559Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
     },
     {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/14-social-media-agent/requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/14-social-media-agent/requirements.txt@1.0.0",
-      "type": "application",
-      "supplier": "Unknown / Open Source Community",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:32Z",
-      "release_date": "2026-06-25T11:47:32.985111Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-41488",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "crewai",
-      "version": "0.80.0",
-      "purl": "pkg:pypi/crewai@0.80.0",
-      "type": "library",
-      "supplier": "Joao Moura <joao@crewai.com>",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-11-14T04:55:55Z",
-      "release_date": "2024-11-14T04:55:55.405999Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-41488",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-41488",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/10-meeting-notes-agent/requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/10-meeting-notes-agent/requirements.txt@1.0.0",
-      "type": "application",
-      "supplier": "Unknown / Open Source Community",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:33Z",
-      "release_date": "2026-06-25T11:47:33.912424Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-41488",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-41488",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "crewai",
-      "version": "0.80.0",
-      "purl": "pkg:pypi/crewai@0.80.0",
-      "type": "library",
-      "supplier": "Joao Moura <joao@crewai.com>",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-11-14T04:55:55Z",
-      "release_date": "2024-11-14T04:55:55.405999Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain",
+      "name": "langchain-core",
       "version": "0.3.0",
-      "purl": "pkg:pypi/langchain@0.3.0",
+      "purl": "pkg:pypi/langchain-core@0.3.0",
       "type": "library",
       "supplier": "Unknown / Open Source Community",
       "license": "MIT",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:45:08Z",
-      "release_date": "2024-09-13T22:45:08.089462Z",
+      "eol_date": "2027-09-13T22:06:42Z",
+      "release_date": "2024-09-13T22:06:42.931742Z",
       "internal_comment": "",
       "cve_exposure": [
         {
-          "id": "CVE-2026-45134",
+          "id": "CVE-2024-10940",
+          "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2025-65106",
           "severity": "high",
           "vex_status": "not_evaluated"
         },
         {
-          "id": "GHSA-gr75-jv2w-4656",
+          "id": "CVE-2025-68664",
+          "severity": "critical",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-26013",
+          "severity": "low",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-34070",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-40087",
           "severity": "medium",
+          "vex_status": "not_evaluated"
+        },
+        {
+          "id": "CVE-2026-44843",
+          "severity": "high",
+          "vex_status": "not_evaluated"
+        }
+      ],
+      "active_in_build": true
+    },
+    {
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
+      "type": "library",
+      "supplier": "Unknown / Open Source Community",
+      "license": "MIT",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
+      "internal_comment": "",
+      "cve_exposure": [
+        {
+          "id": "CVE-2026-41488",
+          "severity": "low",
           "vex_status": "not_evaluated"
         }
       ],
@@ -2289,136 +2696,22 @@
       "active_in_build": true
     },
     {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/08-data-analysis-agent/requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/08-data-analysis-agent/requirements.txt@1.0.0",
-      "type": "application",
-      "supplier": "Unknown / Open Source Community",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:34Z",
-      "release_date": "2026-06-25T11:47:34.862596Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "crewai",
-      "version": "0.80.0",
-      "purl": "pkg:pypi/crewai@0.80.0",
-      "type": "library",
-      "supplier": "Joao Moura <joao@crewai.com>",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-11-14T04:55:55Z",
-      "release_date": "2024-11-14T04:55:55.405999Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-core",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain-core@0.3.0",
+      "name": "langchain-openai",
+      "version": "0.2.0",
+      "purl": "pkg:pypi/langchain-openai@0.2.0",
       "type": "library",
       "supplier": "Unknown / Open Source Community",
       "license": "MIT",
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:06:42Z",
-      "release_date": "2024-09-13T22:06:42.931742Z",
+      "eol_date": "2027-09-13T22:44:47Z",
+      "release_date": "2024-09-13T22:44:47.796467Z",
       "internal_comment": "",
       "cve_exposure": [
         {
-          "id": "CVE-2024-10940",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-65106",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-68664",
-          "severity": "critical",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-26013",
+          "id": "CVE-2026-41488",
           "severity": "low",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-34070",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-40087",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-44843",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-core",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain-core@0.3.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:06:42Z",
-      "release_date": "2024-09-13T22:06:42.931742Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2024-10940",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-65106",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-68664",
-          "severity": "critical",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-26013",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-34070",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-40087",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-44843",
-          "severity": "high",
           "vex_status": "not_evaluated"
         }
       ],
@@ -2469,22 +2762,6 @@
       "active_in_build": true
     },
     {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/13-customer-support-agent/requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/13-customer-support-agent/requirements.txt@1.0.0",
-      "type": "application",
-      "supplier": "Unknown / Open Source Community",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:36Z",
-      "release_date": "2026-06-25T11:47:36.247812Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
       "name": "langchain-openai",
       "version": "0.2.0",
       "purl": "pkg:pypi/langchain-openai@0.2.0",
@@ -2501,283 +2778,6 @@
         {
           "id": "CVE-2026-41488",
           "severity": "low",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-core",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain-core@0.3.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:06:42Z",
-      "release_date": "2024-09-13T22:06:42.931742Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2024-10940",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-65106",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-68664",
-          "severity": "critical",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-26013",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-34070",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-40087",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-44843",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-openai",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langchain-openai@0.2.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:44:47Z",
-      "release_date": "2024-09-13T22:44:47.796467Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-41488",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "crewai",
-      "version": "0.80.0",
-      "purl": "pkg:pypi/crewai@0.80.0",
-      "type": "library",
-      "supplier": "Joao Moura <joao@crewai.com>",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-11-14T04:55:55Z",
-      "release_date": "2024-11-14T04:55:55.405999Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/05-email-drafting-agent/requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/05-email-drafting-agent/requirements.txt@1.0.0",
-      "type": "application",
-      "supplier": "Unknown / Open Source Community",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:37Z",
-      "release_date": "2026-06-25T11:47:37.092605Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "crewai",
-      "version": "0.80.0",
-      "purl": "pkg:pypi/crewai@0.80.0",
-      "type": "library",
-      "supplier": "Joao Moura <joao@crewai.com>",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-11-14T04:55:55Z",
-      "release_date": "2024-11-14T04:55:55.405999Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "langgraph",
-      "version": "0.2.0",
-      "purl": "pkg:pypi/langgraph@0.2.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-08-07T03:33:55Z",
-      "release_date": "2024-08-07T03:33:55.923964Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28277",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain@0.3.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:45:08Z",
-      "release_date": "2024-09-13T22:45:08.089462Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-45134",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "GHSA-gr75-jv2w-4656",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/agents/09-resume-parser-agent/requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/agents/09-resume-parser-agent/requirements.txt@1.0.0",
-      "type": "application",
-      "supplier": "Unknown / Open Source Community",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:38Z",
-      "release_date": "2026-06-25T11:47:38.158585Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "python-dotenv",
-      "version": "1.0.1",
-      "purl": "pkg:pypi/python-dotenv@1.0.1",
-      "type": "library",
-      "supplier": "Saurabh Kumar <me+github@saurabh-kumar.com>",
-      "license": "BSD-3-Clause",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-01-22T06:32:58Z",
-      "release_date": "2024-01-23T06:32:58.246675Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2026-28684",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        }
-      ],
-      "active_in_build": true
-    },
-    {
-      "name": "System Scanner/System Scanner/dist/temp_repos/ashishpatel26_500-AI-Agents-Projects_1782289657/extracted/500-AI-Agents-Projects-main/crewai_mcp_course/lesson_01/requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/system scanner/system scanner/dist/temp_repos/ashishpatel26_500-ai-agents-projects_1782289657/extracted/500-ai-agents-projects-main/crewai_mcp_course/lesson_01/requirements.txt@1.0.0",
-      "type": "application",
-      "supplier": "Unknown / Open Source Community",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:38Z",
-      "release_date": "2026-06-25T11:47:38.416019Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
-    {
-      "name": "langchain-core",
-      "version": "0.3.0",
-      "purl": "pkg:pypi/langchain-core@0.3.0",
-      "type": "library",
-      "supplier": "Unknown / Open Source Community",
-      "license": "MIT",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2027-09-13T22:06:42Z",
-      "release_date": "2024-09-13T22:06:42.931742Z",
-      "internal_comment": "",
-      "cve_exposure": [
-        {
-          "id": "CVE-2024-10940",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-65106",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2025-68664",
-          "severity": "critical",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-26013",
-          "severity": "low",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-34070",
-          "severity": "high",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-40087",
-          "severity": "medium",
-          "vex_status": "not_evaluated"
-        },
-        {
-          "id": "CVE-2026-44843",
-          "severity": "high",
           "vex_status": "not_evaluated"
         }
       ],
@@ -2793,8 +2793,8 @@
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:40Z",
-      "release_date": "2026-06-25T11:47:40.688083Z",
+      "eol_date": "2029-06-25T06:19:11Z",
+      "release_date": "2026-06-26T06:19:11.224909Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -2809,8 +2809,8 @@
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:41Z",
-      "release_date": "2026-06-25T11:47:41.501424Z",
+      "eol_date": "2029-06-25T06:19:11Z",
+      "release_date": "2026-06-26T06:19:11.272896Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -2825,8 +2825,8 @@
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:41Z",
-      "release_date": "2026-06-25T11:47:41.985537Z",
+      "eol_date": "2029-06-25T06:19:11Z",
+      "release_date": "2026-06-26T06:19:11.586542Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -2841,8 +2841,8 @@
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:42Z",
-      "release_date": "2026-06-25T11:47:42.376823Z",
+      "eol_date": "2029-06-25T06:19:11Z",
+      "release_date": "2026-06-26T06:19:11.970652Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -2857,8 +2857,8 @@
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:42Z",
-      "release_date": "2026-06-25T11:47:42.701012Z",
+      "eol_date": "2029-06-25T06:19:12Z",
+      "release_date": "2026-06-26T06:19:12.340305Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -2873,8 +2873,8 @@
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:43Z",
-      "release_date": "2026-06-25T11:47:43.088337Z",
+      "eol_date": "2029-06-25T06:19:12Z",
+      "release_date": "2026-06-26T06:19:12.656284Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -2889,8 +2889,8 @@
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:43Z",
-      "release_date": "2026-06-25T11:47:43.420756Z",
+      "eol_date": "2029-06-25T06:19:13Z",
+      "release_date": "2026-06-26T06:19:13.035065Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -2905,8 +2905,8 @@
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:43Z",
-      "release_date": "2026-06-25T11:47:43.771958Z",
+      "eol_date": "2029-06-25T06:19:13Z",
+      "release_date": "2026-06-26T06:19:13.365385Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -2921,8 +2921,8 @@
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:44Z",
-      "release_date": "2026-06-25T11:47:44.160646Z",
+      "eol_date": "2029-06-25T06:19:13Z",
+      "release_date": "2026-06-26T06:19:13.692401Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
@@ -3048,8 +3048,8 @@
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-24T11:47:48Z",
-      "release_date": "2026-06-25T11:47:48.947890Z",
+      "eol_date": "2029-06-25T06:19:14Z",
+      "release_date": "2026-06-26T06:19:14.089195Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
