@@ -100,7 +100,6 @@ class Theme:
             Font(name="Segoe UI", size=9, bold=True, color=fg)
         )
 
-
 # ------------------------------------------------------------------
 # Helper - Apply styles to a row
 # ------------------------------------------------------------------
@@ -276,14 +275,14 @@ def create_component_data_sheet(wb, sbom):
             vuln_map.setdefault(a.get("ref", ""), []).append(v.get("id", ""))
 
     # Title
-    ws.merge_cells("A1:V1")
-    ws.cell(row=1, column=1, value="SBOM Component Data - All 21 Client Attributes").font = Theme.title_font()
+    ws.merge_cells("A1:AC1")
+    ws.cell(row=1, column=1, value="SBOM Component Data - All 21 Client Attributes + Enterprise Enhancements").font = Theme.title_font()
     ws.row_dimensions[1].height = 35
 
-    ws.merge_cells("A2:V2")
+    ws.merge_cells("A2:AC2")
     ws.cell(row=2, column=1, value="Author: {}  |  Generated: {}".format(author, timestamp)).font = Theme.subtitle_font()
 
-    # Headers - exact 21 attribute names from client requirements
+    # Headers - exact 21 attribute names from client requirements + enterprise enhancements
     headers = [
         "Sr No",                     # index
         "Component Name",            # 1
@@ -298,15 +297,22 @@ def create_component_data_sheet(wb, sbom):
         "Release Date",              # 10
         "End-of-Life (EOL) Date",    # 11
         "Criticality",               # 12
+        "Criticality Reason",        # 12a - enterprise enhancement
         "Usage Restrictions",        # 13
         "Checksums or Hashes",       # 14
         "Comments or Notes",         # 15
         "Author of SBOM Data",       # 16
         "Timestamp",                 # 17
         "Executable Property",       # 18
+        "Executable Evidence",       # 18a - enterprise enhancement
         "Archive Property",          # 19
         "Structured Property",       # 20
         "Unique Identifier (PURL)",  # 21
+        "Trust Score",               # enterprise: evidence & trust
+        "Trust Score Reasons",       # enterprise: evidence & trust
+        "Repository Registry",       # enterprise: expanded repo detection
+        "Repository URL",            # enterprise: expanded repo detection
+        "Repository Ecosystem",      # enterprise: expanded repo detection
     ]
 
     header_row = 4
@@ -316,7 +322,7 @@ def create_component_data_sheet(wb, sbom):
     ws.row_dimensions[header_row].height = 30
 
     # Column alignment rules: center these column indices (1-based)
-    center_cols = {1, 3, 10, 11, 12, 13, 17, 18, 19, 20}
+    center_cols = {1, 3, 10, 11, 12, 14, 18, 21, 22, 24}
 
     for idx, comp in enumerate(components, 1):
         r = header_row + idx
@@ -359,27 +365,48 @@ def create_component_data_sheet(wb, sbom):
             props.get("release_date", ""),
             props.get("eol_date", ""),
             crit.upper(),
+            props.get("criticality_reason", ""),          # 12a
             props.get("usage_restrictions", "None"),
             hash_str,
             props.get("comments", ""),
             author,
             timestamp,
             props.get("executable", "false"),
+            props.get("executable_evidence", ""),         # 18a
             props.get("archive", "true"),
             props.get("structured", "CycloneDX JSON"),
             comp.get("purl", ""),
+            props.get("trust_score", ""),                 # trust score
+            props.get("trust_score_reasons", ""),         # trust score reasons
+            props.get("repository_registry", ""),         # repo registry
+            props.get("repository_url", ""),              # repo url
+            props.get("repository_ecosystem", ""),        # repo ecosystem
         ]
 
         for ci, val in enumerate(row_values, 1):
             cell = ws.cell(row=r, column=ci, value=val)
             style_data_cell(cell, is_alt=is_alt, center=(ci in center_cols))
 
-            # Special criticality column styling
+            # Special criticality column styling (col 13 = Criticality)
             if ci == 13:
                 fill, font = Theme.criticality_style(crit)
                 cell.fill = fill
                 cell.font = font
                 cell.alignment = Alignment(horizontal="center", vertical="center")
+
+            # Trust score — colour by value
+            if ci == 24 and val:
+                try:
+                    pct = int(str(val).replace("%", ""))
+                    if pct >= 80:
+                        cell.fill = PatternFill(start_color="C8E6C9", end_color="C8E6C9", fill_type="solid")
+                    elif pct >= 50:
+                        cell.fill = PatternFill(start_color="FFF9C4", end_color="FFF9C4", fill_type="solid")
+                    else:
+                        cell.fill = PatternFill(start_color="FFCDD2", end_color="FFCDD2", fill_type="solid")
+                    cell.font = Theme.data_bold_font()
+                except ValueError:
+                    pass
 
             # Bold component name
             if ci == 2:
@@ -588,7 +615,15 @@ def generate_excel_report(enriched_sbom_path, output_excel_path):
             sheet.freeze_panes = "A4"
 
     os.makedirs(os.path.dirname(os.path.abspath(output_excel_path)), exist_ok=True)
-    wb.save(output_excel_path)
+    try:
+        wb.save(output_excel_path)
+    except PermissionError:
+        print("\n[!] Error: Permission denied when saving to '{}'.".format(output_excel_path))
+        print("    Please close the Excel file if it is currently open, and try again.\n")
+        return False
+    except Exception as e:
+        print("\n[!] Error saving Excel workbook: {}\n".format(e))
+        return False
     print("[+] Excel report saved -> {}".format(output_excel_path))
     print("    Sheets: Dashboard | Component Data (21 Attr) | Vulnerability Matrix | Legend & Info")
     return True
