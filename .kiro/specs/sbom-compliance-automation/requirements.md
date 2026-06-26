@@ -1,3 +1,4 @@
+python "cdxgen/run_pipeline.py"
 # Requirements Document
 
 ## Introduction
