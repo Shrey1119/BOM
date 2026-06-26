@@ -16,6 +16,7 @@ import subprocess
 import datetime
 import json
 import argparse
+import time
 
 
 # ------------------------------------------------------------------
@@ -394,18 +395,148 @@ def action_full_scan(scan_path):
     return scan_path
 
 
+def show_prescan_screen(scan_path):
+    """
+    Display the 'Ready to Scan' confirmation box and wait for user input.
+    Returns True if the user wants to proceed, False to go back to the menu.
+    """
+    W = 60  # inner width between the double-rule borders
+
+    # Pad a value field so it fits neatly inside the box
+    def field_line(label, value):
+        content = "  {}  {}".format(label, value)
+        # Truncate long paths so they don't overflow the box
+        max_val = W - len(label) - 5
+        if len(value) > max_val:
+            value = "..." + value[-(max_val - 3):]
+            content = "  {}  {}".format(label, value)
+        padding = W - len(content)
+        return "\u2551" + content + " " * padding + "\u2551"
+
+    print("")
+    print("  \u2554" + "\u2550" * W + "\u2557")
+    title = "SBOM SCANNER - READY TO SCAN"
+    pad_l = (W - len(title)) // 2
+    pad_r = W - len(title) - pad_l
+    print("  \u2551" + " " * pad_l + title + " " * pad_r + "\u2551")
+    print("  \u2560" + "\u2550" * W + "\u2563")
+    print("  " + field_line("Target  :", scan_path))
+    print("  " + field_line("Scanner :", "Trivy (filesystem mode)"))
+    print("  " + field_line("Output  :", "CycloneDX JSON v1.6"))
+    print("  \u255a" + "\u2550" * W + "\u255d")
+    print("")
+
+    while True:
+        raw = input("  Press [S] to Start Scan, or [B] to go Back to menu: ").strip().lower()
+        if raw in ("s", ""):
+            return True
+        if raw == "b":
+            return False
+        # Any other key: re-prompt
+        print("  Please press S (or Enter) to start, or B to go back.")
+
+
+def run_scan_with_progress(scan_path):
+    """
+    Wrap step_scan() with a phases display and a completion summary.
+    Returns True if the scan succeeded, False otherwise.
+    """
+    W = 57  # inner width
+
+    def phase_line(marker, num, total, label, status):
+        """Build a single phase row."""
+        tag = "[{:^9}]".format(status)
+        content = "  {} Phase {}/{}  {:<30} {}".format(marker, num, total, label, tag)
+        padding = W - len(content)
+        return "\u2502" + content + " " * max(padding, 1) + "\u2502"
+
+    def print_phases(active):
+        """Print the phases box; active is 1-indexed current phase (0 = waiting)."""
+        phases = [
+            "Filesystem Discovery",
+            "Vulnerability Matching",
+            "CycloneDX Serialisation",
+        ]
+        print("")
+        print("  \u250c" + "\u2500" * W + "\u2510")
+        hdr = "  SCANNING PHASES"
+        print("  \u2502" + hdr + " " * (W - len(hdr)) + "\u2502")
+        print("  \u251c" + "\u2500" * W + "\u2524")
+        for i, name in enumerate(phases, 1):
+            if i < active:
+                status = "DONE"
+                marker = "\u2714"
+            elif i == active:
+                status = "RUNNING"
+                marker = "\u25ba"
+            else:
+                status = "WAITING"
+                marker = " "
+            print("  " + phase_line(marker, i, len(phases), name, status))
+        print("  \u2514" + "\u2500" * W + "\u2518")
+        print("")
+
+    # Show the phases box with Phase 1 running
+    print_phases(1)
+
+    # --- actual scan ---
+    start_time = time.time()
+    success = step_scan(scan_path)
+    elapsed = time.time() - start_time
+
+    if not success:
+        return False
+
+    # Show completed phases
+    print_phases(4)  # active > 3 => all marked DONE
+
+    # Read component count from raw JSON
+    comp_count = 0
+    if os.path.exists(RAW_SBOM):
+        try:
+            with open(RAW_SBOM, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            comp_count = len(data.get("components", []))
+        except Exception:
+            comp_count = 0
+
+    # Completion summary box
+    def summary_line(label, value):
+        content = "  {:<24} : {}".format(label, value)
+        padding = W - len(content)
+        return "\u2502" + content + " " * max(padding, 1) + "\u2502"
+
+    print("  \u250c" + "\u2500" * W + "\u2510")
+    hdr = "  SCAN COMPLETE"
+    print("  \u2502" + hdr + " " * (W - len(hdr)) + "\u2502")
+    print("  \u251c" + "\u2500" * W + "\u2524")
+    print("  " + summary_line("Components Detected", str(comp_count)))
+    print("  " + summary_line("Elapsed Time", "{:.1f} seconds".format(elapsed)))
+    print("  " + summary_line("Completion", "100%"))
+    print("  " + summary_line("Output File", "sbom_raw.json"))
+    print("  \u2514" + "\u2500" * W + "\u2518")
+    print("")
+
+    return True
+
+
 def action_quick_scan(scan_path):
     """Run quick filesystem scan and export raw CycloneDX."""
     scan_path = ensure_scan_path(scan_path)
     if not scan_path:
         return None
 
+    # --- Pre-scan confirmation screen ---
+    if not show_prescan_screen(scan_path):
+        print_info("Scan cancelled. Returning to menu.")
+        return scan_path
+
     print("")
     print("  >> Starting Quick Scan...")
     ensure_directories()
-    
-    # 1. Scan filesystem
-    if not step_scan(scan_path):
+
+    # 1. Scan filesystem (with progress display)
+    if not run_scan_with_progress(scan_path):
         return scan_path
 
     # 2. HTML Report
@@ -415,7 +546,7 @@ def action_quick_scan(scan_path):
     print_step("Q", "Exporting Quick CycloneDX JSON")
     os.makedirs(os.path.dirname(CYCLONEDX_OUT), exist_ok=True)
     shutil.copy2(RAW_SBOM, CYCLONEDX_OUT)
-    
+
     if os.path.exists(CYCLONEDX_OUT):
         size_kb = os.path.getsize(CYCLONEDX_OUT) / 1024
         print_success("CycloneDX JSON exported -> {}".format(CYCLONEDX_OUT))
@@ -423,7 +554,7 @@ def action_quick_scan(scan_path):
         print_info("Format: CycloneDX v1.6 (raw scan)")
     else:
         print_error("Failed to export CycloneDX JSON.")
-        
+
     return scan_path
 
 

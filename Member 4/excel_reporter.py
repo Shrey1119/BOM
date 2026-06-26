@@ -276,11 +276,11 @@ def create_component_data_sheet(wb, sbom):
             vuln_map.setdefault(a.get("ref", ""), []).append(v.get("id", ""))
 
     # Title
-    ws.merge_cells("A1:V1")
-    ws.cell(row=1, column=1, value="SBOM Component Data - All 21 Client Attributes").font = Theme.title_font()
+    ws.merge_cells("A1:AC1")
+    ws.cell(row=1, column=1, value="SBOM Component Data - All 21 Client Attributes + Enterprise Enhancements").font = Theme.title_font()
     ws.row_dimensions[1].height = 35
 
-    ws.merge_cells("A2:V2")
+    ws.merge_cells("A2:AC2")
     ws.cell(row=2, column=1, value="Author: {}  |  Generated: {}".format(author, timestamp)).font = Theme.subtitle_font()
 
     # Headers - exact 21 attribute names from client requirements
