@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",
-  "serialNumber": "urn:uuid:22ececa1-a938-4638-bf30-64518a71093f",
+  "serialNumber": "urn:uuid:9f4940d3-43d7-455e-a226-2eb6dc2e2232",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-25T11:20:54Z",
+    "timestamp": "2026-06-25T11:29:26Z",
     "tools": {
       "components": [
         {
@@ -20,9 +20,9 @@
       ]
     },
     "component": {
-      "bom-ref": "2bd3050f-b870-4675-b748-26a49d4cd9c3",
+      "bom-ref": "234b2265-289e-49e1-89bb-b8dc7a345efb",
       "type": "application",
-      "name": "D:/College Work/Internship/BOM/mock_project",
+      "name": "C:/Study/Projects/BOM/mock_project",
       "properties": [
         {
           "name": "aquasecurity:trivy:SchemaVersion",
@@ -39,13 +39,13 @@
     "properties": [
       {
         "name": "signature",
-        "value": "MEUCIQDiiSSbIGJOhA6hrG2SpH6YtbZHgHSPsxwak/6lsAFzOgIgJx07wKJGsJ9pUhm3oRcKiNnp5dEfNZs+XKJeVIJFaeA="
+        "value": "MEUCIQC91izrujslhA35RnlfBWQxJ7a6pTrlKWP1pHzrmKsoOAIgEmTySggGU8g5F7/8K0t+K+IGkPSJrhoI/Y+h5EltJsE="
       }
     ]
   },
   "components": [
     {
-      "bom-ref": "d106677d-de5e-4ad1-8323-7e49aa83d5a3",
+      "bom-ref": "086db006-808a-4c37-b8be-a9dc4fda43f0",
       "type": "application",
       "name": "requirements.txt",
       "properties": [
@@ -67,11 +67,11 @@
         },
         {
           "name": "release_date",
-          "value": "2026-06-25T11:20:55.108078Z"
+          "value": "2026-06-25T11:29:26.480165Z"
         },
         {
           "name": "eol_date",
-          "value": "2029-06-24T11:20:55Z"
+          "value": "2029-06-24T11:29:26Z"
         },
         {
           "name": "criticality",
@@ -471,19 +471,19 @@
   ],
   "dependencies": [
     {
-      "ref": "2bd3050f-b870-4675-b748-26a49d4cd9c3",
-      "dependsOn": [
-        "d106677d-de5e-4ad1-8323-7e49aa83d5a3"
-      ]
-    },
-    {
-      "ref": "d106677d-de5e-4ad1-8323-7e49aa83d5a3",
+      "ref": "086db006-808a-4c37-b8be-a9dc4fda43f0",
       "dependsOn": [
         "pkg:pypi/django@2.1",
         "pkg:pypi/jinja2@2.10",
         "pkg:pypi/numpy@1.15.0",
         "pkg:pypi/requests@2.20.0",
         "pkg:pypi/urllib3@1.24.2"
+      ]
+    },
+    {
+      "ref": "234b2265-289e-49e1-89bb-b8dc7a345efb",
+      "dependsOn": [
+        "086db006-808a-4c37-b8be-a9dc4fda43f0"
       ]
     },
     {
@@ -509,7 +509,7 @@
   ],
   "signature": {
     "algorithm": "ECDSA-SHA256",
-    "value": "MEUCIQDiiSSbIGJOhA6hrG2SpH6YtbZHgHSPsxwak/6lsAFzOgIgJx07wKJGsJ9pUhm3oRcKiNnp5dEfNZs+XKJeVIJFaeA=",
+    "value": "MEUCIQC91izrujslhA35RnlfBWQxJ7a6pTrlKWP1pHzrmKsoOAIgEmTySggGU8g5F7/8K0t+K+IGkPSJrhoI/Y+h5EltJsE=",
     "publicKey": "-----BEGIN PUBLIC KEY-----\\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAET3LDlOUZsBogDwHvB43iTgilnHZW\\n7/sZr9KZirWo+KWUbnQrfWWQdoJjsjnqxuRkoHW/EUcXDfLivmtdIKG47w==\\n-----END PUBLIC KEY-----\\n"
   }
 }

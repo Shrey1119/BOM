@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",
-  "serialNumber": "urn:uuid:429a4eb7-ef1d-4d3f-a98a-51975db55062",
+  "serialNumber": "urn:uuid:9f4940d3-43d7-455e-a226-2eb6dc2e2232",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-25T11:17:49+00:00",
+    "timestamp": "2026-06-25T11:29:25+00:00",
     "tools": {
       "components": [
         {
@@ -20,9 +20,9 @@
       ]
     },
     "component": {
-      "bom-ref": "7a46253e-30a5-46d4-aa60-bbc2f8871433",
+      "bom-ref": "234b2265-289e-49e1-89bb-b8dc7a345efb",
       "type": "application",
-      "name": "C:/Users/ADMIN/OneDrive/Desktop/BOM/BOM/mock_project",
+      "name": "C:/Study/Projects/BOM/mock_project",
       "properties": [
         {
           "name": "aquasecurity:trivy:SchemaVersion",
@@ -33,7 +33,7 @@
   },
   "components": [
     {
-      "bom-ref": "8908c6bf-beda-4495-9cab-ea894e7861ad",
+      "bom-ref": "086db006-808a-4c37-b8be-a9dc4fda43f0",
       "type": "application",
       "name": "requirements.txt",
       "properties": [
@@ -115,19 +115,19 @@
   ],
   "dependencies": [
     {
-      "ref": "7a46253e-30a5-46d4-aa60-bbc2f8871433",
-      "dependsOn": [
-        "8908c6bf-beda-4495-9cab-ea894e7861ad"
-      ]
-    },
-    {
-      "ref": "8908c6bf-beda-4495-9cab-ea894e7861ad",
+      "ref": "086db006-808a-4c37-b8be-a9dc4fda43f0",
       "dependsOn": [
         "pkg:pypi/django@2.1",
         "pkg:pypi/jinja2@2.10",
         "pkg:pypi/numpy@1.15.0",
         "pkg:pypi/requests@2.20.0",
         "pkg:pypi/urllib3@1.24.2"
+      ]
+    },
+    {
+      "ref": "234b2265-289e-49e1-89bb-b8dc7a345efb",
+      "dependsOn": [
+        "086db006-808a-4c37-b8be-a9dc4fda43f0"
       ]
     },
     {
