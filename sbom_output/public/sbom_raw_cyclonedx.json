@@ -5,7 +5,7 @@
   "serialNumber": "urn:uuid:752db66a-223b-4d91-987d-c6c09bf86254",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-26T06:14:55Z",
+    "timestamp": "2026-06-26T06:14:55+00:00",
     "tools": {
       "components": [
         {
@@ -29,19 +29,7 @@
           "value": "2"
         }
       ]
-    },
-    "authors": [
-      {
-        "name": "Compliance & Enrichment Specialist (Team Member 3)",
-        "email": "compliance-specialist@company.internal"
-      }
-    ],
-    "properties": [
-      {
-        "name": "signature",
-        "value": "MEYCIQDGXvCl8Gk+cI+5oZXFkz6qoSuqoWJZc9MEgTIM3LRZLQIhAIUDof5EZon3dOrsy2+rSOyvWuImKsb1FZGWcgWai48w"
-      }
-    ]
+    }
   },
   "components": [
     {
@@ -56,65 +44,6 @@
         {
           "name": "aquasecurity:trivy:Type",
           "value": "pip"
-        },
-        {
-          "name": "origin",
-          "value": "open-source"
-        },
-        {
-          "name": "patch_status",
-          "value": "up-to-date"
-        },
-        {
-          "name": "release_date",
-          "value": "2026-06-26T06:14:56.141587Z"
-        },
-        {
-          "name": "eol_date",
-          "value": "2029-06-25T06:14:56Z"
-        },
-        {
-          "name": "criticality",
-          "value": "medium"
-        },
-        {
-          "name": "usage_restrictions",
-          "value": "None"
-        },
-        {
-          "name": "comments",
-          "value": "Scanned and verified library"
-        },
-        {
-          "name": "executable",
-          "value": "false"
-        },
-        {
-          "name": "archive",
-          "value": "true"
-        },
-        {
-          "name": "structured",
-          "value": "CycloneDX JSON v1.6"
-        }
-      ],
-      "version": "1.0.0",
-      "purl": "pkg:pypi/requirements.txt@1.0.0",
-      "hashes": [
-        {
-          "alg": "SHA-256",
-          "content": "5a1746a9ad87d4184bd3c808b308163e2338567322000faed5d660162710a91b"
-        }
-      ],
-      "description": "Python package requirements.txt",
-      "supplier": {
-        "name": "Unknown / Open Source Community"
-      },
-      "licenses": [
-        {
-          "license": {
-            "name": "Apache-2.0"
-          }
         }
       ]
     },
@@ -128,63 +57,6 @@
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
-        },
-        {
-          "name": "origin",
-          "value": "open-source"
-        },
-        {
-          "name": "patch_status",
-          "value": "patch-available"
-        },
-        {
-          "name": "release_date",
-          "value": "2018-08-01T14:11:27.382635Z"
-        },
-        {
-          "name": "eol_date",
-          "value": "2021-07-31T14:11:27Z"
-        },
-        {
-          "name": "criticality",
-          "value": "critical"
-        },
-        {
-          "name": "usage_restrictions",
-          "value": "Subject to internal framework deployment guidelines"
-        },
-        {
-          "name": "comments",
-          "value": "Primary web backend framework"
-        },
-        {
-          "name": "executable",
-          "value": "false"
-        },
-        {
-          "name": "archive",
-          "value": "true"
-        },
-        {
-          "name": "structured",
-          "value": "CycloneDX JSON v1.6"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-256",
-          "content": "6a47faad96b2260a0c790126423204636c74da97f045941f158ec1fabb64d516"
-        }
-      ],
-      "description": "A high-level Python web framework that encourages rapid development and clean, pragmatic design.",
-      "supplier": {
-        "name": "Django Software Foundation (DSF)"
-      },
-      "licenses": [
-        {
-          "license": {
-            "name": "Apache-2.0"
-          }
         }
       ]
     },
@@ -198,63 +70,6 @@
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
-        },
-        {
-          "name": "origin",
-          "value": "open-source"
-        },
-        {
-          "name": "patch_status",
-          "value": "patch-available"
-        },
-        {
-          "name": "release_date",
-          "value": "2017-11-08T20:13:42.279540Z"
-        },
-        {
-          "name": "eol_date",
-          "value": "2020-11-07T20:13:42Z"
-        },
-        {
-          "name": "criticality",
-          "value": "medium"
-        },
-        {
-          "name": "usage_restrictions",
-          "value": "None"
-        },
-        {
-          "name": "comments",
-          "value": "Scanned and verified library"
-        },
-        {
-          "name": "executable",
-          "value": "false"
-        },
-        {
-          "name": "archive",
-          "value": "true"
-        },
-        {
-          "name": "structured",
-          "value": "CycloneDX JSON v1.6"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-256",
-          "content": "bea121f34d38d518061caf57e02bb1c4f665b69fb9fabb86adc06c5528c723b6"
-        }
-      ],
-      "description": "A very fast and expressive template engine.",
-      "supplier": {
-        "name": "Unknown / Open Source Community"
-      },
-      "licenses": [
-        {
-          "license": {
-            "name": "Apache-2.0"
-          }
         }
       ]
     },
@@ -268,63 +83,6 @@
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
-        },
-        {
-          "name": "origin",
-          "value": "open-source"
-        },
-        {
-          "name": "patch_status",
-          "value": "patch-available"
-        },
-        {
-          "name": "release_date",
-          "value": "2018-07-23T16:03:25.445499Z"
-        },
-        {
-          "name": "eol_date",
-          "value": "2021-07-22T16:03:25Z"
-        },
-        {
-          "name": "criticality",
-          "value": "medium"
-        },
-        {
-          "name": "usage_restrictions",
-          "value": "None"
-        },
-        {
-          "name": "comments",
-          "value": "Numeric and mathematical computation core package"
-        },
-        {
-          "name": "executable",
-          "value": "false"
-        },
-        {
-          "name": "archive",
-          "value": "true"
-        },
-        {
-          "name": "structured",
-          "value": "CycloneDX JSON v1.6"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-256",
-          "content": "a890e78aadf77316231617827af6b351817d6b81592d7754f2c149a5f6acb461"
-        }
-      ],
-      "description": "Fundamental package for array computing in Python",
-      "supplier": {
-        "name": "NumPy Developers"
-      },
-      "licenses": [
-        {
-          "license": {
-            "name": "Apache-2.0"
-          }
         }
       ]
     },
@@ -338,63 +96,6 @@
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
-        },
-        {
-          "name": "origin",
-          "value": "open-source"
-        },
-        {
-          "name": "patch_status",
-          "value": "patch-available"
-        },
-        {
-          "name": "release_date",
-          "value": "2018-10-18T15:46:10.776819Z"
-        },
-        {
-          "name": "eol_date",
-          "value": "2021-10-17T15:46:10Z"
-        },
-        {
-          "name": "criticality",
-          "value": "high"
-        },
-        {
-          "name": "usage_restrictions",
-          "value": "None"
-        },
-        {
-          "name": "comments",
-          "value": "Critical HTTP client library used for core backend integrations"
-        },
-        {
-          "name": "executable",
-          "value": "false"
-        },
-        {
-          "name": "archive",
-          "value": "true"
-        },
-        {
-          "name": "structured",
-          "value": "CycloneDX JSON v1.6"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-256",
-          "content": "29a9bb27fe60f04758f00863f6aa01ca04b0b56e4dcdec179843c3f3154d2060"
-        }
-      ],
-      "description": "Python HTTP for Humans.",
-      "supplier": {
-        "name": "Kenneth Reitz & Requests Community"
-      },
-      "licenses": [
-        {
-          "license": {
-            "name": "Apache-2.0"
-          }
         }
       ]
     },
@@ -408,63 +109,6 @@
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
-        },
-        {
-          "name": "origin",
-          "value": "open-source"
-        },
-        {
-          "name": "patch_status",
-          "value": "patch-available"
-        },
-        {
-          "name": "release_date",
-          "value": "2019-04-17T17:49:45.870917Z"
-        },
-        {
-          "name": "eol_date",
-          "value": "2022-04-16T17:49:45Z"
-        },
-        {
-          "name": "criticality",
-          "value": "high"
-        },
-        {
-          "name": "usage_restrictions",
-          "value": "None"
-        },
-        {
-          "name": "comments",
-          "value": "Core networking transport library for HTTP calls"
-        },
-        {
-          "name": "executable",
-          "value": "false"
-        },
-        {
-          "name": "archive",
-          "value": "true"
-        },
-        {
-          "name": "structured",
-          "value": "CycloneDX JSON v1.6"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-256",
-          "content": "889a9b94b689167429f8308130822e9a6214d91f8558a220c2814e7faeb48800"
-        }
-      ],
-      "description": "HTTP library with thread-safe connection pooling, file post, and more.",
-      "supplier": {
-        "name": "urllib3 Contributors"
-      },
-      "licenses": [
-        {
-          "license": {
-            "name": "Apache-2.0"
-          }
         }
       ]
     }
@@ -8215,10 +7859,5 @@
         }
       ]
     }
-  ],
-  "signature": {
-    "algorithm": "ECDSA-SHA256",
-    "value": "MEYCIQDGXvCl8Gk+cI+5oZXFkz6qoSuqoWJZc9MEgTIM3LRZLQIhAIUDof5EZon3dOrsy2+rSOyvWuImKsb1FZGWcgWai48w",
-    "publicKey": "-----BEGIN PUBLIC KEY-----\\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAET3LDlOUZsBogDwHvB43iTgilnHZW\\n7/sZr9KZirWo+KWUbnQrfWWQdoJjsjnqxuRkoHW/EUcXDfLivmtdIKG47w==\\n-----END PUBLIC KEY-----\\n"
-  }
+  ]
 }

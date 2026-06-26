@@ -595,7 +595,10 @@ def generate_excel_report(enriched_sbom_path, output_excel_path):
 
 
 if __name__ == "__main__":
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    if getattr(sys, 'frozen', False):
+        base_dir = os.path.dirname(sys.executable)
+    else:
+        base_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(base_dir)
 
     enriched_path = os.path.join(project_root, "sbom_enriched.json")

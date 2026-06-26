@@ -15,13 +15,23 @@ import shutil
 import subprocess
 import datetime
 import json
+import argparse
 
 
 # ------------------------------------------------------------------
 # Constants
 # ------------------------------------------------------------------
-SCRIPT_DIR    = os.path.dirname(os.path.abspath(__file__))
-TRIVY_EXE     = os.path.join(SCRIPT_DIR, "Member 2", "trivy.exe")
+if getattr(sys, 'frozen', False):
+    exe_dir = os.path.dirname(sys.executable)
+else:
+    exe_dir = os.path.dirname(os.path.abspath(__file__))
+
+if os.path.basename(exe_dir) in ("Member 2", "sbom_toolsuite"):
+    SCRIPT_DIR = os.path.dirname(exe_dir)
+else:
+    SCRIPT_DIR = exe_dir
+
+TRIVY_EXE     = os.path.join(SCRIPT_DIR, "Member 2", "trivy_cli.exe")
 RAW_SBOM      = os.path.join(SCRIPT_DIR, "sbom_raw.json")
 ENRICHED      = os.path.join(SCRIPT_DIR, "sbom_enriched.json")
 OUTPUT_DIR    = os.path.join(SCRIPT_DIR, "sbom_output")
@@ -49,10 +59,11 @@ def print_menu(scan_path):
     print("+---------------------------------------------------+")
     print("|  Current Scan Path: {}".format(display_path))
     print("+---------------------------------------------------+")
-    print("|  1  >>  Set Path to Scan                          |")
-    print("|  2  >>  Export Excel Report (Colourful & Tabular) |")
-    print("|  3  >>  Export CycloneDX JSON Format              |")
-    print("|  4  >>  Exit                                      |")
+    print("|  1  >>  Full Scan                                 |")
+    print("|  2  >>  Quick Scan                                |")
+    print("|  3  >>  Export Report in Excel Format             |")
+    print("|  4  >>  Cyclone DX Format Export                  |")
+    print("|  5  >>  Exit                                      |")
     print("+---------------------------------------------------+")
     print("")
 
@@ -193,6 +204,25 @@ def step_internal_map():
     return run_cmd('python "{}"'.format(mapper), "Internal Component Mapper")
 
 
+def step_html_report(scan_path):
+    """Step 6.5: Generate HTML vulnerability report."""
+    print_step("H", "Generating Human-Readable HTML Scan Report")
+    trivy = resolve_trivy()
+    if not trivy:
+        return False
+    
+    html_tpl = os.path.join(SCRIPT_DIR, "Member 2", "contrib", "html.tpl")
+    if not os.path.exists(html_tpl):
+        print_error("HTML template not found: {}".format(html_tpl))
+        return False
+        
+    out_path = os.path.join(OUTPUT_DIR, "report.html")
+    cmd = '"{}" fs --format template --template "@{}" --output "{}" "{}"'.format(
+        trivy, html_tpl, out_path, scan_path
+    )
+    return run_cmd(cmd, "Trivy HTML Report Generator")
+
+
 def step_organize():
     """Step 7: Organize outputs into tiered folders."""
     print_step(7, "Organizing Outputs into Tiered Storage")
@@ -260,6 +290,7 @@ def run_full_scan_pipeline(scan_path):
         step_distribute,
         step_vex_csaf,
         step_internal_map,
+        lambda: step_html_report(scan_path),
         step_organize,
     ]
 
@@ -311,11 +342,96 @@ def action_set_path():
     return path
 
 
+def ensure_scan_path(scan_path):
+    """Ensure scan path is set, prompting the user if not."""
+    if not scan_path:
+        print("\n  Scan path is not set yet.")
+        scan_path = action_set_path()
+    return scan_path
+
+
+def action_full_scan(scan_path):
+    """Run full scan pipeline and generate all reports (Excel & CycloneDX)."""
+    scan_path = ensure_scan_path(scan_path)
+    if not scan_path:
+        return None
+
+    print("")
+    print("  >> Starting Full Scan Pipeline...")
+    
+    # Run full pipeline
+    if not run_full_scan_pipeline(scan_path):
+        return scan_path
+
+    enriched_path = find_enriched_sbom()
+    if not enriched_path:
+        print_error("Enriched SBOM not found after pipeline.")
+        return scan_path
+
+    # 1. Export Excel Report
+    print_step("E", "Generating Styled Excel Compliance Report")
+    reporter = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "excel_reporter.py")
+    cmd = 'python "{}" "{}" "{}"'.format(reporter, enriched_path, EXCEL_OUT)
+    if run_cmd(cmd, "Excel Report Generator"):
+        print_success("Excel Report exported -> {}".format(EXCEL_OUT))
+    else:
+        print_error("Excel report generation failed.")
+
+    # 2. Export CycloneDX JSON
+    print_step("C", "Exporting CycloneDX JSON")
+    os.makedirs(os.path.dirname(CYCLONEDX_OUT), exist_ok=True)
+    shutil.copy2(enriched_path, CYCLONEDX_OUT)
+    
+    raw_out = os.path.join(OUTPUT_DIR, "public", "sbom_raw_cyclonedx.json")
+    if os.path.exists(RAW_SBOM):
+        shutil.copy2(RAW_SBOM, raw_out)
+
+    if os.path.exists(CYCLONEDX_OUT):
+        print_success("CycloneDX JSON exported -> {}".format(CYCLONEDX_OUT))
+    else:
+        print_error("Failed to export CycloneDX JSON.")
+        
+    return scan_path
+
+
+def action_quick_scan(scan_path):
+    """Run quick filesystem scan and export raw CycloneDX."""
+    scan_path = ensure_scan_path(scan_path)
+    if not scan_path:
+        return None
+
+    print("")
+    print("  >> Starting Quick Scan...")
+    ensure_directories()
+    
+    # 1. Scan filesystem
+    if not step_scan(scan_path):
+        return scan_path
+
+    # 2. HTML Report
+    step_html_report(scan_path)
+
+    # 3. Export raw CycloneDX
+    print_step("Q", "Exporting Quick CycloneDX JSON")
+    os.makedirs(os.path.dirname(CYCLONEDX_OUT), exist_ok=True)
+    shutil.copy2(RAW_SBOM, CYCLONEDX_OUT)
+    
+    if os.path.exists(CYCLONEDX_OUT):
+        size_kb = os.path.getsize(CYCLONEDX_OUT) / 1024
+        print_success("CycloneDX JSON exported -> {}".format(CYCLONEDX_OUT))
+        print_info("File size: {:.1f} KB".format(size_kb))
+        print_info("Format: CycloneDX v1.6 (raw scan)")
+    else:
+        print_error("Failed to export CycloneDX JSON.")
+        
+    return scan_path
+
+
 def action_export_excel(scan_path):
     """Run full pipeline then generate Excel report."""
+    scan_path = ensure_scan_path(scan_path)
     if not scan_path:
-        print_error("Scan path is not set! Please use option 1 first.")
-        return
+        return None
 
     print("")
     print("  >> Starting Full Pipeline + Excel Export...")
@@ -329,18 +445,18 @@ def action_export_excel(scan_path):
         choice = input("  Re-scan from scratch? (y/N): ").strip().lower()
         if choice in ("y", "yes"):
             if not run_full_scan_pipeline(scan_path):
-                return
+                return scan_path
         else:
             print_info("Using existing enriched SBOM. Skipping scan.")
     else:
         if not run_full_scan_pipeline(scan_path):
-            return
+            return scan_path
 
     # Find the enriched file
     enriched_path = find_enriched_sbom()
     if not enriched_path:
         print_error("Enriched SBOM not found after pipeline. Cannot generate Excel report.")
-        return
+        return scan_path
 
     # Generate Excel report
     print_step("E", "Generating Styled Excel Compliance Report")
@@ -353,13 +469,14 @@ def action_export_excel(scan_path):
         print_info("Sheets: Dashboard | Component Data (21 Attr) | Vulnerability Matrix | Legend & Info")
     else:
         print_error("Excel report generation failed.")
+    return scan_path
 
 
 def action_export_cyclonedx(scan_path):
     """Run full pipeline then export a clean CycloneDX JSON."""
+    scan_path = ensure_scan_path(scan_path)
     if not scan_path:
-        print_error("Scan path is not set! Please use option 1 first.")
-        return
+        return None
 
     print("")
     print("  >> Starting Full Pipeline + CycloneDX Export...")
@@ -373,18 +490,18 @@ def action_export_cyclonedx(scan_path):
         choice = input("  Re-scan from scratch? (y/N): ").strip().lower()
         if choice in ("y", "yes"):
             if not run_full_scan_pipeline(scan_path):
-                return
+                return scan_path
         else:
             print_info("Using existing enriched SBOM. Skipping scan.")
     else:
         if not run_full_scan_pipeline(scan_path):
-            return
+            return scan_path
 
     # Find the enriched file
     enriched_path = find_enriched_sbom()
     if not enriched_path:
         print_error("Enriched SBOM not found. Cannot export CycloneDX.")
-        return
+        return scan_path
 
     # Copy the enriched SBOM as the CycloneDX deliverable
     print_step("C", "Exporting CycloneDX JSON")
@@ -412,42 +529,127 @@ def action_export_cyclonedx(scan_path):
         print_info("Components: {}  |  Vulnerabilities: {}".format(comp_count, vuln_count))
     else:
         print_error("Failed to export CycloneDX JSON.")
+    return scan_path
+
+
+# ------------------------------------------------------------------
+# Main Loop
+# ------------------------------------------------------------------
+def run_cli_mode(args):
+    """Run the pipeline in non-interactive CLI mode."""
+    scan_path = args.src
+    if not scan_path:
+        print_error("Scan path (--src / -s) is required in CLI mode.")
+        sys.exit(1)
+
+    scan_path = os.path.abspath(scan_path)
+    if not os.path.exists(scan_path) or not os.path.isdir(scan_path):
+        print_error("Scan path is not a valid directory: {}".format(scan_path))
+        sys.exit(1)
+
+    print_info("CLI mode started. Target: {}".format(scan_path))
+
+    # Run full pipeline
+    if not run_full_scan_pipeline(scan_path):
+        print_error("Pipeline execution failed.")
+        sys.exit(1)
+
+    enriched_path = find_enriched_sbom()
+    if not enriched_path:
+        print_error("Enriched SBOM not found after pipeline. Cannot export reports.")
+        sys.exit(1)
+
+    # 1. Excel Generation
+    if args.all or args.excel:
+        excel_path = args.excel if isinstance(args.excel, str) else EXCEL_OUT
+        excel_path = os.path.abspath(excel_path)
+        
+        print_step("E", "Generating Styled Excel Compliance Report")
+        reporter = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "excel_reporter.py")
+        cmd = 'python "{}" "{}" "{}"'.format(reporter, enriched_path, excel_path)
+        if run_cmd(cmd, "Excel Report Generator"):
+            print_success("Excel Report exported -> {}".format(excel_path))
+        else:
+            print_error("Excel report generation failed.")
+
+    # 2. CycloneDX Generation
+    if args.all or args.cyclonedx:
+        json_path = args.cyclonedx if isinstance(args.cyclonedx, str) else CYCLONEDX_OUT
+        json_path = os.path.abspath(json_path)
+        
+        print_step("C", "Exporting CycloneDX JSON")
+        ensure_directories()
+        
+        # Ensure output directory for json_path exists
+        os.makedirs(os.path.dirname(json_path), exist_ok=True)
+        shutil.copy2(enriched_path, json_path)
+        
+        # Also copy the raw CycloneDX if it exists
+        raw_out = os.path.join(os.path.dirname(json_path), "sbom_raw_cyclonedx.json")
+        if os.path.exists(RAW_SBOM):
+            shutil.copy2(RAW_SBOM, raw_out)
+            print_info("Raw CycloneDX (pre-enrichment) -> {}".format(raw_out))
+
+        if os.path.exists(json_path):
+            print_success("CycloneDX JSON exported -> {}".format(json_path))
+        else:
+            print_error("Failed to export CycloneDX JSON.")
 
 
 # ------------------------------------------------------------------
 # Main Loop
 # ------------------------------------------------------------------
 def main():
-    banner()
+    if len(sys.argv) > 1:
+        parser = argparse.ArgumentParser(description="SBOM Automation Pipeline - CLI Mode")
+        parser.add_argument("--src", "-s", required=True, help="Path to the source code folder to scan")
+        parser.add_argument("--excel", "-e", help="Output path for Excel compliance report (default: sbom_output/public/sbom_report.xlsx)", nargs='?', const=True)
+        parser.add_argument("--cyclonedx", "--json", "-j", help="Output path for CycloneDX JSON format (default: sbom_output/public/sbom_cyclonedx.json)", nargs='?', const=True)
+        parser.add_argument("--all", "-a", action="store_true", help="Run scan and generate all reports (Excel and CycloneDX)")
+        
+        args = parser.parse_args()
+        run_cli_mode(args)
+    else:
+        banner()
+        scan_path = None
 
-    scan_path = None
+        while True:
+            print_menu(scan_path)
+            choice = input("  Select an option (1-5): ").strip()
 
-    while True:
-        print_menu(scan_path)
-        choice = input("  Select an option (1-4): ").strip()
+            if choice == "1":
+                result = action_full_scan(scan_path)
+                if result:
+                    scan_path = result
 
-        if choice == "1":
-            result = action_set_path()
-            if result:
-                scan_path = result
+            elif choice == "2":
+                result = action_quick_scan(scan_path)
+                if result:
+                    scan_path = result
 
-        elif choice == "2":
-            action_export_excel(scan_path)
+            elif choice == "3":
+                result = action_export_excel(scan_path)
+                if result:
+                    scan_path = result
 
-        elif choice == "3":
-            action_export_cyclonedx(scan_path)
+            elif choice == "4":
+                result = action_export_cyclonedx(scan_path)
+                if result:
+                    scan_path = result
 
-        elif choice == "4":
-            print("")
-            print("  Goodbye! SBOM Pipeline terminated.")
-            print("")
-            break
+            elif choice == "5":
+                print("")
+                print("  Goodbye! SBOM Pipeline terminated.")
+                print("")
+                # Keep the window open when double clicked
+                input("  Press Enter to close this window...")
+                break
 
-        else:
-            print_error("Invalid option. Please enter 1, 2, 3, or 4.")
+            else:
+                print_error("Invalid option. Please enter a number between 1 and 5.")
 
-        # Pause before showing menu again
-        input("\n  Press Enter to continue...")
+            # Pause before showing menu again
+            input("\n  Press Enter to continue...")
 
 
 if __name__ == "__main__":

@@ -55,13 +55,23 @@ set SBOM_ENC_KEY=YourSuperSecretKey123!
 
 ## Step 5: Run the Automated Pipeline
 
-To run the entire pipeline—scanning, enriching, validating, VEX/CSAF compiling, and signing—execute:
+You can run the automated pipeline in two ways:
 
+### **Method A: Standalone Executable (Double-Click or CMD)**
+Run the compiled `run_pipeline.exe` located in the root folder:
+1. Double-click **`run_pipeline.exe`** directly from Windows Explorer, or
+2. From the command prompt, execute:
+   ```cmd
+   run_pipeline.exe
+   ```
+
+This will launch the interactive console interface providing options for **Full Scan**, **Quick Scan**, **Excel Export**, and **Cyclone DX Export**.
+
+### **Method B: Python Script**
+If you prefer running via Python, execute:
 ```cmd
 python run_pipeline.py
 ```
-
-This script will run each step sequentially, output status logs, and compile all final deliverables into the structured storage tiers inside the `sbom_output/` folder.
 
 ---
 

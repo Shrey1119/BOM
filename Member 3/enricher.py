@@ -186,7 +186,10 @@ def enrich_sbom(raw_sbom_path, enriched_sbom_path, config_path):
 if __name__ == "__main__":
     import sys
     # Default paths for quick execution
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    if getattr(sys, 'frozen', False):
+        base_dir = os.path.dirname(sys.executable)
+    else:
+        base_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(base_dir)
     
     raw_path = os.path.join(project_root, "sbom_raw.json")
