@@ -19,8 +19,13 @@ def download_trivy(download_dir):
         os.makedirs(download_dir, exist_ok=True)
         with zipfile.ZipFile(io.BytesIO(zip_bytes)) as z:
             z.extract("trivy.exe", path=download_dir)
+            extracted_path = os.path.join(download_dir, "trivy.exe")
+            target_path = os.path.join(download_dir, "trivy_cli.exe")
+            if os.path.exists(target_path):
+                os.remove(target_path)
+            os.rename(extracted_path, target_path)
         print("[INFO] Trivy binary downloaded and extracted successfully.\n")
-        return os.path.join(download_dir, "trivy.exe")
+        return target_path
     except Exception as e:
         print(f"[ERROR] Failed to download or extract Trivy automatically: {e}")
         return None
@@ -52,26 +57,29 @@ def find_trivy(specified_path=None):
             sys.exit(1)
             
     # Check script directory
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    local_path = os.path.join(script_dir, "trivy.exe")
+    if getattr(sys, 'frozen', False):
+        script_dir = os.path.dirname(sys.executable)
+    else:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+    local_path = os.path.join(script_dir, "trivy_cli.exe")
     if os.path.exists(local_path) and not is_lfs_pointer(local_path):
         return local_path
         
     # Check Member 2 directory
-    member2_path = os.path.abspath(os.path.join(script_dir, "..", "Member 2", "trivy.exe"))
+    member2_path = os.path.abspath(os.path.join(script_dir, "..", "Member 2", "trivy_cli.exe"))
     if os.path.exists(member2_path) and not is_lfs_pointer(member2_path):
         return member2_path
         
     # If the file exists in Member 2 but is an LFS pointer, download/overwrite it there
     if os.path.exists(member2_path) and is_lfs_pointer(member2_path):
-        print("[WARN] Member 2/trivy.exe is a Git LFS pointer (not fully downloaded). Fixing...")
+        print("[WARN] Member 2/trivy_cli.exe is a Git LFS pointer (not fully downloaded). Fixing...")
         fixed_path = download_trivy(os.path.dirname(member2_path))
         if fixed_path:
             return fixed_path
             
     # If file exists in script dir but is an LFS pointer, download/overwrite it there
     if os.path.exists(local_path) and is_lfs_pointer(local_path):
-        print("[WARN] Local trivy.exe is a Git LFS pointer (not fully downloaded). Fixing...")
+        print("[WARN] Local trivy_cli.exe is a Git LFS pointer (not fully downloaded). Fixing...")
         fixed_path = download_trivy(script_dir)
         if fixed_path:
             return fixed_path

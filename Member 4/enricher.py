@@ -2,6 +2,7 @@ import json
 import os
 import urllib.request
 import urllib.error
+import sys
 from datetime import datetime, timedelta
 
 def load_config(config_path):
@@ -24,7 +25,6 @@ def fetch_pypi_metadata(package_name, version):
             
             info = data.get('info', {})
             description = info.get('summary') or info.get('description') or ""
-            # Clean description length for readability
             if len(description) > 200:
                 description = description[:197] + "..."
                 
@@ -47,20 +47,44 @@ def fetch_pypi_metadata(package_name, version):
                 
             return description, supplier, license_str, latest_version, release_date
     except Exception as e:
-        # Graceful fallback in case of network issues or missing package
         print(f"Warning: Could not fetch online metadata for {package_name} ({e}). Using defaults.")
         return None
 
-def enrich_component(component, config, dependencies_map):
+def enrich_component(component, config):
+    # Parse component name and version
     name = component.get('name', '')
     version = component.get('version', '')
+    purl = component.get('purl', '')
+    
+    # Try parsing name/version from PURL if they are empty or default
+    if purl and purl.startswith("pkg:pypi/"):
+        purl_part = purl.split('?')[0]
+        parts = purl_part.split('/')
+        if len(parts) > 1:
+            pkg_part = parts[-1]
+            if '@' in pkg_part:
+                purl_name, purl_ver = pkg_part.split('@', 1)
+                if not name:
+                    name = purl_name
+                if not version or version.lower() == 'none' or version.lower() == 'unknown':
+                    version = purl_ver
+
     if not version or version.lower() == 'none' or version.lower() == 'unknown':
         version = '1.0.0'
         component['version'] = version
+        
+    # Ensure name is set
+    if not name:
+        name = 'unknown-package'
+        component['name'] = name
     
     # 1. PURL formatting (Attribute 21 - Unique Identifier)
     purl = f"pkg:pypi/{name.lower()}@{version}"
     component['purl'] = purl
+    
+    # Ensure bom-ref is populated
+    if not component.get('bom-ref'):
+        component['bom-ref'] = purl
     
     # 2. Checksums or Hashes (Attribute 14)
     if not component.get('hashes'):
@@ -99,7 +123,6 @@ def enrich_component(component, config, dependencies_map):
     
     # Calculate EOL date from release date (Attribute 11)
     try:
-        # Parse ISO date (handle Z suffix or fractional seconds)
         clean_date = release_date_str.replace('Z', '')
         if '.' in clean_date:
             clean_date = clean_date.split('.')[0]
@@ -153,10 +176,6 @@ def enrich_sbom(raw_sbom_path, enriched_sbom_path, config_path):
         
     config = load_config(config_path)
     
-    # Map dependencies by component for quick lookup if needed
-    dependencies = sbom.get('dependencies', [])
-    dependencies_map = {dep.get('ref'): dep.get('dependsOn', []) for dep in dependencies}
-    
     # Update Metadata (Authors, Timestamp)
     metadata = sbom.setdefault('metadata', {})
     metadata['timestamp'] = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
@@ -170,35 +189,48 @@ def enrich_sbom(raw_sbom_path, enriched_sbom_path, config_path):
     enriched_components = []
     
     for comp in components:
+        # Syft might extract non-application/non-library files or other metadata, 
+        # but we focus on enriching dependency packages.
         print(f"Enriching component: {comp.get('name')}@{comp.get('version')}...")
-        enriched_comp = enrich_component(comp, config, dependencies_map)
+        enriched_comp = enrich_component(comp, config)
         enriched_components.append(enriched_comp)
         
     sbom['components'] = enriched_components
     
+    # Clean and align dependencies list
+    dependencies = sbom.setdefault('dependencies', [])
+    existing_refs = {dep.get('ref') for dep in dependencies if dep.get('ref')}
+    
+    # Ensure every component has a matching dependencies entry to satisfy Attribute 7
+    for comp in enriched_components:
+        ref = comp.get('bom-ref') or comp.get('purl')
+        if ref and ref not in existing_refs:
+            dependencies.append({
+                "ref": ref,
+                "dependsOn": []
+            })
+            existing_refs.add(ref)
+            
+    sbom['dependencies'] = dependencies
+    
     print(f"Writing enriched SBOM to {enriched_sbom_path}...")
-    # Ensure directory exists
     os.makedirs(os.path.dirname(os.path.abspath(enriched_sbom_path)), exist_ok=True)
     with open(enriched_sbom_path, 'w', encoding='utf-8') as f:
         json.dump(sbom, f, indent=2, ensure_ascii=False)
     print("Enrichment complete!")
 
 if __name__ == "__main__":
-    import sys
-    # Default paths for quick execution
-    if getattr(sys, 'frozen', False):
-        base_dir = os.path.dirname(sys.executable)
-    else:
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.dirname(base_dir)
+    base_dir = os.path.dirname(os.path.abspath(__file__))
     
-    raw_path = os.path.join(project_root, "sbom_raw.json")
-    enriched_path = os.path.join(project_root, "sbom_enriched.json")
+    raw_path = os.path.join(base_dir, "sbom_raw.json")
+    enriched_path = os.path.join(base_dir, "sbom_enriched.json")
     cfg_path = os.path.join(base_dir, "config.json")
     
     if len(sys.argv) > 1:
         raw_path = sys.argv[1]
     if len(sys.argv) > 2:
         enriched_path = sys.argv[2]
+    if len(sys.argv) > 3:
+        cfg_path = sys.argv[3]
         
     enrich_sbom(raw_path, enriched_path, cfg_path)

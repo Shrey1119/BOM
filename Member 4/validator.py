@@ -126,12 +126,8 @@ def validate_sbom(enriched_sbom_path):
         return False
 
 if __name__ == "__main__":
-    if getattr(sys, 'frozen', False):
-        base_dir = os.path.dirname(sys.executable)
-    else:
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.dirname(base_dir)
-    enriched_path = os.path.join(project_root, "sbom_enriched.json")
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    enriched_path = os.path.join(base_dir, "sbom_enriched.json")
     
     if len(sys.argv) > 1:
         enriched_path = sys.argv[1]

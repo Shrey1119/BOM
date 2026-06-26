@@ -2,9 +2,21 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "version": 1,
+<<<<<<< HEAD
   "serialNumber": "urn:uuid:702f00b5-8b2f-4684-85f3-3f5e97075a1d",
   "metadata": {
     "timestamp": "2026-06-25T11:29:42.304090+00:00Z",
+=======
+<<<<<<< HEAD
+  "serialNumber": "urn:uuid:39d97087-63ac-4078-922c-2a3e5f8b9511",
+  "metadata": {
+    "timestamp": "2026-06-26T06:14:57.365796+00:00Z",
+=======
+  "serialNumber": "urn:uuid:7427cd21-9ad5-4a0f-9fe0-a3ed7850276a",
+  "metadata": {
+    "timestamp": "2026-06-26T06:19:15.983986+00:00Z",
+>>>>>>> 082587edef0381d51034dc74822cc13a7461089a
+>>>>>>> e8ff476ea75f5a00a5cb6f905bc6fe68ffc8c376
     "authors": [
       {
         "name": "Security & Governance Lead (Antigravity AI)"

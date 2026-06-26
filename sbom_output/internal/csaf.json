@@ -8,14 +8,30 @@
       "category": "vendor"
     },
     "tracking": {
-      "id": "AA-20260625-001",
+      "id": "AA-20260626-001",
       "status": "final",
       "version": "1",
+<<<<<<< HEAD
       "initial_release_date": "2026-06-25T11:29:42.304090+00:00Z",
       "current_release_date": "2026-06-25T11:29:42.304090+00:00Z",
       "revision_history": [
         {
           "date": "2026-06-25T11:29:42.304090+00:00Z",
+=======
+<<<<<<< HEAD
+      "initial_release_date": "2026-06-26T06:14:57.365796+00:00Z",
+      "current_release_date": "2026-06-26T06:14:57.365796+00:00Z",
+      "revision_history": [
+        {
+          "date": "2026-06-26T06:14:57.365796+00:00Z",
+=======
+      "initial_release_date": "2026-06-26T06:19:15.983986+00:00Z",
+      "current_release_date": "2026-06-26T06:19:15.983986+00:00Z",
+      "revision_history": [
+        {
+          "date": "2026-06-26T06:19:15.983986+00:00Z",
+>>>>>>> 082587edef0381d51034dc74822cc13a7461089a
+>>>>>>> e8ff476ea75f5a00a5cb6f905bc6fe68ffc8c376
           "number": "1",
           "summary": "Initial release"
         }
