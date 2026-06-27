@@ -27,12 +27,14 @@ if getattr(sys, 'frozen', False):
 else:
     exe_dir = os.path.dirname(os.path.abspath(__file__))
 
-if os.path.basename(exe_dir) in ("Member 2", "sbom_toolsuite"):
+if os.path.basename(exe_dir) in ("Member 2", "Trivy", "sbom_toolsuite"):
     SCRIPT_DIR = os.path.dirname(exe_dir)
 else:
     SCRIPT_DIR = exe_dir
 
-TRIVY_EXE     = os.path.join(SCRIPT_DIR, "Member 2", "trivy_cli.exe")
+MEMBER_2_DIR = "Trivy" if os.path.exists(os.path.join(SCRIPT_DIR, "Trivy")) else "Member 2"
+
+TRIVY_EXE     = os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "trivy_cli.exe")
 RAW_SBOM      = os.path.join(SCRIPT_DIR, "sbom_raw.json")
 ENRICHED      = os.path.join(SCRIPT_DIR, "sbom_enriched.json")
 OUTPUT_DIR    = os.path.join(SCRIPT_DIR, "sbom_output")
@@ -134,7 +136,7 @@ def resolve_trivy():
         return "trivy"
     except Exception:
         pass
-    print_error("Trivy executable not found. Place trivy.exe in 'Member 2/' or install globally.")
+    print_error("Trivy executable not found. Place trivy.exe in '{}/' or install globally.".format(MEMBER_2_DIR))
     return None
 
 
@@ -145,7 +147,7 @@ def step_scan(scan_path):
     if not trivy:
         return False
 
-    scanner = os.path.join(SCRIPT_DIR, "Member 2", "sbom_scanner.py")
+    scanner = os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "sbom_scanner.py")
     cmd = 'python "{}" --src "{}" --output "{}" --trivy-path "{}"'.format(
         scanner, scan_path, RAW_SBOM, trivy)
     if not run_cmd(cmd, "Trivy Scanner"):
@@ -184,8 +186,8 @@ def step_validate():
 def step_distribute():
     """Step 4: Split & Sign SBOM into tiers."""
     print_step(4, "Splitting & Signing SBOM into Compliance Tiers")
-    distributor = os.path.join(SCRIPT_DIR, "Member 2", "sbom_distributor.py")
-    keys_dir = os.path.join(SCRIPT_DIR, "Member 2", "keys")
+    distributor = os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "sbom_distributor.py")
+    keys_dir = os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "keys")
     cmd = 'python "{}" --sbom "{}" --keys-dir "{}" --output-dir "{}"'.format(
         distributor, ENRICHED, keys_dir, OUTPUT_DIR)
     return run_cmd(cmd, "SBOM Distributor")
@@ -212,7 +214,7 @@ def step_html_report(scan_path):
     if not trivy:
         return False
     
-    html_tpl = os.path.join(SCRIPT_DIR, "Member 2", "contrib", "html.tpl")
+    html_tpl = os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "contrib", "html.tpl")
     if not os.path.exists(html_tpl):
         print_error("HTML template not found: {}".format(html_tpl))
         return False
@@ -250,9 +252,9 @@ def step_organize():
     }
 
     copies = {
-        os.path.join(SCRIPT_DIR, "Member 2", "keys", "private_key.pem"):
+        os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "keys", "private_key.pem"):
             os.path.join(OUTPUT_DIR, "restricted", "private_key.pem"),
-        os.path.join(SCRIPT_DIR, "Member 2", "keys", "public_key.pem"):
+        os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "keys", "public_key.pem"):
             os.path.join(OUTPUT_DIR, "public", "public_key.pem"),
         os.path.join(SCRIPT_DIR, "sbom_toolsuite", "triage.json"):
             os.path.join(OUTPUT_DIR, "internal", "triage.json"),

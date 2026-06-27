@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",
-  "serialNumber": "urn:uuid:752db66a-223b-4d91-987d-c6c09bf86254",
+  "serialNumber": "urn:uuid:eb7918c7-3ef4-40d9-970b-6c6eca3c36db",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-26T06:14:55+00:00",
+    "timestamp": "2026-06-26T09:25:48+00:00",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
       ]
     },
     "component": {
-      "bom-ref": "28617688-3068-4c03-8702-eb6527944cb0",
+      "bom-ref": "b68f9330-d702-4d1f-b620-699d49b848e5",
       "type": "application",
       "name": "C:/Users/ADMIN/OneDrive/Desktop/BOM/BOM/mock_project",
       "properties": [
@@ -33,7 +33,7 @@
   },
   "components": [
     {
-      "bom-ref": "a343a544-ca71-479e-8546-307e1712b998",
+      "bom-ref": "0ae73463-8087-4356-ac88-9644318a5c77",
       "type": "application",
       "name": "requirements.txt",
       "properties": [
@@ -115,19 +115,19 @@
   ],
   "dependencies": [
     {
-      "ref": "28617688-3068-4c03-8702-eb6527944cb0",
-      "dependsOn": [
-        "a343a544-ca71-479e-8546-307e1712b998"
-      ]
-    },
-    {
-      "ref": "a343a544-ca71-479e-8546-307e1712b998",
+      "ref": "0ae73463-8087-4356-ac88-9644318a5c77",
       "dependsOn": [
         "pkg:pypi/django@2.1",
         "pkg:pypi/jinja2@2.10",
         "pkg:pypi/numpy@1.15.0",
         "pkg:pypi/requests@2.20.0",
         "pkg:pypi/urllib3@1.24.2"
+      ]
+    },
+    {
+      "ref": "b68f9330-d702-4d1f-b620-699d49b848e5",
+      "dependsOn": [
+        "0ae73463-8087-4356-ac88-9644318a5c77"
       ]
     },
     {
@@ -7107,7 +7107,7 @@
           "source": {
             "name": "amazon"
           },
-          "severity": "high"
+          "severity": "medium"
         },
         {
           "source": {
@@ -7286,7 +7286,7 @@
           "source": {
             "name": "amazon"
           },
-          "severity": "high"
+          "severity": "medium"
         },
         {
           "source": {
@@ -7791,12 +7791,24 @@
         },
         {
           "source": {
+            "name": "oracle-oval"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
             "name": "redhat"
           },
           "score": 5.9,
           "severity": "medium",
           "method": "CVSSv31",
           "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "source": {
+            "name": "rocky"
+          },
+          "severity": "high"
         },
         {
           "source": {
@@ -7815,7 +7827,7 @@
           "url": "https://avd.aquasec.com/nvd/cve-2026-44431"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2026:28000"
+          "url": "https://access.redhat.com/errata/RHSA-2026:28159"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2026-44431"
@@ -7827,13 +7839,34 @@
           "url": "https://bugzilla.redhat.com/2477167"
         },
         {
-          "url": "https://errata.almalinux.org/10/ALSA-2026-28000.html"
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2477154"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2477167"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-44431"
+        },
+        {
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-44432"
+        },
+        {
+          "url": "https://errata.almalinux.org/9/ALSA-2026-28159.html"
+        },
+        {
+          "url": "https://errata.rockylinux.org/RLSA-2026:28158"
         },
         {
           "url": "https://github.com/urllib3/urllib3"
         },
         {
           "url": "https://github.com/urllib3/urllib3/security/advisories/GHSA-qccp-gfcp-xxvc"
+        },
+        {
+          "url": "https://linux.oracle.com/cve/CVE-2026-44431.html"
+        },
+        {
+          "url": "https://linux.oracle.com/errata/ELSA-2026-28159.html"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44431"
