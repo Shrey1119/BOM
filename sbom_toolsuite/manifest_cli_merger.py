@@ -4,6 +4,7 @@ import sys
 import argparse
 import uuid
 
+
 def normalize_purl(purl):
     """Normalize PURL string for matching."""
     if not purl:
@@ -11,14 +12,106 @@ def normalize_purl(purl):
     purl_clean = purl.split('?')[0].lower()
     return purl_clean
 
+
 def clean_name(name):
     """Clean package names for comparison."""
     if not name:
         return ""
     return name.strip().lower()
 
+
+# ══════════════════════════════════════════════════════════════════
+# Pre-filter: Remove noise components that are not real packages
+# ══════════════════════════════════════════════════════════════════
+def is_noise_component(comp):
+    """Return True if this component is scanner noise and should be discarded.
+
+    Filters out:
+    - Components with type 'application' (manifest files like requirements.txt)
+    - Components with no PURL AND no version (or version is '?' / 'unknown')
+    - Components whose name starts with './' (Syft filesystem path artifacts)
+    - Components whose name looks like a file path (contains '/' and ends with
+      common config/lockfile extensions)
+    """
+    comp_type = (comp.get('type') or '').lower()
+    name = comp.get('name') or ''
+    version = comp.get('version') or ''
+    purl = comp.get('purl') or ''
+
+    # 1. Manifest / application type entries are not packages
+    if comp_type == 'application':
+        return True
+
+    # 2. Filesystem path artifacts from Syft (e.g. ./.github/actions/...)
+    if name.startswith('./'):
+        return True
+
+    # 3. No PURL and no usable version = unidentifiable
+    if not purl and (not version or version in ('?', 'unknown', 'None', '')):
+        return True
+
+    # 4. Lockfile / config file names sneaking in as components
+    noise_suffixes = ('.yaml', '.yml', '.json', '.toml', '.txt', '.lock', '.cfg')
+    if '/' in name and name.lower().endswith(noise_suffixes):
+        return True
+
+    return False
+
+
+def filter_and_dedup(components, scanner_name):
+    """Filter noise components and deduplicate by normalized PURL.
+
+    Returns:
+        (clean_list, stats_dict) where stats_dict has counts of
+        noise_removed and intra_duplicates_removed.
+    """
+    noise_removed = 0
+    intra_dups = 0
+    seen_purls = {}
+    clean = []
+
+    for comp in components:
+        if is_noise_component(comp):
+            noise_removed += 1
+            continue
+
+        purl = comp.get('purl', '')
+        norm = normalize_purl(purl) if purl else None
+
+        # Deduplicate within this scanner by normalized PURL
+        if norm and norm in seen_purls:
+            intra_dups += 1
+            continue
+
+        if norm:
+            seen_purls[norm] = True
+        clean.append(comp)
+
+    stats = {
+        'original': len(components),
+        'noise_removed': noise_removed,
+        'intra_dups': intra_dups,
+        'clean': len(clean),
+    }
+
+    if noise_removed > 0 or intra_dups > 0:
+        print(f"  [{scanner_name}] Filtered: {noise_removed} noise, {intra_dups} intra-duplicates "
+              f"({len(components)} -> {len(clean)} components)")
+
+    return clean, stats
+
 def merge_components(syft_grype_comps, trivy_comps, cdxgen_comps):
-    """Deduplicate and merge component lists from all three scanners."""
+    """Deduplicate and merge component lists from all three scanners.
+
+    Pre-filters noise components, deduplicates within each scanner,
+    then performs cross-scanner PURL-exact and fuzzy name+version merging.
+    Copies hashes from cdxgen into entries that lack them.
+    """
+    # ── Pre-filter and intra-dedup each scanner ──
+    syft_grype_comps, syft_stats = filter_and_dedup(syft_grype_comps, "Syft+Grype")
+    trivy_comps, trivy_stats = filter_and_dedup(trivy_comps, "Trivy")
+    cdxgen_comps, cdxgen_stats = filter_and_dedup(cdxgen_comps, "cdxgen")
+
     unified_components = {}
     
     # 1. Ingest Syft + Grype
@@ -170,6 +263,11 @@ def merge_components(syft_grype_comps, trivy_comps, cdxgen_comps):
             existing["merge_status"] = "Merged"
             existing["evidence_sources"] = list(set(existing["evidence_sources"]).union(evidence_sources))
             
+            # ── Copy hashes from cdxgen if existing has none ──
+            cdxgen_hashes = comp.get('hashes', [])
+            if cdxgen_hashes and not existing.get('hashes'):
+                existing['hashes'] = cdxgen_hashes
+
             existing_prop_names = {p.get('name') for p in existing["properties"]}
             for p in properties:
                 if p.get('name') not in existing_prop_names:
@@ -188,6 +286,11 @@ def merge_components(syft_grype_comps, trivy_comps, cdxgen_comps):
                 fuzzy_match["merge_confidence"] = "75%"
                 fuzzy_match["evidence_sources"] = list(set(fuzzy_match["evidence_sources"]).union(evidence_sources))
                 
+                # ── Copy hashes from cdxgen if fuzzy match has none ──
+                cdxgen_hashes = comp.get('hashes', [])
+                if cdxgen_hashes and not fuzzy_match.get('hashes'):
+                    fuzzy_match['hashes'] = cdxgen_hashes
+
                 existing_prop_names = {p.get('name') for p in fuzzy_match["properties"]}
                 for p in properties:
                     if p.get('name') not in existing_prop_names:
@@ -400,14 +503,46 @@ def merge_sboms(syft_grype_path, trivy_path, cdxgen_path, output_path):
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(merged_sbom, f, indent=2)
-        
-    print(f"Successfully generated merged master SBOM: {output_path}")
-    print(f" - Syft components: {syft_count}")
-    print(f" - Trivy components: {trivy_count}")
-    print(f" - cdxgen components: {cdxgen_count}")
-    print(f" - Correlated & Merged: {common_count}")
-    print(f" - Final unique components: {len(merged_comps)}")
-    print(f" - Reconciled vulnerabilities: {len(unified_vulns)}")
+
+    # ── Merge Quality Metrics ──
+    with_hash = sum(1 for c in merged_comps if c.get('hashes'))
+    with_purl = sum(1 for c in merged_comps if c.get('purl'))
+    multi_scanner = sum(1 for c in merged_comps if len(c.get('detected_by', [])) >= 2)
+    triple_scanner = sum(1 for c in merged_comps if len(c.get('detected_by', [])) >= 3)
+
+    print(f"")
+    if sys.stdout.isatty():
+        print(f"  ┌──────────────────────────────────────────────────┐")
+        print(f"  │  MERGE ENGINE — QUALITY REPORT                   │")
+        print(f"  ├──────────────────────────────────────────────────┤")
+        print(f"  │  Syft+Grype input (after filter): {syft_count:>5}          │")
+        print(f"  │  Trivy input (after filter)     : {trivy_count:>5}          │")
+        print(f"  │  cdxgen input (after filter)    : {cdxgen_count:>5}          │")
+        print(f"  ├──────────────────────────────────────────────────┤")
+        print(f"  │  Final unique components        : {len(merged_comps):>5}          │")
+        print(f"  │  Correlated (2+ scanners)       : {multi_scanner:>5}          │")
+        print(f"  │  Triple-confirmed (3 scanners)  : {triple_scanner:>5}          │")
+        print(f"  │  With cryptographic hashes      : {with_hash:>5}          │")
+        print(f"  │  With valid PURL                : {with_purl:>5}          │")
+        print(f"  │  Reconciled vulnerabilities     : {len(unified_vulns):>5}          │")
+        print(f"  └──────────────────────────────────────────────────┘")
+    else:
+        print(f"  +--------------------------------------------------+")
+        print(f"  |  MERGE ENGINE - QUALITY REPORT                   |")
+        print(f"  +--------------------------------------------------+")
+        print(f"  |  Syft+Grype input (after filter): {syft_count:>5}          |")
+        print(f"  |  Trivy input (after filter)     : {trivy_count:>5}          |")
+        print(f"  |  cdxgen input (after filter)    : {cdxgen_count:>5}          |")
+        print(f"  +--------------------------------------------------+")
+        print(f"  |  Final unique components        : {len(merged_comps):>5}          |")
+        print(f"  |  Correlated (2+ scanners)       : {multi_scanner:>5}          |")
+        print(f"  |  Triple-confirmed (3 scanners)  : {triple_scanner:>5}          |")
+        print(f"  |  With cryptographic hashes      : {with_hash:>5}          |")
+        print(f"  |  With valid PURL                : {with_purl:>5}          |")
+        print(f"  |  Reconciled vulnerabilities     : {len(unified_vulns):>5}          |")
+        print(f"  +--------------------------------------------------+")
+    print(f"")
+    print(f"  Output: {output_path}")
 
 def main():
     parser = argparse.ArgumentParser(description="Programmatic manifest-cli SBOM Merger")
