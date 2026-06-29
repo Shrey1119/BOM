@@ -65,14 +65,15 @@ def find_trivy(specified_path=None):
     if os.path.exists(local_path) and not is_lfs_pointer(local_path):
         return local_path
         
-    # Check Member 2 directory
-    member2_path = os.path.abspath(os.path.join(script_dir, "..", "Member 2", "trivy_cli.exe"))
+    # Check Member 2 / Trivy directory
+    member2_dir = "Trivy" if os.path.exists(os.path.abspath(os.path.join(script_dir, "..", "Trivy"))) else "Member 2"
+    member2_path = os.path.abspath(os.path.join(script_dir, "..", member2_dir, "trivy_cli.exe"))
     if os.path.exists(member2_path) and not is_lfs_pointer(member2_path):
         return member2_path
         
-    # If the file exists in Member 2 but is an LFS pointer, download/overwrite it there
+    # If the file exists in Member 2 / Trivy but is an LFS pointer, download/overwrite it there
     if os.path.exists(member2_path) and is_lfs_pointer(member2_path):
-        print("[WARN] Member 2/trivy_cli.exe is a Git LFS pointer (not fully downloaded). Fixing...")
+        print(f"[WARN] {member2_dir}/trivy_cli.exe is a Git LFS pointer (not fully downloaded). Fixing...")
         fixed_path = download_trivy(os.path.dirname(member2_path))
         if fixed_path:
             return fixed_path
@@ -92,9 +93,9 @@ def find_trivy(specified_path=None):
     except (subprocess.CalledProcessError, FileNotFoundError):
         pass
         
-    # As a final fallback, download Trivy directly into the Member 2 directory
+    # As a final fallback, download Trivy directly into the resolved directory
     print("[WARN] Trivy not found or not working. Downloading a clean copy...")
-    fallback_dir = os.path.abspath(os.path.join(script_dir, "..", "Member 2"))
+    fallback_dir = os.path.abspath(os.path.join(script_dir, "..", member2_dir))
     fixed_path = download_trivy(fallback_dir)
     if fixed_path:
         return fixed_path
