@@ -177,32 +177,17 @@ def run_scans(src_dir, syft_grype_out, trivy_out, cdxgen_out, trivy_path):
     # Step 3: Reachability Analysis with cdxgen
     # ==========================================================
     print(f"\n[Step 3/3] Running cdxgen in deep mode (with reachables) on {abs_src}...")
-    temp_cdxgen_raw = "cdxgen_temp.json"
-    temp_cdxgen_path = os.path.join(abs_src, temp_cdxgen_raw)
-    
-    cdxgen_cmd = [
-        "npx",
-        "@cyclonedx/cdxgen",
-        "-r",
-        "--spec-version", "1.5",
-        "--with-reachables",
-        "-o", temp_cdxgen_raw
-    ]
+    # Executing outside target directory (no cwd=abs_src) to bypass EBADDEVENGINES package manager version errors
+    cdxgen_cmd = 'npx @cyclonedx/cdxgen -r --spec-version 1.5 --with-reachables -o "{}" "{}"'.format(abs_cdxgen, abs_src)
     try:
-        # Run in target directory to bypass space-in-path bugs
-        subprocess.run(cdxgen_cmd, cwd=abs_src, capture_output=True, text=True, check=True, shell=True)
-        if os.path.exists(temp_cdxgen_path):
-            if os.path.exists(abs_cdxgen):
-                os.remove(abs_cdxgen)
-            shutil.move(temp_cdxgen_path, abs_cdxgen)
+        subprocess.run(cdxgen_cmd, capture_output=True, text=True, check=True, shell=True)
+        if os.path.exists(abs_cdxgen):
             print(f"cdxgen scan completed. Output generated: {abs_cdxgen}")
         else:
             print("Error: cdxgen completed but output file was not created.")
             return False
     except subprocess.CalledProcessError as e:
         print(f"Error during cdxgen phase: {e.stderr or e.output}")
-        if os.path.exists(temp_cdxgen_path):
-            os.remove(temp_cdxgen_path)
         return False
 
     return True
