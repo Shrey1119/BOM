@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:8391dd2b-0d25-4c07-9aa8-f526e7ce3863",
+  "serialNumber": "urn:uuid:54b9197c-011c-4966-9902-945fb63e6863",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-29T08:32:21Z",
+    "timestamp": "2026-06-29T09:42:44Z",
     "tools": {
       "components": [
         {
@@ -42,7 +42,7 @@
       },
       {
         "name": "signature",
-        "value": "MEUCIQCNcZsQbGMGIEG6AkwJm65dW8AT0Ha8eBUdUvqqLPnJewIgXHBvdEMxttBMu7Biidmq1czObiYhOj35pBlenf4Gcow="
+        "value": "MEUCICmanAmECNX5ncW8F3boBDsTh/74TXD6BitImpY3lV5LAiEAgldSmpQHugu/9w8EjzurIW4Otqn01QL/ZAHr9SKesS0="
       }
     ],
     "authors": [
@@ -243,13 +243,13 @@
         "cdxgen"
       ],
       "evidence_sources": [
-        "cdxgen Scan Discovery",
         "Trivy Scan Discovery",
+        "cdxgen Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "9d15769a-2cc7-41ed-93fb-a80b3b2d775c"
+      "unique_component_id": "a8f8bc93-24eb-4247-991b-438367d8bf10"
     },
     {
       "bom-ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
@@ -441,13 +441,13 @@
         "cdxgen"
       ],
       "evidence_sources": [
-        "cdxgen Scan Discovery",
         "Trivy Scan Discovery",
+        "cdxgen Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "0d3f9750-47f2-466d-a750-e6ccf21643b9"
+      "unique_component_id": "1633a382-c79d-490b-959e-8d3f6a061568"
     },
     {
       "bom-ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
@@ -639,13 +639,13 @@
         "cdxgen"
       ],
       "evidence_sources": [
-        "cdxgen Scan Discovery",
         "Trivy Scan Discovery",
+        "cdxgen Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "2a3b578a-543c-407b-b604-e549e4f6c054"
+      "unique_component_id": "45c415dc-423f-4237-907d-f397c92f41e7"
     },
     {
       "bom-ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
@@ -782,13 +782,13 @@
         "cdxgen"
       ],
       "evidence_sources": [
-        "cdxgen Scan Discovery",
         "Trivy Scan Discovery",
+        "cdxgen Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "ddc4ccbd-e627-43d9-9f68-f8d4a901add6"
+      "unique_component_id": "b34eb82e-bb9a-411b-a405-e1a76269d3c1"
     },
     {
       "bom-ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
@@ -925,16 +925,16 @@
         "cdxgen"
       ],
       "evidence_sources": [
-        "cdxgen Scan Discovery",
         "Trivy Scan Discovery",
+        "cdxgen Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "54a861b8-b684-47c4-a620-12028db29628"
+      "unique_component_id": "334eab12-236a-4767-a6b4-34c2b8c2fb43"
     },
     {
-      "bom-ref": "c755c369-5b84-4334-858d-445387a80925",
+      "bom-ref": "d76a4691-9467-46ae-8780-a81cb23e107d",
       "type": "application",
       "name": "requirements.txt",
       "version": "1.0.0",
@@ -977,11 +977,11 @@
         },
         {
           "name": "release_date",
-          "value": "2026-06-29T08:32:22.033242Z"
+          "value": "2026-06-29T09:42:47.425391Z"
         },
         {
           "name": "eol_date",
-          "value": "2029-06-28T08:32:22Z"
+          "value": "2029-06-28T09:42:47Z"
         },
         {
           "name": "criticality",
@@ -1048,12 +1048,16 @@
       ],
       "merge_confidence": "100%",
       "merge_status": "Original",
-      "unique_component_id": "f9da6fc9-e917-4c83-a0b2-2b3411f15b7d"
+      "unique_component_id": "844f843a-cf20-47b6-8da8-b1562d597291"
     }
   ],
   "dependencies": [
     {
       "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
       "dependsOn": []
     },
     {
@@ -1065,27 +1069,23 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
-      "dependsOn": []
-    },
-    {
       "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
       "dependsOn": []
     },
     {
-      "ref": "c755c369-5b84-4334-858d-445387a80925",
+      "ref": "d76a4691-9467-46ae-8780-a81cb23e107d",
       "dependsOn": [
         "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
+        "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
         "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
         "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
-        "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
         "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
       ]
     },
     {
-      "ref": "7666e6f8-7a9b-4171-a387-a96af9efe11f",
+      "ref": "7deb1a4d-f26a-468b-82c8-db84587ce915",
       "dependsOn": [
-        "c755c369-5b84-4334-858d-445387a80925"
+        "d76a4691-9467-46ae-8780-a81cb23e107d"
       ]
     },
     {
@@ -1095,7 +1095,7 @@
   ],
   "signature": {
     "algorithm": "ECDSA-SHA256",
-    "value": "MEUCIQCNcZsQbGMGIEG6AkwJm65dW8AT0Ha8eBUdUvqqLPnJewIgXHBvdEMxttBMu7Biidmq1czObiYhOj35pBlenf4Gcow=",
+    "value": "MEUCICmanAmECNX5ncW8F3boBDsTh/74TXD6BitImpY3lV5LAiEAgldSmpQHugu/9w8EjzurIW4Otqn01QL/ZAHr9SKesS0=",
     "publicKey": "-----BEGIN PUBLIC KEY-----\\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErDvRVk+R716HwVgDfJPXVV2NcXW4\\ndGZ9pRkrA/iDl6tp7TeU/fdqtUY5SaU/Cj/NgmUn942OehY/SHcv3dzupg==\\n-----END PUBLIC KEY-----\\n"
   }
 }

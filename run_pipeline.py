@@ -107,8 +107,13 @@ def run_cmd(cmd, desc):
         return True
     except subprocess.CalledProcessError as e:
         print_error("{} failed (exit code {})".format(desc, e.returncode))
+        if e.stdout:
+            print("      --- Standard Output ---")
+            for line in e.stdout.strip().split("\n")[-10:]:
+                print("      {}".format(line))
         if e.stderr:
-            for line in e.stderr.strip().split("\n")[:5]:
+            print("      --- Standard Error ---")
+            for line in e.stderr.strip().split("\n")[:10]:
                 print("      {}".format(line))
         return False
     except Exception as e:
