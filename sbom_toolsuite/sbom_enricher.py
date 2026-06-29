@@ -417,7 +417,18 @@ def enrich_component(component, config, dependencies_map):
     config_override_exists = bool(override)
 
     # Fetch from API or use config defaults
-    api_data = fetch_pypi_metadata(name, version)
+    # Optimization: Only hit PyPI if it's a Python package (or unknown, just in case).
+    # If the PURL clearly indicates npm, maven, etc., skip PyPI lookup.
+    purl_str = component.get('purl', '')
+    is_pypi_candidate = True
+    if purl_str:
+        if purl_str.startswith('pkg:') and not purl_str.startswith('pkg:pypi'):
+            is_pypi_candidate = False
+
+    api_data = None
+    if is_pypi_candidate:
+        api_data = fetch_pypi_metadata(name, version)
+        
     api_data_available = api_data is not None
 
     if api_data:
@@ -428,7 +439,7 @@ def enrich_component(component, config, dependencies_map):
         latest_version = api_latest
         release_date_str = api_release
     else:
-        desc = component.get('description') or f"Python package {name}"
+        desc = component.get('description') or f"Component {name}"
         supplier = override.get('supplier') or config.get('default_supplier')
         license_name = config.get('default_license')
         latest_version = version
