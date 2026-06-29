@@ -141,28 +141,47 @@ def resolve_trivy():
 
 
 def step_scan(scan_path):
-    """Step 1: Trivy Scan -> sbom_raw.json"""
-    print_step(1, "Trivy Filesystem Scan -> CycloneDX JSON")
+    """Step 1: Multi-Scanner Scan (Syft+Grype, Trivy, cdxgen)"""
+    print_step(1, "Multi-Scanner Scan (Syft+Grype, Trivy fs, cdxgen deep)")
     trivy = resolve_trivy()
     if not trivy:
         return False
 
-    scanner = os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "sbom_scanner.py")
-    cmd = 'python "{}" --src "{}" --output "{}" --trivy-path "{}"'.format(
-        scanner, scan_path, RAW_SBOM, trivy)
-    if not run_cmd(cmd, "Trivy Scanner"):
+    scanner = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "sbom_scanner.py")
+    syft_grype_raw = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "syft_grype.json")
+    trivy_raw = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "trivy_raw.json")
+    cdxgen_raw = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "cdxgen_raw.json")
+    
+    cmd = 'python "{}" --src "{}" --syft-grype "{}" --trivy "{}" --cdxgen "{}" --trivy-path "{}"'.format(
+        scanner, scan_path, syft_grype_raw, trivy_raw, cdxgen_raw, trivy)
+    
+    return run_cmd(cmd, "Multi-Scanner scans")
+
+
+def step_merge():
+    """Step 1.5: Programmatic Merge (manifest-cli logic)"""
+    print_step("1.5", "Merging SBOMs (manifest-cli logic)")
+    merger = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "manifest_cli_merger.py")
+    syft_grype_raw = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "syft_grype.json")
+    trivy_raw = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "trivy_raw.json")
+    cdxgen_raw = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "cdxgen_raw.json")
+    
+    cmd = 'python "{}" --syft-grype "{}" --trivy "{}" --cdxgen "{}" --output "{}"'.format(
+        merger, syft_grype_raw, trivy_raw, cdxgen_raw, RAW_SBOM)
+    
+    if not run_cmd(cmd, "SBOM Merger"):
         return False
 
     if os.path.exists(RAW_SBOM):
         size_kb = os.path.getsize(RAW_SBOM) / 1024
-        print_success("Raw SBOM generated: {} ({:.1f} KB)".format(RAW_SBOM, size_kb))
+        print_success("Merged Master SBOM generated: {} ({:.1f} KB)".format(RAW_SBOM, size_kb))
     return True
 
 
 def step_enrich():
-    """Step 2: Enrich SBOM with 21 attributes."""
+    """Step 2: Enrich SBOM with 21 attributes (sbomify-action logic)."""
     print_step(2, "Enriching SBOM (21 Client Attributes)")
-    enricher = os.path.join(SCRIPT_DIR, "Member 3", "enricher.py")
+    enricher = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "sbom_enricher.py")
     cmd = 'python "{}" "{}" "{}"'.format(enricher, RAW_SBOM, ENRICHED)
     if not run_cmd(cmd, "SBOM Enricher"):
         return False
@@ -178,7 +197,7 @@ def step_enrich():
 def step_validate():
     """Step 3: Validate enriched SBOM."""
     print_step(3, "Validating Enriched SBOM Against 21-Attribute Schema")
-    validator = os.path.join(SCRIPT_DIR, "Member 3", "validator.py")
+    validator = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "validate_sbom.py")
     cmd = 'python "{}" "{}"'.format(validator, ENRICHED)
     return run_cmd(cmd, "SBOM Validator")
 
@@ -186,18 +205,20 @@ def step_validate():
 def step_distribute():
     """Step 4: Split & Sign SBOM into tiers."""
     print_step(4, "Splitting & Signing SBOM into Compliance Tiers")
-    distributor = os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "sbom_distributor.py")
-    keys_dir = os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "keys")
+    distributor = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "sbom_distributor.py")
+    keys_dir = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "keys")
     cmd = 'python "{}" --sbom "{}" --keys-dir "{}" --output-dir "{}"'.format(
         distributor, ENRICHED, keys_dir, OUTPUT_DIR)
     return run_cmd(cmd, "SBOM Distributor")
 
 
 def step_vex_csaf():
-    """Step 5: Generate VEX & CSAF advisories."""
-    print_step(5, "Generating VEX and CSAF Advisories")
+    """Step 5: Generate VEX & CSAF advisories based on reachability evidence."""
+    print_step(5, "Generating VEX and CSAF Advisories (Reachability Evaluation)")
     gen = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "vex_csaf_generator.py")
-    return run_cmd('python "{}"'.format(gen), "VEX & CSAF Generator")
+    cmd = 'python "{}" --sbom "{}" --vex "{}" --csaf "{}"'.format(
+        gen, ENRICHED, os.path.join(OUTPUT_DIR, "vex.json"), os.path.join(OUTPUT_DIR, "csaf.json"))
+    return run_cmd(cmd, "VEX & CSAF Generator")
 
 
 def step_internal_map():
@@ -288,6 +309,7 @@ def run_full_scan_pipeline(scan_path):
 
     steps = [
         lambda: step_scan(scan_path),
+        step_merge,
         step_enrich,
         step_validate,
         step_distribute,

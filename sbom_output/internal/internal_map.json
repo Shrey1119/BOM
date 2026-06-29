@@ -1,25 +1,9 @@
 {
-  "generated_at": "2026-06-26T09:25:50.972571+00:00Z",
+  "generated_at": "2026-06-29T08:32:22.899004+00:00Z",
   "author": "Security & Governance Lead (Antigravity AI)",
   "organization": "Client-Assigned Scanning Service",
   "total_components": 6,
   "components": [
-    {
-      "name": "requirements.txt",
-      "version": "1.0.0",
-      "purl": "pkg:pypi/requirements.txt@1.0.0",
-      "type": "application",
-      "supplier": "Unknown / Open Source Community",
-      "license": "Apache-2.0",
-      "criticality": "medium",
-      "origin": "open-source",
-      "usage_restrictions": "None",
-      "eol_date": "2029-06-25T09:25:49Z",
-      "release_date": "2026-06-26T09:25:49.183802Z",
-      "internal_comment": "",
-      "cve_exposure": [],
-      "active_in_build": true
-    },
     {
       "name": "django",
       "version": "2.1",
@@ -35,104 +19,204 @@
       "internal_comment": "Main web framework for the backend application",
       "cve_exposure": [
         {
+          "id": "GHSA-337x-4q8g-prc5",
+          "severity": "high",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-68w8-qjq3-2gfm",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-6c3j-c64m-qhgq",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-6c7v-2f49-8h26",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-6mx3-3vqg-hpp2",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-6r97-cj55-9hrq",
+          "severity": "critical",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-6w2r-r2m5-xq5w",
+          "severity": "high",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-7rp2-fm2h-wchj",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-7xr5-9hcq-chf9",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-8x94-hmjh-97hq",
+          "severity": "high",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-c4qh-4vgv-qc6g",
+          "severity": "high",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-frmv-pr5f-9mcr",
+          "severity": "critical",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-h5jv-4p7w-64jg",
+          "severity": "high",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-hmr4-m2h5-33qx",
+          "severity": "critical",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-hvmf-r92r-27hr",
+          "severity": "high",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-qw25-v68c-qjf3",
+          "severity": "high",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-rrqc-c2jx-6jgv",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-v9qg-3j8p-r63v",
+          "severity": "high",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-vfq6-hq5r-27r6",
+          "severity": "critical",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-wh4h-v3f2-r2pp",
+          "severity": "high",
+          "vex_status": "not_affected"
+        },
+        {
           "id": "CVE-2018-16984",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2019-11358",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2019-12308",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2019-12781",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2019-14232",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2019-14233",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2019-14234",
           "severity": "critical",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2019-14235",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2019-19118",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2019-19844",
           "severity": "critical",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2019-3498",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2019-6975",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2020-7471",
           "severity": "critical",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2021-33203",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2022-36359",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2024-45231",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2025-48432",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2025-57833",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2025-64458",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2025-64459",
           "severity": "critical",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         }
       ],
       "active_in_build": true
@@ -142,7 +226,7 @@
       "version": "2.10",
       "purl": "pkg:pypi/jinja2@2.10",
       "type": "library",
-      "supplier": "Unknown / Open Source Community",
+      "supplier": "Pallets Projects",
       "license": "Apache-2.0",
       "criticality": "medium",
       "origin": "open-source",
@@ -152,34 +236,64 @@
       "internal_comment": "",
       "cve_exposure": [
         {
+          "id": "GHSA-462w-v97r-4m45",
+          "severity": "high",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-cpwx-vrp4-4pq7",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-g3rq-g295-4j3m",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-h5c8-rqwp-cp95",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-h75v-3vvj-5mfj",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-q2x7-8rv6-6q7h",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
           "id": "CVE-2019-10906",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2020-28493",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2024-22195",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2024-34064",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2024-56326",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2025-27516",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         }
       ],
       "active_in_build": true
@@ -199,29 +313,54 @@
       "internal_comment": "",
       "cve_exposure": [
         {
+          "id": "GHSA-5545-2q6w-2gh6",
+          "severity": "high",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-6p56-wp2h-9hxr",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-9fq2-x9r6-wfmf",
+          "severity": "critical",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-f7c7-j99h-c22f",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
+          "id": "GHSA-fpfv-jqm9-f5jm",
+          "severity": "medium",
+          "vex_status": "not_affected"
+        },
+        {
           "id": "CVE-2019-6446",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2021-33430",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2021-34141",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2021-41495",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         },
         {
           "id": "CVE-2021-41496",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "not_affected"
         }
       ],
       "active_in_build": true
@@ -241,24 +380,39 @@
       "internal_comment": "Critical HTTP library for client integrations",
       "cve_exposure": [
         {
+          "id": "GHSA-9hjg-9r4m-mvj7",
+          "severity": "medium",
+          "vex_status": "affected"
+        },
+        {
+          "id": "GHSA-9wx4-h78v-vm56",
+          "severity": "medium",
+          "vex_status": "affected"
+        },
+        {
+          "id": "GHSA-j8r2-6x86-q33q",
+          "severity": "medium",
+          "vex_status": "affected"
+        },
+        {
           "id": "CVE-2023-32681",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "affected"
         },
         {
           "id": "CVE-2024-35195",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "affected"
         },
         {
           "id": "CVE-2024-47081",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "affected"
         },
         {
           "id": "CVE-2026-25645",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "affected"
         }
       ],
       "active_in_build": true
@@ -278,6 +432,51 @@
       "internal_comment": "",
       "cve_exposure": [
         {
+          "id": "GHSA-2xpw-w6gg-jr37",
+          "severity": "high",
+          "vex_status": "affected"
+        },
+        {
+          "id": "GHSA-34jh-p97f-mpxf",
+          "severity": "medium",
+          "vex_status": "affected"
+        },
+        {
+          "id": "GHSA-38jv-5279-wg99",
+          "severity": "high",
+          "vex_status": "affected"
+        },
+        {
+          "id": "GHSA-g4mx-q9vg-27p4",
+          "severity": "medium",
+          "vex_status": "affected"
+        },
+        {
+          "id": "GHSA-gm62-xv2j-4w53",
+          "severity": "high",
+          "vex_status": "affected"
+        },
+        {
+          "id": "GHSA-pq67-6m6q-mj2v",
+          "severity": "medium",
+          "vex_status": "affected"
+        },
+        {
+          "id": "GHSA-r64q-w8jr-g9qp",
+          "severity": "medium",
+          "vex_status": "affected"
+        },
+        {
+          "id": "GHSA-v845-jxx5-vc9f",
+          "severity": "high",
+          "vex_status": "affected"
+        },
+        {
+          "id": "GHSA-wqvq-5m8c-6g24",
+          "severity": "medium",
+          "vex_status": "affected"
+        },
+        {
           "id": "CVE-2019-11236",
           "severity": "medium",
           "vex_status": "affected"
@@ -285,49 +484,65 @@
         {
           "id": "CVE-2020-26137",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "affected"
         },
         {
           "id": "CVE-2023-43804",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "affected"
         },
         {
           "id": "CVE-2023-45803",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "affected"
         },
         {
           "id": "CVE-2024-37891",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "affected"
         },
         {
           "id": "CVE-2025-50181",
           "severity": "medium",
-          "vex_status": "not_evaluated"
+          "vex_status": "affected"
         },
         {
           "id": "CVE-2025-66418",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "affected"
         },
         {
           "id": "CVE-2025-66471",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "affected"
         },
         {
           "id": "CVE-2026-21441",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "affected"
         },
         {
           "id": "CVE-2026-44431",
           "severity": "high",
-          "vex_status": "not_evaluated"
+          "vex_status": "affected"
         }
       ],
+      "active_in_build": true
+    },
+    {
+      "name": "requirements.txt",
+      "version": "1.0.0",
+      "purl": "pkg:pypi/requirements.txt@1.0.0",
+      "type": "application",
+      "supplier": "Unknown / Open Source Community",
+      "license": "Apache-2.0",
+      "criticality": "medium",
+      "origin": "open-source",
+      "usage_restrictions": "None",
+      "eol_date": "2029-06-28T08:32:22Z",
+      "release_date": "2026-06-29T08:32:22.033242Z",
+      "internal_comment": "",
+      "cve_exposure": [],
       "active_in_build": true
     }
   ]

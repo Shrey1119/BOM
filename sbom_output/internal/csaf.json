@@ -4,18 +4,18 @@
     "title": "Security Advisory \u2014 Client-Assigned Scanning Service",
     "publisher": {
       "name": "Security & Governance Lead (Antigravity AI)",
-      "namespace": "https://antigravity.ai/security",
+      "namespace": "https://company.security/advisory",
       "category": "vendor"
     },
     "tracking": {
-      "id": "AA-20260626-001",
+      "id": "CSAF-20260629-001",
       "status": "final",
       "version": "1",
-      "initial_release_date": "2026-06-26T09:25:50.790119+00:00Z",
-      "current_release_date": "2026-06-26T09:25:50.790119+00:00Z",
+      "initial_release_date": "2026-06-29T08:32:22.759527Z",
+      "current_release_date": "2026-06-29T08:32:22.759527Z",
       "revision_history": [
         {
-          "date": "2026-06-26T09:25:50.790119+00:00Z",
+          "date": "2026-06-29T08:32:22.759527Z",
           "number": "1",
           "summary": "Initial release"
         }
@@ -44,7 +44,207 @@
             "name": "urllib3@1.24.2",
             "product": {
               "name": "urllib3",
-              "product_id": "urllib3"
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "requests@2.20.0",
+            "product": {
+              "name": "requests",
+              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "requests@2.20.0",
+            "product": {
+              "name": "requests",
+              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "requests@2.20.0",
+            "product": {
+              "name": "requests",
+              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "requests@2.20.0",
+            "product": {
+              "name": "requests",
+              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "requests@2.20.0",
+            "product": {
+              "name": "requests",
+              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "requests@2.20.0",
+            "product": {
+              "name": "requests",
+              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "requests@2.20.0",
+            "product": {
+              "name": "requests",
+              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "urllib3@1.24.2",
+            "product": {
+              "name": "urllib3",
+              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
             }
           }
         ]
@@ -53,120 +253,724 @@
   },
   "vulnerabilities": [
     {
-      "cve": "CVE-2019-11236",
-      "title": "Affected: urllib3 1.24.2",
+      "cve": "GHSA-2xpw-w6gg-jr37",
+      "title": "Active exploitation path in urllib3",
       "notes": [
         {
           "category": "description",
-          "text": "CRLF injection in HTTP headers \u00e2\u20ac\u201d component actively used"
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "urllib3"
-        ],
-        "fixed": [
-          "urllib3"
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade to urllib3 1.25.9",
+          "details": "Upgrade urllib3 to remediate vulnerability GHSA-2xpw-w6gg-jr37.",
           "product_ids": [
-            "urllib3"
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "GHSA-34jh-p97f-mpxf",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability GHSA-34jh-p97f-mpxf.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
           ]
         }
       ],
       "scores": [
         {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 4.3,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 6.5,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "cvss_v3": {
+            "baseScore": 4.4,
+            "version": "3.1"
+          }
         }
       ]
+    },
+    {
+      "cve": "GHSA-38jv-5279-wg99",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability GHSA-38jv-5279-wg99.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-9hjg-9r4m-mvj7",
+      "title": "Active exploitation path in requests",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade requests to remediate vulnerability GHSA-9hjg-9r4m-mvj7.",
+          "product_ids": [
+            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-9wx4-h78v-vm56",
+      "title": "Active exploitation path in requests",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade requests to remediate vulnerability GHSA-9wx4-h78v-vm56.",
+          "product_ids": [
+            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.6,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-g4mx-q9vg-27p4",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability GHSA-g4mx-q9vg-27p4.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 4.2,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-gm62-xv2j-4w53",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability GHSA-gm62-xv2j-4w53.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "GHSA-j8r2-6x86-q33q",
+      "title": "Active exploitation path in requests",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade requests to remediate vulnerability GHSA-j8r2-6x86-q33q.",
+          "product_ids": [
+            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.1,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-pq67-6m6q-mj2v",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability GHSA-pq67-6m6q-mj2v.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-r64q-w8jr-g9qp",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability GHSA-r64q-w8jr-g9qp.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.1,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-v845-jxx5-vc9f",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability GHSA-v845-jxx5-vc9f.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.9,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-wqvq-5m8c-6g24",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability GHSA-wqvq-5m8c-6g24.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.5,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2019-11236",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability CVE-2019-11236.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2020-26137",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability CVE-2020-26137.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2023-32681",
+      "title": "Active exploitation path in requests",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade requests to remediate vulnerability CVE-2023-32681.",
+          "product_ids": [
+            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2023-43804",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability CVE-2023-43804.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2023-45803",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability CVE-2023-45803.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2024-35195",
+      "title": "Active exploitation path in requests",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade requests to remediate vulnerability CVE-2024-35195.",
+          "product_ids": [
+            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2024-37891",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability CVE-2024-37891.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2024-47081",
+      "title": "Active exploitation path in requests",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade requests to remediate vulnerability CVE-2024-47081.",
+          "product_ids": [
+            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2025-50181",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability CVE-2025-50181.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2025-66418",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability CVE-2025-66418.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2025-66471",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability CVE-2025-66471.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2026-21441",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability CVE-2026-21441.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2026-25645",
+      "title": "Active exploitation path in requests",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade requests to remediate vulnerability CVE-2026-25645.",
+          "product_ids": [
+            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2026-44431",
+      "title": "Active exploitation path in urllib3",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade urllib3 to remediate vulnerability CVE-2026-44431.",
+          "product_ids": [
+            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          ]
+        }
+      ],
+      "scores": []
     }
   ]
 }
