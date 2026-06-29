@@ -299,6 +299,17 @@ def merge_sboms(syft_grype_path, trivy_path, cdxgen_path, output_path):
         if node not in visited:
             dfs_remove_cycles(node)
 
+    # Ensure all merged components are present in the final dependencies list
+    # (CycloneDX schema and CERT-In validation require every component to have a mapping)
+    existing_dep_refs = {d.get('ref') for d in final_dependencies}
+    for comp in merged_comps:
+        comp_ref = comp.get('bom-ref')
+        if comp_ref and comp_ref not in existing_dep_refs:
+            final_dependencies.append({
+                "ref": comp_ref,
+                "dependsOn": []
+            })
+
     # 3. Merge Vulnerabilities
     unified_vulns = {}
     
