@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",
-  "serialNumber": "urn:uuid:7a70ec83-0c1d-4e3c-b360-a1334ac6ab0a",
+  "serialNumber": "urn:uuid:3fde7542-b253-40b6-8aa0-6d7adaec011d",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-29T08:32:02+00:00",
+    "timestamp": "2026-06-29T09:42:25+00:00",
     "tools": {
       "components": [
         {
@@ -20,7 +20,7 @@
       ]
     },
     "component": {
-      "bom-ref": "7666e6f8-7a9b-4171-a387-a96af9efe11f",
+      "bom-ref": "7deb1a4d-f26a-468b-82c8-db84587ce915",
       "type": "application",
       "name": "D:/College Work/Internship/BOM/mock_project",
       "properties": [
@@ -33,7 +33,7 @@
   },
   "components": [
     {
-      "bom-ref": "c755c369-5b84-4334-858d-445387a80925",
+      "bom-ref": "d76a4691-9467-46ae-8780-a81cb23e107d",
       "type": "application",
       "name": "requirements.txt",
       "properties": [
@@ -115,13 +115,13 @@
   ],
   "dependencies": [
     {
-      "ref": "7666e6f8-7a9b-4171-a387-a96af9efe11f",
+      "ref": "7deb1a4d-f26a-468b-82c8-db84587ce915",
       "dependsOn": [
-        "c755c369-5b84-4334-858d-445387a80925"
+        "d76a4691-9467-46ae-8780-a81cb23e107d"
       ]
     },
     {
-      "ref": "c755c369-5b84-4334-858d-445387a80925",
+      "ref": "d76a4691-9467-46ae-8780-a81cb23e107d",
       "dependsOn": [
         "pkg:pypi/django@2.1",
         "pkg:pypi/jinja2@2.10",

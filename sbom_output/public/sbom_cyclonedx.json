@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:8391dd2b-0d25-4c07-9aa8-f526e7ce3863",
+  "serialNumber": "urn:uuid:54b9197c-011c-4966-9902-945fb63e6863",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-29T08:32:21Z",
+    "timestamp": "2026-06-29T09:42:44Z",
     "tools": {
       "components": [
         {
@@ -239,13 +239,13 @@
         "cdxgen"
       ],
       "evidence_sources": [
-        "cdxgen Scan Discovery",
         "Trivy Scan Discovery",
+        "cdxgen Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "9d15769a-2cc7-41ed-93fb-a80b3b2d775c"
+      "unique_component_id": "a8f8bc93-24eb-4247-991b-438367d8bf10"
     },
     {
       "bom-ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
@@ -437,13 +437,13 @@
         "cdxgen"
       ],
       "evidence_sources": [
-        "cdxgen Scan Discovery",
         "Trivy Scan Discovery",
+        "cdxgen Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "0d3f9750-47f2-466d-a750-e6ccf21643b9"
+      "unique_component_id": "1633a382-c79d-490b-959e-8d3f6a061568"
     },
     {
       "bom-ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
@@ -635,13 +635,13 @@
         "cdxgen"
       ],
       "evidence_sources": [
-        "cdxgen Scan Discovery",
         "Trivy Scan Discovery",
+        "cdxgen Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "2a3b578a-543c-407b-b604-e549e4f6c054"
+      "unique_component_id": "45c415dc-423f-4237-907d-f397c92f41e7"
     },
     {
       "bom-ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
@@ -778,13 +778,13 @@
         "cdxgen"
       ],
       "evidence_sources": [
-        "cdxgen Scan Discovery",
         "Trivy Scan Discovery",
+        "cdxgen Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "ddc4ccbd-e627-43d9-9f68-f8d4a901add6"
+      "unique_component_id": "b34eb82e-bb9a-411b-a405-e1a76269d3c1"
     },
     {
       "bom-ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
@@ -921,16 +921,16 @@
         "cdxgen"
       ],
       "evidence_sources": [
-        "cdxgen Scan Discovery",
         "Trivy Scan Discovery",
+        "cdxgen Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "54a861b8-b684-47c4-a620-12028db29628"
+      "unique_component_id": "334eab12-236a-4767-a6b4-34c2b8c2fb43"
     },
     {
-      "bom-ref": "c755c369-5b84-4334-858d-445387a80925",
+      "bom-ref": "d76a4691-9467-46ae-8780-a81cb23e107d",
       "type": "application",
       "name": "requirements.txt",
       "version": "1.0.0",
@@ -973,11 +973,11 @@
         },
         {
           "name": "release_date",
-          "value": "2026-06-29T08:32:22.033242Z"
+          "value": "2026-06-29T09:42:47.425391Z"
         },
         {
           "name": "eol_date",
-          "value": "2029-06-28T08:32:22Z"
+          "value": "2029-06-28T09:42:47Z"
         },
         {
           "name": "criticality",
@@ -1044,12 +1044,16 @@
       ],
       "merge_confidence": "100%",
       "merge_status": "Original",
-      "unique_component_id": "f9da6fc9-e917-4c83-a0b2-2b3411f15b7d"
+      "unique_component_id": "844f843a-cf20-47b6-8da8-b1562d597291"
     }
   ],
   "dependencies": [
     {
       "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
       "dependsOn": []
     },
     {
@@ -1061,27 +1065,23 @@
       "dependsOn": []
     },
     {
-      "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
-      "dependsOn": []
-    },
-    {
       "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
       "dependsOn": []
     },
     {
-      "ref": "c755c369-5b84-4334-858d-445387a80925",
+      "ref": "d76a4691-9467-46ae-8780-a81cb23e107d",
       "dependsOn": [
         "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
+        "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
         "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
         "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
-        "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
         "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
       ]
     },
     {
-      "ref": "7666e6f8-7a9b-4171-a387-a96af9efe11f",
+      "ref": "7deb1a4d-f26a-468b-82c8-db84587ce915",
       "dependsOn": [
-        "c755c369-5b84-4334-858d-445387a80925"
+        "d76a4691-9467-46ae-8780-a81cb23e107d"
       ]
     },
     {
@@ -1091,7 +1091,7 @@
   ],
   "vulnerabilities": [
     {
-      "bom-ref": "urn:uuid:59e49d25-6224-4ba1-add6-b2a37cc8a2dc",
+      "bom-ref": "urn:uuid:3576168f-32fb-46f7-aeb4-0375d73a2fa2",
       "id": "GHSA-2xpw-w6gg-jr37",
       "source": {
         "name": "github-language-python",
@@ -1124,7 +1124,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:0587c4e7-32bc-414a-ba9a-b690a9f746aa",
+      "bom-ref": "urn:uuid:1216c8aa-37d9-4d24-ac32-dc589af66c2b",
       "id": "GHSA-337x-4q8g-prc5",
       "source": {
         "name": "github-language-python",
@@ -1160,7 +1160,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:c700bead-89f9-4a74-9500-0ff359d8d9fd",
+      "bom-ref": "urn:uuid:a8c4b6a0-0fb8-469e-a207-323864c293ef",
       "id": "GHSA-34jh-p97f-mpxf",
       "source": {
         "name": "github-language-python",
@@ -1196,7 +1196,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:c71ebd65-fe2d-4907-b986-db120666e38b",
+      "bom-ref": "urn:uuid:46eae59a-950c-4f86-a582-d870aa248e22",
       "id": "GHSA-38jv-5279-wg99",
       "source": {
         "name": "github-language-python",
@@ -1232,7 +1232,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:f60753cf-20b0-488f-a226-b2b8f9879e14",
+      "bom-ref": "urn:uuid:bf3bf42f-2e70-43a5-ab62-6b5403ace591",
       "id": "GHSA-462w-v97r-4m45",
       "source": {
         "name": "github-language-python",
@@ -1268,7 +1268,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:a4778363-31b8-451a-a088-08c02c203c54",
+      "bom-ref": "urn:uuid:eea3ac28-97c1-4323-8ebc-f7ff88fe2c3a",
       "id": "GHSA-5545-2q6w-2gh6",
       "source": {
         "name": "github-language-python",
@@ -1304,7 +1304,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:e3df003b-5ec7-4ff5-b607-02a42d33499c",
+      "bom-ref": "urn:uuid:0d08691b-1def-43d8-a4b7-83c4952f13c5",
       "id": "GHSA-68w8-qjq3-2gfm",
       "source": {
         "name": "github-language-python",
@@ -1340,7 +1340,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:6bebdfff-90d2-4cd0-8b84-93080abdfe42",
+      "bom-ref": "urn:uuid:6277d5b0-411e-4737-8ad9-72efcfb49aa8",
       "id": "GHSA-6c3j-c64m-qhgq",
       "source": {
         "name": "github-language-python",
@@ -1376,7 +1376,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:f5209d09-9597-4ccd-a723-ab67c8a5a20e",
+      "bom-ref": "urn:uuid:dc7d059f-de74-401c-b277-e0b60d88b355",
       "id": "GHSA-6c7v-2f49-8h26",
       "source": {
         "name": "github-language-python",
@@ -1412,7 +1412,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:241a5576-9756-40a5-862c-ddb50ead4383",
+      "bom-ref": "urn:uuid:821fb04f-215f-4d62-91cc-4caa0c9296b5",
       "id": "GHSA-6mx3-3vqg-hpp2",
       "source": {
         "name": "github-language-python",
@@ -1448,7 +1448,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:c53e0edf-93fa-4953-b8aa-d9b464be2d98",
+      "bom-ref": "urn:uuid:6a23ce9a-934f-4fc4-ad47-ba24c9b6a147",
       "id": "GHSA-6p56-wp2h-9hxr",
       "source": {
         "name": "github-language-python",
@@ -1484,7 +1484,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:73712499-4eb2-4386-97bf-5c6a1bae5d0b",
+      "bom-ref": "urn:uuid:61352189-1a64-4fbb-bd4e-04d0d6c6544b",
       "id": "GHSA-6r97-cj55-9hrq",
       "source": {
         "name": "github-language-python",
@@ -1520,7 +1520,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:7ad50dcb-4970-48a0-be54-f41efd72d40c",
+      "bom-ref": "urn:uuid:cc2268f9-3348-4358-b3f1-0f32753fdb1e",
       "id": "GHSA-6w2r-r2m5-xq5w",
       "source": {
         "name": "github-language-python",
@@ -1556,7 +1556,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:363ed99a-4415-49d7-ab87-c69aad1889ac",
+      "bom-ref": "urn:uuid:c1b43748-7e69-48d3-a14a-4b2c0763a218",
       "id": "GHSA-7rp2-fm2h-wchj",
       "source": {
         "name": "github-language-python",
@@ -1592,7 +1592,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:b2e77124-05d2-4c1e-a53c-75eaab1e7e91",
+      "bom-ref": "urn:uuid:4014ba5e-19d4-4128-a214-f0e68d47dfc8",
       "id": "GHSA-7xr5-9hcq-chf9",
       "source": {
         "name": "github-language-python",
@@ -1628,7 +1628,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:5925e642-12c1-4cd7-b4ff-8ed6de60058a",
+      "bom-ref": "urn:uuid:f6512d2b-cced-4dbc-924c-0731b6690ef8",
       "id": "GHSA-8x94-hmjh-97hq",
       "source": {
         "name": "github-language-python",
@@ -1664,7 +1664,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:8ee9437a-5672-4f0a-9d13-d95f62daf1e6",
+      "bom-ref": "urn:uuid:5dd38691-47ad-4679-97d7-14cd2196fb02",
       "id": "GHSA-9fq2-x9r6-wfmf",
       "source": {
         "name": "github-language-python",
@@ -1700,7 +1700,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:30daac0f-7422-496c-b8bb-67e56e8a12ff",
+      "bom-ref": "urn:uuid:056a1853-8d48-4c8e-9568-748ee56cd7b7",
       "id": "GHSA-9hjg-9r4m-mvj7",
       "source": {
         "name": "github-language-python",
@@ -1736,7 +1736,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:03ec2ce0-abd9-4a8d-8f32-191fbef4fd1c",
+      "bom-ref": "urn:uuid:f7a69967-971d-4361-9978-1a23d7847a37",
       "id": "GHSA-9wx4-h78v-vm56",
       "source": {
         "name": "github-language-python",
@@ -1772,7 +1772,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:83bc19a9-6a1d-44be-a7e1-d97e901f733a",
+      "bom-ref": "urn:uuid:2d7f3c02-b295-4b6b-88a1-6b74c03bded1",
       "id": "GHSA-c4qh-4vgv-qc6g",
       "source": {
         "name": "github-language-python",
@@ -1808,7 +1808,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:302c3ac2-44e1-4f2a-a784-9e35eec112ff",
+      "bom-ref": "urn:uuid:202e377c-ea40-4c5e-9d2f-9dae0fdffbb7",
       "id": "GHSA-cpwx-vrp4-4pq7",
       "source": {
         "name": "github-language-python",
@@ -1841,7 +1841,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:6ff6d6dc-8463-41dd-ada3-83beb84cbe69",
+      "bom-ref": "urn:uuid:372dfd3e-d654-427a-a90a-0bffa2c79dae",
       "id": "GHSA-f7c7-j99h-c22f",
       "source": {
         "name": "github-language-python",
@@ -1877,7 +1877,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:bee82e14-d6d7-4252-b0b4-1aedc7d423dd",
+      "bom-ref": "urn:uuid:1c2974ca-ca28-4e3d-8e02-e06b2e349ad4",
       "id": "GHSA-fpfv-jqm9-f5jm",
       "source": {
         "name": "github-language-python",
@@ -1913,7 +1913,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:8365a775-4a2b-4234-8f41-ed0c4ada8d9f",
+      "bom-ref": "urn:uuid:1f4f041b-3082-4941-8210-0cb9c21956f8",
       "id": "GHSA-frmv-pr5f-9mcr",
       "source": {
         "name": "github-language-python",
@@ -1949,7 +1949,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:75c5219a-acbf-4ab4-9c1a-920e9440a7cc",
+      "bom-ref": "urn:uuid:700cde59-8e2e-42eb-bc1d-6a524234bae5",
       "id": "GHSA-g3rq-g295-4j3m",
       "source": {
         "name": "github-language-python",
@@ -1985,7 +1985,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:36b9e43d-bb4d-49b9-ade0-869cfaafc3b7",
+      "bom-ref": "urn:uuid:b52955d1-1f38-40f0-8247-911c053459b6",
       "id": "GHSA-g4mx-q9vg-27p4",
       "source": {
         "name": "github-language-python",
@@ -2021,7 +2021,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:c5f16f70-6654-480d-a1ea-93a34e1ee6cc",
+      "bom-ref": "urn:uuid:a80dd3b0-4d74-438c-9c8c-4210cfa37e6c",
       "id": "GHSA-gm62-xv2j-4w53",
       "source": {
         "name": "github-language-python",
@@ -2054,7 +2054,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:c1933f0a-6422-40ef-afab-5aa0020fcfbe",
+      "bom-ref": "urn:uuid:29912b99-4703-4d66-81a0-985175ba4a19",
       "id": "GHSA-h5c8-rqwp-cp95",
       "source": {
         "name": "github-language-python",
@@ -2090,7 +2090,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:a31f8e6b-0bf6-4cbd-b89f-f85e1e060661",
+      "bom-ref": "urn:uuid:d1ce9573-3587-4e66-8e63-fe6026a9038c",
       "id": "GHSA-h5jv-4p7w-64jg",
       "source": {
         "name": "github-language-python",
@@ -2126,7 +2126,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:70f6cc13-b0d5-4922-bee2-9d9dd5cb315b",
+      "bom-ref": "urn:uuid:d91846ff-96f6-4aa3-836a-a33509defdd3",
       "id": "GHSA-h75v-3vvj-5mfj",
       "source": {
         "name": "github-language-python",
@@ -2162,7 +2162,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:6fc248c3-2f81-4628-82cd-f7d29d4b9e6a",
+      "bom-ref": "urn:uuid:1eb6fd9e-ba9f-48c1-8b90-d9b64fded4f2",
       "id": "GHSA-hmr4-m2h5-33qx",
       "source": {
         "name": "github-language-python",
@@ -2198,7 +2198,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:40152f9e-be1a-47f9-a930-be98519a8356",
+      "bom-ref": "urn:uuid:71124fc1-010d-4248-b6a9-78cd18d99f57",
       "id": "GHSA-hvmf-r92r-27hr",
       "source": {
         "name": "github-language-python",
@@ -2234,7 +2234,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:bd4ec81b-94df-4ffd-a614-1bc8df44e887",
+      "bom-ref": "urn:uuid:a916583b-dc29-40b9-80b3-05b7ff6b8735",
       "id": "GHSA-j8r2-6x86-q33q",
       "source": {
         "name": "github-language-python",
@@ -2270,7 +2270,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:70876f1c-8e6b-4c64-a034-2ef18b4a7043",
+      "bom-ref": "urn:uuid:5471aec1-aabc-46ab-a427-5a6293b7a1b7",
       "id": "GHSA-pq67-6m6q-mj2v",
       "source": {
         "name": "github-language-python",
@@ -2306,7 +2306,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:717b996f-f865-4ce9-883c-ef8da1f9ca97",
+      "bom-ref": "urn:uuid:464a6716-1a60-421c-8f08-c59a4fd72482",
       "id": "GHSA-q2x7-8rv6-6q7h",
       "source": {
         "name": "github-language-python",
@@ -2342,7 +2342,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:48e4fe4e-bec4-46db-99ac-b88231fb8569",
+      "bom-ref": "urn:uuid:1d619ce5-0d3d-416c-8ced-b413e71b1b45",
       "id": "GHSA-qw25-v68c-qjf3",
       "source": {
         "name": "github-language-python",
@@ -2378,7 +2378,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:c9f7ce24-479c-47c4-8fdd-9b364cef992f",
+      "bom-ref": "urn:uuid:38f96fd4-44a1-4067-888b-6d3d2845445d",
       "id": "GHSA-r64q-w8jr-g9qp",
       "source": {
         "name": "github-language-python",
@@ -2414,7 +2414,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:9fae22bc-0da5-46b2-a941-afdc4d7b976c",
+      "bom-ref": "urn:uuid:300875c3-6d8e-46a1-bd12-1473a2e467eb",
       "id": "GHSA-rrqc-c2jx-6jgv",
       "source": {
         "name": "github-language-python",
@@ -2450,7 +2450,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:a43db16f-195e-4f5a-9751-beabb3b73da7",
+      "bom-ref": "urn:uuid:03d166fa-8190-4287-bfa8-f6686a7c8165",
       "id": "GHSA-v845-jxx5-vc9f",
       "source": {
         "name": "github-language-python",
@@ -2486,7 +2486,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:b2a24640-65f0-4ef8-9c0b-cda04de335fd",
+      "bom-ref": "urn:uuid:739ba21c-63e4-4289-a6da-0c37d424f0bb",
       "id": "GHSA-v9qg-3j8p-r63v",
       "source": {
         "name": "github-language-python",
@@ -2522,7 +2522,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:d430609b-62a7-4382-84dd-33676d0527e0",
+      "bom-ref": "urn:uuid:727dd00d-43cb-436a-a455-bce511e07e88",
       "id": "GHSA-vfq6-hq5r-27r6",
       "source": {
         "name": "github-language-python",
@@ -2558,7 +2558,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:08c9c61d-71ed-451d-9080-73e545353a91",
+      "bom-ref": "urn:uuid:bf5652b1-0fe9-4617-ae4d-4daf2daa2585",
       "id": "GHSA-wh4h-v3f2-r2pp",
       "source": {
         "name": "github-language-python",
@@ -2594,7 +2594,7 @@
       ]
     },
     {
-      "bom-ref": "urn:uuid:23f80a84-398f-4e50-a1a9-380d57e7f7aa",
+      "bom-ref": "urn:uuid:5960f153-c19d-455e-ad60-03acce0c9a8f",
       "id": "GHSA-wqvq-5m8c-6g24",
       "source": {
         "name": "github-language-python",

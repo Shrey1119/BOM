@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T08:32:22.899004+00:00Z",
+  "generated_at": "2026-06-29T09:42:48.124564+00:00Z",
   "author": "Security & Governance Lead (Antigravity AI)",
   "organization": "Client-Assigned Scanning Service",
   "total_components": 6,
@@ -539,8 +539,8 @@
       "criticality": "medium",
       "origin": "open-source",
       "usage_restrictions": "None",
-      "eol_date": "2029-06-28T08:32:22Z",
-      "release_date": "2026-06-29T08:32:22.033242Z",
+      "eol_date": "2029-06-28T09:42:47Z",
+      "release_date": "2026-06-29T09:42:47.425391Z",
       "internal_comment": "",
       "cve_exposure": [],
       "active_in_build": true
