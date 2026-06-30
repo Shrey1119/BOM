@@ -16,6 +16,13 @@
   "eol_years_from_release": 3,
   "default_eol_offset_years": 3,
   "overrides": {
+    "@ghost-internal/i18n-review": {
+      "supplier": "Ghost Foundation (TryGhost)",
+      "origin": "internal-ci-tooling",
+      "criticality": "low",
+      "usage_restrictions": "Private package — not published to npm. Internal CI use only; no redistribution.",
+      "comments": "Ghost-internal agentic i18n review bot. Lives in TryGhost/Ghost .github/scripts/i18n-review/. Not a runtime dependency — CI tooling only."
+    },
     "requests": {
       "supplier": "Kenneth Reitz & Requests Community",
       "criticality": "high",
