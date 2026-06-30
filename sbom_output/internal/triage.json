@@ -1,34 +1,3 @@
-[
-  {
-    "cve_id":      "CVE-2018-18074",
-    "component":   "requests",
-    "version":     "2.20.0",
-    "status":      "not_affected",
-    "justification": "Redirect-following behaviour not used in this integration",
-    "fixed_version": ""
-  },
-  {
-    "cve_id":      "CVE-2019-11236",
-    "component":   "urllib3",
-    "version":     "1.24.2",
-    "status":      "affected",
-    "justification": "CRLF injection in HTTP headers — component actively used",
-    "fixed_version": "1.25.9"
-  },
-  {
-    "cve_id":      "CVE-2019-8341",
-    "component":   "jinja2",
-    "version":     "2.10",
-    "status":      "fixed",
-    "justification": "Upgraded to 3.1.2 — sandbox escape patched",
-    "fixed_version": "3.1.2"
-  },
-  {
-    "cve_id":      "CVE-2019-20907",
-    "component":   "django",
-    "version":     "2.1",
-    "status":      "under_investigation",
-    "justification": "Awaiting security team review — deadline 2026-07-05",
-    "fixed_version": ""
-  }
-]
+version https://git-lfs.github.com/spec/v1
+oid sha256:542ccf7d1902f4305f92575ecbab49822bd78235228ecc3931089f8471d34ef7
+size 1003

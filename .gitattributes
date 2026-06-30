@@ -1,3 +1,4 @@
 trivy.exe filter=lfs diff=lfs merge=lfs -text
 *.exe filter=lfs diff=lfs merge=lfs -text
 Member[[:space:]]2/trivy.exe filter=lfs diff=lfs merge=lfs -text
+sbom_output/**/*.json filter=lfs diff=lfs merge=lfs -text
