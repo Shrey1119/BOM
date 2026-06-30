@@ -808,7 +808,7 @@ def enrich_component(component, config, dependencies_map):
 
     if api_data:
         api_desc, api_supplier, api_license, api_latest, api_release = api_data
-        desc = api_desc or component.get('description') or f"Component {name}"
+        desc = component.get('description') or api_desc or f"Component {name}"
         # Overwrite local inconsistent data with registry standardized fields
         supplier = override.get('supplier') or api_supplier or component.get('supplier', {}).get('name') or config.get('default_supplier')
         license_name = override.get('license') or api_license or existing_license or config.get('default_license')
