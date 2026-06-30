@@ -417,6 +417,17 @@ def create_component_data_sheet(wb, sbom):
 
         crit = props.get("criticality", "medium")
 
+        # Parse trust score value to float if it has '%' for mathematical operations
+        ts_val = props.get("trust_score", "")
+        ts_num = None
+        if ts_val and ts_val.endswith("%"):
+            try:
+                ts_num = float(ts_val.rstrip("%")) / 100.0
+            except ValueError:
+                ts_num = ts_val
+        else:
+            ts_num = ts_val
+
         row_values = [
             idx,
             comp.get("name", ""),
@@ -442,7 +453,7 @@ def create_component_data_sheet(wb, sbom):
             props.get("archive", "true"),
             props.get("structured", "false"),
             comp.get("purl", ""),
-            props.get("trust_score", ""),                 # trust score
+            ts_num,                                       # trust score (numeric float or original string)
             props.get("trust_score_reasons", ""),         # trust score reasons
             props.get("repository_registry", ""),         # repo registry
             props.get("repository_url", ""),              # repo url
@@ -460,10 +471,10 @@ def create_component_data_sheet(wb, sbom):
                 cell.font = font
                 cell.alignment = Alignment(horizontal="center", vertical="center")
 
-            # Trust score — colour by value
-            if ci == 24 and val:
+            # Trust score — colour by value (col 25 = Trust Score)
+            if ci == 25 and val is not None and val != "":
                 try:
-                    pct = int(str(val).replace("%", ""))
+                    pct = int(val * 100) if isinstance(val, (int, float)) else int(str(val).replace("%", ""))
                     if pct >= 80:
                         cell.fill = PatternFill(start_color="C8E6C9", end_color="C8E6C9", fill_type="solid")
                     elif pct >= 50:
@@ -471,6 +482,8 @@ def create_component_data_sheet(wb, sbom):
                     else:
                         cell.fill = PatternFill(start_color="FFCDD2", end_color="FFCDD2", fill_type="solid")
                     cell.font = Theme.data_bold_font()
+                    if isinstance(val, (int, float)):
+                        cell.number_format = '0%'
                 except ValueError:
                     pass
 
@@ -556,7 +569,298 @@ def create_vulnerability_sheet(wb, sbom):
 
 
 # ------------------------------------------------------------------
-# Sheet 4 - Legend & Info
+# Sheet 4 - Mathematical Statistics
+# ------------------------------------------------------------------
+def create_statistics_sheet(wb, sbom):
+    ws = wb.create_sheet("Mathematical Statistics")
+    ws.sheet_properties.tabColor = "00ACC1"  # Cyan/teal tab color
+
+    components = sbom.get("components", [])
+    vulnerabilities = sbom.get("vulnerabilities", [])
+
+    comp_last_row = 4 + len(components)
+    # If no components exist (unlikely), fallback to row 5
+    if comp_last_row < 5:
+        comp_last_row = 5
+    
+    vuln_last_row = 3 + len(vulnerabilities)
+    if vuln_last_row < 4:
+        vuln_last_row = 4
+
+    # 1. Title Block
+    ws.merge_cells("A1:E1")
+    title_cell = ws.cell(row=1, column=1, value="Mathematical Statistics & Calculation of Findings")
+    title_cell.font = Theme.title_font()
+    title_cell.alignment = Alignment(vertical="center")
+    ws.row_dimensions[1].height = 40
+
+    ws.merge_cells("A2:E2")
+    subtitle_text = "Dynamic formulas summarizing security metrics, criticality risk index, trust analytics, and patch rates."
+    sub_cell = ws.cell(row=2, column=1, value=subtitle_text)
+    sub_cell.font = Theme.subtitle_font()
+    ws.row_dimensions[2].height = 22
+
+    # A function to draw a section header banner
+    def draw_section_header(row_num, text):
+        ws.merge_cells(start_row=row_num, start_column=1, end_row=row_num, end_column=5)
+        cell = ws.cell(row=row_num, column=1, value=text)
+        cell.font = Font(name="Segoe UI", size=11, bold=True, color=Theme.WHITE)
+        cell.fill = PatternFill(start_color=Theme.PRIMARY_MID, end_color=Theme.PRIMARY_MID, fill_type="solid")
+        cell.alignment = Alignment(horizontal="left", vertical="center", indent=1)
+        ws.row_dimensions[row_num].height = 25
+
+    # A function to apply data styling to cells in a range
+    def style_row_range(row_num, col_start, col_end, is_header=False, is_alt=False, align_center_indices=[]):
+        for col in range(col_start, col_end + 1):
+            cell = ws.cell(row=row_num, column=col)
+            if is_header:
+                cell.font = Theme.header_font()
+                cell.fill = Theme.header_fill()
+                cell.alignment = Alignment(horizontal="center", vertical="center")
+            else:
+                cell.font = Theme.data_font()
+                if is_alt:
+                    cell.fill = Theme.alt_row_fill()
+                h_align = "center" if col in align_center_indices else "left"
+                cell.alignment = Alignment(horizontal=h_align, vertical="center")
+            cell.border = Theme.thin_border()
+
+    # --- Section 1: General Quantitative Metrics ---
+    draw_section_header(4, "1. General Quantitative Metrics")
+    
+    headers_1 = ["Metric Name", "Excel Formula", "Calculated Value", "Mathematical Definition / Description"]
+    ws.merge_cells("D5:E5")
+    for ci, h in enumerate(headers_1, 1):
+        ws.cell(row=5, column=ci, value=h)
+    style_row_range(5, 1, 4, is_header=True)
+    ws.row_dimensions[5].height = 24
+
+    metrics_1 = [
+        ("Total Components", f"=COUNTA('Component Data (21 Attr)'!B5:B{comp_last_row})", "Count", "Total number of third-party and proprietary component dependencies cataloged in the SBOM."),
+        ("Total Vulnerabilities", f"=IF('Vulnerability Matrix'!B4=\"[OK] No known vulnerabilities found in this SBOM scan.\", 0, COUNTA('Vulnerability Matrix'!B4:B{vuln_last_row}))", "Count", "Count of all identified security vulnerabilities affecting components."),
+        ("Vulnerability Density", "=IF(C6=0, 0, C7/C6)", "Ratio", "Vulnerability Density = Total Vulnerabilities / Total Components (expected < 0.10)."),
+        ("Patched Components", f"=COUNTIF('Component Data (21 Attr)'!J5:J{comp_last_row}, \"up-to-date\")", "Count", "Number of components that are fully patched (i.e. version is equal to latest release)."),
+        ("Out-of-Date Components", f"=COUNTIF('Component Data (21 Attr)'!J5:J{comp_last_row}, \"patch-available\")", "Count", "Number of components where a newer version/patch is available in the registry."),
+        ("Patch Rate", "=IF(C6=0, 0, C9/C6)", "Percentage", "Patch Compliance Rate = Patched Components / Total Components (Target >= 90%).")
+    ]
+
+    for idx, (m_name, m_formula, m_type, m_desc) in enumerate(metrics_1):
+        r = 6 + idx
+        is_alt = idx % 2 == 1
+        ws.cell(row=r, column=1, value=m_name)
+        # We write the formula as text in Col B for display, and as actual formula in Col C for Excel computation!
+        ws.cell(row=r, column=2, value=m_formula)
+        ws.cell(row=r, column=3, value=m_formula)  # Execute formula in Col C
+        ws.merge_cells(start_row=r, start_column=4, end_row=r, end_column=5)
+        ws.cell(row=r, column=4, value=m_desc)
+        
+        style_row_range(r, 1, 4, is_alt=is_alt, align_center_indices=[3])
+        # Add numeric/percentage formatting to Col C
+        cell_val = ws.cell(row=r, column=3)
+        if m_type == "Percentage":
+            cell_val.number_format = "0.0%"
+        elif m_type == "Ratio":
+            cell_val.number_format = "0.00"
+        elif m_type == "Count":
+            cell_val.number_format = "#,##0"
+        cell_val.font = Theme.data_bold_font()
+        ws.row_dimensions[r].height = 22
+
+    # --- Section 2: Criticality Risk Index Scorecard ---
+    # Row start for Section 2
+    sec2_start = 13
+    draw_section_header(sec2_start, "2. Component Criticality Risk Index Scorecard")
+    
+    headers_2 = ["Criticality Level", "Weight (W)", "Component Count (C)", "Weighted Score (W * C)", "Percentage of Total"]
+    for ci, h in enumerate(headers_2, 1):
+        ws.cell(row=sec2_start + 1, column=ci, value=h)
+    style_row_range(sec2_start + 1, 1, 5, is_header=True)
+    ws.row_dimensions[sec2_start + 1].height = 24
+
+    criticality_levels = [
+        ("CRITICAL", 10, f"=COUNTIF('Component Data (21 Attr)'!M5:M{comp_last_row}, \"CRITICAL\")", "=B15*C15", "=IF($C$6=0, 0, C15/$C$6)"),
+        ("HIGH",      5, f"=COUNTIF('Component Data (21 Attr)'!M5:M{comp_last_row}, \"HIGH\")",     "=B16*C16", "=IF($C$6=0, 0, C16/$C$6)"),
+        ("MEDIUM",    2, f"=COUNTIF('Component Data (21 Attr)'!M5:M{comp_last_row}, \"MEDIUM\")",   "=B17*C17", "=IF($C$6=0, 0, C17/$C$6)"),
+        ("LOW",       1, f"=COUNTIF('Component Data (21 Attr)'!M5:M{comp_last_row}, \"LOW\")",      "=B18*C18", "=IF($C$6=0, 0, C18/$C$6)")
+    ]
+
+    for idx, (lvl, weight, count_formula, score_formula, pct_formula) in enumerate(criticality_levels):
+        r = sec2_start + 2 + idx
+        is_alt = idx % 2 == 1
+        
+        ws.cell(row=r, column=1, value=lvl)
+        ws.cell(row=r, column=2, value=weight)
+        ws.cell(row=r, column=3, value=count_formula)
+        ws.cell(row=r, column=4, value=score_formula)
+        ws.cell(row=r, column=5, value=pct_formula)
+        
+        style_row_range(r, 1, 5, is_alt=is_alt, align_center_indices=[1, 2, 3, 4, 5])
+        
+        # Color the Criticality Level label cell
+        fill, font = Theme.criticality_style(lvl)
+        ws.cell(row=r, column=1).fill = fill
+        ws.cell(row=r, column=1).font = font
+        
+        # Format counts, scores and percentages
+        ws.cell(row=r, column=2).number_format = "#,##0"
+        ws.cell(row=r, column=3).number_format = "#,##0"
+        ws.cell(row=r, column=4).number_format = "#,##0"
+        ws.cell(row=r, column=4).font = Theme.data_bold_font()
+        ws.cell(row=r, column=5).number_format = "0.0%"
+        ws.row_dimensions[r].height = 22
+
+    # Totals row for Section 2
+    r_total = sec2_start + 6
+    ws.cell(row=r_total, column=1, value="Total Components / Risk Score")
+    ws.cell(row=r_total, column=2, value="")
+    ws.cell(row=r_total, column=3, value="=SUM(C15:C18)")
+    ws.cell(row=r_total, column=4, value="=SUM(D15:D18)")
+    ws.cell(row=r_total, column=5, value="=SUM(E15:E18)")
+    style_row_range(r_total, 1, 5, is_alt=False, align_center_indices=[1, 2, 3, 4, 5])
+    for col in range(1, 6):
+        cell = ws.cell(row=r_total, column=col)
+        cell.font = Theme.data_bold_font()
+        s_thin = Side(border_style="thin", color=Theme.BORDER_COLOR)
+        s_double = Side(border_style="double", color=Theme.PRIMARY_DARK)
+        cell.border = Border(left=s_thin, right=s_thin, top=s_thin, bottom=s_double)
+    ws.cell(row=r_total, column=3).number_format = "#,##0"
+    ws.cell(row=r_total, column=4).number_format = "#,##0"
+    ws.cell(row=r_total, column=5).number_format = "0.0%"
+    ws.row_dimensions[r_total].height = 24
+
+    # Overall Weighted Criticality Index row
+    r_idx = sec2_start + 7
+    ws.merge_cells(start_row=r_idx, start_column=1, end_row=r_idx, end_column=3)
+    ws.cell(row=r_idx, column=1, value="Overall Criticality Risk Index (Total Risk Score / Total Components)").font = Theme.data_bold_font()
+    ws.cell(row=r_idx, column=4, value="=IF(C19=0, 0, D19/C19)")
+    ws.cell(row=r_idx, column=4).font = Theme.data_bold_font()
+    ws.cell(row=r_idx, column=4).number_format = "0.00"
+    ws.cell(row=r_idx, column=4).alignment = Alignment(horizontal="center", vertical="center")
+    
+    ws.cell(row=r_idx, column=5, value="Target < 3.0")
+    ws.cell(row=r_idx, column=5).font = Font(name="Segoe UI", size=8, italic=True, color="546E7A")
+    ws.cell(row=r_idx, column=5).alignment = Alignment(horizontal="center", vertical="center")
+
+    style_row_range(r_idx, 1, 5, is_alt=True)
+    ws.row_dimensions[r_idx].height = 24
+
+    # --- Section 3: Trust Score Statistical Distribution ---
+    sec3_start = 22
+    draw_section_header(sec3_start, "3. Component Trust Score Mathematical Distribution")
+
+    headers_3 = ["Statistical Metric", "Excel Formula", "Calculated Value", "Security Implications & Thresholds"]
+    ws.merge_cells("D23:E23")
+    for ci, h in enumerate(headers_3, 1):
+        ws.cell(row=sec3_start + 1, column=ci, value=h)
+    style_row_range(sec3_start + 1, 1, 4, is_header=True)
+    ws.row_dimensions[sec3_start + 1].height = 24
+
+    metrics_3 = [
+        ("Average Trust Score", f"=IFERROR(AVERAGE('Component Data (21 Attr)'!Y5:Y{comp_last_row}), 0)", "Percentage", "Average integrity trust score of all components. Target: >= 80%."),
+        ("Maximum Trust Score", f"=IFERROR(MAX('Component Data (21 Attr)'!Y5:Y{comp_last_row}), 0)", "Percentage", "Highest trust level achieved (typically 100% for well-reviewed dependencies)."),
+        ("Minimum Trust Score", f"=IFERROR(MIN('Component Data (21 Attr)'!Y5:Y{comp_last_row}), 0)", "Percentage", "Lowest trust level found. Any component < 50% requires manual auditing."),
+        ("High-Trust Components (>= 80%)", f"=COUNTIF('Component Data (21 Attr)'!Y5:Y{comp_last_row}, \">=0.8\")", "Count", "Count of components with high integrity validation."),
+        ("Low-Trust Components (< 50%)", f"=COUNTIF('Component Data (21 Attr)'!Y5:Y{comp_last_row}, \"<0.5\")", "Count", "Count of components with insufficient metadata/hashes (High Risk)."),
+        ("Trust Integrity Rate", "=IF(C6=0, 0, C27/C6)", "Percentage", "Proportion of dependencies that meet or exceed the 80% trust threshold.")
+    ]
+
+    for idx, (t_name, t_formula, t_type, t_desc) in enumerate(metrics_3):
+        r = sec3_start + 2 + idx
+        is_alt = idx % 2 == 1
+        ws.cell(row=r, column=1, value=t_name)
+        ws.cell(row=r, column=2, value=t_formula)
+        ws.cell(row=r, column=3, value=t_formula)  # Execute formula in Col C
+        ws.merge_cells(start_row=r, start_column=4, end_row=r, end_column=5)
+        ws.cell(row=r, column=4, value=t_desc)
+        
+        style_row_range(r, 1, 4, is_alt=is_alt, align_center_indices=[3])
+        cell_val = ws.cell(row=r, column=3)
+        if t_type == "Percentage":
+            cell_val.number_format = "0.0%"
+        elif t_type == "Count":
+            cell_val.number_format = "#,##0"
+        cell_val.font = Theme.data_bold_font()
+        ws.row_dimensions[r].height = 22
+
+    # --- Section 4: Vulnerability Severity Distribution ---
+    sec4_start = 31
+    draw_section_header(sec4_start, "4. Vulnerability Severity Mathematical Distribution")
+
+    headers_4 = ["Severity Level", "Vulnerability Count", "Percentage of Vulns", "Action Response SLA Thresholds"]
+    ws.merge_cells("D32:E32")
+    for ci, h in enumerate(headers_4, 1):
+        ws.cell(row=sec4_start + 1, column=ci, value=h)
+    style_row_range(sec4_start + 1, 1, 4, is_header=True)
+    ws.row_dimensions[sec4_start + 1].height = 24
+
+    severity_levels = [
+        ("CRITICAL", f"=COUNTIF('Vulnerability Matrix'!C4:C{vuln_last_row}, \"CRITICAL\")", "=IF($C$7=0, 0, B33/$C$7)", "Immediate Fix Required (within 24 Hours)"),
+        ("HIGH",      f"=COUNTIF('Vulnerability Matrix'!C4:C{vuln_last_row}, \"HIGH\")",     "=IF($C$7=0, 0, B34/$C$7)", "High Priority Fix (within 7 Days)"),
+        ("MEDIUM",    f"=COUNTIF('Vulnerability Matrix'!C4:C{vuln_last_row}, \"MEDIUM\")",   "=IF($C$7=0, 0, B35/$C$7)", "Standard Fix (within 30 Days)"),
+        ("LOW",       f"=COUNTIF('Vulnerability Matrix'!C4:C{vuln_last_row}, \"LOW\")",      "=IF($C$7=0, 0, B36/$C$7)", "Monitor & Update during cycle"),
+        ("UNKNOWN",   f"=COUNTIF('Vulnerability Matrix'!C4:C{vuln_last_row}, \"UNKNOWN\")",  "=IF($C$7=0, 0, B37/$C$7)", "Triage / Verify vulnerability info")
+    ]
+
+    severity_colors = {
+        "CRITICAL": ("FFCDD2", "B71C1C"),
+        "HIGH":     ("FFE0B2", "E65100"),
+        "MEDIUM":   ("FFF9C4", "F57F17"),
+        "LOW":      ("C8E6C9", "1B5E20"),
+        "UNKNOWN":  ("E0E0E0", "424242"),
+    }
+
+    for idx, (sev, count_formula, pct_formula, action_desc) in enumerate(severity_levels):
+        r = sec4_start + 2 + idx
+        is_alt = idx % 2 == 1
+        
+        ws.cell(row=r, column=1, value=sev)
+        ws.cell(row=r, column=2, value=count_formula)
+        ws.cell(row=r, column=3, value=pct_formula)
+        ws.merge_cells(start_row=r, start_column=4, end_row=r, end_column=5)
+        ws.cell(row=r, column=4, value=action_desc)
+        
+        style_row_range(r, 1, 4, is_alt=is_alt, align_center_indices=[2, 3])
+        
+        # Color severity labels nicely using severity_colors
+        bg, fg = severity_colors.get(sev, ("FFFFFF", "000000"))
+        cell_lbl = ws.cell(row=r, column=1)
+        cell_lbl.fill = PatternFill(start_color=bg, end_color=bg, fill_type="solid")
+        cell_lbl.font = Font(name="Segoe UI", size=9, bold=True, color=fg)
+        cell_lbl.alignment = Alignment(horizontal="center", vertical="center")
+        
+        ws.cell(row=r, column=2).number_format = "#,##0"
+        ws.cell(row=r, column=2).font = Theme.data_bold_font()
+        ws.cell(row=r, column=3).number_format = "0.0%"
+        ws.row_dimensions[r].height = 22
+
+    # Totals row for Section 4
+    r4_total = sec4_start + 7
+    ws.cell(row=r4_total, column=1, value="Total Vulnerabilities")
+    ws.cell(row=r4_total, column=2, value="=SUM(B33:B37)")
+    ws.cell(row=r4_total, column=3, value="=SUM(C33:C37)")
+    ws.merge_cells(start_row=r4_total, start_column=4, end_row=r4_total, end_column=5)
+    ws.cell(row=r4_total, column=4, value="")
+    style_row_range(r4_total, 1, 4, is_alt=False, align_center_indices=[2, 3])
+    for col in range(1, 5):
+        cell = ws.cell(row=r4_total, column=col)
+        cell.font = Theme.data_bold_font()
+        s_thin = Side(border_style="thin", color=Theme.BORDER_COLOR)
+        s_double = Side(border_style="double", color=Theme.PRIMARY_DARK)
+        cell.border = Border(left=s_thin, right=s_thin, top=s_thin, bottom=s_double)
+    ws.cell(row=r4_total, column=2).number_format = "#,##0"
+    ws.cell(row=r4_total, column=3).number_format = "0.0%"
+    ws.row_dimensions[r4_total].height = 24
+
+    # Adjust columns specifically
+    ws.column_dimensions["A"].width = 32
+    ws.column_dimensions["B"].width = 25
+    ws.column_dimensions["C"].width = 22
+    ws.column_dimensions["D"].width = 30
+    ws.column_dimensions["E"].width = 35
+
+
+# ------------------------------------------------------------------
+# Sheet 5 - Legend & Info
 # ------------------------------------------------------------------
 def create_legend_sheet(wb):
     ws = wb.create_sheet("Legend & Info")
@@ -661,16 +965,19 @@ def generate_excel_report(enriched_sbom_path, output_excel_path):
     wb = openpyxl.Workbook()
 
     print("  [*] Building compliance sheets...")
-    print("      [1/4] Generating Dashboard sheet...")
+    print("      [1/5] Generating Dashboard sheet...")
     create_dashboard_sheet(wb, sbom)
 
-    print("      [2/4] Generating Component Data (21 Attributes) sheet...")
+    print("      [2/5] Generating Component Data (21 Attributes) sheet...")
     create_component_data_sheet(wb, sbom)
 
-    print("      [3/4] Generating Vulnerability Matrix sheet...")
+    print("      [3/5] Generating Vulnerability Matrix sheet...")
     create_vulnerability_sheet(wb, sbom)
 
-    print("      [4/4] Generating Legend & Info sheet...")
+    print("      [4/5] Generating Mathematical Statistics sheet...")
+    create_statistics_sheet(wb, sbom)
+
+    print("      [5/5] Generating Legend & Info sheet...")
     create_legend_sheet(wb)
 
     # Freeze panes for data sheets
@@ -701,7 +1008,7 @@ def generate_excel_report(enriched_sbom_path, output_excel_path):
             return False
             
     print("  [+] Excel report saved -> {}".format(save_path))
-    print("      Sheets: Dashboard | Component Data (21 Attr) | Vulnerability Matrix | Legend & Info")
+    print("      Sheets: Dashboard | Component Data (21 Attr) | Vulnerability Matrix | Mathematical Statistics | Legend & Info")
     return True
 
 
