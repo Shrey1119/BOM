@@ -82,65 +82,21 @@ def print_info(msg):
 # Command Runner (Fault Tolerant)
 # ------------------------------------------------------------------
 def run_cmd(cmd, desc):
-    """Run a shell command; return True on success. Never hard crash on exceptions."""
-    print("  [*] Running: {}...".format(desc))
-    
-    stop_spinner = False
-    def spinner_task():
-        spinner = itertools.cycle(['|', '/', '-', '\\'])
-        while not stop_spinner:
-            if sys.stdout.isatty():
-                sys.stdout.write(f"\r  [*] Running: {desc}... {next(spinner)}")
-                sys.stdout.flush()
-            time.sleep(0.1)
-        if sys.stdout.isatty():
-            # Clear the spinner line
-            sys.stdout.write(f"\r  [*] Running: {desc}... Done.       \n")
-            sys.stdout.flush()
-
-    t = threading.Thread(target=spinner_task)
-    if sys.stdout.isatty():
-        t.start()
-        
+    """Run a shell command directly on the terminal for real-time progress and interactive output."""
+    print(f"\n  [*] Executing: {desc}")
+    print(f"      Command: {cmd}")
     try:
-        # Use utf-8 encoding explicitly to avoid cp1252 crashes on Windows
-        result = subprocess.run(
-            cmd, shell=True, check=True,
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
-            encoding='utf-8', errors='replace'
+        # Run subprocess allowing it to inherit parent stdout/stderr for real-time console rendering
+        subprocess.run(
+            cmd, shell=True, check=True
         )
-        if sys.stdout.isatty():
-            stop_spinner = True
-            t.join()
-            
-        if result.stdout:
-            lines = [l for l in result.stdout.strip().split("\n") if l.strip()]
-            for line in lines[-10:]:
-                print("      {}".format(line))
+        print(f"  [+] {desc} completed successfully.")
         return True
     except subprocess.CalledProcessError as e:
-        if sys.stdout.isatty():
-            stop_spinner = True
-            t.join()
-            
-        print_error("{} failed (exit code {})".format(desc, e.returncode))
-        if e.stdout:
-            print("      --- Standard Output ---")
-            lines = [l for l in e.stdout.strip().split("\n") if l.strip()]
-            for line in lines[-10:]:
-                print("      {}".format(line))
-        if e.stderr:
-            print("      --- Standard Error ---")
-            lines = [l for l in e.stderr.strip().split("\n") if l.strip()]
-            for line in lines[-10:]:
-                print("      {}".format(line))
+        print_error(f"{desc} failed (exit code {e.returncode})")
         return False
     except Exception as e:
-        if sys.stdout.isatty():
-            stop_spinner = True
-            t.join()
-            
-        print_error("Unexpected error running command: {}".format(e))
+        print_error(f"Unexpected error running {desc}: {e}")
         return False
 
 
@@ -463,10 +419,9 @@ def main():
         scan_path = os.path.abspath(args.src)
         run_full_pipeline(scan_path)
         display_summary()
-        if args.excel:
-            export_excel()
-        if args.cyclonedx:
-            export_cyclonedx()
+        # Automatically generate compliance exports
+        export_excel()
+        export_cyclonedx()
         sys.exit(0)
 
     # Interactive Mode Execution
@@ -511,27 +466,14 @@ def main():
     if not display_summary():
         sys.exit(1)
         
-    # 5. Export Prompt
+    # 5. Export
     print("---------------------------------------")
     print("Scan completed successfully.\n")
-    print("Choose an export option:\n")
-    print("1. Excel Report")
-    print("2. CycloneDX")
-    print("3. Both")
-    print("4. Skip Export")
+    print("Auto-generating compliance exports...")
     print("---------------------------------------")
     
-    export_choice = input("\nSelection (1-4): ").strip()
-    
-    if export_choice == "1":
-        export_excel()
-    elif export_choice == "2":
-        export_cyclonedx()
-    elif export_choice == "3":
-        export_excel()
-        export_cyclonedx()
-    else:
-        print_info("Export skipped.")
+    export_excel()
+    export_cyclonedx()
         
     print("\n  Workflow complete.\n")
 

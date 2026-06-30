@@ -342,9 +342,9 @@ def create_component_data_sheet(wb, sbom):
         comp_vulns = vuln_map.get(bom_ref, [])
         vuln_str = ", ".join(comp_vulns) if comp_vulns else "None"
 
-        # Resolve hashes
+        # Resolve hashes (Attribute 14 - original, complete, untruncated value)
         hashes = comp.get("hashes", [])
-        hash_str = ", ".join(["{}:{}...".format(h["alg"], h["content"][:16]) for h in hashes]) if hashes else "N/A"
+        hash_str = ", ".join(["{}:{}".format(h["alg"], h["content"]) for h in hashes]) if hashes else "N/A"
 
         # Resolve license
         lic_str = ", ".join([l.get("license", {}).get("name", "") for l in comp.get("licenses", [])]) or "Unknown"
@@ -584,9 +584,9 @@ def create_legend_sheet(wb):
 # ------------------------------------------------------------------
 def generate_excel_report(enriched_sbom_path, output_excel_path):
     """Generate the full multi-sheet Excel compliance report."""
-    print("[*] Reading enriched SBOM from: {}".format(enriched_sbom_path))
+    print("  [*] Reading enriched SBOM from: {}".format(enriched_sbom_path))
     if not os.path.exists(enriched_sbom_path):
-        print("[!] Error: File not found -> {}".format(enriched_sbom_path))
+        print("  [!] Error: File not found -> {}".format(enriched_sbom_path))
         return False
 
     with open(enriched_sbom_path, "r", encoding="utf-8") as f:
@@ -594,16 +594,17 @@ def generate_excel_report(enriched_sbom_path, output_excel_path):
 
     wb = openpyxl.Workbook()
 
-    print("[*] Building Dashboard sheet...")
+    print("  [*] Building compliance sheets...")
+    print("      [1/4] Generating Dashboard sheet...")
     create_dashboard_sheet(wb, sbom)
 
-    print("[*] Building Component Data (21 Attributes) sheet...")
+    print("      [2/4] Generating Component Data (21 Attributes) sheet...")
     create_component_data_sheet(wb, sbom)
 
-    print("[*] Building Vulnerability Matrix sheet...")
+    print("      [3/4] Generating Vulnerability Matrix sheet...")
     create_vulnerability_sheet(wb, sbom)
 
-    print("[*] Building Legend & Info sheet...")
+    print("      [4/4] Generating Legend & Info sheet...")
     create_legend_sheet(wb)
 
     # Freeze panes for data sheets
@@ -618,14 +619,14 @@ def generate_excel_report(enriched_sbom_path, output_excel_path):
     try:
         wb.save(output_excel_path)
     except PermissionError:
-        print("\n[!] Error: Permission denied when saving to '{}'.".format(output_excel_path))
-        print("    Please close the Excel file if it is currently open, and try again.\n")
+        print("\n  [!] Error: Permission denied when saving to '{}'.".format(output_excel_path))
+        print("      Please close the Excel file if it is currently open, and try again.\n")
         return False
     except Exception as e:
-        print("\n[!] Error saving Excel workbook: {}\n".format(e))
+        print("\n  [!] Error saving Excel workbook: {}\n".format(e))
         return False
-    print("[+] Excel report saved -> {}".format(output_excel_path))
-    print("    Sheets: Dashboard | Component Data (21 Attr) | Vulnerability Matrix | Legend & Info")
+    print("  [+] Excel report saved -> {}".format(output_excel_path))
+    print("      Sheets: Dashboard | Component Data (21 Attr) | Vulnerability Matrix | Legend & Info")
     return True
 
 

@@ -8,14 +8,14 @@
       "category": "vendor"
     },
     "tracking": {
-      "id": "CSAF-20260629-001",
+      "id": "CSAF-20260630-001",
       "status": "final",
       "version": "1",
-      "initial_release_date": "2026-06-29T09:42:48.005824Z",
-      "current_release_date": "2026-06-29T09:42:48.005824Z",
+      "initial_release_date": "2026-06-30T05:11:01.732450Z",
+      "current_release_date": "2026-06-30T05:11:01.732450Z",
       "revision_history": [
         {
-          "date": "2026-06-29T09:42:48.005824Z",
+          "date": "2026-06-30T05:11:01.732450Z",
           "number": "1",
           "summary": "Initial release"
         }
@@ -41,210 +41,434 @@
         "branches": [
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "knex@0.20.15",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "knex",
+              "product_id": "pkg:npm/knex@0.20.15?package-id=1c93412cfec0a87b"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "knex@0.21.21",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "knex",
+              "product_id": "pkg:npm/knex@0.21.21?package-id=9f5f3362106e7c0a"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "serialize-javascript@4.0.0",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "serialize-javascript",
+              "product_id": "pkg:npm/serialize-javascript@4.0.0?package-id=ffd524b5cf303f8c"
             }
           },
           {
             "category": "product_version",
-            "name": "requests@2.20.0",
+            "name": "babel-traverse@6.26.0",
             "product": {
-              "name": "requests",
-              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+              "name": "babel-traverse",
+              "product_id": "pkg:npm/babel-traverse@6.26.0?package-id=856115d5d3df8daf"
             }
           },
           {
             "category": "product_version",
-            "name": "requests@2.20.0",
+            "name": "markdown-it@8.4.2",
             "product": {
-              "name": "requests",
-              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+              "name": "markdown-it",
+              "product_id": "pkg:npm/markdown-it@8.4.2?package-id=2f6c380cf73a2efe"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "postcss@7.0.39",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "postcss",
+              "product_id": "pkg:npm/postcss@7.0.39?package-id=50630d53a171d75b"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "elliptic@6.6.1",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "elliptic",
+              "product_id": "pkg:npm/elliptic@6.6.1?package-id=9710f417801d51d7"
             }
           },
           {
             "category": "product_version",
-            "name": "requests@2.20.0",
+            "name": "jsonwebtoken@8.5.1",
             "product": {
-              "name": "requests",
-              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+              "name": "jsonwebtoken",
+              "product_id": "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "express-brute@1.0.1",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "express-brute",
+              "product_id": "pkg:npm/express-brute@1.0.1?package-id=d22fb67578622577"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "validator@13.12.0",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "validator",
+              "product_id": "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "validator@7.2.0",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "validator",
+              "product_id": "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "rollup@0.57.1",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "rollup",
+              "product_id": "pkg:npm/rollup@0.57.1?package-id=894503fd4c7002dd"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "rollup@1.32.1",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "rollup",
+              "product_id": "pkg:npm/rollup@1.32.1?package-id=9638eac612785eaf"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "jsonwebtoken@8.5.1",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "jsonwebtoken",
+              "product_id": "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
             }
           },
           {
             "category": "product_version",
-            "name": "requests@2.20.0",
+            "name": "rollup@0.57.1",
             "product": {
-              "name": "requests",
-              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+              "name": "rollup",
+              "product_id": "pkg:npm/rollup@0.57.1?package-id=894503fd4c7002dd"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "rollup@1.32.1",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "rollup",
+              "product_id": "pkg:npm/rollup@1.32.1?package-id=9638eac612785eaf"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "lodash.pick@4.4.0",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "lodash.pick",
+              "product_id": "pkg:npm/lodash.pick@4.4.0?package-id=fb3a12827b72a1f8"
             }
           },
           {
             "category": "product_version",
-            "name": "requests@2.20.0",
+            "name": "request@2.88.2",
             "product": {
-              "name": "requests",
-              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+              "name": "request",
+              "product_id": "pkg:npm/request@2.88.2?package-id=936ef43b79c5cc4b"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "html-minifier@4.0.0",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "html-minifier",
+              "product_id": "pkg:npm/html-minifier@4.0.0?package-id=52d39a04d9079d74"
             }
           },
           {
             "category": "product_version",
-            "name": "requests@2.20.0",
+            "name": "validator@7.2.0",
             "product": {
-              "name": "requests",
-              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+              "name": "validator",
+              "product_id": "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "jsonwebtoken@8.5.1",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "jsonwebtoken",
+              "product_id": "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "validator@13.12.0",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "validator",
+              "product_id": "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "validator@7.2.0",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "validator",
+              "product_id": "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "@tryghost/members-csv@2.0.7",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "@tryghost/members-csv",
+              "product_id": "pkg:npm/%40tryghost/members-csv@2.0.7?package-id=456a8d7c3e5e4d0c"
             }
           },
           {
             "category": "product_version",
-            "name": "requests@2.20.0",
+            "name": "knex@0.20.15",
             "product": {
-              "name": "requests",
-              "product_id": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+              "name": "knex",
+              "product_id": "pkg:npm/knex@0.20.15?package-id=1c93412cfec0a87b"
             }
           },
           {
             "category": "product_version",
-            "name": "urllib3@1.24.2",
+            "name": "lodash.pick@4.4.0",
             "product": {
-              "name": "urllib3",
-              "product_id": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+              "name": "lodash.pick",
+              "product_id": "pkg:npm/lodash.pick@4.4.0?package-id=fb3a12827b72a1f8"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "validator@7.2.0",
+            "product": {
+              "name": "validator",
+              "product_id": "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "jsonwebtoken@8.5.1",
+            "product": {
+              "name": "jsonwebtoken",
+              "product_id": "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "jsonwebtoken@8.5.1",
+            "product": {
+              "name": "jsonwebtoken",
+              "product_id": "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "jsonwebtoken@8.5.1",
+            "product": {
+              "name": "jsonwebtoken",
+              "product_id": "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "html-minifier@4.0.0",
+            "product": {
+              "name": "html-minifier",
+              "product_id": "pkg:npm/html-minifier@4.0.0?package-id=52d39a04d9079d74"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "request@2.88.2",
+            "product": {
+              "name": "request",
+              "product_id": "pkg:npm/request@2.88.2?package-id=936ef43b79c5cc4b"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "postcss@7.0.39",
+            "product": {
+              "name": "postcss",
+              "product_id": "pkg:npm/postcss@7.0.39?package-id=50630d53a171d75b"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "babel-traverse@6.26.0",
+            "product": {
+              "name": "babel-traverse",
+              "product_id": "pkg:npm/babel-traverse@6.26.0?package-id=856115d5d3df8daf"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "@tryghost/members-csv@2.0.7",
+            "product": {
+              "name": "@tryghost/members-csv",
+              "product_id": "pkg:npm/%40tryghost/members-csv@2.0.7?package-id=456a8d7c3e5e4d0c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "validator@13.12.0",
+            "product": {
+              "name": "validator",
+              "product_id": "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "validator@7.2.0",
+            "product": {
+              "name": "validator",
+              "product_id": "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "validator@13.12.0",
+            "product": {
+              "name": "validator",
+              "product_id": "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "validator@7.2.0",
+            "product": {
+              "name": "validator",
+              "product_id": "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "react-router@7.14.0",
+            "product": {
+              "name": "react-router",
+              "product_id": "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "postcss@7.0.39",
+            "product": {
+              "name": "postcss",
+              "product_id": "pkg:npm/postcss@7.0.39?package-id=50630d53a171d75b"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "uuid@3.4.0",
+            "product": {
+              "name": "uuid",
+              "product_id": "pkg:npm/uuid@3.4.0?package-id=303cbc8eab8d1a55"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "uuid@7.0.3",
+            "product": {
+              "name": "uuid",
+              "product_id": "pkg:npm/uuid@7.0.3?package-id=310c9742cf6b78e5"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "uuid@9.0.1",
+            "product": {
+              "name": "uuid",
+              "product_id": "pkg:npm/uuid@9.0.1?package-id=0ad59841e16c6e2e"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "react-router@7.14.0",
+            "product": {
+              "name": "react-router",
+              "product_id": "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "react-router@7.14.0",
+            "product": {
+              "name": "react-router",
+              "product_id": "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "multer@2.1.1",
+            "product": {
+              "name": "multer",
+              "product_id": "pkg:npm/multer@2.1.1?package-id=9c332194f503a118"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "multer@2.1.1",
+            "product": {
+              "name": "multer",
+              "product_id": "pkg:npm/multer@2.1.1?package-id=9c332194f503a118"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "js-yaml@3.14.2",
+            "product": {
+              "name": "js-yaml",
+              "product_id": "pkg:npm/js-yaml@3.14.2?package-id=f317f2211b0f5bb6"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "vite@7.3.2",
+            "product": {
+              "name": "vite",
+              "product_id": "pkg:npm/vite@7.3.2?package-id=40bf1b7786d30ce1"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "vite@7.3.2",
+            "product": {
+              "name": "vite",
+              "product_id": "pkg:npm/vite@7.3.2?package-id=40bf1b7786d30ce1"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "react-router@7.14.0",
+            "product": {
+              "name": "react-router",
+              "product_id": "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "esbuild@0.27.7",
+            "product": {
+              "name": "esbuild",
+              "product_id": "pkg:npm/esbuild@0.27.7?package-id=dfd9b88f799a15cb"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "nodemailer@8.0.11",
+            "product": {
+              "name": "nodemailer",
+              "product_id": "pkg:npm/nodemailer@8.0.11?package-id=795e45d0d31699a5"
             }
           }
         ]
@@ -253,82 +477,25 @@
   },
   "vulnerabilities": [
     {
-      "cve": "GHSA-2xpw-w6gg-jr37",
-      "title": "Active exploitation path in urllib3",
+      "cve": "GHSA-4jv9-3563-23j3",
+      "title": "Active exploitation path in knex",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside knex@0.20.15 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/knex@0.20.15?package-id=1c93412cfec0a87b"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability GHSA-2xpw-w6gg-jr37.",
+          "details": "Upgrade knex to remediate vulnerability GHSA-4jv9-3563-23j3.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
-          ]
-        }
-      ],
-      "scores": []
-    },
-    {
-      "cve": "GHSA-34jh-p97f-mpxf",
-      "title": "Active exploitation path in urllib3",
-      "notes": [
-        {
-          "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
-        }
-      ],
-      "product_status": {
-        "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
-        ]
-      },
-      "remediations": [
-        {
-          "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability GHSA-34jh-p97f-mpxf.",
-          "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
-          ]
-        }
-      ],
-      "scores": [
-        {
-          "cvss_v3": {
-            "baseScore": 4.4,
-            "version": "3.1"
-          }
-        }
-      ]
-    },
-    {
-      "cve": "GHSA-38jv-5279-wg99",
-      "title": "Active exploitation path in urllib3",
-      "notes": [
-        {
-          "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
-        }
-      ],
-      "product_status": {
-        "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
-        ]
-      },
-      "remediations": [
-        {
-          "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability GHSA-38jv-5279-wg99.",
-          "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/knex@0.20.15?package-id=1c93412cfec0a87b"
           ]
         }
       ],
@@ -342,25 +509,121 @@
       ]
     },
     {
-      "cve": "GHSA-9hjg-9r4m-mvj7",
-      "title": "Active exploitation path in requests",
+      "cve": "GHSA-4jv9-3563-23j3",
+      "title": "Active exploitation path in knex",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside knex@0.21.21 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          "pkg:npm/knex@0.21.21?package-id=9f5f3362106e7c0a"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade requests to remediate vulnerability GHSA-9hjg-9r4m-mvj7.",
+          "details": "Upgrade knex to remediate vulnerability GHSA-4jv9-3563-23j3.",
           "product_ids": [
-            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            "pkg:npm/knex@0.21.21?package-id=9f5f3362106e7c0a"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-5c6j-r48x-rmvq",
+      "title": "Active exploitation path in serialize-javascript",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside serialize-javascript@4.0.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/serialize-javascript@4.0.0?package-id=ffd524b5cf303f8c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade serialize-javascript to remediate vulnerability GHSA-5c6j-r48x-rmvq.",
+          "product_ids": [
+            "pkg:npm/serialize-javascript@4.0.0?package-id=ffd524b5cf303f8c"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-67hx-6x53-jw92",
+      "title": "Active exploitation path in babel-traverse",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside babel-traverse@6.26.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/babel-traverse@6.26.0?package-id=856115d5d3df8daf"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade babel-traverse to remediate vulnerability GHSA-67hx-6x53-jw92.",
+          "product_ids": [
+            "pkg:npm/babel-traverse@6.26.0?package-id=856115d5d3df8daf"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 9.3,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-6vfc-qv3f-vr6c",
+      "title": "Active exploitation path in markdown-it",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside markdown-it@8.4.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/markdown-it@8.4.2?package-id=2f6c380cf73a2efe"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade markdown-it to remediate vulnerability GHSA-6vfc-qv3f-vr6c.",
+          "product_ids": [
+            "pkg:npm/markdown-it@8.4.2?package-id=2f6c380cf73a2efe"
           ]
         }
       ],
@@ -374,25 +637,57 @@
       ]
     },
     {
-      "cve": "GHSA-9wx4-h78v-vm56",
-      "title": "Active exploitation path in requests",
+      "cve": "GHSA-7fh5-64p2-3v2j",
+      "title": "Active exploitation path in postcss",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside postcss@7.0.39 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          "pkg:npm/postcss@7.0.39?package-id=50630d53a171d75b"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade requests to remediate vulnerability GHSA-9wx4-h78v-vm56.",
+          "details": "Upgrade postcss to remediate vulnerability GHSA-7fh5-64p2-3v2j.",
           "product_ids": [
-            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            "pkg:npm/postcss@7.0.39?package-id=50630d53a171d75b"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-848j-6mx2-7j84",
+      "title": "Active exploitation path in elliptic",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside elliptic@6.6.1 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/elliptic@6.6.1?package-id=9710f417801d51d7"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade elliptic to remediate vulnerability GHSA-848j-6mx2-7j84.",
+          "product_ids": [
+            "pkg:npm/elliptic@6.6.1?package-id=9710f417801d51d7"
           ]
         }
       ],
@@ -406,82 +701,89 @@
       ]
     },
     {
-      "cve": "GHSA-g4mx-q9vg-27p4",
-      "title": "Active exploitation path in urllib3",
+      "cve": "GHSA-8cf7-32gw-wr33",
+      "title": "Active exploitation path in jsonwebtoken",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside jsonwebtoken@8.5.1 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability GHSA-g4mx-q9vg-27p4.",
+          "details": "Upgrade jsonwebtoken to remediate vulnerability GHSA-8cf7-32gw-wr33.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
           ]
         }
       ],
       "scores": [
         {
           "cvss_v3": {
-            "baseScore": 4.2,
+            "baseScore": 8.1,
             "version": "3.1"
           }
         }
       ]
     },
     {
-      "cve": "GHSA-gm62-xv2j-4w53",
-      "title": "Active exploitation path in urllib3",
+      "cve": "GHSA-984p-xq9m-4rjw",
+      "title": "Active exploitation path in express-brute",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside express-brute@1.0.1 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/express-brute@1.0.1?package-id=d22fb67578622577"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability GHSA-gm62-xv2j-4w53.",
+          "details": "Upgrade express-brute to remediate vulnerability GHSA-984p-xq9m-4rjw.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/express-brute@1.0.1?package-id=d22fb67578622577"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.6,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "GHSA-j8r2-6x86-q33q",
-      "title": "Active exploitation path in requests",
+      "cve": "GHSA-9965-vmph-33xx",
+      "title": "Active exploitation path in validator",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside validator@13.12.0 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade requests to remediate vulnerability GHSA-j8r2-6x86-q33q.",
+          "details": "Upgrade validator to remediate vulnerability GHSA-9965-vmph-33xx.",
           "product_ids": [
-            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d"
           ]
         }
       ],
@@ -495,25 +797,299 @@
       ]
     },
     {
-      "cve": "GHSA-pq67-6m6q-mj2v",
-      "title": "Active exploitation path in urllib3",
+      "cve": "GHSA-9965-vmph-33xx",
+      "title": "Active exploitation path in validator",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside validator@7.2.0 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability GHSA-pq67-6m6q-mj2v.",
+          "details": "Upgrade validator to remediate vulnerability GHSA-9965-vmph-33xx.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.1,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-gcx4-mw62-g8wm",
+      "title": "Active exploitation path in rollup",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside rollup@0.57.1 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/rollup@0.57.1?package-id=894503fd4c7002dd"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade rollup to remediate vulnerability GHSA-gcx4-mw62-g8wm.",
+          "product_ids": [
+            "pkg:npm/rollup@0.57.1?package-id=894503fd4c7002dd"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-gcx4-mw62-g8wm",
+      "title": "Active exploitation path in rollup",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside rollup@1.32.1 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/rollup@1.32.1?package-id=9638eac612785eaf"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade rollup to remediate vulnerability GHSA-gcx4-mw62-g8wm.",
+          "product_ids": [
+            "pkg:npm/rollup@1.32.1?package-id=9638eac612785eaf"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-hjrf-2m68-5959",
+      "title": "Active exploitation path in jsonwebtoken",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside jsonwebtoken@8.5.1 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade jsonwebtoken to remediate vulnerability GHSA-hjrf-2m68-5959.",
+          "product_ids": [
+            "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.0,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-mw96-cpmx-2vgc",
+      "title": "Active exploitation path in rollup",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside rollup@0.57.1 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/rollup@0.57.1?package-id=894503fd4c7002dd"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade rollup to remediate vulnerability GHSA-mw96-cpmx-2vgc.",
+          "product_ids": [
+            "pkg:npm/rollup@0.57.1?package-id=894503fd4c7002dd"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "GHSA-mw96-cpmx-2vgc",
+      "title": "Active exploitation path in rollup",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside rollup@1.32.1 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/rollup@1.32.1?package-id=9638eac612785eaf"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade rollup to remediate vulnerability GHSA-mw96-cpmx-2vgc.",
+          "product_ids": [
+            "pkg:npm/rollup@1.32.1?package-id=9638eac612785eaf"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "GHSA-p6mc-m468-83gw",
+      "title": "Active exploitation path in lodash.pick",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside lodash.pick@4.4.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/lodash.pick@4.4.0?package-id=fb3a12827b72a1f8"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade lodash.pick to remediate vulnerability GHSA-p6mc-m468-83gw.",
+          "product_ids": [
+            "pkg:npm/lodash.pick@4.4.0?package-id=fb3a12827b72a1f8"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.4,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-p8p7-x288-28g6",
+      "title": "Active exploitation path in request",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside request@2.88.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/request@2.88.2?package-id=936ef43b79c5cc4b"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade request to remediate vulnerability GHSA-p8p7-x288-28g6.",
+          "product_ids": [
+            "pkg:npm/request@2.88.2?package-id=936ef43b79c5cc4b"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.1,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-pfq8-rq6v-vf5m",
+      "title": "Active exploitation path in html-minifier",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside html-minifier@4.0.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/html-minifier@4.0.0?package-id=52d39a04d9079d74"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade html-minifier to remediate vulnerability GHSA-pfq8-rq6v-vf5m.",
+          "product_ids": [
+            "pkg:npm/html-minifier@4.0.0?package-id=52d39a04d9079d74"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-qgmg-gppg-76g5",
+      "title": "Active exploitation path in validator",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside validator@7.2.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade validator to remediate vulnerability GHSA-qgmg-gppg-76g5.",
+          "product_ids": [
+            "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
           ]
         }
       ],
@@ -527,25 +1103,562 @@
       ]
     },
     {
-      "cve": "GHSA-r64q-w8jr-g9qp",
-      "title": "Active exploitation path in urllib3",
+      "cve": "GHSA-qwph-4952-7xr6",
+      "title": "Active exploitation path in jsonwebtoken",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside jsonwebtoken@8.5.1 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability GHSA-r64q-w8jr-g9qp.",
+          "details": "Upgrade jsonwebtoken to remediate vulnerability GHSA-qwph-4952-7xr6.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-vghf-hv5q-vc2g",
+      "title": "Active exploitation path in validator",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside validator@13.12.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade validator to remediate vulnerability GHSA-vghf-hv5q-vc2g.",
+          "product_ids": [
+            "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-vghf-hv5q-vc2g",
+      "title": "Active exploitation path in validator",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside validator@7.2.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade validator to remediate vulnerability GHSA-vghf-hv5q-vc2g.",
+          "product_ids": [
+            "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "GHSA-xgwh-cgv9-783v",
+      "title": "Active exploitation path in @tryghost/members-csv",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside @tryghost/members-csv@2.0.7 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/%40tryghost/members-csv@2.0.7?package-id=456a8d7c3e5e4d0c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade @tryghost/members-csv to remediate vulnerability GHSA-xgwh-cgv9-783v.",
+          "product_ids": [
+            "pkg:npm/%40tryghost/members-csv@2.0.7?package-id=456a8d7c3e5e4d0c"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.8,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2016-20018",
+      "title": "Active exploitation path in knex",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside knex@0.20.15 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/knex@0.20.15?package-id=1c93412cfec0a87b"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade knex to remediate vulnerability CVE-2016-20018.",
+          "product_ids": [
+            "pkg:npm/knex@0.20.15?package-id=1c93412cfec0a87b"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2020-8203",
+      "title": "Active exploitation path in lodash.pick",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside lodash.pick@4.4.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/lodash.pick@4.4.0?package-id=fb3a12827b72a1f8"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade lodash.pick to remediate vulnerability CVE-2020-8203.",
+          "product_ids": [
+            "pkg:npm/lodash.pick@4.4.0?package-id=fb3a12827b72a1f8"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.4,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2021-3765",
+      "title": "Active exploitation path in validator",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside validator@7.2.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade validator to remediate vulnerability CVE-2021-3765.",
+          "product_ids": [
+            "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2022-23539",
+      "title": "Active exploitation path in jsonwebtoken",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside jsonwebtoken@8.5.1 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade jsonwebtoken to remediate vulnerability CVE-2022-23539.",
+          "product_ids": [
+            "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2022-23540",
+      "title": "Active exploitation path in jsonwebtoken",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside jsonwebtoken@8.5.1 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade jsonwebtoken to remediate vulnerability CVE-2022-23540.",
+          "product_ids": [
+            "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.4,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2022-23541",
+      "title": "Active exploitation path in jsonwebtoken",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside jsonwebtoken@8.5.1 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade jsonwebtoken to remediate vulnerability CVE-2022-23541.",
+          "product_ids": [
+            "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.0,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2022-37620",
+      "title": "Active exploitation path in html-minifier",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside html-minifier@4.0.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/html-minifier@4.0.0?package-id=52d39a04d9079d74"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade html-minifier to remediate vulnerability CVE-2022-37620.",
+          "product_ids": [
+            "pkg:npm/html-minifier@4.0.0?package-id=52d39a04d9079d74"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2023-28155",
+      "title": "Active exploitation path in request",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside request@2.88.2 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/request@2.88.2?package-id=936ef43b79c5cc4b"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade request to remediate vulnerability CVE-2023-28155.",
+          "product_ids": [
+            "pkg:npm/request@2.88.2?package-id=936ef43b79c5cc4b"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "CVE-2023-44270",
+      "title": "Active exploitation path in postcss",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside postcss@7.0.39 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/postcss@7.0.39?package-id=50630d53a171d75b"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade postcss to remediate vulnerability CVE-2023-44270.",
+          "product_ids": [
+            "pkg:npm/postcss@7.0.39?package-id=50630d53a171d75b"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2023-45133",
+      "title": "Active exploitation path in babel-traverse",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside babel-traverse@6.26.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/babel-traverse@6.26.0?package-id=856115d5d3df8daf"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade babel-traverse to remediate vulnerability CVE-2023-45133.",
+          "product_ids": [
+            "pkg:npm/babel-traverse@6.26.0?package-id=856115d5d3df8daf"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 9.4,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2024-34448",
+      "title": "Active exploitation path in @tryghost/members-csv",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside @tryghost/members-csv@2.0.7 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/%40tryghost/members-csv@2.0.7?package-id=456a8d7c3e5e4d0c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade @tryghost/members-csv to remediate vulnerability CVE-2024-34448.",
+          "product_ids": [
+            "pkg:npm/%40tryghost/members-csv@2.0.7?package-id=456a8d7c3e5e4d0c"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.8,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2025-12758",
+      "title": "Active exploitation path in validator",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside validator@13.12.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade validator to remediate vulnerability CVE-2025-12758.",
+          "product_ids": [
+            "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2025-12758",
+      "title": "Active exploitation path in validator",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside validator@7.2.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade validator to remediate vulnerability CVE-2025-12758.",
+          "product_ids": [
+            "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
+    },
+    {
+      "cve": "CVE-2025-56200",
+      "title": "Active exploitation path in validator",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside validator@13.12.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade validator to remediate vulnerability CVE-2025-56200.",
+          "product_ids": [
+            "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d"
           ]
         }
       ],
@@ -559,418 +1672,516 @@
       ]
     },
     {
-      "cve": "GHSA-v845-jxx5-vc9f",
-      "title": "Active exploitation path in urllib3",
+      "cve": "CVE-2025-56200",
+      "title": "Active exploitation path in validator",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside validator@7.2.0 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability GHSA-v845-jxx5-vc9f.",
+          "details": "Upgrade validator to remediate vulnerability CVE-2025-56200.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c"
           ]
         }
       ],
       "scores": [
         {
           "cvss_v3": {
-            "baseScore": 5.9,
+            "baseScore": 6.1,
             "version": "3.1"
           }
         }
       ]
     },
     {
-      "cve": "GHSA-wqvq-5m8c-6g24",
-      "title": "Active exploitation path in urllib3",
+      "cve": "CVE-2026-40181",
+      "title": "Active exploitation path in react-router",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside react-router@7.14.0 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability GHSA-wqvq-5m8c-6g24.",
+          "details": "Upgrade react-router to remediate vulnerability CVE-2026-40181.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc"
           ]
         }
       ],
       "scores": [
         {
           "cvss_v3": {
-            "baseScore": 6.5,
+            "baseScore": 6.6,
             "version": "3.1"
           }
         }
       ]
     },
     {
-      "cve": "CVE-2019-11236",
-      "title": "Active exploitation path in urllib3",
+      "cve": "CVE-2026-41305",
+      "title": "Active exploitation path in postcss",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside postcss@7.0.39 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/postcss@7.0.39?package-id=50630d53a171d75b"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability CVE-2019-11236.",
+          "details": "Upgrade postcss to remediate vulnerability CVE-2026-41305.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/postcss@7.0.39?package-id=50630d53a171d75b"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 6.1,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "CVE-2020-26137",
-      "title": "Active exploitation path in urllib3",
+      "cve": "CVE-2026-41907",
+      "title": "Active exploitation path in uuid",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside uuid@3.4.0 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/uuid@3.4.0?package-id=303cbc8eab8d1a55"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability CVE-2020-26137.",
+          "details": "Upgrade uuid to remediate vulnerability CVE-2026-41907.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/uuid@3.4.0?package-id=303cbc8eab8d1a55"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "CVE-2023-32681",
-      "title": "Active exploitation path in requests",
+      "cve": "CVE-2026-41907",
+      "title": "Active exploitation path in uuid",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside uuid@7.0.3 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          "pkg:npm/uuid@7.0.3?package-id=310c9742cf6b78e5"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade requests to remediate vulnerability CVE-2023-32681.",
+          "details": "Upgrade uuid to remediate vulnerability CVE-2026-41907.",
           "product_ids": [
-            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            "pkg:npm/uuid@7.0.3?package-id=310c9742cf6b78e5"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "CVE-2023-43804",
-      "title": "Active exploitation path in urllib3",
+      "cve": "CVE-2026-41907",
+      "title": "Active exploitation path in uuid",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside uuid@9.0.1 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/uuid@9.0.1?package-id=0ad59841e16c6e2e"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability CVE-2023-43804.",
+          "details": "Upgrade uuid to remediate vulnerability CVE-2026-41907.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/uuid@9.0.1?package-id=0ad59841e16c6e2e"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "CVE-2023-45803",
-      "title": "Active exploitation path in urllib3",
+      "cve": "CVE-2026-42211",
+      "title": "Active exploitation path in react-router",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside react-router@7.14.0 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability CVE-2023-45803.",
+          "details": "Upgrade react-router to remediate vulnerability CVE-2026-42211.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.1,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "CVE-2024-35195",
-      "title": "Active exploitation path in requests",
+      "cve": "CVE-2026-42342",
+      "title": "Active exploitation path in react-router",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside react-router@7.14.0 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade requests to remediate vulnerability CVE-2024-35195.",
+          "details": "Upgrade react-router to remediate vulnerability CVE-2026-42342.",
           "product_ids": [
-            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "CVE-2024-37891",
-      "title": "Active exploitation path in urllib3",
+      "cve": "CVE-2026-5038",
+      "title": "Active exploitation path in multer",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside multer@2.1.1 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/multer@2.1.1?package-id=9c332194f503a118"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability CVE-2024-37891.",
+          "details": "Upgrade multer to remediate vulnerability CVE-2026-5038.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/multer@2.1.1?package-id=9c332194f503a118"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "CVE-2024-47081",
-      "title": "Active exploitation path in requests",
+      "cve": "CVE-2026-5079",
+      "title": "Active exploitation path in multer",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside multer@2.1.1 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          "pkg:npm/multer@2.1.1?package-id=9c332194f503a118"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade requests to remediate vulnerability CVE-2024-47081.",
+          "details": "Upgrade multer to remediate vulnerability CVE-2026-5079.",
           "product_ids": [
-            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            "pkg:npm/multer@2.1.1?package-id=9c332194f503a118"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "CVE-2025-50181",
-      "title": "Active exploitation path in urllib3",
+      "cve": "CVE-2026-53550",
+      "title": "Active exploitation path in js-yaml",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside js-yaml@3.14.2 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/js-yaml@3.14.2?package-id=f317f2211b0f5bb6"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability CVE-2025-50181.",
+          "details": "Upgrade js-yaml to remediate vulnerability CVE-2026-53550.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/js-yaml@3.14.2?package-id=f317f2211b0f5bb6"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.3,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "CVE-2025-66418",
-      "title": "Active exploitation path in urllib3",
+      "cve": "CVE-2026-53571",
+      "title": "Active exploitation path in vite",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside vite@7.3.2 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/vite@7.3.2?package-id=40bf1b7786d30ce1"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability CVE-2025-66418.",
+          "details": "Upgrade vite to remediate vulnerability CVE-2026-53571.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/vite@7.3.2?package-id=40bf1b7786d30ce1"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 8.2,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "CVE-2025-66471",
-      "title": "Active exploitation path in urllib3",
+      "cve": "CVE-2026-53632",
+      "title": "Active exploitation path in vite",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside vite@7.3.2 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/vite@7.3.2?package-id=40bf1b7786d30ce1"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability CVE-2025-66471.",
+          "details": "Upgrade vite to remediate vulnerability CVE-2026-53632.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/vite@7.3.2?package-id=40bf1b7786d30ce1"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 5.5,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "CVE-2026-21441",
-      "title": "Active exploitation path in urllib3",
+      "cve": "CVE-2026-53663",
+      "title": "Active exploitation path in react-router",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside react-router@7.14.0 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability CVE-2026-21441.",
+          "details": "Upgrade react-router to remediate vulnerability CVE-2026-53663.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 3.1,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "CVE-2026-25645",
-      "title": "Active exploitation path in requests",
+      "cve": "GHSA-g7r4-m6w7-qqqr",
+      "title": "Active exploitation path in esbuild",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside requests@2.20.0 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside esbuild@0.27.7 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+          "pkg:npm/esbuild@0.27.7?package-id=dfd9b88f799a15cb"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade requests to remediate vulnerability CVE-2026-25645.",
+          "details": "Upgrade esbuild to remediate vulnerability GHSA-g7r4-m6w7-qqqr.",
           "product_ids": [
-            "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+            "pkg:npm/esbuild@0.27.7?package-id=dfd9b88f799a15cb"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 2.5,
+            "version": "3.1"
+          }
+        }
+      ]
     },
     {
-      "cve": "CVE-2026-44431",
-      "title": "Active exploitation path in urllib3",
+      "cve": "GHSA-p6gq-j5cr-w38f",
+      "title": "Active exploitation path in nodemailer",
       "notes": [
         {
           "category": "description",
-          "text": "Semantic slice analysis showed that functions inside urllib3@1.24.2 are invoked during execution. Patching is recommended."
+          "text": "Semantic slice analysis showed that functions inside nodemailer@8.0.11 are invoked during execution. Patching is recommended."
         }
       ],
       "product_status": {
         "known_affected": [
-          "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+          "pkg:npm/nodemailer@8.0.11?package-id=795e45d0d31699a5"
         ]
       },
       "remediations": [
         {
           "category": "vendor_fix",
-          "details": "Upgrade urllib3 to remediate vulnerability CVE-2026-44431.",
+          "details": "Upgrade nodemailer to remediate vulnerability GHSA-p6gq-j5cr-w38f.",
           "product_ids": [
-            "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+            "pkg:npm/nodemailer@8.0.11?package-id=795e45d0d31699a5"
           ]
         }
       ],
-      "scores": []
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.1,
+            "version": "3.1"
+          }
+        }
+      ]
     }
   ]
 }
