@@ -422,7 +422,7 @@ def enrich_component(component, config, dependencies_map):
 
     if api_data:
         api_desc, api_supplier, api_license, api_latest, api_release = api_data
-        desc = api_desc or component.get('description', '')
+        desc = component.get('description') or api_desc or f"Python package {name}"
         supplier = override.get('supplier') or api_supplier or config.get('default_supplier')
         license_name = api_license or config.get('default_license')
         latest_version = api_latest

@@ -7,21 +7,144 @@ from datetime import datetime, timedelta
 # ---------------------------------------------------------------------------
 # Package classification lists for criticality scoring
 # ---------------------------------------------------------------------------
-CRYPTO_PACKAGES = [
+CRYPTO_PACKAGES = {
     'cryptography', 'openssl', 'pycryptodome', 'pycryptodomex',
-    'paramiko', 'bcrypt', 'nacl', 'pyopenssl', 'certifi', 'pyca'
-]
-FRAMEWORK_PACKAGES = [
+    'paramiko', 'bcrypt', 'nacl', 'pyopenssl', 'certifi', 'pyca',
+    'pynacl', 'passlib', 'itsdangerous', 'jwt', 'pyjwt', 'python-jose',
+    'argon2-cffi', 'scrypt', 'pyargon2',
+    # npm
+    'jsonwebtoken', 'bcryptjs', 'node-forge', 'crypto-js', 'jose',
+    # nuget
+    'bouncycastle', 'system.security.cryptography',
+}
+FRAMEWORK_PACKAGES = {
     'django', 'flask', 'fastapi', 'tornado', 'aiohttp',
-    'starlette', 'bottle', 'falcon', 'pyramid', 'sanic'
-]
-RUNTIME_PACKAGES = [
-    'requests', 'urllib3', 'httpx', 'aiohttp', 'boto3',
-    'sqlalchemy', 'psycopg2', 'pymongo', 'redis', 'celery'
-]
-OS_PACKAGES = [
-    'os', 'sys', 'subprocess', 'ctypes', 'cffi', 'pywin32', 'wmi'
-]
+    'starlette', 'bottle', 'falcon', 'pyramid', 'sanic',
+    'rails', 'sinatra', 'express', 'koa', 'hapi', 'nestjs',
+    'spring', 'spring-boot', 'quarkus', 'micronaut',
+    'laravel', 'symfony', 'codeigniter',
+    'gin', 'echo', 'fiber',
+}
+RUNTIME_PACKAGES = {
+    'requests', 'urllib3', 'httpx', 'boto3',
+    'sqlalchemy', 'psycopg2', 'pymongo', 'redis', 'celery',
+    'aiohttp', 'httpcore', 'grpcio', 'grpc',
+    # auth / identity
+    'authlib', 'oauthlib', 'python-oauth2', 'social-auth-core',
+    # infra clients
+    'boto', 'azure-mgmt', 'google-cloud', 'kubernetes',
+    # serialisation / parsing (high-exposure)
+    'pyyaml', 'lxml', 'xmltodict', 'defusedxml',
+    # npm equivalents
+    'axios', 'node-fetch', 'got', 'superagent', 'mongoose', 'sequelize',
+    'passport', 'express-jwt',
+}
+OS_PACKAGES = {
+    'ctypes', 'cffi', 'pywin32', 'wmi', 'winreg',
+    'pyinstaller', 'cx-freeze', 'nuitka',
+}
+
+# Name substrings that raise a flag regardless of exact name match
+_HIGH_RISK_SUBSTRINGS = (
+    'crypto', 'cipher', 'encrypt', 'decrypt', 'tls', 'ssl', 'cert',
+    'auth', 'oauth', 'saml', 'ldap', 'jwt', 'token', 'secret',
+    'password', 'passwd', 'keyring', 'vault', 'credential',
+    'sql', 'database', 'db', 'orm',
+    'network', 'socket', 'http', 'grpc', 'rpc', 'websocket',
+)
+
+# High-risk licenses: copyleft / viral
+_COPYLEFT_LICENSES = {
+    'GPL-2.0', 'GPL-3.0', 'LGPL-2.0', 'LGPL-2.1', 'LGPL-3.0',
+    'AGPL-3.0', 'AGPL-1.0', 'GPL-2.0-only', 'GPL-3.0-only',
+    'LGPL-2.1-only', 'LGPL-3.0-only', 'AGPL-3.0-only',
+    'GPL-2.0-or-later', 'GPL-3.0-or-later',
+    'GNU General Public License', 'GNU GPL', 'GNU LGPL', 'GNU AGPL',
+}
+
+
+# ---------------------------------------------------------------------------
+# License → Usage Restrictions derivation
+# ---------------------------------------------------------------------------
+_PERMISSIVE_LICENSES = {
+    'MIT', 'MIT License', 'Apache-2.0', 'Apache 2.0', 'Apache License 2.0',
+    'BSD-2-Clause', 'BSD-3-Clause', 'ISC', 'Unlicense', 'CC0-1.0',
+    'PSF', 'Python Software Foundation License', 'WTFPL', 'Zlib',
+    'BSD', '0BSD',
+}
+_WEAK_COPYLEFT_LICENSES = {
+    'LGPL-2.0', 'LGPL-2.1', 'LGPL-3.0', 'LGPL-2.1-only', 'LGPL-3.0-only',
+    'MPL-2.0', 'Mozilla Public License 2.0', 'CDDL-1.0', 'EPL-1.0', 'EPL-2.0',
+}
+_STRONG_COPYLEFT_LICENSES = {
+    'GPL-2.0', 'GPL-3.0', 'GPL-2.0-only', 'GPL-3.0-only',
+    'GPL-2.0-or-later', 'GPL-3.0-or-later',
+    'GNU General Public License', 'GNU GPL',
+}
+_NETWORK_COPYLEFT_LICENSES = {
+    'AGPL-3.0', 'AGPL-1.0', 'AGPL-3.0-only', 'AGPL-3.0-or-later', 'GNU AGPL',
+}
+_COMMERCIAL_RESTRICTED = {
+    'Commercial', 'Proprietary', 'All Rights Reserved', 'Elastic License',
+    'SSPL', 'BSL', 'Business Source License',
+}
+
+
+def derive_usage_restrictions(license_name: str, override_text: str = None) -> str:
+    """
+    Derive a human-readable usage-restrictions string from a license name.
+
+    Priority:
+      1. override_text (from config.json override or usage_restrictions_overrides)
+      2. Rule-based derivation from license_name
+    """
+    if override_text and override_text.strip().lower() not in ('', 'none'):
+        return override_text
+
+    if not license_name or license_name.strip().lower() in ('', 'unknown', 'none'):
+        return "License unknown — manual review required before commercial use"
+
+    lic = license_name.strip()
+    lic_upper = lic.upper()
+
+    # Check network-copyleft (AGPL) first — most restrictive
+    if lic in _NETWORK_COPYLEFT_LICENSES or 'AGPL' in lic_upper:
+        return (
+            "AGPL copyleft: any networked service using this component must open-source "
+            "its entire application under AGPL. Commercial SaaS use requires legal review."
+        )
+
+    # Strong copyleft (GPL)
+    if lic in _STRONG_COPYLEFT_LICENSES or ('GPL' in lic_upper and 'LGPL' not in lic_upper):
+        return (
+            "GPL copyleft: derivative works and linked binaries must be distributed under GPL. "
+            "Attribution required. Incompatible with proprietary distribution without a commercial exception."
+        )
+
+    # Weak copyleft (LGPL / MPL / EPL)
+    if lic in _WEAK_COPYLEFT_LICENSES or 'LGPL' in lic_upper or 'MPL' in lic_upper or 'EPL' in lic_upper:
+        return (
+            "Weak copyleft (LGPL/MPL/EPL): modifications to this library must be released under "
+            "the same license. Dynamic linking from proprietary code is generally permitted."
+        )
+
+    # Commercial / proprietary
+    if lic in _COMMERCIAL_RESTRICTED or any(
+        kw in lic_upper for kw in ('COMMERCIAL', 'PROPRIETARY', 'ALL RIGHTS RESERVED', 'ELASTIC', 'SSPL', 'BSL')
+    ):
+        return (
+            "Proprietary/commercial license: usage may require a paid license agreement. "
+            "Review terms before redistribution or commercial deployment."
+        )
+
+    # Permissive — no material restrictions
+    if lic in _PERMISSIVE_LICENSES or any(
+        kw in lic_upper for kw in ('MIT', 'APACHE', 'BSD', 'ISC', 'UNLICENSE', 'CC0', 'PSF', 'ZLIB')
+    ):
+        return "Permissive license: use, modify, and distribute freely; attribution required where specified."
+
+    # Unknown / exotic
+    return f"Non-standard license ({lic}) — manual compliance review recommended before commercial or government use."
 
 
 # ---------------------------------------------------------------------------
@@ -33,11 +156,16 @@ def assess_criticality(name, component, config):
 
     Priority:
       1. config['overrides'][name]['criticality'] if present
-      2. Score-based heuristic using package classification lists
+      2. Multi-factor scoring:
+           - Package category membership (crypto/framework/runtime/os)
+           - Name-substring heuristics (auth, sql, http, …)
+           - Component type (application > library > file)
+           - Purl ecosystem (container > app > lib)
+           - Vulnerability count on the component (pre-enrichment)
+           - Dependency depth / dependsOn count
+           - License risk (copyleft raises score)
 
-    Returns:
-        (level: str, reason: str)
-        level is one of: 'critical', 'high', 'medium', 'low'
+    Score thresholds:  ≥75 → critical | ≥50 → high | ≥25 → medium | else → low
     """
     overrides = config.get('overrides', {})
     if name in overrides and 'criticality' in overrides[name]:
@@ -46,35 +174,102 @@ def assess_criticality(name, component, config):
 
     score = 0
     reasons = []
-
     name_lower = name.lower()
 
+    # --- Factor 1: curated package category lists ---
     if name_lower in CRYPTO_PACKAGES:
         score += 40
         reasons.append("cryptography/security package (+40)")
     if name_lower in FRAMEWORK_PACKAGES:
         score += 35
-        reasons.append("web framework package (+35)")
+        reasons.append("web framework (+35)")
     if name_lower in RUNTIME_PACKAGES:
         score += 30
         reasons.append("core runtime/integration package (+30)")
     if name_lower in OS_PACKAGES:
-        score += 20
-        reasons.append("OS-level/system interface package (+20)")
+        score += 25
+        reasons.append("OS-level/system interface package (+25)")
 
+    # --- Factor 2: name-substring heuristics ---
+    substring_hits = [s for s in _HIGH_RISK_SUBSTRINGS if s in name_lower]
+    # Only score if not already covered by exact-list match (avoid double-counting)
+    if substring_hits and name_lower not in CRYPTO_PACKAGES and name_lower not in RUNTIME_PACKAGES:
+        sub_score = min(len(substring_hits) * 8, 24)  # cap at +24
+        score += sub_score
+        reasons.append(f"name contains risk-related substrings {substring_hits} (+{sub_score})")
+
+    # --- Factor 3: CycloneDX component type ---
     comp_type = component.get('type', '')
-    if comp_type in ('application', 'container', 'device'):
-        score += 15
-        reasons.append(f"component type='{comp_type}' (+15)")
+    if comp_type in ('application', 'container', 'device', 'firmware'):
+        score += 20
+        reasons.append(f"component type='{comp_type}' (+20)")
     elif comp_type == 'library':
         score += 10
         reasons.append("component type='library' (+10)")
+    elif comp_type == 'framework':
+        score += 18
+        reasons.append("component type='framework' (+18)")
 
+    # --- Factor 4: PURL ecosystem signal ---
+    purl = component.get('purl', '').lower()
+    if purl.startswith('pkg:docker') or purl.startswith('pkg:oci'):
+        score += 20
+        reasons.append("container image in purl (+20)")
+    elif purl.startswith('pkg:golang') or purl.startswith('pkg:cargo'):
+        # Systems-language packages often have low-level access
+        score += 8
+        reasons.append(f"systems-language package (Go/Rust) (+8)")
+
+    # --- Factor 5: existing vulnerability annotations ---
+    # Some scanners annotate the component before enrichment
+    props = {p.get('name'): p.get('value') for p in component.get('properties', [])}
+    pre_vulns = props.get('vulnerabilities', '') or ''
+    vuln_count = 0
+    if pre_vulns and pre_vulns.lower() not in ('none', '0', ''):
+        # Count comma-separated CVE references
+        vuln_count = len([v for v in pre_vulns.split(',') if v.strip()])
+    if vuln_count >= 5:
+        score += 30
+        reasons.append(f"has {vuln_count} known vulnerabilities (+30)")
+    elif vuln_count >= 2:
+        score += 20
+        reasons.append(f"has {vuln_count} known vulnerabilities (+20)")
+    elif vuln_count == 1:
+        score += 10
+        reasons.append("has 1 known vulnerability (+10)")
+
+    # --- Factor 6: dependency fan-out (dependents = widely used) ---
+    # dependsOn on this component's own ref can be inferred from the passed
+    # component object; the dependencies_map isn't available here, but the
+    # component may carry a 'dependsOn' count from the merge step.
+    depends_on = component.get('dependsOn', [])
+    dep_count = len(depends_on) if isinstance(depends_on, list) else 0
+    if dep_count >= 20:
+        score += 15
+        reasons.append(f"has {dep_count} direct dependsOn entries (+15)")
+    elif dep_count >= 5:
+        score += 8
+        reasons.append(f"has {dep_count} direct dependsOn entries (+8)")
+
+    # --- Factor 7: license risk ---
+    license_name = ""
+    lics = component.get('licenses', [])
+    if lics and isinstance(lics, list):
+        lic_obj = lics[0].get('license', {})
+        license_name = lic_obj.get('name', '') or lic_obj.get('id', '')
+    if license_name in _NETWORK_COPYLEFT_LICENSES or 'AGPL' in license_name.upper():
+        score += 10
+        reasons.append("AGPL license (legal/compliance risk) (+10)")
+    elif license_name in _STRONG_COPYLEFT_LICENSES or ('GPL' in license_name.upper() and 'LGPL' not in license_name.upper()):
+        score += 6
+        reasons.append("GPL copyleft license (+6)")
+
+    # --- Map score to level ---
     if score >= 70:
         level = 'critical'
-    elif score >= 50:
+    elif score >= 40:
         level = 'high'
-    elif score >= 30:
+    elif score >= 18:
         level = 'medium'
     else:
         level = 'low'
@@ -82,7 +277,7 @@ def assess_criticality(name, component, config):
     if reasons:
         reason = f"Score {score}: " + "; ".join(reasons)
     else:
-        reason = f"Score {score}: no specific risk indicators found"
+        reason = f"Score {score}: standard library, no elevated risk indicators"
 
     return level, reason
 
@@ -104,6 +299,47 @@ def determine_sbom_author(config):
         or config.get('author_name')
         or "Unknown Organization"
     )
+
+
+# ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Standardize Origin casing/format
+# ---------------------------------------------------------------------------
+def standardize_origin(origin_str: str) -> str:
+    """Standardizes origin field casing/format (e.g., 'Open-Source', 'Proprietary', 'Internal')."""
+    if not origin_str:
+        return "Open-Source"
+    val = origin_str.strip().lower()
+    if 'prop' in val:
+        return "Proprietary"
+    if 'int' in val:
+        return "Internal"
+    if 'open' in val:
+        return "Open-Source"
+    return val.title()
+
+
+# ---------------------------------------------------------------------------
+# Structured Property Detection
+# ---------------------------------------------------------------------------
+def detect_structured_property(name, component):
+    """Detect if a component is a structured package format (e.g. contains structured manifests/lockfiles/JSON)."""
+    purl = component.get('purl', '')
+    purl_lower = purl.lower()
+    
+    # Standard ecosystem packages are structured formats
+    structured_ecosystems = (
+        'pkg:pypi', 'pkg:npm', 'pkg:maven', 'pkg:nuget', 'pkg:gem',
+        'pkg:cargo', 'pkg:composer', 'pkg:golang', 'pkg:conda', 'pkg:docker', 'pkg:oci'
+    )
+    is_structured = any(purl_lower.startswith(eco) for eco in structured_ecosystems)
+    
+    # Also check if it's an application or container or service
+    comp_type = component.get('type', '')
+    if comp_type in ('application', 'container', 'framework', 'service'):
+        is_structured = True
+        
+    return "true" if is_structured else "false"
 
 
 # ---------------------------------------------------------------------------
@@ -149,7 +385,20 @@ def detect_executable_property(name, component, config):
             "detection_method": "CycloneDX component type field"
         }
 
-    BUILD_TOOLS = ['pip', 'setuptools', 'wheel', 'poetry', 'build']
+    # Binary/Executable detection from files/hashes/PURLs
+    binary_exts = ('.exe', '.dll', '.so', '.dylib', '.bin', '.app', '.jar')
+    if any(name_lower.endswith(ext) for ext in binary_exts):
+        val = "Library" if name_lower.endswith('.jar') else "Executable"
+        return {
+            "value": val,
+            "evidence": [f"File name extension: {os.path.splitext(name)[1]}"],
+            "detection_method": "Binary filename extension matching"
+        }
+
+    BUILD_TOOLS = {
+        'pip', 'setuptools', 'wheel', 'poetry', 'build', 'npm', 'yarn', 'pnpm',
+        'webpack', 'gulp', 'grunt', 'rollup', 'vite', 'parcel', 'turborepo'
+    }
     if name_lower in BUILD_TOOLS:
         return {
             "value": "Package",
@@ -158,8 +407,8 @@ def detect_executable_property(name, component, config):
         }
 
     SERVICE_DAEMONS = [
-        'gunicorn', 'uvicorn', 'celery', 'beat', 'worker',
-        'supervisor', 'nginx', 'uwsgi'
+        'gunicorn', u'vicorn', 'celery', 'beat', 'worker',
+        'supervisor', 'nginx', 'uwsgi', 'redis', 'postgres', 'mysql', 'mongodb'
     ]
     if name_lower in SERVICE_DAEMONS:
         return {
@@ -168,19 +417,36 @@ def detect_executable_property(name, component, config):
             "detection_method": "Known service daemon name match"
         }
 
-    # PyPI PURL → default library
+    # Check PURLs / Ecosystem defaults
     purl = component.get('purl', '')
-    if 'pypi' in purl:
-        return {
-            "value": "Library",
-            "evidence": ["PyPI package (typically a library)"],
-            "detection_method": "PURL contains 'pypi'"
-        }
+    purl_lower = purl.lower()
+    
+    library_purl_prefixes = [
+        'pkg:pypi', 'pkg:npm', 'pkg:maven', 'pkg:nuget', 'pkg:cargo',
+        'pkg:composer', 'pkg:golang', 'pkg:gem', 'pkg:conda', 'pkg:huggingface'
+    ]
+    for prefix in library_purl_prefixes:
+        if purl_lower.startswith(prefix):
+            return {
+                "value": "Library",
+                "evidence": [f"{prefix} ecosystem package"],
+                "detection_method": f"PURL scheme matches library ecosystem {prefix}"
+            }
+
+    # If it is a file type component, check if it's script/library/executable
+    if comp_type == 'file':
+        script_exts = ('.py', '.js', '.sh', '.bat', '.ps1', '.rb', '.pl', '.php')
+        if any(name_lower.endswith(ext) for ext in script_exts):
+            return {
+                "value": "Script",
+                "evidence": ["Script file extension"],
+                "detection_method": "Script filename extension matching"
+            }
 
     return {
-        "value": "Unknown",
-        "evidence": ["No detection rule matched"],
-        "detection_method": "Default fallback"
+        "value": "Library",
+        "evidence": ["Ecosystem fallback to library"],
+        "detection_method": "Default library categorization for software packages"
     }
 
 
@@ -530,18 +796,26 @@ def fetch_golang_metadata(module_name, version):
 def detect_archive_property(name, component):
     """Detect if a component is an archive/compressed file."""
     name_lower = name.lower()
-    purl_lower = component.get('purl', '').lower()
+    purl = component.get('purl', '')
+    purl_lower = purl.lower()
     
-    archive_exts = ('.zip', '.tar', '.gz', '.tgz', '.tar.gz', '.bz2', '.xz', '.jar', '.war', '.ear', '.whl', '.gem')
+    archive_exts = ('.zip', '.tar', '.gz', '.tgz', '.tar.gz', '.bz2', '.xz', '.jar', '.war', '.ear', '.whl', '.gem', '.nupkg', '.aar')
     is_archive = False
     
+    # 1. Direct file extension check
     if any(name_lower.endswith(ext) for ext in archive_exts):
         is_archive = True
     elif any(ext in purl_lower for ext in archive_exts):
         is_archive = True
-    elif component.get('type') == 'file' and any(name_lower.endswith(ext) for ext in archive_exts):
-        is_archive = True
-        
+    # 2. Check ecosystem PURL prefixes (since packages in these ecosystems are distributed as archive files like tarballs, wheels, jars, etc.)
+    else:
+        archive_ecosystems = (
+            'pkg:pypi', 'pkg:npm', 'pkg:maven', 'pkg:nuget', 'pkg:gem',
+            'pkg:cargo', 'pkg:composer', 'pkg:golang', 'pkg:conda', 'pkg:docker', 'pkg:oci'
+        )
+        if any(purl_lower.startswith(eco) for eco in archive_ecosystems):
+            is_archive = True
+            
     return "true" if is_archive else "false"
 
 
@@ -613,7 +887,7 @@ def enrich_component(component, config, dependencies_map):
 
     if api_data:
         api_desc, api_supplier, api_license, api_latest, api_release = api_data
-        desc = api_desc or component.get('description') or f"Component {name}"
+        desc = component.get('description') or api_desc or f"Component {name}"
         # Overwrite local inconsistent data with registry standardized fields
         supplier = override.get('supplier') or api_supplier or component.get('supplier', {}).get('name') or config.get('default_supplier')
         license_name = override.get('license') or api_license or existing_license or config.get('default_license')
@@ -654,9 +928,10 @@ def enrich_component(component, config, dependencies_map):
     # ----- Enhancement 1: Automated Criticality Assessment -----
     criticality, criticality_reason = assess_criticality(name, component, config)
 
-    # Attribute 13: Usage Restrictions
-    usage_restrictions = (
-        override.get('usage_restrictions') or config.get('default_usage_restrictions')
+    # Attribute 13: Usage Restrictions — derive from license text
+    usage_restrictions = derive_usage_restrictions(
+        license_name,
+        override_text=override.get('usage_restrictions') or config.get('usage_restrictions_overrides', {}).get(name)
     )
 
     # Attribute 15: Comments or Notes
@@ -700,7 +975,7 @@ def enrich_component(component, config, dependencies_map):
     # ---- Existing properties ----
     properties.append({
         "name": "origin",
-        "value": override.get('origin') or config.get('default_origin')
+        "value": standardize_origin(override.get('origin') or config.get('default_origin'))
     })
     properties.append({"name": "patch_status", "value": patch_status})
     properties.append({"name": "release_date", "value": release_date_str})
@@ -723,7 +998,7 @@ def enrich_component(component, config, dependencies_map):
     
     properties.append({
         "name": "structured",
-        "value": config.get('default_structured_format')
+        "value": str(override.get('structured') or detect_structured_property(name, component))
     })
 
     # ---- New properties ----

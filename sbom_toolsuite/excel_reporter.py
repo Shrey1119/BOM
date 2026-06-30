@@ -132,6 +132,79 @@ def auto_fit_columns(ws, min_width=10, max_width=45, start_row=1):
 
 
 # ------------------------------------------------------------------
+# Vulnerability index helpers — shared across all sheets
+# ------------------------------------------------------------------
+def _build_vuln_indexes(vulnerabilities):
+    """
+    Build three lookup structures from a CycloneDX vulnerabilities list.
+
+    Returns:
+        vuln_map     – {bom_ref: [vuln_id, ...]}
+        by_name_ver  – {"name@version": [vuln_id, ...]}  (both original and lower-cased name)
+        by_name      – {"name": [vuln_id, ...]}  (lower-cased, last-resort fallback)
+    """
+    vuln_map = {}
+    by_name_ver = {}
+    by_name = {}
+
+    for v in vulnerabilities:
+        vid = v.get("id", "")
+        for a in v.get("affects", []):
+            ref = a.get("ref", "")
+            if ref:
+                vuln_map.setdefault(ref, []).append(vid)
+
+            if not vid:
+                continue
+            clean = ref.split("?")[0].split("#")[0]
+            if "@" in clean:
+                parts = clean.rsplit("@", 1)
+                raw_name = parts[0].split("/")[-1]
+                raw_ver = parts[1]
+                by_name_ver.setdefault(f"{raw_name}@{raw_ver}", []).append(vid)
+                by_name_ver.setdefault(f"{raw_name.lower()}@{raw_ver}", []).append(vid)
+            plain = clean.split("/")[-1].split("@")[0]
+            if plain:
+                by_name.setdefault(plain.lower(), []).append(vid)
+
+    return vuln_map, by_name_ver, by_name
+
+
+def _resolve_comp_vulns(comp, vuln_map, by_name_ver, by_name):
+    """
+    Return a deduplicated list of CVE/vuln IDs for a component.
+
+    Lookup order:
+      1. Exact bom-ref match
+      2. Exact purl match (handles enricher bom-ref rewrite)
+      3. name@version match (handles ref normalisation differences)
+      4. name-only match (last resort — broad, only used if nothing else matches)
+    """
+    bom_ref = comp.get("bom-ref") or comp.get("purl", "")
+    purl = comp.get("purl", "")
+    name = comp.get("name", "")
+    version = comp.get("version", "")
+
+    seen = []
+    seen_set = set()
+
+    def _add(ids):
+        for i in ids:
+            if i and i not in seen_set:
+                seen.append(i)
+                seen_set.add(i)
+
+    _add(vuln_map.get(bom_ref, []))
+    if purl and purl != bom_ref:
+        _add(vuln_map.get(purl, []))
+    _add(by_name_ver.get(f"{name}@{version}", []))
+    _add(by_name_ver.get(f"{name.lower()}@{version}", []))
+    if not seen:
+        _add(by_name.get(name.lower(), []))
+    return seen
+
+
+# ------------------------------------------------------------------
 # Sheet 1 - Dashboard
 # ------------------------------------------------------------------
 def create_dashboard_sheet(wb, sbom):
@@ -224,20 +297,16 @@ def create_dashboard_sheet(wb, sbom):
     style_header_row(ws, summary_row, len(summary_headers))
     ws.row_dimensions[summary_row].height = 26
 
-    vuln_map = {}
-    for v in vulnerabilities:
-        for a in v.get("affects", []):
-            ref = a.get("ref", "")
-            vuln_map.setdefault(ref, []).append(v.get("id", ""))
+    _d_vuln_map, _d_by_nv, _d_by_n = _build_vuln_indexes(vulnerabilities)
 
     for idx, comp in enumerate(components, 1):
         r = summary_row + idx
         is_alt = idx % 2 == 0
-        bom_ref = comp.get("bom-ref", comp.get("purl", ""))
         props = {p["name"]: p["value"] for p in comp.get("properties", [])}
         crit = props.get("criticality", "medium")
         lics = ", ".join([l.get("license", {}).get("name", "") for l in comp.get("licenses", [])])
-        vulns = ", ".join(vuln_map.get(bom_ref, [])) or "None"
+        vuln_ids = _resolve_comp_vulns(comp, _d_vuln_map, _d_by_nv, _d_by_n)
+        vulns = ", ".join(vuln_ids) if vuln_ids else "0 known vulnerabilities"
 
         vals = [idx, comp.get("name", ""), comp.get("version", ""), lics,
                 crit.upper(), vulns, comp.get("purl", "")]
@@ -269,10 +338,7 @@ def create_component_data_sheet(wb, sbom):
     deps = sbom.get("dependencies", [])
     dep_map = {d.get("ref"): d.get("dependsOn", []) for d in deps}
 
-    vuln_map = {}
-    for v in vulnerabilities:
-        for a in v.get("affects", []):
-            vuln_map.setdefault(a.get("ref", ""), []).append(v.get("id", ""))
+    _vuln_map, _by_nv, _by_n = _build_vuln_indexes(vulnerabilities)
 
     # Title
     ws.merge_cells("A1:AC1")
@@ -338,9 +404,9 @@ def create_component_data_sheet(wb, sbom):
             dep_names.append(ref.split("/")[-1].split("@")[0] if "/" in ref else ref)
         dep_str = ", ".join(dep_names) if dep_names else "None"
 
-        # Resolve vulnerabilities
-        comp_vulns = vuln_map.get(bom_ref, [])
-        vuln_str = ", ".join(comp_vulns) if comp_vulns else "None"
+        # Resolve vulnerabilities — use multi-index lookup so bom-ref rewrites don't drop data
+        comp_vulns = _resolve_comp_vulns(comp, _vuln_map, _by_nv, _by_n)
+        vuln_str = ", ".join(comp_vulns) if comp_vulns else "0 known vulnerabilities"
 
         # Resolve hashes (Attribute 14 - original, complete, untruncated value)
         hashes = comp.get("hashes", [])
@@ -385,7 +451,7 @@ def create_component_data_sheet(wb, sbom):
             props.get("executable", "false"),
             props.get("executable_evidence", ""),         # 18a
             props.get("archive", "true"),
-            props.get("structured", "CycloneDX JSON"),
+            props.get("structured", "false"),
             comp.get("purl", ""),
             ts_num,                                       # trust score (numeric float or original string)
             props.get("trust_score_reasons", ""),         # trust score reasons
