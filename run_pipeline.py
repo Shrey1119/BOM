@@ -156,6 +156,98 @@ def step_merge():
     return success
 
 
+def merge_vuln_files(master_path, trivy_path, grype_path):
+    try:
+        with open(master_path, "r", encoding="utf-8") as f:
+            master = json.load(f)
+        
+        master_vulns = {v["id"]: v for v in master.setdefault("vulnerabilities", [])}
+        
+        def merge_from_file(path, source_name):
+            if not os.path.exists(path):
+                print_warning(f"{source_name} vulnerabilities file not found: {path}")
+                return
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                vulns = data.get("vulnerabilities", [])
+                for v in vulns:
+                    vuln_id = v.get("id")
+                    if not vuln_id:
+                        continue
+                    if vuln_id not in master_vulns:
+                        master_vulns[vuln_id] = json.loads(json.dumps(v))
+                    else:
+                        existing = master_vulns[vuln_id]
+                        existing_ratings = {r.get("source", {}).get("name", "") + str(r.get("score", "")) for r in existing.get("ratings", [])}
+                        for r in v.get("ratings", []):
+                            r_key = r.get("source", {}).get("name", "") + str(r.get("score", ""))
+                            if r_key not in existing_ratings:
+                                existing.setdefault("ratings", []).append(r)
+                                existing_ratings.add(r_key)
+                        
+                        existing_affects = {a.get("ref") for a in existing.get("affects", [])}
+                        for a in v.get("affects", []):
+                            ref = a.get("ref")
+                            if ref and ref not in existing_affects:
+                                existing.setdefault("affects", []).append(a)
+                                existing_affects.add(ref)
+                print_success(f"Merged vulnerabilities from {source_name}")
+            except Exception as e:
+                print_error(f"Failed to merge vulnerabilities from {source_name}: {e}")
+                
+        merge_from_file(trivy_path, "Trivy")
+        merge_from_file(grype_path, "Grype")
+        
+        master["vulnerabilities"] = list(master_vulns.values())
+        
+        with open(master_path, "w", encoding="utf-8") as f:
+            json.dump(master, f, indent=2)
+        print_success(f"Unified raw SBOM updated with {len(master['vulnerabilities'])} vulnerabilities.")
+        return True
+    except Exception as e:
+        print_error(f"Failed to unify vulnerabilities in master SBOM: {e}")
+        return False
+
+
+def step_cross_reference_vulnerabilities():
+    print_step("1.7", "Cross-referencing Deduplicated Component List with NVD via Trivy & Grype")
+    trivy = resolve_trivy()
+    if not trivy:
+        print_error("Trivy not resolved. Skipping post-merge vulnerability cross-reference.")
+        return False
+        
+    grype_exe = os.path.join(SCRIPT_DIR, "Member 4", "bin", "grype.exe")
+    if not os.path.exists(grype_exe):
+        grype_exe = "grype"
+        
+    trivy_vulns_out = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "trivy_sbom_vulns.json")
+    grype_vulns_out = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "grype_sbom_vulns.json")
+    
+    trivy_cmd = '"{}" sbom "{}" --format cyclonedx --output "{}"'.format(trivy, RAW_SBOM, trivy_vulns_out)
+    grype_cmd = '"{}" sbom:"{}" -o cyclonedx-json --file "{}"'.format(grype_exe, RAW_SBOM, grype_vulns_out)
+    
+    trivy_ok = run_cmd(trivy_cmd, "Trivy SBOM vulnerability scan")
+    
+    print(f"\n  [*] Executing: Grype SBOM vulnerability scan")
+    print(f"      Command: {grype_cmd}")
+    env = os.environ.copy()
+    env["GRYPE_DB_MAX_ALLOWED_BUILT_AGE"] = "87600h"
+    try:
+        subprocess.run(grype_cmd, shell=True, check=True, env=env)
+        print(f"  [+] Grype SBOM vulnerability scan completed successfully.")
+        grype_ok = True
+    except Exception as e:
+        print_error(f"Grype SBOM vulnerability scan failed: {e}")
+        grype_ok = False
+        
+    if not (trivy_ok or grype_ok):
+        print_error("Both Trivy and Grype SBOM scans failed.")
+        return False
+        
+    return merge_vuln_files(RAW_SBOM, trivy_vulns_out, grype_vulns_out)
+
+
 def step_enrich():
     print_step(2, "Enriching SBOM (21 Client Attributes)")
     enricher = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "sbom_enricher.py")
@@ -200,23 +292,6 @@ def step_internal_map():
     print_step(6, "Building Internal Governance Map")
     mapper = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "build_internal_map.py")
     return run_cmd('python "{}"'.format(mapper), "Internal Component Mapper")
-
-
-def step_html_report(scan_path):
-    print_step("H", "Generating Human-Readable HTML Scan Report")
-    trivy = resolve_trivy()
-    if not trivy:
-        return False
-    html_tpl = os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "contrib", "html.tpl")
-    if not os.path.exists(html_tpl):
-        print_warning("HTML template not found: {}. Skipping HTML report.".format(html_tpl))
-        return True
-    out_path = os.path.join(OUTPUT_DIR, "public", "report.html")
-    os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    cmd = '"{}" fs --format template --template "@{}" --output "{}" "{}"'.format(
-        trivy, html_tpl, out_path, scan_path
-    )
-    return run_cmd(cmd, "Trivy HTML Report Generator")
 
 
 def step_organize():
@@ -352,12 +427,12 @@ def run_full_pipeline(scan_path):
     steps = [
         lambda: step_scan(scan_path),
         step_merge,
+        step_cross_reference_vulnerabilities,
         step_enrich,
         step_validate,
         step_distribute,
         step_vex_csaf,
         step_internal_map,
-        lambda: step_html_report(scan_path),
         step_organize,
     ]
     
@@ -382,7 +457,7 @@ def export_excel():
     reporter = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "excel_reporter.py")
     cmd = 'python "{}" "{}" "{}"'.format(reporter, target_sbom, EXCEL_OUT)
     if run_cmd(cmd, "Excel Report Generator"):
-        print_success("Excel Report exported -> {}".format(EXCEL_OUT))
+        print_success("Excel Report generated successfully.")
     else:
         print_error("Excel report generation failed.")
 

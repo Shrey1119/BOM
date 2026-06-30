@@ -1,0 +1,1845 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:77378545-b488-4733-a6ab-5964c3c4dcf5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-30T12:33:56+05:30",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "author": "anchore",
+          "name": "grype",
+          "version": "0.79.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+      "type": "library",
+      "name": "django",
+      "version": "2.1",
+      "cpe": "cpe:2.3:a:django:django:2.1:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/django@2.1",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-django:python_django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_django:python-django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_django:python_django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:django:python-django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:django:python_django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-django:django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_django:django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:django:django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
+      "type": "library",
+      "name": "jinja2",
+      "version": "2.10",
+      "cpe": "cpe:2.3:a:jinja2:jinja2:2.10:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/jinja2@2.10",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-jinja2:python_jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_jinja2:python-jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_jinja2:python_jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jinja2:python-jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jinja2:python_jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-jinja2:jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_jinja2:jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jinja2:jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
+      "type": "library",
+      "name": "numpy",
+      "version": "1.15.0",
+      "cpe": "cpe:2.3:a:numpy:numpy:1.15.0:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/numpy@1.15.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-numpy:python_numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_numpy:python-numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_numpy:python_numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:numpy:python-numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:numpy:python_numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-numpy:numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_numpy:numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:numpy:numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
+      "type": "library",
+      "name": "requests",
+      "version": "2.20.0",
+      "cpe": "cpe:2.3:a:python:requests:2.20.0:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/requests@2.20.0",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+      "type": "library",
+      "name": "urllib3",
+      "version": "1.24.2",
+      "cpe": "cpe:2.3:a:python:urllib3:1.24.2:*:*:*:*:*:*:*",
+      "purl": "pkg:pypi/urllib3@1.24.2",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        }
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "bom-ref": "urn:uuid:0e419999-7f0c-445c-b704-c34df1761f5b",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-2xpw-w6gg-jr37"
+      },
+      "references": [
+        {
+          "id": "GHSA-2xpw-w6gg-jr37",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-2xpw-w6gg-jr37"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "severity": "high"
+        }
+      ],
+      "description": "urllib3 streaming API improperly handles highly compressed data",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-2xpw-w6gg-jr37"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:6fff1438-af94-4f33-9f1d-b249b5c2931f",
+      "id": "GHSA-337x-4q8g-prc5",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-337x-4q8g-prc5"
+      },
+      "references": [
+        {
+          "id": "GHSA-337x-4q8g-prc5",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-337x-4q8g-prc5"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.5,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N"
+        }
+      ],
+      "description": "Improper Input Validation in Django",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-337x-4q8g-prc5"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:9932f015-6639-4a31-8533-f8e75fe10f33",
+      "id": "GHSA-34jh-p97f-mpxf",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-34jh-p97f-mpxf"
+      },
+      "references": [
+        {
+          "id": "GHSA-34jh-p97f-mpxf",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-34jh-p97f-mpxf"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 4.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        }
+      ],
+      "description": "urllib3's Proxy-Authorization request header isn't stripped during cross-origin redirects",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-34jh-p97f-mpxf"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:0064c208-90f9-49c3-9823-ce002b255c50",
+      "id": "GHSA-38jv-5279-wg99",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-38jv-5279-wg99"
+      },
+      "references": [
+        {
+          "id": "GHSA-38jv-5279-wg99",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-38jv-5279-wg99"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Decompression-bomb safeguards bypassed when following HTTP redirects (streaming API)",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-38jv-5279-wg99"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:df4fba8f-32b9-437e-98ed-674cd47b4c89",
+      "id": "GHSA-462w-v97r-4m45",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-462w-v97r-4m45"
+      },
+      "references": [
+        {
+          "id": "GHSA-462w-v97r-4m45",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-462w-v97r-4m45"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 8.6,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N"
+        }
+      ],
+      "description": "Jinja2 sandbox escape via string formatting",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-462w-v97r-4m45"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:ef438789-1402-449d-8b7f-b69e379b0f62",
+      "id": "GHSA-5545-2q6w-2gh6",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-5545-2q6w-2gh6"
+      },
+      "references": [
+        {
+          "id": "GHSA-5545-2q6w-2gh6",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-5545-2q6w-2gh6"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "NumPy NULL Pointer Dereference",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-5545-2q6w-2gh6"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:9b15c8a3-138e-4a86-b2e1-78dbd43777e2",
+      "id": "GHSA-68w8-qjq3-2gfm",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-68w8-qjq3-2gfm"
+      },
+      "references": [
+        {
+          "id": "GHSA-68w8-qjq3-2gfm",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-68w8-qjq3-2gfm"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 4.9,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        }
+      ],
+      "description": "Path Traversal in Django",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-68w8-qjq3-2gfm"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:3a00b55a-b679-46a0-903e-631b24eed721",
+      "id": "GHSA-6c3j-c64m-qhgq",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-6c3j-c64m-qhgq"
+      },
+      "references": [
+        {
+          "id": "GHSA-6c3j-c64m-qhgq",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-6c3j-c64m-qhgq"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ],
+      "description": "XSS in jQuery as used in Drupal, Backdrop CMS, and other products",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-6c3j-c64m-qhgq"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:678373e0-8e52-4c76-bec5-df50a749d9ea",
+      "id": "GHSA-6c7v-2f49-8h26",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-6c7v-2f49-8h26"
+      },
+      "references": [
+        {
+          "id": "GHSA-6c7v-2f49-8h26",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-6c7v-2f49-8h26"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+        }
+      ],
+      "description": "Django Incorrect HTTP detection with reverse-proxy connecting via HTTPS",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-6c7v-2f49-8h26"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:7896ad85-6fba-43f6-966e-65d1dbb11cd5",
+      "id": "GHSA-6mx3-3vqg-hpp2",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-6mx3-3vqg-hpp2"
+      },
+      "references": [
+        {
+          "id": "GHSA-6mx3-3vqg-hpp2",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-6mx3-3vqg-hpp2"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 4.9,
+          "severity": "medium",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        }
+      ],
+      "description": "Django allows unprivileged users to read the password hashes of arbitrary accounts",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-6mx3-3vqg-hpp2"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:ed503efe-26c6-4cd7-b9aa-7f0e8e8fb617",
+      "id": "GHSA-6p56-wp2h-9hxr",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-6p56-wp2h-9hxr"
+      },
+      "references": [
+        {
+          "id": "GHSA-6p56-wp2h-9hxr",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-6p56-wp2h-9hxr"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "NumPy Buffer Overflow (Disputed)",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-6p56-wp2h-9hxr"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:4e02d294-a22e-487a-9938-23f0a3c9f5be",
+      "id": "GHSA-6r97-cj55-9hrq",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-6r97-cj55-9hrq"
+      },
+      "references": [
+        {
+          "id": "GHSA-6r97-cj55-9hrq",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-6r97-cj55-9hrq"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 9.8,
+          "severity": "critical",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "description": "SQL Injection in Django",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-6r97-cj55-9hrq"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:c7108449-25f5-4cff-8388-2ffabb93e6f8",
+      "id": "GHSA-6w2r-r2m5-xq5w",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-6w2r-r2m5-xq5w"
+      },
+      "references": [
+        {
+          "id": "GHSA-6w2r-r2m5-xq5w",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-6w2r-r2m5-xq5w"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.1,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:L/A:N"
+        }
+      ],
+      "description": "Django is subject to SQL injection through its column aliases",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-6w2r-r2m5-xq5w"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:3398401e-23ba-4681-af04-17253f79b4ad",
+      "id": "GHSA-7rp2-fm2h-wchj",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-7rp2-fm2h-wchj"
+      },
+      "references": [
+        {
+          "id": "GHSA-7rp2-fm2h-wchj",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-7rp2-fm2h-wchj"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ],
+      "description": "Django Cross-site Scripting in AdminURLFieldWidget",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-7rp2-fm2h-wchj"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:61a6cfc3-614c-4dcc-99d5-1f41ce92706c",
+      "id": "GHSA-7xr5-9hcq-chf9",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-7xr5-9hcq-chf9"
+      },
+      "references": [
+        {
+          "id": "GHSA-7xr5-9hcq-chf9",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-7xr5-9hcq-chf9"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N"
+        }
+      ],
+      "description": "Django Improper Output Neutralization for Logs vulnerability",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-7xr5-9hcq-chf9"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:04d970dd-63e0-4c46-9149-4e7bfc4ec807",
+      "id": "GHSA-8x94-hmjh-97hq",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-8x94-hmjh-97hq"
+      },
+      "references": [
+        {
+          "id": "GHSA-8x94-hmjh-97hq",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-8x94-hmjh-97hq"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 8.8,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "description": "Django vulnerable to Reflected File Download attack",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-8x94-hmjh-97hq"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:1f336743-1e55-4ab5-81da-9dcce86e9342",
+      "id": "GHSA-9fq2-x9r6-wfmf",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-9fq2-x9r6-wfmf"
+      },
+      "references": [
+        {
+          "id": "GHSA-9fq2-x9r6-wfmf",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-9fq2-x9r6-wfmf"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 9.8,
+          "severity": "critical",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "description": "Numpy Deserialization of Untrusted Data",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-9fq2-x9r6-wfmf"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:5b151c7c-face-460c-b43b-fc2b75e15614",
+      "id": "GHSA-9hjg-9r4m-mvj7",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-9hjg-9r4m-mvj7"
+      },
+      "references": [
+        {
+          "id": "GHSA-9hjg-9r4m-mvj7",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-9hjg-9r4m-mvj7"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+        }
+      ],
+      "description": "Requests vulnerable to .netrc credentials leak via malicious URLs",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-9hjg-9r4m-mvj7"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:b9716e60-cf87-495e-8b56-669a46b1c668",
+      "id": "GHSA-9wx4-h78v-vm56",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-9wx4-h78v-vm56"
+      },
+      "references": [
+        {
+          "id": "GHSA-9wx4-h78v-vm56",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-9wx4-h78v-vm56"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.6,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N"
+        }
+      ],
+      "description": "Requests `Session` object does not verify requests after making first request with verify=False",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-9wx4-h78v-vm56"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:f39a589b-3b51-4230-8992-7a7d6cc8397d",
+      "id": "GHSA-c4qh-4vgv-qc6g",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-c4qh-4vgv-qc6g"
+      },
+      "references": [
+        {
+          "id": "GHSA-c4qh-4vgv-qc6g",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-c4qh-4vgv-qc6g"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Django Denial-of-service in django.utils.text.Truncator",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-c4qh-4vgv-qc6g"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:cf0e2c8f-c232-44b6-ab85-fc4e26dd23da",
+      "id": "GHSA-cpwx-vrp4-4pq7",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-cpwx-vrp4-4pq7"
+      },
+      "references": [
+        {
+          "id": "GHSA-cpwx-vrp4-4pq7",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-cpwx-vrp4-4pq7"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "severity": "medium"
+        }
+      ],
+      "description": "Jinja2 vulnerable to sandbox breakout through attr filter selecting format method",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-cpwx-vrp4-4pq7"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:1499a08c-d7a3-4fc3-9544-a884a5b5a7b3",
+      "id": "GHSA-f7c7-j99h-c22f",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-f7c7-j99h-c22f"
+      },
+      "references": [
+        {
+          "id": "GHSA-f7c7-j99h-c22f",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-f7c7-j99h-c22f"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Buffer Copy without Checking Size of Input in NumPy",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-f7c7-j99h-c22f"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:94189b1d-f00a-4092-8332-696592d877c4",
+      "id": "GHSA-fpfv-jqm9-f5jm",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-fpfv-jqm9-f5jm"
+      },
+      "references": [
+        {
+          "id": "GHSA-fpfv-jqm9-f5jm",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-fpfv-jqm9-f5jm"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        }
+      ],
+      "description": "Incorrect Comparison in NumPy",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-fpfv-jqm9-f5jm"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:43247f69-5477-4800-a5d8-c7c7a3733d72",
+      "id": "GHSA-frmv-pr5f-9mcr",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-frmv-pr5f-9mcr"
+      },
+      "references": [
+        {
+          "id": "GHSA-frmv-pr5f-9mcr",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-frmv-pr5f-9mcr"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 9.1,
+          "severity": "critical",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+        }
+      ],
+      "description": "Django vulnerable to SQL injection via _connector keyword argument in QuerySet and Q objects.",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-frmv-pr5f-9mcr"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:82c18513-d8d6-412f-9a54-97937ab16152",
+      "id": "GHSA-g3rq-g295-4j3m",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-g3rq-g295-4j3m"
+      },
+      "references": [
+        {
+          "id": "GHSA-g3rq-g295-4j3m",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-g3rq-g295-4j3m"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        }
+      ],
+      "description": "Regular Expression Denial of Service (ReDoS) in Jinja2",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-g3rq-g295-4j3m"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:7b06ecd6-1ccd-4de8-b986-56592d3c3c2e",
+      "id": "GHSA-g4mx-q9vg-27p4",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-g4mx-q9vg-27p4"
+      },
+      "references": [
+        {
+          "id": "GHSA-g4mx-q9vg-27p4",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-g4mx-q9vg-27p4"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 4.2,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:A/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        }
+      ],
+      "description": "urllib3's request body not stripped after redirect from 303 status changes request method to GET",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-g4mx-q9vg-27p4"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:537389a7-747a-4146-b0e3-5909c6f7254d",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-gm62-xv2j-4w53"
+      },
+      "references": [
+        {
+          "id": "GHSA-gm62-xv2j-4w53",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-gm62-xv2j-4w53"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "severity": "high"
+        }
+      ],
+      "description": "urllib3 allows an unbounded number of links in the decompression chain",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-gm62-xv2j-4w53"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:1dfab170-d00d-44f0-a0bf-63c0b4b7402d",
+      "id": "GHSA-h5c8-rqwp-cp95",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-h5c8-rqwp-cp95"
+      },
+      "references": [
+        {
+          "id": "GHSA-h5c8-rqwp-cp95",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-h5c8-rqwp-cp95"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+        }
+      ],
+      "description": "Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-h5c8-rqwp-cp95"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:6ec71401-cbf7-4e7a-b9e5-f42927667c83",
+      "id": "GHSA-h5jv-4p7w-64jg",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-h5jv-4p7w-64jg"
+      },
+      "references": [
+        {
+          "id": "GHSA-h5jv-4p7w-64jg",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-h5jv-4p7w-64jg"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Django Denial-of-service in strip_tags()",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-h5jv-4p7w-64jg"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:8888deed-368f-49cf-ad14-a21be7bccd82",
+      "id": "GHSA-h75v-3vvj-5mfj",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-h75v-3vvj-5mfj"
+      },
+      "references": [
+        {
+          "id": "GHSA-h75v-3vvj-5mfj",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-h75v-3vvj-5mfj"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+        }
+      ],
+      "description": "Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-h75v-3vvj-5mfj"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:2ecf4442-cad5-40d5-abf8-78d64584b191",
+      "id": "GHSA-hmr4-m2h5-33qx",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-hmr4-m2h5-33qx"
+      },
+      "references": [
+        {
+          "id": "GHSA-hmr4-m2h5-33qx",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-hmr4-m2h5-33qx"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 9.8,
+          "severity": "critical",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "description": "SQL injection in Django",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-hmr4-m2h5-33qx"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:c4533917-e667-43bb-a66f-2aef7c2751b2",
+      "id": "GHSA-hvmf-r92r-27hr",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-hvmf-r92r-27hr"
+      },
+      "references": [
+        {
+          "id": "GHSA-hvmf-r92r-27hr",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-hvmf-r92r-27hr"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N"
+        }
+      ],
+      "description": "Django allows unintended model editing",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-hvmf-r92r-27hr"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:5226e5f3-0bf9-41ea-af87-a11ed972b9c2",
+      "id": "GHSA-j8r2-6x86-q33q",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-j8r2-6x86-q33q"
+      },
+      "references": [
+        {
+          "id": "GHSA-j8r2-6x86-q33q",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-j8r2-6x86-q33q"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N"
+        }
+      ],
+      "description": "Unintended leak of Proxy-Authorization header in requests",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-j8r2-6x86-q33q"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:93cf2028-c3a5-4e31-8038-dad20563d81c",
+      "id": "GHSA-pq67-6m6q-mj2v",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-pq67-6m6q-mj2v"
+      },
+      "references": [
+        {
+          "id": "GHSA-pq67-6m6q-mj2v",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-pq67-6m6q-mj2v"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+        }
+      ],
+      "description": "urllib3 redirects are not disabled when retries are disabled on PoolManager instantiation",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-pq67-6m6q-mj2v"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:e0e22fa4-a15a-4794-aa37-224f37fc69e0",
+      "id": "GHSA-q2x7-8rv6-6q7h",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-q2x7-8rv6-6q7h"
+      },
+      "references": [
+        {
+          "id": "GHSA-q2x7-8rv6-6q7h",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-q2x7-8rv6-6q7h"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.8,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "description": "Jinja has a sandbox breakout through indirect reference to format method",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-q2x7-8rv6-6q7h"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:66606358-5bfb-424c-b5ee-2b45dd068057",
+      "id": "GHSA-qw25-v68c-qjf3",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-qw25-v68c-qjf3"
+      },
+      "references": [
+        {
+          "id": "GHSA-qw25-v68c-qjf3",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-qw25-v68c-qjf3"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Django has a denial-of-service vulnerability in HttpResponseRedirect and HttpResponsePermanentRedirect on Windows",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-qw25-v68c-qjf3"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:1941fe79-64d2-44ea-9ef6-08751fff9de5",
+      "id": "GHSA-r64q-w8jr-g9qp",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-r64q-w8jr-g9qp"
+      },
+      "references": [
+        {
+          "id": "GHSA-r64q-w8jr-g9qp",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-r64q-w8jr-g9qp"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ],
+      "description": "Improper Neutralization of CRLF Sequences in urllib3 library for Python",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-r64q-w8jr-g9qp"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:f84fc34b-d68f-4f00-8a64-055f701b5aa4",
+      "id": "GHSA-rrqc-c2jx-6jgv",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-rrqc-c2jx-6jgv"
+      },
+      "references": [
+        {
+          "id": "GHSA-rrqc-c2jx-6jgv",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-rrqc-c2jx-6jgv"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 3.7,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N"
+        }
+      ],
+      "description": "Django allows enumeration of user e-mail addresses",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-rrqc-c2jx-6jgv"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:7d0b7177-bed4-46fb-9030-d352e19892b8",
+      "id": "GHSA-v845-jxx5-vc9f",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-v845-jxx5-vc9f"
+      },
+      "references": [
+        {
+          "id": "GHSA-v845-jxx5-vc9f",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-v845-jxx5-vc9f"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.9,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:N"
+        }
+      ],
+      "description": "`Cookie` HTTP header isn't stripped on cross-origin redirects",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-v845-jxx5-vc9f"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:7a2cacac-0400-4f19-8c7c-57cc79593eb2",
+      "id": "GHSA-v9qg-3j8p-r63v",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-v9qg-3j8p-r63v"
+      },
+      "references": [
+        {
+          "id": "GHSA-v9qg-3j8p-r63v",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-v9qg-3j8p-r63v"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Uncontrolled Recursion in Django",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-v9qg-3j8p-r63v"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:510714d4-e766-4e1b-a20e-f9dfd4ff73d1",
+      "id": "GHSA-vfq6-hq5r-27r6",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-vfq6-hq5r-27r6"
+      },
+      "references": [
+        {
+          "id": "GHSA-vfq6-hq5r-27r6",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-vfq6-hq5r-27r6"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 9.8,
+          "severity": "critical",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "description": "Django Potential account hijack via password reset form",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-vfq6-hq5r-27r6"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:e53c1435-6710-4add-b4c3-b1e80ce0cbd5",
+      "id": "GHSA-wh4h-v3f2-r2pp",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-wh4h-v3f2-r2pp"
+      },
+      "references": [
+        {
+          "id": "GHSA-wh4h-v3f2-r2pp",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-wh4h-v3f2-r2pp"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Uncontrolled Memory Consumption in Django",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-wh4h-v3f2-r2pp"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:d4953baa-82ee-4226-af31-f6943848a54f",
+      "id": "GHSA-wqvq-5m8c-6g24",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-wqvq-5m8c-6g24"
+      },
+      "references": [
+        {
+          "id": "GHSA-wqvq-5m8c-6g24",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-wqvq-5m8c-6g24"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+        }
+      ],
+      "description": "CRLF injection in urllib3",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-wqvq-5m8c-6g24"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    }
+  ]
+}

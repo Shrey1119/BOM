@@ -613,15 +613,16 @@ def enrich_component(component, config, dependencies_map):
 
     if api_data:
         api_desc, api_supplier, api_license, api_latest, api_release = api_data
-        desc = component.get('description') or api_desc or f"Component {name}"
-        supplier = override.get('supplier') or component.get('supplier', {}).get('name') or api_supplier or config.get('default_supplier')
-        license_name = existing_license or api_license or config.get('default_license')
+        desc = api_desc or component.get('description') or f"Component {name}"
+        # Overwrite local inconsistent data with registry standardized fields
+        supplier = override.get('supplier') or api_supplier or component.get('supplier', {}).get('name') or config.get('default_supplier')
+        license_name = override.get('license') or api_license or existing_license or config.get('default_license')
         latest_version = api_latest
         release_date_str = api_release
     else:
         desc = component.get('description') or f"Component {name}"
         supplier = override.get('supplier') or component.get('supplier', {}).get('name') or config.get('default_supplier')
-        license_name = existing_license or config.get('default_license')
+        license_name = override.get('license') or existing_license or config.get('default_license')
         latest_version = version
         release_date_str = datetime.utcnow().isoformat() + "Z"
 

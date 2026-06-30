@@ -54,9 +54,20 @@ def generate_vex_and_csaf(enriched_path, config_path, vex_out_path, csaf_out_pat
             comp_name = comp.get('name', '')
             comp_version = comp.get('version', 'unknown')
             
-            # Check reachability in component properties first (cdxgen custom property)
-            properties = comp.get('properties', [])
+            # Check reachability using cdxgen evidence occurrences (Step 4 Executable Evidence)
+            evidence = comp.get('evidence', {})
+            occurrences = evidence.get('occurrences', [])
+            detected_by = comp.get('detected_by', [])
+            
             prop_reachable = None
+            if occurrences:
+                prop_reachable = True
+            elif "cdxgen" in detected_by:
+                # If cdxgen scanned it but found zero occurrences, it is mathematically proven to be unreachable
+                prop_reachable = False
+                
+            # Check reachability in component properties as well (e.g. cdxgen:reachable)
+            properties = comp.get('properties', [])
             for p in properties:
                 if p.get('name') == 'cdxgen:reachable':
                     prop_reachable = p.get('value', '').lower() in ('true', 'yes')

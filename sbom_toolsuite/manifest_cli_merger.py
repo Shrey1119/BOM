@@ -268,6 +268,10 @@ def merge_components(syft_grype_comps, trivy_comps, cdxgen_comps):
             if cdxgen_hashes and not existing.get('hashes'):
                 existing['hashes'] = cdxgen_hashes
 
+            # ── Copy evidence block from cdxgen if it exists ──
+            if comp.get('evidence'):
+                existing['evidence'] = comp.get('evidence')
+
             existing_prop_names = {p.get('name') for p in existing["properties"]}
             for p in properties:
                 if p.get('name') not in existing_prop_names:
@@ -290,6 +294,10 @@ def merge_components(syft_grype_comps, trivy_comps, cdxgen_comps):
                 cdxgen_hashes = comp.get('hashes', [])
                 if cdxgen_hashes and not fuzzy_match.get('hashes'):
                     fuzzy_match['hashes'] = cdxgen_hashes
+
+                # ── Copy evidence block from cdxgen if it exists ──
+                if comp.get('evidence'):
+                    fuzzy_match['evidence'] = comp.get('evidence')
 
                 existing_prop_names = {p.get('name') for p in fuzzy_match["properties"]}
                 for p in properties:
@@ -315,6 +323,8 @@ def merge_components(syft_grype_comps, trivy_comps, cdxgen_comps):
                     "merge_status": "Original",
                     "unique_component_id": str(uuid.uuid4())
                 }
+                if comp.get('evidence'):
+                    unified_comp['evidence'] = comp.get('evidence')
                 unified_components[norm_purl] = unified_comp
 
     return list(unified_components.values())

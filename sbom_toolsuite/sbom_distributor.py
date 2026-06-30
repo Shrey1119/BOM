@@ -79,6 +79,31 @@ def split_sbom(sbom_data):
     else:
         print("No vulnerability entries found to remove in Public SBOM.")
         
+    # Public SBOM: Clean components from internal metadata
+    props_to_strip = {
+        "trust_score",
+        "trust_score_reasons",
+        "repository_registry",
+        "repository_url",
+        "repository_ecosystem",
+        "ImportedModules",
+        "ExportedModules"
+    }
+    
+    for comp in public_sbom.get("components", []):
+        # 1. Remove evidence block (callstack/occurrences)
+        comp.pop("evidence", None)
+        
+        # 2. Filter out private/internal properties
+        properties = comp.get("properties", [])
+        filtered_props = []
+        for prop in properties:
+            name = prop.get("name", "")
+            if name in props_to_strip or name.startswith("internal:"):
+                continue
+            filtered_props.append(prop)
+        comp["properties"] = filtered_props
+
     # Filter out internal properties if present
     if "metadata" in public_sbom and "properties" in public_sbom["metadata"]:
         filtered_props = [

@@ -616,16 +616,25 @@ def generate_excel_report(enriched_sbom_path, output_excel_path):
             sheet.freeze_panes = "A4"
 
     os.makedirs(os.path.dirname(os.path.abspath(output_excel_path)), exist_ok=True)
-    try:
-        wb.save(output_excel_path)
-    except PermissionError:
-        print("\n  [!] Error: Permission denied when saving to '{}'.".format(output_excel_path))
-        print("      Please close the Excel file if it is currently open, and try again.\n")
-        return False
-    except Exception as e:
-        print("\n  [!] Error saving Excel workbook: {}\n".format(e))
-        return False
-    print("  [+] Excel report saved -> {}".format(output_excel_path))
+    
+    save_path = output_excel_path
+    attempt = 1
+    while True:
+        try:
+            wb.save(save_path)
+            break
+        except PermissionError:
+            base, ext = os.path.splitext(output_excel_path)
+            save_path = f"{base}_{attempt}{ext}"
+            attempt += 1
+            if attempt > 100:
+                print("\n  [!] Error: Permission denied for all attempted paths. Could not save Excel report.\n")
+                return False
+        except Exception as e:
+            print("\n  [!] Error saving Excel workbook: {}\n".format(e))
+            return False
+            
+    print("  [+] Excel report saved -> {}".format(save_path))
     print("      Sheets: Dashboard | Component Data (21 Attr) | Vulnerability Matrix | Legend & Info")
     return True
 
@@ -645,4 +654,5 @@ if __name__ == "__main__":
     if len(sys.argv) > 2:
         output_path = sys.argv[2]
 
-    generate_excel_report(enriched_path, output_path)
+    success = generate_excel_report(enriched_path, output_path)
+    sys.exit(0 if success else 1)
