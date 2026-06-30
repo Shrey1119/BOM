@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:c7263167-a23c-4bf9-a9ba-7d7ad274f5d5",
+  "serialNumber": "urn:uuid:c4e69494-6b3b-4b94-b40f-67bd99d00a0e",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-30T09:11:07Z",
+    "timestamp": "2026-06-30T09:47:46Z",
     "tools": {
       "components": [
         {
@@ -42,7 +42,7 @@
       },
       {
         "name": "signature",
-        "value": "MEYCIQCO9qRdcC+nEX9f7uKDtudJC66LbJPi6Bldd3c5/F7c9AIhAIt55BuS9pY3cEDLgmFNL754AlOe3smwafDmwZsRkyI8"
+        "value": "MEUCIHg6wUOX6i24sKmz9hNhkgqDAaLP/jgM5b1jGeHYGVmIAiEA+IPUV4I/EvQLF442BeVwi9Yb7cBHKuk/2S5VyJCkRCY="
       }
     ],
     "authors": [
@@ -166,7 +166,7 @@
         },
         {
           "name": "origin",
-          "value": "open-source"
+          "value": "Open-Source"
         },
         {
           "name": "patch_status",
@@ -198,11 +198,11 @@
         },
         {
           "name": "archive",
-          "value": "false"
+          "value": "true"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6 (Merged)"
+          "value": "true"
         },
         {
           "name": "criticality_reason",
@@ -210,11 +210,11 @@
         },
         {
           "name": "executable_evidence",
-          "value": "PyPI package (typically a library)"
+          "value": "pkg:pypi ecosystem package"
         },
         {
           "name": "executable_detection_method",
-          "value": "PURL contains 'pypi'"
+          "value": "PURL scheme matches library ecosystem pkg:pypi"
         }
       ],
       "detected_by": [
@@ -229,7 +229,7 @@
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "46416eb3-cab6-4ab7-a19f-2b5537eaccd9"
+      "unique_component_id": "d6d6a983-c86f-4762-b0ec-bd62b66ea6c0"
     },
     {
       "bom-ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
@@ -344,7 +344,7 @@
         },
         {
           "name": "origin",
-          "value": "open-source"
+          "value": "Open-Source"
         },
         {
           "name": "patch_status",
@@ -376,11 +376,11 @@
         },
         {
           "name": "archive",
-          "value": "false"
+          "value": "true"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6 (Merged)"
+          "value": "true"
         },
         {
           "name": "criticality_reason",
@@ -388,11 +388,11 @@
         },
         {
           "name": "executable_evidence",
-          "value": "PyPI package (typically a library)"
+          "value": "pkg:pypi ecosystem package"
         },
         {
           "name": "executable_detection_method",
-          "value": "PURL contains 'pypi'"
+          "value": "PURL scheme matches library ecosystem pkg:pypi"
         }
       ],
       "detected_by": [
@@ -407,7 +407,7 @@
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "09955142-d303-4158-bf6d-293d0b15ceff"
+      "unique_component_id": "16d1ef02-0a89-4a99-a5bf-f0bd23a151b0"
     },
     {
       "bom-ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
@@ -522,7 +522,7 @@
         },
         {
           "name": "origin",
-          "value": "open-source"
+          "value": "Open-Source"
         },
         {
           "name": "patch_status",
@@ -554,11 +554,11 @@
         },
         {
           "name": "archive",
-          "value": "false"
+          "value": "true"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6 (Merged)"
+          "value": "true"
         },
         {
           "name": "criticality_reason",
@@ -566,11 +566,11 @@
         },
         {
           "name": "executable_evidence",
-          "value": "PyPI package (typically a library)"
+          "value": "pkg:pypi ecosystem package"
         },
         {
           "name": "executable_detection_method",
-          "value": "PURL contains 'pypi'"
+          "value": "PURL scheme matches library ecosystem pkg:pypi"
         }
       ],
       "detected_by": [
@@ -585,7 +585,7 @@
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "e464d078-afa9-499c-bc6c-7013a4a4d846"
+      "unique_component_id": "e25c5312-96a0-4fb1-8d72-3940652dbfe9"
     },
     {
       "bom-ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
@@ -645,7 +645,7 @@
         },
         {
           "name": "origin",
-          "value": "open-source"
+          "value": "Open-Source"
         },
         {
           "name": "patch_status",
@@ -677,11 +677,11 @@
         },
         {
           "name": "archive",
-          "value": "false"
+          "value": "true"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6 (Merged)"
+          "value": "true"
         },
         {
           "name": "criticality_reason",
@@ -689,11 +689,11 @@
         },
         {
           "name": "executable_evidence",
-          "value": "PyPI package (typically a library)"
+          "value": "pkg:pypi ecosystem package"
         },
         {
           "name": "executable_detection_method",
-          "value": "PURL contains 'pypi'"
+          "value": "PURL scheme matches library ecosystem pkg:pypi"
         }
       ],
       "detected_by": [
@@ -708,7 +708,7 @@
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "7b4b49cc-3e4b-4ed4-a93e-b2d01cb15edf"
+      "unique_component_id": "76c5943b-e1a4-4eec-9044-e1916eb298fe"
     },
     {
       "bom-ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
@@ -768,7 +768,7 @@
         },
         {
           "name": "origin",
-          "value": "open-source"
+          "value": "Open-Source"
         },
         {
           "name": "patch_status",
@@ -800,11 +800,11 @@
         },
         {
           "name": "archive",
-          "value": "false"
+          "value": "true"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6 (Merged)"
+          "value": "true"
         },
         {
           "name": "criticality_reason",
@@ -812,11 +812,11 @@
         },
         {
           "name": "executable_evidence",
-          "value": "PyPI package (typically a library)"
+          "value": "pkg:pypi ecosystem package"
         },
         {
           "name": "executable_detection_method",
-          "value": "PURL contains 'pypi'"
+          "value": "PURL scheme matches library ecosystem pkg:pypi"
         }
       ],
       "detected_by": [
@@ -831,22 +831,10 @@
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
-      "unique_component_id": "5a19183a-0478-4282-9dd1-cda1e0a5f19e"
+      "unique_component_id": "ab31b73d-6fb5-43b6-bb60-bc5351384047"
     }
   ],
   "dependencies": [
-    {
-      "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
-      "dependsOn": []
-    },
     {
       "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
       "dependsOn": []
@@ -856,19 +844,31 @@
       "dependsOn": []
     },
     {
-      "ref": "1b85e9aa-0bc2-4760-8a02-60ea9356a09a",
+      "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+      "dependsOn": []
+    },
+    {
+      "ref": "b5b62527-ea3f-446c-88b2-d82577f2bee5",
       "dependsOn": [
-        "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-        "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-        "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
         "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
-        "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48"
+        "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
+        "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
+        "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+        "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
       ]
     },
     {
-      "ref": "5619d628-639b-41be-a9f1-8a14d7841885",
+      "ref": "3def95e5-b999-440a-bef6-ac72eb2fdf8d",
       "dependsOn": [
-        "1b85e9aa-0bc2-4760-8a02-60ea9356a09a"
+        "b5b62527-ea3f-446c-88b2-d82577f2bee5"
       ]
     },
     {
@@ -878,7 +878,7 @@
   ],
   "signature": {
     "algorithm": "ECDSA-SHA256",
-    "value": "MEYCIQCO9qRdcC+nEX9f7uKDtudJC66LbJPi6Bldd3c5/F7c9AIhAIt55BuS9pY3cEDLgmFNL754AlOe3smwafDmwZsRkyI8",
+    "value": "MEUCIHg6wUOX6i24sKmz9hNhkgqDAaLP/jgM5b1jGeHYGVmIAiEA+IPUV4I/EvQLF442BeVwi9Yb7cBHKuk/2S5VyJCkRCY=",
     "publicKey": "-----BEGIN PUBLIC KEY-----\\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErDvRVk+R716HwVgDfJPXVV2NcXW4\\ndGZ9pRkrA/iDl6tp7TeU/fdqtUY5SaU/Cj/NgmUn942OehY/SHcv3dzupg==\\n-----END PUBLIC KEY-----\\n"
   }
 }

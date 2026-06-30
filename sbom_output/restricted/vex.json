@@ -2,9 +2,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "version": 1,
-  "serialNumber": "urn:uuid:3d771b03-92e2-49f2-9ccc-d3c8d755b048",
+  "serialNumber": "urn:uuid:51161b4d-6649-4648-823e-5e9d585a3e9e",
   "metadata": {
-    "timestamp": "2026-06-30T09:11:09.786254Z",
+    "timestamp": "2026-06-30T09:47:48.692645Z",
     "authors": [
       {
         "name": "Security & Governance Lead (Antigravity AI)"

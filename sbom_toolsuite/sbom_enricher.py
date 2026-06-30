@@ -302,6 +302,47 @@ def determine_sbom_author(config):
 
 
 # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Standardize Origin casing/format
+# ---------------------------------------------------------------------------
+def standardize_origin(origin_str: str) -> str:
+    """Standardizes origin field casing/format (e.g., 'Open-Source', 'Proprietary', 'Internal')."""
+    if not origin_str:
+        return "Open-Source"
+    val = origin_str.strip().lower()
+    if 'prop' in val:
+        return "Proprietary"
+    if 'int' in val:
+        return "Internal"
+    if 'open' in val:
+        return "Open-Source"
+    return val.title()
+
+
+# ---------------------------------------------------------------------------
+# Structured Property Detection
+# ---------------------------------------------------------------------------
+def detect_structured_property(name, component):
+    """Detect if a component is a structured package format (e.g. contains structured manifests/lockfiles/JSON)."""
+    purl = component.get('purl', '')
+    purl_lower = purl.lower()
+    
+    # Standard ecosystem packages are structured formats
+    structured_ecosystems = (
+        'pkg:pypi', 'pkg:npm', 'pkg:maven', 'pkg:nuget', 'pkg:gem',
+        'pkg:cargo', 'pkg:composer', 'pkg:golang', 'pkg:conda', 'pkg:docker', 'pkg:oci'
+    )
+    is_structured = any(purl_lower.startswith(eco) for eco in structured_ecosystems)
+    
+    # Also check if it's an application or container or service
+    comp_type = component.get('type', '')
+    if comp_type in ('application', 'container', 'framework', 'service'):
+        is_structured = True
+        
+    return "true" if is_structured else "false"
+
+
+# ---------------------------------------------------------------------------
 # Enhancement 3: Executable Property Detection
 # ---------------------------------------------------------------------------
 def detect_executable_property(name, component, config):
@@ -344,7 +385,20 @@ def detect_executable_property(name, component, config):
             "detection_method": "CycloneDX component type field"
         }
 
-    BUILD_TOOLS = ['pip', 'setuptools', 'wheel', 'poetry', 'build']
+    # Binary/Executable detection from files/hashes/PURLs
+    binary_exts = ('.exe', '.dll', '.so', '.dylib', '.bin', '.app', '.jar')
+    if any(name_lower.endswith(ext) for ext in binary_exts):
+        val = "Library" if name_lower.endswith('.jar') else "Executable"
+        return {
+            "value": val,
+            "evidence": [f"File name extension: {os.path.splitext(name)[1]}"],
+            "detection_method": "Binary filename extension matching"
+        }
+
+    BUILD_TOOLS = {
+        'pip', 'setuptools', 'wheel', 'poetry', 'build', 'npm', 'yarn', 'pnpm',
+        'webpack', 'gulp', 'grunt', 'rollup', 'vite', 'parcel', 'turborepo'
+    }
     if name_lower in BUILD_TOOLS:
         return {
             "value": "Package",
@@ -353,8 +407,8 @@ def detect_executable_property(name, component, config):
         }
 
     SERVICE_DAEMONS = [
-        'gunicorn', 'uvicorn', 'celery', 'beat', 'worker',
-        'supervisor', 'nginx', 'uwsgi'
+        'gunicorn', u'vicorn', 'celery', 'beat', 'worker',
+        'supervisor', 'nginx', 'uwsgi', 'redis', 'postgres', 'mysql', 'mongodb'
     ]
     if name_lower in SERVICE_DAEMONS:
         return {
@@ -363,19 +417,36 @@ def detect_executable_property(name, component, config):
             "detection_method": "Known service daemon name match"
         }
 
-    # PyPI PURL → default library
+    # Check PURLs / Ecosystem defaults
     purl = component.get('purl', '')
-    if 'pypi' in purl:
-        return {
-            "value": "Library",
-            "evidence": ["PyPI package (typically a library)"],
-            "detection_method": "PURL contains 'pypi'"
-        }
+    purl_lower = purl.lower()
+    
+    library_purl_prefixes = [
+        'pkg:pypi', 'pkg:npm', 'pkg:maven', 'pkg:nuget', 'pkg:cargo',
+        'pkg:composer', 'pkg:golang', 'pkg:gem', 'pkg:conda', 'pkg:huggingface'
+    ]
+    for prefix in library_purl_prefixes:
+        if purl_lower.startswith(prefix):
+            return {
+                "value": "Library",
+                "evidence": [f"{prefix} ecosystem package"],
+                "detection_method": f"PURL scheme matches library ecosystem {prefix}"
+            }
+
+    # If it is a file type component, check if it's script/library/executable
+    if comp_type == 'file':
+        script_exts = ('.py', '.js', '.sh', '.bat', '.ps1', '.rb', '.pl', '.php')
+        if any(name_lower.endswith(ext) for ext in script_exts):
+            return {
+                "value": "Script",
+                "evidence": ["Script file extension"],
+                "detection_method": "Script filename extension matching"
+            }
 
     return {
-        "value": "Unknown",
-        "evidence": ["No detection rule matched"],
-        "detection_method": "Default fallback"
+        "value": "Library",
+        "evidence": ["Ecosystem fallback to library"],
+        "detection_method": "Default library categorization for software packages"
     }
 
 
@@ -725,18 +796,26 @@ def fetch_golang_metadata(module_name, version):
 def detect_archive_property(name, component):
     """Detect if a component is an archive/compressed file."""
     name_lower = name.lower()
-    purl_lower = component.get('purl', '').lower()
+    purl = component.get('purl', '')
+    purl_lower = purl.lower()
     
-    archive_exts = ('.zip', '.tar', '.gz', '.tgz', '.tar.gz', '.bz2', '.xz', '.jar', '.war', '.ear', '.whl', '.gem')
+    archive_exts = ('.zip', '.tar', '.gz', '.tgz', '.tar.gz', '.bz2', '.xz', '.jar', '.war', '.ear', '.whl', '.gem', '.nupkg', '.aar')
     is_archive = False
     
+    # 1. Direct file extension check
     if any(name_lower.endswith(ext) for ext in archive_exts):
         is_archive = True
     elif any(ext in purl_lower for ext in archive_exts):
         is_archive = True
-    elif component.get('type') == 'file' and any(name_lower.endswith(ext) for ext in archive_exts):
-        is_archive = True
-        
+    # 2. Check ecosystem PURL prefixes (since packages in these ecosystems are distributed as archive files like tarballs, wheels, jars, etc.)
+    else:
+        archive_ecosystems = (
+            'pkg:pypi', 'pkg:npm', 'pkg:maven', 'pkg:nuget', 'pkg:gem',
+            'pkg:cargo', 'pkg:composer', 'pkg:golang', 'pkg:conda', 'pkg:docker', 'pkg:oci'
+        )
+        if any(purl_lower.startswith(eco) for eco in archive_ecosystems):
+            is_archive = True
+            
     return "true" if is_archive else "false"
 
 
@@ -896,7 +975,7 @@ def enrich_component(component, config, dependencies_map):
     # ---- Existing properties ----
     properties.append({
         "name": "origin",
-        "value": override.get('origin') or config.get('default_origin')
+        "value": standardize_origin(override.get('origin') or config.get('default_origin'))
     })
     properties.append({"name": "patch_status", "value": patch_status})
     properties.append({"name": "release_date", "value": release_date_str})
@@ -919,7 +998,7 @@ def enrich_component(component, config, dependencies_map):
     
     properties.append({
         "name": "structured",
-        "value": config.get('default_structured_format')
+        "value": str(override.get('structured') or detect_structured_property(name, component))
     })
 
     # ---- New properties ----

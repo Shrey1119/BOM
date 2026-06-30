@@ -440,7 +440,7 @@ def create_component_data_sheet(wb, sbom):
             props.get("executable", "false"),
             props.get("executable_evidence", ""),         # 18a
             props.get("archive", "true"),
-            props.get("structured", "CycloneDX JSON"),
+            props.get("structured", "false"),
             comp.get("purl", ""),
             props.get("trust_score", ""),                 # trust score
             props.get("trust_score_reasons", ""),         # trust score reasons
