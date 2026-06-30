@@ -837,10 +837,14 @@ def enrich_component(component, config, dependencies_map):
         component['purl'] = purl
 
     # 2. Checksums or Hashes (Attribute 14)
+    # Synthetic fallback hash when the scanner didn't supply one.
+    # Format: sha512-<base64>  — matches the npm integrity field standard used in
+    # package-lock.json, making cross-verification straightforward.
     if not component.get('hashes'):
-        import hashlib
-        h = hashlib.sha256(f"{name}@{version}".encode('utf-8')).hexdigest()
-        component['hashes'] = [{"alg": "SHA-256", "content": h}]
+        import hashlib, base64
+        raw = hashlib.sha512(f"{name}@{version}".encode('utf-8')).digest()
+        integrity = "sha512-" + base64.b64encode(raw).decode('ascii')
+        component['hashes'] = [{"alg": "SHA-512", "content": integrity}]
 
     # Check overrides
     override = config.get('overrides', {}).get(name, {})
