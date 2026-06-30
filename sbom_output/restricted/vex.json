@@ -2,9 +2,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "version": 1,
-  "serialNumber": "urn:uuid:a577003a-305d-4966-9e64-3e96a326802f",
+  "serialNumber": "urn:uuid:0421992f-abae-412a-8d34-7279f9e3771f",
   "metadata": {
-    "timestamp": "2026-06-30T07:04:10.336639Z",
+    "timestamp": "2026-06-30T07:34:50.868263Z",
     "authors": [
       {
         "name": "Security & Governance Lead (Antigravity AI)"
@@ -18,226 +18,93 @@
   },
   "vulnerabilities": [
     {
-      "id": "GHSA-2xpw-w6gg-jr37",
+      "id": "GHSA-4jv9-3563-23j3",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-2xpw-w6gg-jr37"
-      },
-      "ratings": [
-        {
-          "severity": "high"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-          "versions": [
-            {
-              "version": "1.24.2",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-337x-4q8g-prc5",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-337x-4q8g-prc5"
-      },
-      "ratings": [
-        {
-          "score": 6.5,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-34jh-p97f-mpxf",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-34jh-p97f-mpxf"
-      },
-      "ratings": [
-        {
-          "score": 4.4,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-          "versions": [
-            {
-              "version": "1.24.2",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-38jv-5279-wg99",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-38jv-5279-wg99"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-4jv9-3563-23j3"
       },
       "ratings": [
         {
           "score": 7.5,
           "severity": "high",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+          "ref": "pkg:npm/knex@0.20.15?package-id=1c93412cfec0a87b",
           "versions": [
             {
-              "version": "1.24.2",
-              "status": "not_affected"
+              "version": "0.20.15",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside knex@0.20.15 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
         ]
       }
     },
     {
-      "id": "GHSA-462w-v97r-4m45",
+      "id": "GHSA-4jv9-3563-23j3",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-462w-v97r-4m45"
-      },
-      "ratings": [
-        {
-          "score": 8.6,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
-          "versions": [
-            {
-              "version": "2.10",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in jinja2@2.10.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-5545-2q6w-2gh6",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-5545-2q6w-2gh6"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-4jv9-3563-23j3"
       },
       "ratings": [
         {
           "score": 7.5,
           "severity": "high",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
+          "ref": "pkg:npm/knex@0.21.21?package-id=9f5f3362106e7c0a",
           "versions": [
             {
-              "version": "1.15.0",
-              "status": "not_affected"
+              "version": "0.21.21",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in numpy@1.15.0.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside knex@0.21.21 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
         ]
       }
     },
     {
-      "id": "GHSA-68w8-qjq3-2gfm",
+      "id": "GHSA-5c6j-r48x-rmvq",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-68w8-qjq3-2gfm"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-5c6j-r48x-rmvq"
       },
       "ratings": [
         {
-          "score": 4.9,
-          "severity": "medium",
+          "score": 8.1,
+          "severity": "high",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+          "ref": "pkg:npm/serialize-javascript@4.0.0?package-id=ffd524b5cf303f8c",
           "versions": [
             {
-              "version": "2.1",
+              "version": "4.0.0",
               "status": "not_affected"
             }
           ]
@@ -246,202 +113,32 @@
       "analysis": {
         "state": "not_affected",
         "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in serialize-javascript@4.0.0.",
         "response": [
           "will_not_fix"
         ]
       }
     },
     {
-      "id": "GHSA-6c3j-c64m-qhgq",
+      "id": "GHSA-67hx-6x53-jw92",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-6c3j-c64m-qhgq"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-67hx-6x53-jw92"
       },
       "ratings": [
         {
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-6c7v-2f49-8h26",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-6c7v-2f49-8h26"
-      },
-      "ratings": [
-        {
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-6mx3-3vqg-hpp2",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-6mx3-3vqg-hpp2"
-      },
-      "ratings": [
-        {
-          "score": 4.9,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-6p56-wp2h-9hxr",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-6p56-wp2h-9hxr"
-      },
-      "ratings": [
-        {
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
-          "versions": [
-            {
-              "version": "1.15.0",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in numpy@1.15.0.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-6r97-cj55-9hrq",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-6r97-cj55-9hrq"
-      },
-      "ratings": [
-        {
-          "score": 9.8,
+          "score": 9.3,
           "severity": "critical",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-6w2r-r2m5-xq5w",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-6w2r-r2m5-xq5w"
-      },
-      "ratings": [
-        {
-          "score": 7.1,
-          "severity": "high",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:L/A:N"
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+          "ref": "pkg:npm/babel-traverse@6.26.0?package-id=856115d5d3df8daf",
           "versions": [
             {
-              "version": "2.1",
+              "version": "6.26.0",
               "status": "not_affected"
             }
           ]
@@ -450,320 +147,17 @@
       "analysis": {
         "state": "not_affected",
         "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in babel-traverse@6.26.0.",
         "response": [
           "will_not_fix"
         ]
       }
     },
     {
-      "id": "GHSA-7rp2-fm2h-wchj",
+      "id": "GHSA-6vfc-qv3f-vr6c",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-7rp2-fm2h-wchj"
-      },
-      "ratings": [
-        {
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-7xr5-9hcq-chf9",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-7xr5-9hcq-chf9"
-      },
-      "ratings": [
-        {
-          "score": 4,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-8x94-hmjh-97hq",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-8x94-hmjh-97hq"
-      },
-      "ratings": [
-        {
-          "score": 8.8,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-9fq2-x9r6-wfmf",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-9fq2-x9r6-wfmf"
-      },
-      "ratings": [
-        {
-          "score": 9.8,
-          "severity": "critical",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
-          "versions": [
-            {
-              "version": "1.15.0",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in numpy@1.15.0.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-9hjg-9r4m-mvj7",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-9hjg-9r4m-mvj7"
-      },
-      "ratings": [
-        {
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
-          "versions": [
-            {
-              "version": "2.20.0",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in requests@2.20.0.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-9wx4-h78v-vm56",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-9wx4-h78v-vm56"
-      },
-      "ratings": [
-        {
-          "score": 5.6,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
-          "versions": [
-            {
-              "version": "2.20.0",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in requests@2.20.0.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-c4qh-4vgv-qc6g",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-c4qh-4vgv-qc6g"
-      },
-      "ratings": [
-        {
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-cpwx-vrp4-4pq7",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-cpwx-vrp4-4pq7"
-      },
-      "ratings": [
-        {
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
-          "versions": [
-            {
-              "version": "2.10",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in jinja2@2.10.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-f7c7-j99h-c22f",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-f7c7-j99h-c22f"
-      },
-      "ratings": [
-        {
-          "score": 5.5,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
-          "versions": [
-            {
-              "version": "1.15.0",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in numpy@1.15.0.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-fpfv-jqm9-f5jm",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-fpfv-jqm9-f5jm"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-6vfc-qv3f-vr6c"
       },
       "ratings": [
         {
@@ -775,10 +169,10 @@
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
+          "ref": "pkg:npm/markdown-it@8.4.2?package-id=2f6c380cf73a2efe",
           "versions": [
             {
-              "version": "1.15.0",
+              "version": "8.4.2",
               "status": "not_affected"
             }
           ]
@@ -787,66 +181,32 @@
       "analysis": {
         "state": "not_affected",
         "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in numpy@1.15.0.",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in markdown-it@8.4.2.",
         "response": [
           "will_not_fix"
         ]
       }
     },
     {
-      "id": "GHSA-frmv-pr5f-9mcr",
+      "id": "GHSA-7fh5-64p2-3v2j",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-frmv-pr5f-9mcr"
-      },
-      "ratings": [
-        {
-          "score": 9.1,
-          "severity": "critical",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-g3rq-g295-4j3m",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-g3rq-g295-4j3m"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-7fh5-64p2-3v2j"
       },
       "ratings": [
         {
           "score": 5.3,
           "severity": "medium",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
+          "ref": "pkg:npm/postcss@7.0.39?package-id=50630d53a171d75b",
           "versions": [
             {
-              "version": "2.10",
+              "version": "7.0.39",
               "status": "not_affected"
             }
           ]
@@ -855,680 +215,32 @@
       "analysis": {
         "state": "not_affected",
         "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in jinja2@2.10.",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in postcss@7.0.39.",
         "response": [
           "will_not_fix"
         ]
       }
     },
     {
-      "id": "GHSA-g4mx-q9vg-27p4",
+      "id": "GHSA-848j-6mx2-7j84",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-g4mx-q9vg-27p4"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-848j-6mx2-7j84"
       },
       "ratings": [
         {
-          "score": 4.2,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:A/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-          "versions": [
-            {
-              "version": "1.24.2",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-gm62-xv2j-4w53",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-gm62-xv2j-4w53"
-      },
-      "ratings": [
-        {
-          "severity": "high"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-          "versions": [
-            {
-              "version": "1.24.2",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-h5c8-rqwp-cp95",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-h5c8-rqwp-cp95"
-      },
-      "ratings": [
-        {
-          "score": 5.4,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
-          "versions": [
-            {
-              "version": "2.10",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in jinja2@2.10.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-h5jv-4p7w-64jg",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-h5jv-4p7w-64jg"
-      },
-      "ratings": [
-        {
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-h75v-3vvj-5mfj",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-h75v-3vvj-5mfj"
-      },
-      "ratings": [
-        {
-          "score": 5.4,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
-          "versions": [
-            {
-              "version": "2.10",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in jinja2@2.10.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-hmr4-m2h5-33qx",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-hmr4-m2h5-33qx"
-      },
-      "ratings": [
-        {
-          "score": 9.8,
-          "severity": "critical",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-hvmf-r92r-27hr",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-hvmf-r92r-27hr"
-      },
-      "ratings": [
-        {
-          "score": 6.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-j8r2-6x86-q33q",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-j8r2-6x86-q33q"
-      },
-      "ratings": [
-        {
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
-          "versions": [
-            {
-              "version": "2.20.0",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in requests@2.20.0.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-pq67-6m6q-mj2v",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-pq67-6m6q-mj2v"
-      },
-      "ratings": [
-        {
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-          "versions": [
-            {
-              "version": "1.24.2",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-q2x7-8rv6-6q7h",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-q2x7-8rv6-6q7h"
-      },
-      "ratings": [
-        {
-          "score": 7.8,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
-          "versions": [
-            {
-              "version": "2.10",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in jinja2@2.10.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-qw25-v68c-qjf3",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-qw25-v68c-qjf3"
-      },
-      "ratings": [
-        {
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-r64q-w8jr-g9qp",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-r64q-w8jr-g9qp"
-      },
-      "ratings": [
-        {
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-          "versions": [
-            {
-              "version": "1.24.2",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-rrqc-c2jx-6jgv",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-rrqc-c2jx-6jgv"
-      },
-      "ratings": [
-        {
-          "score": 3.7,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-v845-jxx5-vc9f",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-v845-jxx5-vc9f"
-      },
-      "ratings": [
-        {
-          "score": 5.9,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-          "versions": [
-            {
-              "version": "1.24.2",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-v9qg-3j8p-r63v",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-v9qg-3j8p-r63v"
-      },
-      "ratings": [
-        {
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-vfq6-hq5r-27r6",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-vfq6-hq5r-27r6"
-      },
-      "ratings": [
-        {
-          "score": 9.8,
-          "severity": "critical",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-wh4h-v3f2-r2pp",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-wh4h-v3f2-r2pp"
-      },
-      "ratings": [
-        {
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "GHSA-wqvq-5m8c-6g24",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/GHSA-wqvq-5m8c-6g24"
-      },
-      "ratings": [
-        {
-          "score": 6.5,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-          "versions": [
-            {
-              "version": "1.24.2",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2018-16984",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-16984"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 4.9,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.9,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 4,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:S/C:P/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 4.9,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 2.7,
+          "score": 5.6,
           "severity": "low",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N"
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+          "ref": "pkg:npm/elliptic@6.6.1?package-id=9710f417801d51d7",
           "versions": [
             {
-              "version": "2.1",
+              "version": "6.6.1",
               "status": "not_affected"
             }
           ]
@@ -1537,407 +249,168 @@
       "analysis": {
         "state": "not_affected",
         "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in elliptic@6.6.1.",
         "response": [
           "will_not_fix"
         ]
       }
     },
     {
-      "id": "CVE-2019-10906",
+      "id": "GHSA-8cf7-32gw-wr33",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-10906"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-8cf7-32gw-wr33"
       },
       "ratings": [
         {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 8.6,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 7.7,
-          "severity": "high",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:N/SC:H/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 8.6,
+          "score": 8.1,
           "severity": "high",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 9,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
+          "ref": "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6",
           "versions": [
             {
-              "version": "2.10",
-              "status": "not_affected"
+              "version": "8.5.1",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in jinja2@2.10.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside jsonwebtoken@8.5.1 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
         ]
       }
     },
     {
-      "id": "CVE-2019-11236",
+      "id": "GHSA-984p-xq9m-4rjw",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-11236"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-984p-xq9m-4rjw"
       },
       "ratings": [
         {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 4.3,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 6.5,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-          "versions": [
-            {
-              "version": "1.24.2",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2019-11358",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-11358"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "nodejs-security-wg"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 4.3,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
           "score": 5.6,
           "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ruby-advisory-db"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "low"
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+          "ref": "pkg:npm/express-brute@1.0.1?package-id=d22fb67578622577",
           "versions": [
             {
-              "version": "2.1",
-              "status": "not_affected"
+              "version": "1.0.1",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside express-brute@1.0.1 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
         ]
       }
     },
     {
-      "id": "CVE-2019-12308",
+      "id": "GHSA-9965-vmph-33xx",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-12308"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-9965-vmph-33xx"
       },
       "ratings": [
         {
-          "source": {
-            "name": "ghsa"
-          },
           "score": 6.1,
           "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        },
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ],
+      "affects": [
         {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N"
-        },
+          "ref": "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d",
+          "versions": [
+            {
+              "version": "13.12.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside validator@13.12.0 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "GHSA-9965-vmph-33xx",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-9965-vmph-33xx"
+      },
+      "ratings": [
         {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 4.3,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
           "score": 6.1,
           "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 4.7,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:N/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "low"
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+          "ref": "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c",
           "versions": [
             {
-              "version": "2.1",
+              "version": "7.2.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside validator@7.2.0 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "GHSA-gcx4-mw62-g8wm",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-gcx4-mw62-g8wm"
+      },
+      "ratings": [
+        {
+          "score": 6.4,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:H"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/rollup@0.57.1?package-id=894503fd4c7002dd",
+          "versions": [
+            {
+              "version": "0.57.1",
               "status": "not_affected"
             }
           ]
@@ -1946,545 +419,97 @@
       "analysis": {
         "state": "not_affected",
         "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in rollup@0.57.1.",
         "response": [
           "will_not_fix"
         ]
       }
     },
     {
-      "id": "CVE-2019-12781",
+      "id": "GHSA-gcx4-mw62-g8wm",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-12781"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-gcx4-mw62-g8wm"
       },
       "ratings": [
         {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
-        },
+          "score": 6.4,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:H"
+        }
+      ],
+      "affects": [
         {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.9,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N"
-        },
+          "ref": "pkg:npm/rollup@1.32.1?package-id=9638eac612785eaf",
+          "versions": [
+            {
+              "version": "1.32.1",
+              "status": "not_affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "not_affected",
+        "justification": "code_not_reachable",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in rollup@1.32.1.",
+        "response": [
+          "will_not_fix"
+        ]
+      }
+    },
+    {
+      "id": "GHSA-hjrf-2m68-5959",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-hjrf-2m68-5959"
+      },
+      "ratings": [
         {
-          "source": {
-            "name": "nvd"
-          },
           "score": 5,
           "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:N/C:P/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 4.8,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+          "ref": "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6",
           "versions": [
             {
-              "version": "2.1",
-              "status": "not_affected"
+              "version": "8.5.1",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside jsonwebtoken@8.5.1 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
         ]
       }
     },
     {
-      "id": "CVE-2019-14232",
+      "id": "GHSA-mw96-cpmx-2vgc",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-14232"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-mw96-cpmx-2vgc"
       },
       "ratings": [
         {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 8.7,
-          "severity": "high",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2019-14233",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-14233"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 8.7,
-          "severity": "high",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2019-14234",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-14234"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 9.8,
-          "severity": "critical",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 9.3,
-          "severity": "critical",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 9.8,
-          "severity": "critical",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2019-14235",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-14235"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 8.7,
-          "severity": "high",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2019-19118",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-19118"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 7.1,
-          "severity": "high",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 4,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:S/C:N/I:P/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 6.5,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 6.5,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2019-19844",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-19844"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 9.8,
-          "severity": "critical",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 9.3,
-          "severity": "critical",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 9.8,
-          "severity": "critical",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 9.8,
-          "severity": "critical",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
           "severity": "high"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+          "ref": "pkg:npm/rollup@0.57.1?package-id=894503fd4c7002dd",
           "versions": [
             {
-              "version": "2.1",
+              "version": "0.57.1",
               "status": "not_affected"
             }
           ]
@@ -2493,77 +518,29 @@
       "analysis": {
         "state": "not_affected",
         "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in rollup@0.57.1.",
         "response": [
           "will_not_fix"
         ]
       }
     },
     {
-      "id": "CVE-2019-3498",
+      "id": "GHSA-mw96-cpmx-2vgc",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-3498"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-mw96-cpmx-2vgc"
       },
       "ratings": [
         {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.5,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 7.1,
-          "severity": "high",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 4.3,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 6.5,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 4.3,
-          "severity": "low",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "severity": "high"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+          "ref": "pkg:npm/rollup@1.32.1?package-id=9638eac612785eaf",
           "versions": [
             {
-              "version": "2.1",
+              "version": "1.32.1",
               "status": "not_affected"
             }
           ]
@@ -2572,89 +549,32 @@
       "analysis": {
         "state": "not_affected",
         "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in rollup@1.32.1.",
         "response": [
           "will_not_fix"
         ]
       }
     },
     {
-      "id": "CVE-2019-6446",
+      "id": "GHSA-p6mc-m468-83gw",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-6446"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-p6mc-m468-83gw"
       },
       "ratings": [
         {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 9.8,
-          "severity": "critical",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 9.3,
-          "severity": "critical",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 7.5,
+          "score": 7.4,
           "severity": "high",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 9.8,
-          "severity": "critical",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 8.8,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
+          "ref": "pkg:npm/lodash.pick@4.4.0?package-id=fb3a12827b72a1f8",
           "versions": [
             {
-              "version": "1.15.0",
+              "version": "4.4.0",
               "status": "not_affected"
             }
           ]
@@ -2663,1010 +583,451 @@
       "analysis": {
         "state": "not_affected",
         "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in numpy@1.15.0.",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in lodash.pick@4.4.0.",
         "response": [
           "will_not_fix"
         ]
       }
     },
     {
-      "id": "CVE-2019-6975",
+      "id": "GHSA-p8p7-x288-28g6",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-6975"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-p8p7-x288-28g6"
       },
       "ratings": [
         {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 8.7,
-          "severity": "high",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5,
+          "score": 6.1,
           "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ],
+      "affects": [
         {
-          "source": {
-            "name": "nvd"
-          },
+          "ref": "pkg:npm/request@2.88.2?package-id=936ef43b79c5cc4b",
+          "versions": [
+            {
+              "version": "2.88.2",
+              "status": "not_affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "not_affected",
+        "justification": "code_not_reachable",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in request@2.88.2.",
+        "response": [
+          "will_not_fix"
+        ]
+      }
+    },
+    {
+      "id": "GHSA-pfq8-rq6v-vf5m",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-pfq8-rq6v-vf5m"
+      },
+      "ratings": [
+        {
           "score": 7.5,
           "severity": "high",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "affects": [
         {
-          "source": {
-            "name": "redhat"
-          },
+          "ref": "pkg:npm/html-minifier@4.0.0?package-id=52d39a04d9079d74",
+          "versions": [
+            {
+              "version": "4.0.0",
+              "status": "not_affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "not_affected",
+        "justification": "code_not_reachable",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in html-minifier@4.0.0.",
+        "response": [
+          "will_not_fix"
+        ]
+      }
+    },
+    {
+      "id": "GHSA-qgmg-gppg-76g5",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-qgmg-gppg-76g5"
+      },
+      "ratings": [
+        {
           "score": 5.3,
           "severity": "medium",
           "method": "CVSSv3",
           "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+          "ref": "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c",
           "versions": [
             {
-              "version": "2.1",
-              "status": "not_affected"
+              "version": "7.2.0",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside validator@7.2.0 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
         ]
       }
     },
     {
-      "id": "CVE-2020-26137",
+      "id": "GHSA-qwph-4952-7xr6",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-26137"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-qwph-4952-7xr6"
       },
       "ratings": [
         {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.5,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.9,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
           "score": 6.4,
           "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 6.5,
-          "severity": "medium",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 6.5,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:H/A:L"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+          "ref": "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6",
           "versions": [
             {
-              "version": "1.24.2",
-              "status": "not_affected"
+              "version": "8.5.1",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside jsonwebtoken@8.5.1 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
         ]
       }
     },
     {
-      "id": "CVE-2020-28493",
+      "id": "GHSA-vghf-hv5q-vc2g",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-28493"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-vghf-hv5q-vc2g"
       },
       "ratings": [
         {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.9,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 7.5,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "low"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
-          "versions": [
-            {
-              "version": "2.10",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in jinja2@2.10.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2020-7471",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-7471"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "bitnami"
-          },
-          "score": 9.8,
-          "severity": "critical",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 9.8,
-          "severity": "critical",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 9.3,
-          "severity": "critical",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:N/C:P/I:P/A:P"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 9.8,
-          "severity": "critical",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 9.8,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2021-33203",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-33203"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "bitnami"
-          },
-          "score": 4.9,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 4.9,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.9,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 4,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:S/C:P/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 4.9,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 4.9,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "low"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2021-33430",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-33430"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:H/AT:N/PR:L/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 3.5,
-          "severity": "info",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:M/Au:S/C:N/I:N/A:P"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 7.5,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
-          "versions": [
-            {
-              "version": "1.15.0",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in numpy@1.15.0.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2021-34141",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-34141"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 2.2,
-          "severity": "low",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:N/I:N/A:L"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
-          "versions": [
-            {
-              "version": "1.15.0",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in numpy@1.15.0.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2021-41495",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-41495"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
           "score": 7.5,
           "severity": "high",
           "method": "CVSSv31",
           "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
+        }
+      ],
+      "affects": [
         {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 3.5,
-          "severity": "info",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:M/Au:S/C:N/I:N/A:P"
-        },
+          "ref": "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d",
+          "versions": [
+            {
+              "version": "13.12.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside validator@13.12.0 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "GHSA-vghf-hv5q-vc2g",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-vghf-hv5q-vc2g"
+      },
+      "ratings": [
         {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
           "score": 7.5,
-          "severity": "medium",
+          "severity": "high",
           "method": "CVSSv31",
           "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
+          "ref": "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c",
           "versions": [
             {
-              "version": "1.15.0",
-              "status": "not_affected"
+              "version": "7.2.0",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in numpy@1.15.0.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside validator@7.2.0 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
         ]
       }
     },
     {
-      "id": "CVE-2021-41496",
+      "id": "GHSA-xgwh-cgv9-783v",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-41496"
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-xgwh-cgv9-783v"
       },
       "ratings": [
         {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.5,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 2.1,
-          "severity": "info",
-          "method": "CVSSv2",
-          "vector": "AV:L/AC:L/Au:N/C:N/I:N/A:P"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5.5,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 5.5,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
-          "versions": [
-            {
-              "version": "1.15.0",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in numpy@1.15.0.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2022-36359",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-36359"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "bitnami"
-          },
           "score": 8.8,
           "severity": "high",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 8.8,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 8.8,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+          "ref": "pkg:npm/%40tryghost/members-csv@2.0.7?package-id=456a8d7c3e5e4d0c",
           "versions": [
             {
-              "version": "2.1",
-              "status": "not_affected"
+              "version": "2.0.7",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside @tryghost/members-csv@2.0.7 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
         ]
       }
     },
     {
-      "id": "CVE-2023-32681",
+      "id": "CVE-2016-20018",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-32681"
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-20018"
       },
       "ratings": [
         {
           "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
             "name": "ghsa"
           },
-          "score": 6.1,
-          "severity": "medium",
+          "score": 7.5,
+          "severity": "high",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
         },
         {
           "source": {
             "name": "nvd"
           },
-          "score": 6.1,
-          "severity": "medium",
+          "score": 7.5,
+          "severity": "high",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
+          "ref": "pkg:npm/knex@0.20.15?package-id=1c93412cfec0a87b",
           "versions": [
             {
-              "version": "2.20.0",
-              "status": "not_affected"
+              "version": "0.20.15",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in requests@2.20.0.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside knex@0.20.15 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
         ]
       }
     },
     {
-      "id": "CVE-2023-43804",
+      "id": "CVE-2020-8203",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-43804"
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-8203"
       },
       "ratings": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.9,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:N"
-        },
         {
           "source": {
             "name": "ghsa"
           },
           "score": 7.4,
           "severity": "high",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:N/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N"
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 5.8,
+          "severity": "medium",
+          "method": "CVSSv2",
+          "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:P"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 7.4,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 7.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H"
+        },
+        {
+          "source": {
+            "name": "ruby-advisory-db"
+          },
+          "severity": "high"
+        },
+        {
+          "source": {
+            "name": "ubuntu"
+          },
+          "severity": "medium"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/lodash.pick@4.4.0?package-id=fb3a12827b72a1f8",
+          "versions": [
+            {
+              "version": "4.4.0",
+              "status": "not_affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "not_affected",
+        "justification": "code_not_reachable",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in lodash.pick@4.4.0.",
+        "response": [
+          "will_not_fix"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2021-3765",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-3765"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 5,
+          "severity": "medium",
+          "method": "CVSSv2",
+          "vector": "AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 7.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c",
+          "versions": [
+            {
+              "version": "7.2.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside validator@7.2.0 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2022-23539",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-23539"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 8.1,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N"
         },
         {
           "source": {
@@ -3679,156 +1040,185 @@
         },
         {
           "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
             "name": "redhat"
           },
-          "score": 5.9,
+          "score": 8.1,
           "severity": "medium",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+          "ref": "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6",
           "versions": [
             {
-              "version": "1.24.2",
-              "status": "not_affected"
+              "version": "8.5.1",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside jsonwebtoken@8.5.1 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
         ]
       }
     },
     {
-      "id": "CVE-2023-45803",
+      "id": "CVE-2022-23540",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-45803"
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-23540"
       },
       "ratings": [
         {
           "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
             "name": "ghsa"
           },
-          "score": 4.2,
+          "score": 6.4,
           "severity": "medium",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:A/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.7,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:A/AC:L/AT:P/PR:H/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N"
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:H/A:L"
         },
         {
           "source": {
             "name": "nvd"
           },
-          "score": 4.2,
-          "severity": "medium",
+          "score": 7.6,
+          "severity": "high",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:A/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:H/A:L"
         },
         {
           "source": {
             "name": "redhat"
           },
-          "score": 4.2,
+          "score": 6.4,
           "severity": "medium",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:A/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:H/A:L"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+          "ref": "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6",
           "versions": [
             {
-              "version": "1.24.2",
+              "version": "8.5.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside jsonwebtoken@8.5.1 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2022-23541",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-23541"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 6.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:L"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:L"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/jsonwebtoken@8.5.1?package-id=4666e4db192a50e6",
+          "versions": [
+            {
+              "version": "8.5.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside jsonwebtoken@8.5.1 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2022-37620",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-37620"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 8.7,
+          "severity": "high",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/html-minifier@4.0.0?package-id=52d39a04d9079d74",
+          "versions": [
+            {
+              "version": "4.0.0",
               "status": "not_affected"
             }
           ]
@@ -3837,37 +1227,19 @@
       "analysis": {
         "state": "not_affected",
         "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in html-minifier@4.0.0.",
         "response": [
           "will_not_fix"
         ]
       }
     },
     {
-      "id": "CVE-2024-22195",
+      "id": "CVE-2023-28155",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-22195"
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-28155"
       },
       "ratings": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "medium"
-        },
         {
           "source": {
             "name": "cbl-mariner"
@@ -3878,10 +1250,10 @@
           "source": {
             "name": "ghsa"
           },
-          "score": 5.4,
+          "score": 6.1,
           "severity": "medium",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
         },
         {
           "source": {
@@ -3894,44 +1266,20 @@
         },
         {
           "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
             "name": "redhat"
           },
-          "score": 5.4,
+          "score": 6.1,
           "severity": "medium",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
+          "ref": "pkg:npm/request@2.88.2?package-id=936ef43b79c5cc4b",
           "versions": [
             {
-              "version": "2.10",
+              "version": "2.88.2",
               "status": "not_affected"
             }
           ]
@@ -3940,336 +1288,27 @@
       "analysis": {
         "state": "not_affected",
         "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in jinja2@2.10.",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in request@2.88.2.",
         "response": [
           "will_not_fix"
         ]
       }
     },
     {
-      "id": "CVE-2024-34064",
+      "id": "CVE-2023-44270",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-34064"
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-44270"
       },
       "ratings": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
         {
           "source": {
             "name": "ghsa"
-          },
-          "score": 5.4,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 5.4,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
-          "versions": [
-            {
-              "version": "2.10",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in jinja2@2.10.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2024-35195",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-35195"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.6,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 5.6,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
-          "versions": [
-            {
-              "version": "2.20.0",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in requests@2.20.0.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2024-37891",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-37891"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 4.4,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 6.5,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 4.4,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "low"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-          "versions": [
-            {
-              "version": "1.24.2",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2024-45231",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-45231"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "bitnami"
           },
           "score": 5.3,
           "severity": "medium",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 3.7,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.3,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
         },
         {
           "source": {
@@ -4278,95 +1317,7 @@
           "score": 5.3,
           "severity": "medium",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 3.7,
-          "severity": "low",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "low"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2024-47081",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-47081"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
         },
         {
           "source": {
@@ -4375,27 +1326,15 @@
           "score": 5.3,
           "severity": "medium",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
+          "ref": "pkg:npm/postcss@7.0.39?package-id=50630d53a171d75b",
           "versions": [
             {
-              "version": "2.20.0",
+              "version": "7.0.39",
               "status": "not_affected"
             }
           ]
@@ -4404,154 +1343,27 @@
       "analysis": {
         "state": "not_affected",
         "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in requests@2.20.0.",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in postcss@7.0.39.",
         "response": [
           "will_not_fix"
         ]
       }
     },
     {
-      "id": "CVE-2024-56326",
+      "id": "CVE-2023-45133",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-56326"
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-45133"
       },
       "ratings": [
         {
           "source": {
-            "name": "alma"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
             "name": "ghsa"
           },
-          "score": 7.8,
-          "severity": "medium",
+          "score": 9.4,
+          "severity": "critical",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.4,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 6.3,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
-          "versions": [
-            {
-              "version": "2.10",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in jinja2@2.10.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2025-27516",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-27516"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.4,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:L/AC:L/AT:P/PR:L/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N"
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H"
         },
         {
           "source": {
@@ -4564,44 +1376,20 @@
         },
         {
           "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
             "name": "redhat"
           },
-          "score": 7.3,
+          "score": 8.8,
           "severity": "high",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
+          "ref": "pkg:npm/babel-traverse@6.26.0?package-id=856115d5d3df8daf",
           "versions": [
             {
-              "version": "2.10",
+              "version": "6.26.0",
               "status": "not_affected"
             }
           ]
@@ -4610,115 +1398,239 @@
       "analysis": {
         "state": "not_affected",
         "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in jinja2@2.10.",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in babel-traverse@6.26.0.",
         "response": [
           "will_not_fix"
         ]
       }
     },
     {
-      "id": "CVE-2025-48432",
+      "id": "CVE-2024-34448",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-48432"
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-34448"
       },
       "ratings": [
         {
           "source": {
             "name": "bitnami"
           },
-          "score": 5.3,
-          "severity": "medium",
+          "score": 8.8,
+          "severity": "high",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
         },
         {
           "source": {
             "name": "ghsa"
           },
-          "score": 4,
-          "severity": "medium",
+          "score": 8.8,
+          "severity": "high",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 5.4,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "low"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+          "ref": "pkg:npm/%40tryghost/members-csv@2.0.7?package-id=456a8d7c3e5e4d0c",
           "versions": [
             {
-              "version": "2.1",
-              "status": "not_affected"
+              "version": "2.0.7",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside @tryghost/members-csv@2.0.7 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
         ]
       }
     },
     {
-      "id": "CVE-2025-50181",
+      "id": "CVE-2025-12758",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-50181"
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-12758"
       },
       "ratings": [
         {
           "source": {
-            "name": "amazon"
+            "name": "ghsa"
           },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
         },
         {
           "source": {
             "name": "ghsa"
           },
-          "score": 5.3,
+          "score": 7.7,
+          "severity": "high",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:P"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d",
+          "versions": [
+            {
+              "version": "13.12.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside validator@13.12.0 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2025-12758",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-12758"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.7,
+          "severity": "high",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:P"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c",
+          "versions": [
+            {
+              "version": "7.2.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside validator@7.2.0 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2025-56200",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-56200"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 6.1,
           "severity": "medium",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/validator@13.12.0?package-id=2979ea9563dfe75d",
+          "versions": [
+            {
+              "version": "13.12.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside validator@13.12.0 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2025-56200",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-56200"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/validator@7.2.0?package-id=b9e092900e5cbb3c",
+          "versions": [
+            {
+              "version": "7.2.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside validator@7.2.0 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-40181",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40181"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 6.6,
+          "severity": "medium",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N/E:U"
         },
         {
           "source": {
@@ -4731,9 +1643,453 @@
         },
         {
           "source": {
-            "name": "photon"
+            "name": "redhat"
           },
-          "severity": "medium"
+          "score": 5.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc",
+          "versions": [
+            {
+              "version": "7.14.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside react-router@7.14.0 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-41305",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41305"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/postcss@7.0.39?package-id=50630d53a171d75b",
+          "versions": [
+            {
+              "version": "7.0.39",
+              "status": "not_affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "not_affected",
+        "justification": "code_not_reachable",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in postcss@7.0.39.",
+        "response": [
+          "will_not_fix"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-41907",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41907"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 6.3,
+          "severity": "medium",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 4.8,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/uuid@3.4.0?package-id=303cbc8eab8d1a55",
+          "versions": [
+            {
+              "version": "3.4.0",
+              "status": "not_affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "not_affected",
+        "justification": "code_not_reachable",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in uuid@3.4.0.",
+        "response": [
+          "will_not_fix"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-41907",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41907"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 6.3,
+          "severity": "medium",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 4.8,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/uuid@7.0.3?package-id=310c9742cf6b78e5",
+          "versions": [
+            {
+              "version": "7.0.3",
+              "status": "not_affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "not_affected",
+        "justification": "code_not_reachable",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in uuid@7.0.3.",
+        "response": [
+          "will_not_fix"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-41907",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41907"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 6.3,
+          "severity": "medium",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 4.8,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/uuid@9.0.1?package-id=0ad59841e16c6e2e",
+          "versions": [
+            {
+              "version": "9.0.1",
+              "status": "not_affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "not_affected",
+        "justification": "code_not_reachable",
+        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in uuid@9.0.1.",
+        "response": [
+          "will_not_fix"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-42211",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42211"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 8.1,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc",
+          "versions": [
+            {
+              "version": "7.14.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside react-router@7.14.0 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-42342",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42342"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 6.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc",
+          "versions": [
+            {
+              "version": "7.14.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside react-router@7.14.0 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-5038",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5038"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        },
+        {
+          "source": {
+            "name": "nvd"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/multer@2.1.1?package-id=9c332194f503a118",
+          "versions": [
+            {
+              "version": "2.1.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside multer@2.1.1 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-5079",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5079"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/multer@2.1.1?package-id=9c332194f503a118",
+          "versions": [
+            {
+              "version": "2.1.1",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside multer@2.1.1 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-53550",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53550"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
         },
         {
           "source": {
@@ -4742,640 +2098,36 @@
           "score": 5.3,
           "severity": "medium",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+          "ref": "pkg:npm/js-yaml@3.14.2?package-id=f317f2211b0f5bb6",
           "versions": [
             {
-              "version": "1.24.2",
-              "status": "not_affected"
+              "version": "3.14.2",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside js-yaml@3.14.2 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
         ]
       }
     },
     {
-      "id": "CVE-2025-57833",
+      "id": "CVE-2026-53571",
       "source": {
         "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-57833"
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53571"
       },
       "ratings": [
-        {
-          "source": {
-            "name": "bitnami"
-          },
-          "score": 8.1,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 7.1,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 8.1,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 7.1,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2025-64458",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-64458"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "bitnami"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2025-64459",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-64459"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "bitnami"
-          },
-          "score": 9.1,
-          "severity": "critical",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 9.1,
-          "severity": "critical",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 8.3,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
-          "versions": [
-            {
-              "version": "2.1",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in django@2.1.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2025-66418",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66418"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 8.9,
-          "severity": "high",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-          "versions": [
-            {
-              "version": "1.24.2",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2025-66471",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66471"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 8.9,
-          "severity": "high",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-          "versions": [
-            {
-              "version": "1.24.2",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2026-21441",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21441"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 8.9,
-          "severity": "high",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 7.5,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
-          "versions": [
-            {
-              "version": "1.24.2",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2026-25645",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25645"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 4.4,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:N/I:H/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 5.5,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 4.7,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:H/A:N"
-        }
-      ],
-      "affects": [
-        {
-          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
-          "versions": [
-            {
-              "version": "2.20.0",
-              "status": "not_affected"
-            }
-          ]
-        }
-      ],
-      "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in requests@2.20.0.",
-        "response": [
-          "will_not_fix"
-        ]
-      }
-    },
-    {
-      "id": "CVE-2026-44431",
-      "source": {
-        "name": "NVD",
-        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44431"
-      },
-      "ratings": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "azure"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.3,
-          "severity": "high",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
-        },
         {
           "source": {
             "name": "ghsa"
@@ -5383,62 +2135,201 @@
           "score": 8.2,
           "severity": "high",
           "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N"
+          "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N"
         },
         {
           "source": {
             "name": "nvd"
           },
-          "score": 5.3,
-          "severity": "medium",
+          "score": 7.5,
+          "severity": "high",
           "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 5.9,
-          "severity": "medium",
-          "method": "CVSSv31",
-          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "high"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
         }
       ],
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+          "ref": "pkg:npm/vite@7.3.2?package-id=40bf1b7786d30ce1",
           "versions": [
             {
-              "version": "1.24.2",
-              "status": "not_affected"
+              "version": "7.3.2",
+              "status": "affected"
             }
           ]
         }
       ],
       "analysis": {
-        "state": "not_affected",
-        "justification": "code_not_reachable",
-        "detail": "Callstack reachability analysis using Framework-Forward Reachability (FFR) and Semantic Reachability verified that the entry points do not connect to vulnerable functions in urllib3@1.24.2.",
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside vite@7.3.2 are invoked during execution. Patching is recommended.",
         "response": [
-          "will_not_fix"
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-53632",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53632"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 5.5,
+          "severity": "medium",
+          "method": "CVSSv4",
+          "vector": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:H/SI:H/SA:H"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/vite@7.3.2?package-id=40bf1b7786d30ce1",
+          "versions": [
+            {
+              "version": "7.3.2",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside vite@7.3.2 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "CVE-2026-53663",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53663"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 3.1,
+          "severity": "low",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N"
+        },
+        {
+          "source": {
+            "name": "redhat"
+          },
+          "score": 3.1,
+          "severity": "low",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/react-router@7.14.0?package-id=433cff6bfe0f84cc",
+          "versions": [
+            {
+              "version": "7.14.0",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside react-router@7.14.0 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "GHSA-g7r4-m6w7-qqqr",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-g7r4-m6w7-qqqr"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 2.5,
+          "severity": "low",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/esbuild@0.27.7?package-id=dfd9b88f799a15cb",
+          "versions": [
+            {
+              "version": "0.27.7",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside esbuild@0.27.7 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
+        ]
+      }
+    },
+    {
+      "id": "GHSA-p6gq-j5cr-w38f",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/GHSA-p6gq-j5cr-w38f"
+      },
+      "ratings": [
+        {
+          "source": {
+            "name": "ghsa"
+          },
+          "score": 7.1,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:npm/nodemailer@8.0.11?package-id=795e45d0d31699a5",
+          "versions": [
+            {
+              "version": "8.0.11",
+              "status": "affected"
+            }
+          ]
+        }
+      ],
+      "analysis": {
+        "state": "affected",
+        "justification": null,
+        "detail": "Semantic slice analysis showed that functions inside nodemailer@8.0.11 are invoked during execution. Patching is recommended.",
+        "response": [
+          "update"
         ]
       }
     }
