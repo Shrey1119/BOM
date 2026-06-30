@@ -98,7 +98,7 @@ class ScannerSpinner:
         elapsed = time.time() - self._start_time
         
         if self.is_tty:
-            icon = f"{C.B_GREEN}✔{C.RESET}" if success else f"{C.B_RED}✘{C.RESET}"
+            icon = f"{C.B_GREEN}OK{C.RESET}" if success else f"{C.B_RED}FAIL{C.RESET}"
             status = f"{C.B_GREEN}DONE{C.RESET}" if success else f"{C.B_RED}FAIL{C.RESET}"
             sys.stdout.write(f"\r  {icon} {self.label}  {C.DIM}[{elapsed:.1f}s]{C.RESET}  [{status}]\n")
             sys.stdout.flush()
@@ -116,12 +116,12 @@ def print_phase_header():
     """Print the scanner phase header banner."""
     print()
     if sys.stdout.isatty():
-        print(f"  {C.BOLD}{C.B_CYAN}╔══════════════════════════════════════════════════════════╗{C.RESET}")
-        print(f"  {C.BOLD}{C.B_CYAN}║{C.RESET}       {C.BOLD}{C.WHITE}SBOM  MULTI-SCANNER  ORCHESTRATION  ENGINE{C.RESET}        {C.BOLD}{C.B_CYAN}║{C.RESET}")
-        print(f"  {C.BOLD}{C.B_CYAN}╠══════════════════════════════════════════════════════════╣{C.RESET}")
-        print(f"  {C.BOLD}{C.B_CYAN}║{C.RESET}  {C.DIM}Scanners: Syft + Grype │ Trivy │ cdxgen{C.RESET}                {C.BOLD}{C.B_CYAN}║{C.RESET}")
-        print(f"  {C.BOLD}{C.B_CYAN}║{C.RESET}  {C.DIM}Output  : CycloneDX JSON (merged){C.RESET}                     {C.BOLD}{C.B_CYAN}║{C.RESET}")
-        print(f"  {C.BOLD}{C.B_CYAN}╚══════════════════════════════════════════════════════════╝{C.RESET}")
+        print(f"  {C.BOLD}{C.B_CYAN}+----------------------------------------------------------+{C.RESET}")
+        print(f"  {C.BOLD}{C.B_CYAN}|{C.RESET}       {C.BOLD}{C.WHITE}SBOM  MULTI-SCANNER  ORCHESTRATION  ENGINE{C.RESET}        {C.BOLD}{C.B_CYAN}|{C.RESET}")
+        print(f"  {C.BOLD}{C.B_CYAN}+----------------------------------------------------------+{C.RESET}")
+        print(f"  {C.BOLD}{C.B_CYAN}|{C.RESET}  {C.DIM}Scanners: Syft + Grype | Trivy | cdxgen{C.RESET}                {C.BOLD}{C.B_CYAN}|{C.RESET}")
+        print(f"  {C.BOLD}{C.B_CYAN}|{C.RESET}  {C.DIM}Output  : CycloneDX JSON (merged){C.RESET}                     {C.BOLD}{C.B_CYAN}|{C.RESET}")
+        print(f"  {C.BOLD}{C.B_CYAN}+----------------------------------------------------------+{C.RESET}")
     else:
         print(f"  +----------------------------------------------------------+")
         print(f"  |       SBOM  MULTI-SCANNER  ORCHESTRATION  ENGINE         |")
@@ -135,13 +135,13 @@ def print_phase_header():
 def print_phase_start(num, total, name, detail=""):
     """Print a phase start line."""
     if sys.stdout.isatty():
-        bar = "━" * 58
-        print(f"  {C.BOLD}{C.B_BLUE}┌{bar}┐{C.RESET}")
+        bar = "-" * 58
+        print(f"  {C.BOLD}{C.B_BLUE}+{bar}+{C.RESET}")
         tag = f"Phase {num}/{total}"
-        print(f"  {C.BOLD}{C.B_BLUE}│{C.RESET}  {C.BOLD}{C.B_CYAN}▸ {tag}{C.RESET}  {C.BOLD}{name}{C.RESET}")
+        print(f"  {C.BOLD}{C.B_BLUE}|{C.RESET}  {C.BOLD}{C.B_CYAN}> {tag}{C.RESET}  {C.BOLD}{name}{C.RESET}")
         if detail:
-            print(f"  {C.BOLD}{C.B_BLUE}│{C.RESET}    {C.DIM}{detail}{C.RESET}")
-        print(f"  {C.BOLD}{C.B_BLUE}└{bar}┘{C.RESET}")
+            print(f"  {C.BOLD}{C.B_BLUE}|{C.RESET}    {C.DIM}{detail}{C.RESET}")
+        print(f"  {C.BOLD}{C.B_BLUE}+{bar}+{C.RESET}")
     else:
         bar = "-" * 58
         print(f"  +{bar}+")
@@ -155,7 +155,7 @@ def print_phase_start(num, total, name, detail=""):
 def print_scan_result(label, count, color=C.B_GREEN):
     """Print a scan result metric."""
     if sys.stdout.isatty():
-        print(f"    {C.DIM}├─{C.RESET} {label}: {color}{C.BOLD}{count}{C.RESET}")
+        print(f"    {C.DIM}|-{C.RESET} {label}: {color}{C.BOLD}{count}{C.RESET}")
     else:
         print(f"    |- {label}: {count}")
 
@@ -164,9 +164,9 @@ def print_quality_summary(results):
     """Print a colored quality summary table after all scans."""
     print()
     if sys.stdout.isatty():
-        print(f"  {C.BOLD}{C.B_MAGENTA}┌──────────────────────────────────────────────────────────┐{C.RESET}")
-        print(f"  {C.BOLD}{C.B_MAGENTA}│{C.RESET}  {C.BOLD}{C.WHITE}📊  SCAN QUALITY SUMMARY{C.RESET}                                {C.BOLD}{C.B_MAGENTA}│{C.RESET}")
-        print(f"  {C.BOLD}{C.B_MAGENTA}├──────────────────────────────────────────────────────────┤{C.RESET}")
+        print(f"  {C.BOLD}{C.B_MAGENTA}+----------------------------------------------------------+{C.RESET}")
+        print(f"  {C.BOLD}{C.B_MAGENTA}|{C.RESET}  {C.BOLD}{C.WHITE}SCAN QUALITY SUMMARY{C.RESET}                                    {C.BOLD}{C.B_MAGENTA}|{C.RESET}")
+        print(f"  {C.BOLD}{C.B_MAGENTA}+----------------------------------------------------------+{C.RESET}")
     else:
         print(f"  +----------------------------------------------------------+")
         print(f"  |  SCAN QUALITY SUMMARY                                    |")
@@ -191,22 +191,22 @@ def print_quality_summary(results):
         
         if sys.stdout.isatty():
             purl_color = C.B_GREEN if purl_pct >= 95 else (C.B_YELLOW if purl_pct >= 80 else C.B_RED)
-            print(f"  {C.BOLD}{C.B_MAGENTA}│{C.RESET}  {C.BOLD}{C.CYAN}{scanner_name:14s}{C.RESET}"
+            print(f"  {C.BOLD}{C.B_MAGENTA}|{C.RESET}  {C.BOLD}{C.CYAN}{scanner_name:14s}{C.RESET}"
                   f"  Comps: {C.BOLD}{comps:>5}{C.RESET}"
                   f"  Vulns: {C.BOLD}{vulns:>4}{C.RESET}"
                   f"  PURL: {purl_color}{purl_pct:5.1f}%{C.RESET}"
-                  f"  {C.DIM}{elapsed:5.1f}s{C.RESET} {C.BOLD}{C.B_MAGENTA}│{C.RESET}")
+                  f"  {C.DIM}{elapsed:5.1f}s{C.RESET} {C.BOLD}{C.B_MAGENTA}|{C.RESET}")
         else:
             print(f"  |  {scanner_name:14s}  Comps: {comps:>5}  Vulns: {vulns:>4}  PURL: {purl_pct:5.1f}%  {elapsed:5.1f}s |")
 
     if sys.stdout.isatty():
-        print(f"  {C.BOLD}{C.B_MAGENTA}├──────────────────────────────────────────────────────────┤{C.RESET}")
-        print(f"  {C.BOLD}{C.B_MAGENTA}│{C.RESET}  {C.BOLD}TOTALS{C.RESET}"
+        print(f"  {C.BOLD}{C.B_MAGENTA}+----------------------------------------------------------+{C.RESET}")
+        print(f"  {C.BOLD}{C.B_MAGENTA}|{C.RESET}  {C.BOLD}TOTALS{C.RESET}"
               f"          Comps: {C.B_GREEN}{C.BOLD}{total_comps:>5}{C.RESET}"
               f"  Vulns: {C.B_YELLOW}{C.BOLD}{total_vulns:>4}{C.RESET}"
               f"  Hashes: {C.BOLD}{total_hashes:>5}{C.RESET}"
-              f"       {C.BOLD}{C.B_MAGENTA}│{C.RESET}")
-        print(f"  {C.BOLD}{C.B_MAGENTA}└──────────────────────────────────────────────────────────┘{C.RESET}")
+              f"       {C.BOLD}{C.B_MAGENTA}|{C.RESET}")
+        print(f"  {C.BOLD}{C.B_MAGENTA}+----------------------------------------------------------+{C.RESET}")
     else:
         print(f"  +----------------------------------------------------------+")
         print(f"  |  TOTALS          Comps: {total_comps:>5}  Vulns: {total_vulns:>4}  Hashes: {total_hashes:>5}       |")
@@ -218,20 +218,20 @@ def print_completion_banner(total_elapsed):
     """Print the final completion banner with animation."""
     if sys.stdout.isatty():
         bar_width = 40
-        # Animated progress bar fill
+        # Animated progress bar fill (using CP1252-safe ASCII # and -)
         for i in range(bar_width + 1):
-            filled = "█" * i
-            empty = "░" * (bar_width - i)
+            filled = "#" * i
+            empty = "-" * (bar_width - i)
             pct = int((i / bar_width) * 100)
             sys.stdout.write(f"\r  {C.B_GREEN}  [{filled}{empty}] {pct}%{C.RESET}")
             sys.stdout.flush()
             time.sleep(0.015)
         print()
         print()
-        print(f"  {C.BOLD}{C.B_GREEN}╔══════════════════════════════════════════════════════════╗{C.RESET}")
-        print(f"  {C.BOLD}{C.B_GREEN}║{C.RESET}  {C.BOLD}{C.B_GREEN}✔  ALL SCANS COMPLETED SUCCESSFULLY{C.RESET}                    {C.BOLD}{C.B_GREEN}║{C.RESET}")
-        print(f"  {C.BOLD}{C.B_GREEN}║{C.RESET}     {C.DIM}Total elapsed: {total_elapsed:.1f}s{C.RESET}                              {C.BOLD}{C.B_GREEN}║{C.RESET}")
-        print(f"  {C.BOLD}{C.B_GREEN}╚══════════════════════════════════════════════════════════╝{C.RESET}")
+        print(f"  {C.BOLD}{C.B_GREEN}+----------------------------------------------------------+{C.RESET}")
+        print(f"  {C.BOLD}{C.B_GREEN}|{C.RESET}  {C.BOLD}{C.B_GREEN}[OK]  ALL SCANS COMPLETED SUCCESSFULLY{C.RESET}                    {C.BOLD}{C.B_GREEN}|{C.RESET}")
+        print(f"  {C.BOLD}{C.B_GREEN}|{C.RESET}     {C.DIM}Total elapsed: {total_elapsed:.1f}s{C.RESET}                              {C.BOLD}{C.B_GREEN}|{C.RESET}")
+        print(f"  {C.BOLD}{C.B_GREEN}+----------------------------------------------------------+{C.RESET}")
     else:
         print(f"  +----------------------------------------------------------+")
         print(f"  |  ALL SCANS COMPLETED SUCCESSFULLY                        |")
