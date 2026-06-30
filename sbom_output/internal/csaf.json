@@ -11,11 +11,11 @@
       "id": "CSAF-20260630-001",
       "status": "final",
       "version": "1",
-      "initial_release_date": "2026-06-30T07:04:10.336639Z",
-      "current_release_date": "2026-06-30T07:04:10.336639Z",
+      "initial_release_date": "2026-06-30T10:24:03.418397Z",
+      "current_release_date": "2026-06-30T10:24:03.418397Z",
       "revision_history": [
         {
-          "date": "2026-06-30T07:04:10.336639Z",
+          "date": "2026-06-30T10:24:03.418397Z",
           "number": "1",
           "summary": "Initial release"
         }
@@ -38,9 +38,84 @@
       {
         "category": "product_family",
         "name": "Client-Assigned Scanning Service",
-        "branches": []
+        "branches": [
+          {
+            "category": "product_version",
+            "name": "MimeKit@4.3.0.0",
+            "product": {
+              "name": "MimeKit",
+              "product_id": "pkg:nuget/MimeKit@4.3.0.0?package-id=e7d0eb2c67a4f8db"
+            }
+          },
+          {
+            "category": "product_version",
+            "name": "MimeKit@4.3.0.0",
+            "product": {
+              "name": "MimeKit",
+              "product_id": "pkg:nuget/MimeKit@4.3.0.0?package-id=e7d0eb2c67a4f8db"
+            }
+          }
+        ]
       }
     ]
   },
-  "vulnerabilities": []
+  "vulnerabilities": [
+    {
+      "cve": "GHSA-g7hc-96xr-gvvx",
+      "title": "Active exploitation path in MimeKit",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside MimeKit@4.3.0.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:nuget/MimeKit@4.3.0.0?package-id=e7d0eb2c67a4f8db"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade MimeKit to remediate vulnerability GHSA-g7hc-96xr-gvvx.",
+          "product_ids": [
+            "pkg:nuget/MimeKit@4.3.0.0?package-id=e7d0eb2c67a4f8db"
+          ]
+        }
+      ],
+      "scores": []
+    },
+    {
+      "cve": "GHSA-gmc6-fwg3-75m5",
+      "title": "Active exploitation path in MimeKit",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Semantic slice analysis showed that functions inside MimeKit@4.3.0.0 are invoked during execution. Patching is recommended."
+        }
+      ],
+      "product_status": {
+        "known_affected": [
+          "pkg:nuget/MimeKit@4.3.0.0?package-id=e7d0eb2c67a4f8db"
+        ]
+      },
+      "remediations": [
+        {
+          "category": "vendor_fix",
+          "details": "Upgrade MimeKit to remediate vulnerability GHSA-gmc6-fwg3-75m5.",
+          "product_ids": [
+            "pkg:nuget/MimeKit@4.3.0.0?package-id=e7d0eb2c67a4f8db"
+          ]
+        }
+      ],
+      "scores": [
+        {
+          "cvss_v3": {
+            "baseScore": 7.5,
+            "version": "3.1"
+          }
+        }
+      ]
+    }
+  ]
 }
