@@ -1,159 +1,164 @@
 {
-  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
-  "specVersion": "1.7",
-  "serialNumber": "urn:uuid:eb7918c7-3ef4-40d9-970b-6c6eca3c36db",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:8afca40a-4380-4885-a06c-b1ab610fa5a4",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-26T09:25:48Z",
+    "timestamp": "2026-06-30T07:03:56Z",
     "tools": {
       "components": [
         {
           "type": "application",
-          "manufacturer": {
-            "name": "Aqua Security Software Ltd."
-          },
-          "group": "aquasecurity",
-          "name": "trivy",
-          "version": "0.71.2"
+          "name": "Enterprise SBOM Merge Engine (manifest-cli logic)",
+          "version": "2.0.0"
         }
       ]
     },
     "component": {
-      "bom-ref": "b68f9330-d702-4d1f-b620-699d49b848e5",
+      "bom-ref": "unified-project",
       "type": "application",
-      "name": "C:/Users/ADMIN/OneDrive/Desktop/BOM/BOM/mock_project",
-      "properties": [
-        {
-          "name": "aquasecurity:trivy:SchemaVersion",
-          "value": "2"
-        }
-      ]
+      "name": "D:/College Work/Internship/BOM/mock_project"
     },
+    "properties": [
+      {
+        "name": "merge_engine:syft_total",
+        "value": "5"
+      },
+      {
+        "name": "merge_engine:trivy_total",
+        "value": "6"
+      },
+      {
+        "name": "merge_engine:cdxgen_total",
+        "value": "5"
+      },
+      {
+        "name": "merge_engine:common_total",
+        "value": "5"
+      },
+      {
+        "name": "merge_engine:unique_final",
+        "value": "5"
+      }
+    ],
     "authors": [
       {
-        "name": "Compliance & Enrichment Specialist (Team Member 3)",
-        "email": "compliance-specialist@company.internal"
+        "name": "Client-Assigned Scanning Service",
+        "email": "security@antigravity.ai"
       }
     ]
   },
   "components": [
     {
-      "bom-ref": "0ae73463-8087-4356-ac88-9644318a5c77",
-      "type": "application",
-      "name": "requirements.txt",
-      "properties": [
-        {
-          "name": "aquasecurity:trivy:Class",
-          "value": "lang-pkgs"
-        },
-        {
-          "name": "aquasecurity:trivy:Type",
-          "value": "pip"
-        },
-        {
-          "name": "origin",
-          "value": "open-source"
-        },
-        {
-          "name": "patch_status",
-          "value": "up-to-date"
-        },
-        {
-          "name": "release_date",
-          "value": "2026-06-26T09:25:49.183802Z"
-        },
-        {
-          "name": "eol_date",
-          "value": "2029-06-25T09:25:49Z"
-        },
-        {
-          "name": "criticality",
-          "value": "low"
-        },
-        {
-          "name": "usage_restrictions",
-          "value": "None"
-        },
-        {
-          "name": "comments",
-          "value": "Scanned and verified library"
-        },
-        {
-          "name": "executable",
-          "value": "false"
-        },
-        {
-          "name": "archive",
-          "value": "true"
-        },
-        {
-          "name": "structured",
-          "value": "CycloneDX JSON v1.6"
-        },
-        {
-          "name": "criticality_reason",
-          "value": "Score 15: component type='application' (+15)"
-        },
-        {
-          "name": "executable_evidence",
-          "value": "CycloneDX type=application"
-        },
-        {
-          "name": "executable_detection_method",
-          "value": "CycloneDX component type field"
-        },
-        {
-          "name": "trust_score",
-          "value": "60%"
-        },
-        {
-          "name": "trust_score_reasons",
-          "value": "+25: Hash/checksum verified\n+20: PURL identifier available\n+15: License identified (Apache-2.0)"
-        },
-        {
-          "name": "repository_registry",
-          "value": "PyPI"
-        },
-        {
-          "name": "repository_url",
-          "value": "https://pypi.org/project/requirements.txt/"
-        },
-        {
-          "name": "repository_ecosystem",
-          "value": "Python"
-        }
+      "bom-ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+      "type": "library",
+      "name": "django",
+      "version": "2.1",
+      "purl": "pkg:pypi/django@2.1",
+      "cpe": "cpe:2.3:a:django:django:2.1:*:*:*:*:*:*:*",
+      "cpes": [
+        "cpe:2.3:a:django:django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:django:python-django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:django:python_django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-django:django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-django:python-django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-django:python_django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:python-django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:python_django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_django:django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_django:python-django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_django:python_django:2.1:*:*:*:*:*:*:*"
       ],
-      "version": "1.0.0",
-      "purl": "pkg:pypi/requirements.txt@1.0.0",
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "5a1746a9ad87d4184bd3c808b308163e2338567322000faed5d660162710a91b"
+          "content": "6a47faad96b2260a0c790126423204636c74da97f045941f158ec1fabb64d516"
         }
       ],
-      "description": "Python package requirements.txt",
-      "supplier": {
-        "name": "Unknown / Open Source Community"
-      },
       "licenses": [
         {
           "license": {
             "name": "Apache-2.0"
           }
         }
-      ]
-    },
-    {
-      "bom-ref": "pkg:pypi/django@2.1",
-      "type": "library",
-      "name": "django",
-      "version": "2.1",
-      "purl": "pkg:pypi/django@2.1",
+      ],
+      "description": "A high-level Python web framework that encourages rapid development and clean, pragmatic design.",
+      "supplier": {
+        "name": "Django Software Foundation (DSF)"
+      },
       "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-django:python_django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_django:python-django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_django:python_django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:django:python-django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:django:python_django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-django:django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_django:django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:django:django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        },
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
+        },
+        {
+          "name": "SrcFile",
+          "value": "mock_project\\requirements.txt"
         },
         {
           "name": "origin",
@@ -185,15 +190,15 @@
         },
         {
           "name": "executable",
-          "value": "false"
+          "value": "Library"
         },
         {
           "name": "archive",
-          "value": "true"
+          "value": "false"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6"
+          "value": "CycloneDX JSON v1.6 (Merged)"
         },
         {
           "name": "criticality_reason",
@@ -228,34 +233,143 @@
           "value": "Python"
         }
       ],
+      "detected_by": [
+        "syft",
+        "trivy",
+        "cdxgen"
+      ],
+      "evidence_sources": [
+        "Trivy Scan Discovery",
+        "\\requirements.txt",
+        "cdxgen Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "5a8338fd-44ef-4ae3-954e-e9b6fed9e043",
+      "evidence": {
+        "identity": {
+          "field": "purl",
+          "confidence": 0.5,
+          "methods": [
+            {
+              "technique": "manifest-analysis",
+              "confidence": 0.5,
+              "value": "D:\\College Work\\Internship\\BOM\\mock_project\\requirements.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "bom-ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
+      "type": "library",
+      "name": "jinja2",
+      "version": "2.10",
+      "purl": "pkg:pypi/jinja2@2.10",
+      "cpe": "cpe:2.3:a:jinja2:jinja2:2.10:*:*:*:*:*:*:*",
+      "cpes": [
+        "cpe:2.3:a:jinja2:jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:jinja2:python-jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:jinja2:python_jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-jinja2:jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-jinja2:python-jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-jinja2:python_jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:python-jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:python_jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_jinja2:jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_jinja2:python-jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_jinja2:python_jinja2:2.10:*:*:*:*:*:*:*"
+      ],
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "6a47faad96b2260a0c790126423204636c74da97f045941f158ec1fabb64d516"
+          "content": "bea121f34d38d518061caf57e02bb1c4f665b69fb9fabb86adc06c5528c723b6"
         }
       ],
-      "description": "A high-level Python web framework that encourages rapid development and clean, pragmatic design.",
-      "supplier": {
-        "name": "Django Software Foundation (DSF)"
-      },
       "licenses": [
         {
           "license": {
             "name": "Apache-2.0"
           }
         }
-      ]
-    },
-    {
-      "bom-ref": "pkg:pypi/jinja2@2.10",
-      "type": "library",
-      "name": "jinja2",
-      "version": "2.10",
-      "purl": "pkg:pypi/jinja2@2.10",
+      ],
+      "description": "A very fast and expressive template engine.",
+      "supplier": {
+        "name": "Pallets Projects"
+      },
       "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-jinja2:python_jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_jinja2:python-jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_jinja2:python_jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jinja2:python-jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jinja2:python_jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-jinja2:jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_jinja2:jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jinja2:jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        },
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
+        },
+        {
+          "name": "SrcFile",
+          "value": "mock_project\\requirements.txt"
         },
         {
           "name": "origin",
@@ -275,7 +389,7 @@
         },
         {
           "name": "criticality",
-          "value": "low"
+          "value": "medium"
         },
         {
           "name": "usage_restrictions",
@@ -283,23 +397,23 @@
         },
         {
           "name": "comments",
-          "value": "Scanned and verified library"
+          "value": "Modern and designer-friendly templating language for Python"
         },
         {
           "name": "executable",
-          "value": "false"
+          "value": "Library"
         },
         {
           "name": "archive",
-          "value": "true"
+          "value": "false"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6"
+          "value": "CycloneDX JSON v1.6 (Merged)"
         },
         {
           "name": "criticality_reason",
-          "value": "Score 10: component type='library' (+10)"
+          "value": "Manually overridden in config to 'medium'"
         },
         {
           "name": "executable_evidence",
@@ -311,11 +425,11 @@
         },
         {
           "name": "trust_score",
-          "value": "90%"
+          "value": "100%"
         },
         {
           "name": "trust_score_reasons",
-          "value": "+30: Version confirmed from package registry (API available)\n+25: Hash/checksum verified\n+20: PURL identifier available\n+15: License identified (Apache-2.0)"
+          "value": "+30: Version confirmed from package registry (API available)\n+25: Hash/checksum verified\n+20: PURL identifier available\n+15: License identified (Apache-2.0)\n+10: Manually reviewed in config overrides"
         },
         {
           "name": "repository_registry",
@@ -330,34 +444,143 @@
           "value": "Python"
         }
       ],
+      "detected_by": [
+        "syft",
+        "trivy",
+        "cdxgen"
+      ],
+      "evidence_sources": [
+        "Trivy Scan Discovery",
+        "\\requirements.txt",
+        "cdxgen Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "61d74738-5061-4c3e-bee2-749015545632",
+      "evidence": {
+        "identity": {
+          "field": "purl",
+          "confidence": 0.5,
+          "methods": [
+            {
+              "technique": "manifest-analysis",
+              "confidence": 0.5,
+              "value": "D:\\College Work\\Internship\\BOM\\mock_project\\requirements.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "bom-ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
+      "type": "library",
+      "name": "numpy",
+      "version": "1.15.0",
+      "purl": "pkg:pypi/numpy@1.15.0",
+      "cpe": "cpe:2.3:a:numpy:numpy:1.15.0:*:*:*:*:*:*:*",
+      "cpes": [
+        "cpe:2.3:a:numpy:numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:numpy:python-numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:numpy:python_numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-numpy:numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-numpy:python-numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-numpy:python_numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:python-numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:python_numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_numpy:numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_numpy:python-numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_numpy:python_numpy:1.15.0:*:*:*:*:*:*:*"
+      ],
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "bea121f34d38d518061caf57e02bb1c4f665b69fb9fabb86adc06c5528c723b6"
+          "content": "a890e78aadf77316231617827af6b351817d6b81592d7754f2c149a5f6acb461"
         }
       ],
-      "description": "A very fast and expressive template engine.",
-      "supplier": {
-        "name": "Unknown / Open Source Community"
-      },
       "licenses": [
         {
           "license": {
             "name": "Apache-2.0"
           }
         }
-      ]
-    },
-    {
-      "bom-ref": "pkg:pypi/numpy@1.15.0",
-      "type": "library",
-      "name": "numpy",
-      "version": "1.15.0",
-      "purl": "pkg:pypi/numpy@1.15.0",
+      ],
+      "description": "Fundamental package for array computing in Python",
+      "supplier": {
+        "name": "NumPy Developers"
+      },
       "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-numpy:python_numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_numpy:python-numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_numpy:python_numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:numpy:python-numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:numpy:python_numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-numpy:numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_numpy:numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:numpy:numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        },
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
+        },
+        {
+          "name": "SrcFile",
+          "value": "mock_project\\requirements.txt"
         },
         {
           "name": "origin",
@@ -389,15 +612,15 @@
         },
         {
           "name": "executable",
-          "value": "false"
+          "value": "Library"
         },
         {
           "name": "archive",
-          "value": "true"
+          "value": "false"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6"
+          "value": "CycloneDX JSON v1.6 (Merged)"
         },
         {
           "name": "criticality_reason",
@@ -432,34 +655,88 @@
           "value": "Python"
         }
       ],
+      "detected_by": [
+        "syft",
+        "trivy",
+        "cdxgen"
+      ],
+      "evidence_sources": [
+        "Trivy Scan Discovery",
+        "\\requirements.txt",
+        "cdxgen Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "378a12f6-87b8-4486-98fa-c70d241e2fbb",
+      "evidence": {
+        "identity": {
+          "field": "purl",
+          "confidence": 0.5,
+          "methods": [
+            {
+              "technique": "manifest-analysis",
+              "confidence": 0.5,
+              "value": "D:\\College Work\\Internship\\BOM\\mock_project\\requirements.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "bom-ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
+      "type": "library",
+      "name": "requests",
+      "version": "2.20.0",
+      "purl": "pkg:pypi/requests@2.20.0",
+      "cpe": "cpe:2.3:a:python:requests:2.20.0:*:*:*:*:*:*:*",
+      "cpes": [
+        "cpe:2.3:a:python:requests:2.20.0:*:*:*:*:*:*:*"
+      ],
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "a890e78aadf77316231617827af6b351817d6b81592d7754f2c149a5f6acb461"
+          "content": "29a9bb27fe60f04758f00863f6aa01ca04b0b56e4dcdec179843c3f3154d2060"
         }
       ],
-      "description": "Fundamental package for array computing in Python",
-      "supplier": {
-        "name": "NumPy Developers"
-      },
       "licenses": [
         {
           "license": {
             "name": "Apache-2.0"
           }
         }
-      ]
-    },
-    {
-      "bom-ref": "pkg:pypi/requests@2.20.0",
-      "type": "library",
-      "name": "requests",
-      "version": "2.20.0",
-      "purl": "pkg:pypi/requests@2.20.0",
+      ],
+      "description": "Python HTTP for Humans.",
+      "supplier": {
+        "name": "Kenneth Reitz & Requests Community"
+      },
       "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        },
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
+        },
+        {
+          "name": "SrcFile",
+          "value": "mock_project\\requirements.txt"
         },
         {
           "name": "origin",
@@ -491,15 +768,15 @@
         },
         {
           "name": "executable",
-          "value": "false"
+          "value": "Library"
         },
         {
           "name": "archive",
-          "value": "true"
+          "value": "false"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6"
+          "value": "CycloneDX JSON v1.6 (Merged)"
         },
         {
           "name": "criticality_reason",
@@ -534,34 +811,88 @@
           "value": "Python"
         }
       ],
+      "detected_by": [
+        "syft",
+        "trivy",
+        "cdxgen"
+      ],
+      "evidence_sources": [
+        "Trivy Scan Discovery",
+        "\\requirements.txt",
+        "cdxgen Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "657211e6-aff9-4348-81da-4f9c61bc4622",
+      "evidence": {
+        "identity": {
+          "field": "purl",
+          "confidence": 0.5,
+          "methods": [
+            {
+              "technique": "manifest-analysis",
+              "confidence": 0.5,
+              "value": "D:\\College Work\\Internship\\BOM\\mock_project\\requirements.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "bom-ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+      "type": "library",
+      "name": "urllib3",
+      "version": "1.24.2",
+      "purl": "pkg:pypi/urllib3@1.24.2",
+      "cpe": "cpe:2.3:a:python:urllib3:1.24.2:*:*:*:*:*:*:*",
+      "cpes": [
+        "cpe:2.3:a:python:urllib3:1.24.2:*:*:*:*:*:*:*"
+      ],
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "29a9bb27fe60f04758f00863f6aa01ca04b0b56e4dcdec179843c3f3154d2060"
+          "content": "889a9b94b689167429f8308130822e9a6214d91f8558a220c2814e7faeb48800"
         }
       ],
-      "description": "Python HTTP for Humans.",
-      "supplier": {
-        "name": "Kenneth Reitz & Requests Community"
-      },
       "licenses": [
         {
           "license": {
             "name": "Apache-2.0"
           }
         }
-      ]
-    },
-    {
-      "bom-ref": "pkg:pypi/urllib3@1.24.2",
-      "type": "library",
-      "name": "urllib3",
-      "version": "1.24.2",
-      "purl": "pkg:pypi/urllib3@1.24.2",
+      ],
+      "description": "HTTP library with thread-safe connection pooling, file post, and more.",
+      "supplier": {
+        "name": "urllib3 Contributors"
+      },
       "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        },
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
+        },
+        {
+          "name": "SrcFile",
+          "value": "mock_project\\requirements.txt"
         },
         {
           "name": "origin",
@@ -593,15 +924,15 @@
         },
         {
           "name": "executable",
-          "value": "false"
+          "value": "Library"
         },
         {
           "name": "archive",
-          "value": "true"
+          "value": "false"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6"
+          "value": "CycloneDX JSON v1.6 (Merged)"
         },
         {
           "name": "criticality_reason",
@@ -636,64 +967,1616 @@
           "value": "Python"
         }
       ],
-      "hashes": [
-        {
-          "alg": "SHA-256",
-          "content": "889a9b94b689167429f8308130822e9a6214d91f8558a220c2814e7faeb48800"
-        }
+      "detected_by": [
+        "syft",
+        "trivy",
+        "cdxgen"
       ],
-      "description": "HTTP library with thread-safe connection pooling, file post, and more.",
-      "supplier": {
-        "name": "urllib3 Contributors"
-      },
-      "licenses": [
-        {
-          "license": {
-            "name": "Apache-2.0"
-          }
+      "evidence_sources": [
+        "Trivy Scan Discovery",
+        "\\requirements.txt",
+        "cdxgen Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "7987dded-a29a-4989-ab89-91ad91fe1da9",
+      "evidence": {
+        "identity": {
+          "field": "purl",
+          "confidence": 0.5,
+          "methods": [
+            {
+              "technique": "manifest-analysis",
+              "confidence": 0.5,
+              "value": "D:\\College Work\\Internship\\BOM\\mock_project\\requirements.txt"
+            }
+          ]
         }
-      ]
+      }
     }
   ],
   "dependencies": [
     {
-      "ref": "0ae73463-8087-4356-ac88-9644318a5c77",
+      "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
+      "dependsOn": []
+    },
+    {
+      "ref": "cf9bc59e-dc98-4d12-b5c2-1ed1787458a9",
       "dependsOn": [
-        "pkg:pypi/django@2.1",
-        "pkg:pypi/jinja2@2.10",
-        "pkg:pypi/numpy@1.15.0",
-        "pkg:pypi/requests@2.20.0",
-        "pkg:pypi/urllib3@1.24.2"
+        "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
+        "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
+        "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+        "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+        "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
       ]
     },
     {
-      "ref": "b68f9330-d702-4d1f-b620-699d49b848e5",
+      "ref": "353f8837-1a1d-4ad2-9e62-16b1729d9af3",
       "dependsOn": [
-        "0ae73463-8087-4356-ac88-9644318a5c77"
+        "cf9bc59e-dc98-4d12-b5c2-1ed1787458a9"
       ]
     },
     {
-      "ref": "pkg:pypi/django@2.1",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:pypi/jinja2@2.10",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:pypi/numpy@1.15.0",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:pypi/requests@2.20.0",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:pypi/urllib3@1.24.2",
+      "ref": "pkg:pypi/mock-project@latest",
       "dependsOn": []
     }
   ],
   "vulnerabilities": [
+    {
+      "bom-ref": "urn:uuid:cc174781-fa75-4807-9205-2298e87c3abd",
+      "id": "GHSA-2xpw-w6gg-jr37",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-2xpw-w6gg-jr37"
+      },
+      "references": [
+        {
+          "id": "GHSA-2xpw-w6gg-jr37",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-2xpw-w6gg-jr37"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "severity": "high"
+        }
+      ],
+      "description": "urllib3 streaming API improperly handles highly compressed data",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-2xpw-w6gg-jr37"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:7b60613f-4a40-4114-846f-9f7d7fe0d01a",
+      "id": "GHSA-337x-4q8g-prc5",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-337x-4q8g-prc5"
+      },
+      "references": [
+        {
+          "id": "GHSA-337x-4q8g-prc5",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-337x-4q8g-prc5"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.5,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N"
+        }
+      ],
+      "description": "Improper Input Validation in Django",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-337x-4q8g-prc5"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:4e984e22-391a-4c5a-8fe2-e073c12f7579",
+      "id": "GHSA-34jh-p97f-mpxf",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-34jh-p97f-mpxf"
+      },
+      "references": [
+        {
+          "id": "GHSA-34jh-p97f-mpxf",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-34jh-p97f-mpxf"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 4.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        }
+      ],
+      "description": "urllib3's Proxy-Authorization request header isn't stripped during cross-origin redirects",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-34jh-p97f-mpxf"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:64de1fe9-42aa-4854-abf5-64f375a4b4d5",
+      "id": "GHSA-38jv-5279-wg99",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-38jv-5279-wg99"
+      },
+      "references": [
+        {
+          "id": "GHSA-38jv-5279-wg99",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-38jv-5279-wg99"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Decompression-bomb safeguards bypassed when following HTTP redirects (streaming API)",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-38jv-5279-wg99"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:57d9916c-2898-41af-8d4c-654e6241bd58",
+      "id": "GHSA-462w-v97r-4m45",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-462w-v97r-4m45"
+      },
+      "references": [
+        {
+          "id": "GHSA-462w-v97r-4m45",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-462w-v97r-4m45"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 8.6,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N"
+        }
+      ],
+      "description": "Jinja2 sandbox escape via string formatting",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-462w-v97r-4m45"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:f6efc162-e424-4c22-841d-63efc2b45e0f",
+      "id": "GHSA-5545-2q6w-2gh6",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-5545-2q6w-2gh6"
+      },
+      "references": [
+        {
+          "id": "GHSA-5545-2q6w-2gh6",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-5545-2q6w-2gh6"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "NumPy NULL Pointer Dereference",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-5545-2q6w-2gh6"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:535282ec-84dc-4444-a89b-ec243f11436d",
+      "id": "GHSA-68w8-qjq3-2gfm",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-68w8-qjq3-2gfm"
+      },
+      "references": [
+        {
+          "id": "GHSA-68w8-qjq3-2gfm",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-68w8-qjq3-2gfm"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 4.9,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        }
+      ],
+      "description": "Path Traversal in Django",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-68w8-qjq3-2gfm"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:8f7eb055-4c5f-4e0f-8277-b66b6a70a90f",
+      "id": "GHSA-6c3j-c64m-qhgq",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-6c3j-c64m-qhgq"
+      },
+      "references": [
+        {
+          "id": "GHSA-6c3j-c64m-qhgq",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-6c3j-c64m-qhgq"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ],
+      "description": "XSS in jQuery as used in Drupal, Backdrop CMS, and other products",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-6c3j-c64m-qhgq"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:45c59925-3e70-46fb-a094-3f1122a14044",
+      "id": "GHSA-6c7v-2f49-8h26",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-6c7v-2f49-8h26"
+      },
+      "references": [
+        {
+          "id": "GHSA-6c7v-2f49-8h26",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-6c7v-2f49-8h26"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+        }
+      ],
+      "description": "Django Incorrect HTTP detection with reverse-proxy connecting via HTTPS",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-6c7v-2f49-8h26"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:8418bae2-63e1-4646-b9eb-e31e16c2255c",
+      "id": "GHSA-6mx3-3vqg-hpp2",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-6mx3-3vqg-hpp2"
+      },
+      "references": [
+        {
+          "id": "GHSA-6mx3-3vqg-hpp2",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-6mx3-3vqg-hpp2"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 4.9,
+          "severity": "medium",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        }
+      ],
+      "description": "Django allows unprivileged users to read the password hashes of arbitrary accounts",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-6mx3-3vqg-hpp2"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:038414e2-4859-4759-a159-d59b80e678ab",
+      "id": "GHSA-6p56-wp2h-9hxr",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-6p56-wp2h-9hxr"
+      },
+      "references": [
+        {
+          "id": "GHSA-6p56-wp2h-9hxr",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-6p56-wp2h-9hxr"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "NumPy Buffer Overflow (Disputed)",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-6p56-wp2h-9hxr"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:cad8a6ca-ef78-484c-a050-765ea221f0d4",
+      "id": "GHSA-6r97-cj55-9hrq",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-6r97-cj55-9hrq"
+      },
+      "references": [
+        {
+          "id": "GHSA-6r97-cj55-9hrq",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-6r97-cj55-9hrq"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 9.8,
+          "severity": "critical",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "description": "SQL Injection in Django",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-6r97-cj55-9hrq"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:1c312eab-8421-422d-b41e-d8784dd34a04",
+      "id": "GHSA-6w2r-r2m5-xq5w",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-6w2r-r2m5-xq5w"
+      },
+      "references": [
+        {
+          "id": "GHSA-6w2r-r2m5-xq5w",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-6w2r-r2m5-xq5w"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.1,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:H/I:L/A:N"
+        }
+      ],
+      "description": "Django is subject to SQL injection through its column aliases",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-6w2r-r2m5-xq5w"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:1b06dd5f-408c-4e0a-ae6b-83255204a4b3",
+      "id": "GHSA-7rp2-fm2h-wchj",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-7rp2-fm2h-wchj"
+      },
+      "references": [
+        {
+          "id": "GHSA-7rp2-fm2h-wchj",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-7rp2-fm2h-wchj"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ],
+      "description": "Django Cross-site Scripting in AdminURLFieldWidget",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-7rp2-fm2h-wchj"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:1162236f-5987-4472-b126-993d6a479c0d",
+      "id": "GHSA-7xr5-9hcq-chf9",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-7xr5-9hcq-chf9"
+      },
+      "references": [
+        {
+          "id": "GHSA-7xr5-9hcq-chf9",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-7xr5-9hcq-chf9"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N"
+        }
+      ],
+      "description": "Django Improper Output Neutralization for Logs vulnerability",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-7xr5-9hcq-chf9"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:fa37c579-2041-4b8c-9b36-474c99483e3c",
+      "id": "GHSA-8x94-hmjh-97hq",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-8x94-hmjh-97hq"
+      },
+      "references": [
+        {
+          "id": "GHSA-8x94-hmjh-97hq",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-8x94-hmjh-97hq"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 8.8,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "description": "Django vulnerable to Reflected File Download attack",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-8x94-hmjh-97hq"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:4cd0e62c-8f58-47f3-9317-4696b03ae2f3",
+      "id": "GHSA-9fq2-x9r6-wfmf",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-9fq2-x9r6-wfmf"
+      },
+      "references": [
+        {
+          "id": "GHSA-9fq2-x9r6-wfmf",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-9fq2-x9r6-wfmf"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 9.8,
+          "severity": "critical",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "description": "Numpy Deserialization of Untrusted Data",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-9fq2-x9r6-wfmf"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:3f417eaa-e29e-4460-bc83-e1038e336b3b",
+      "id": "GHSA-9hjg-9r4m-mvj7",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-9hjg-9r4m-mvj7"
+      },
+      "references": [
+        {
+          "id": "GHSA-9hjg-9r4m-mvj7",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-9hjg-9r4m-mvj7"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+        }
+      ],
+      "description": "Requests vulnerable to .netrc credentials leak via malicious URLs",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-9hjg-9r4m-mvj7"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:c8c94f32-9ba6-4c25-8acc-c9be7cccced4",
+      "id": "GHSA-9wx4-h78v-vm56",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-9wx4-h78v-vm56"
+      },
+      "references": [
+        {
+          "id": "GHSA-9wx4-h78v-vm56",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-9wx4-h78v-vm56"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.6,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N"
+        }
+      ],
+      "description": "Requests `Session` object does not verify requests after making first request with verify=False",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-9wx4-h78v-vm56"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:daada3ff-bf27-4a49-8f7c-7617132d4738",
+      "id": "GHSA-c4qh-4vgv-qc6g",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-c4qh-4vgv-qc6g"
+      },
+      "references": [
+        {
+          "id": "GHSA-c4qh-4vgv-qc6g",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-c4qh-4vgv-qc6g"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Django Denial-of-service in django.utils.text.Truncator",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-c4qh-4vgv-qc6g"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:dfc513ea-8d70-4b83-9b7e-c76c967fa4c2",
+      "id": "GHSA-cpwx-vrp4-4pq7",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-cpwx-vrp4-4pq7"
+      },
+      "references": [
+        {
+          "id": "GHSA-cpwx-vrp4-4pq7",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-cpwx-vrp4-4pq7"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "severity": "medium"
+        }
+      ],
+      "description": "Jinja2 vulnerable to sandbox breakout through attr filter selecting format method",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-cpwx-vrp4-4pq7"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:771e8e19-27d9-4b00-8e91-59fda6baece0",
+      "id": "GHSA-f7c7-j99h-c22f",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-f7c7-j99h-c22f"
+      },
+      "references": [
+        {
+          "id": "GHSA-f7c7-j99h-c22f",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-f7c7-j99h-c22f"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Buffer Copy without Checking Size of Input in NumPy",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-f7c7-j99h-c22f"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:01f30d42-004e-4ccf-9617-031698169570",
+      "id": "GHSA-fpfv-jqm9-f5jm",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-fpfv-jqm9-f5jm"
+      },
+      "references": [
+        {
+          "id": "GHSA-fpfv-jqm9-f5jm",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-fpfv-jqm9-f5jm"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        }
+      ],
+      "description": "Incorrect Comparison in NumPy",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-fpfv-jqm9-f5jm"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:53681097-013e-44a4-9a5a-d66986afd9b0",
+      "id": "GHSA-frmv-pr5f-9mcr",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-frmv-pr5f-9mcr"
+      },
+      "references": [
+        {
+          "id": "GHSA-frmv-pr5f-9mcr",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-frmv-pr5f-9mcr"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 9.1,
+          "severity": "critical",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+        }
+      ],
+      "description": "Django vulnerable to SQL injection via _connector keyword argument in QuerySet and Q objects.",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-frmv-pr5f-9mcr"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:b6f08097-467f-4c42-9d75-beca7db38c55",
+      "id": "GHSA-g3rq-g295-4j3m",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-g3rq-g295-4j3m"
+      },
+      "references": [
+        {
+          "id": "GHSA-g3rq-g295-4j3m",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-g3rq-g295-4j3m"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+        }
+      ],
+      "description": "Regular Expression Denial of Service (ReDoS) in Jinja2",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-g3rq-g295-4j3m"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:478dc67d-e127-4b87-a13d-f35cdfe63817",
+      "id": "GHSA-g4mx-q9vg-27p4",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-g4mx-q9vg-27p4"
+      },
+      "references": [
+        {
+          "id": "GHSA-g4mx-q9vg-27p4",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-g4mx-q9vg-27p4"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 4.2,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:A/AC:H/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        }
+      ],
+      "description": "urllib3's request body not stripped after redirect from 303 status changes request method to GET",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-g4mx-q9vg-27p4"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:40e76ae4-89d5-4df9-93ef-c2bcbc0317c1",
+      "id": "GHSA-gm62-xv2j-4w53",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-gm62-xv2j-4w53"
+      },
+      "references": [
+        {
+          "id": "GHSA-gm62-xv2j-4w53",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-gm62-xv2j-4w53"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "severity": "high"
+        }
+      ],
+      "description": "urllib3 allows an unbounded number of links in the decompression chain",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-gm62-xv2j-4w53"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:b65bf0e6-fa8f-465d-829a-77b5c222d8a7",
+      "id": "GHSA-h5c8-rqwp-cp95",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-h5c8-rqwp-cp95"
+      },
+      "references": [
+        {
+          "id": "GHSA-h5c8-rqwp-cp95",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-h5c8-rqwp-cp95"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+        }
+      ],
+      "description": "Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-h5c8-rqwp-cp95"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:454e800a-171c-46d4-894a-d4d5a73a09f1",
+      "id": "GHSA-h5jv-4p7w-64jg",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-h5jv-4p7w-64jg"
+      },
+      "references": [
+        {
+          "id": "GHSA-h5jv-4p7w-64jg",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-h5jv-4p7w-64jg"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Django Denial-of-service in strip_tags()",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-h5jv-4p7w-64jg"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:75a1a72f-7102-40d6-9a26-5d422fbd640d",
+      "id": "GHSA-h75v-3vvj-5mfj",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-h75v-3vvj-5mfj"
+      },
+      "references": [
+        {
+          "id": "GHSA-h75v-3vvj-5mfj",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-h75v-3vvj-5mfj"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.4,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+        }
+      ],
+      "description": "Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-h75v-3vvj-5mfj"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:ea8152f7-d2bc-4fbe-be0c-3b293508bd7a",
+      "id": "GHSA-hmr4-m2h5-33qx",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-hmr4-m2h5-33qx"
+      },
+      "references": [
+        {
+          "id": "GHSA-hmr4-m2h5-33qx",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-hmr4-m2h5-33qx"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 9.8,
+          "severity": "critical",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "description": "SQL injection in Django",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-hmr4-m2h5-33qx"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:8e98ca54-1e3c-4546-b30f-290432246a61",
+      "id": "GHSA-hvmf-r92r-27hr",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-hvmf-r92r-27hr"
+      },
+      "references": [
+        {
+          "id": "GHSA-hvmf-r92r-27hr",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-hvmf-r92r-27hr"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N"
+        }
+      ],
+      "description": "Django allows unintended model editing",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-hvmf-r92r-27hr"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:b451fa82-8e7b-4c32-8fc2-45725ed95f35",
+      "id": "GHSA-j8r2-6x86-q33q",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-j8r2-6x86-q33q"
+      },
+      "references": [
+        {
+          "id": "GHSA-j8r2-6x86-q33q",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-j8r2-6x86-q33q"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N"
+        }
+      ],
+      "description": "Unintended leak of Proxy-Authorization header in requests",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-j8r2-6x86-q33q"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:0811b8ad-d668-4373-8710-9ccf0bcc2f80",
+      "id": "GHSA-pq67-6m6q-mj2v",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-pq67-6m6q-mj2v"
+      },
+      "references": [
+        {
+          "id": "GHSA-pq67-6m6q-mj2v",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-pq67-6m6q-mj2v"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.3,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N"
+        }
+      ],
+      "description": "urllib3 redirects are not disabled when retries are disabled on PoolManager instantiation",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-pq67-6m6q-mj2v"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:ed5fbebe-fafa-499b-943d-d0cc15a2371c",
+      "id": "GHSA-q2x7-8rv6-6q7h",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-q2x7-8rv6-6q7h"
+      },
+      "references": [
+        {
+          "id": "GHSA-q2x7-8rv6-6q7h",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-q2x7-8rv6-6q7h"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.8,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "description": "Jinja has a sandbox breakout through indirect reference to format method",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-q2x7-8rv6-6q7h"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:3cbbc02a-49cc-4384-84a7-d851241f44f3",
+      "id": "GHSA-qw25-v68c-qjf3",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-qw25-v68c-qjf3"
+      },
+      "references": [
+        {
+          "id": "GHSA-qw25-v68c-qjf3",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-qw25-v68c-qjf3"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Django has a denial-of-service vulnerability in HttpResponseRedirect and HttpResponsePermanentRedirect on Windows",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-qw25-v68c-qjf3"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:eb5b5c19-162e-443b-8915-409cb30108fa",
+      "id": "GHSA-r64q-w8jr-g9qp",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-r64q-w8jr-g9qp"
+      },
+      "references": [
+        {
+          "id": "GHSA-r64q-w8jr-g9qp",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-r64q-w8jr-g9qp"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.1,
+          "severity": "medium",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+        }
+      ],
+      "description": "Improper Neutralization of CRLF Sequences in urllib3 library for Python",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-r64q-w8jr-g9qp"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:d863ff89-5aa7-4b8a-bc84-055b18fc8427",
+      "id": "GHSA-rrqc-c2jx-6jgv",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-rrqc-c2jx-6jgv"
+      },
+      "references": [
+        {
+          "id": "GHSA-rrqc-c2jx-6jgv",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-rrqc-c2jx-6jgv"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 3.7,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N"
+        }
+      ],
+      "description": "Django allows enumeration of user e-mail addresses",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-rrqc-c2jx-6jgv"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:5de9ef63-1ae0-4969-980b-f449237b5ec3",
+      "id": "GHSA-v845-jxx5-vc9f",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-v845-jxx5-vc9f"
+      },
+      "references": [
+        {
+          "id": "GHSA-v845-jxx5-vc9f",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-v845-jxx5-vc9f"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 5.9,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:N"
+        }
+      ],
+      "description": "`Cookie` HTTP header isn't stripped on cross-origin redirects",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-v845-jxx5-vc9f"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:c78cbafd-9c86-43eb-8553-6473f3450c03",
+      "id": "GHSA-v9qg-3j8p-r63v",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-v9qg-3j8p-r63v"
+      },
+      "references": [
+        {
+          "id": "GHSA-v9qg-3j8p-r63v",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-v9qg-3j8p-r63v"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Uncontrolled Recursion in Django",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-v9qg-3j8p-r63v"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:01cf0fa1-78d4-4062-b9e8-8ec8e6fc247a",
+      "id": "GHSA-vfq6-hq5r-27r6",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-vfq6-hq5r-27r6"
+      },
+      "references": [
+        {
+          "id": "GHSA-vfq6-hq5r-27r6",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-vfq6-hq5r-27r6"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 9.8,
+          "severity": "critical",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "description": "Django Potential account hijack via password reset form",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-vfq6-hq5r-27r6"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:6027e6ea-38ff-4235-ad05-d3b1776e3569",
+      "id": "GHSA-wh4h-v3f2-r2pp",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-wh4h-v3f2-r2pp"
+      },
+      "references": [
+        {
+          "id": "GHSA-wh4h-v3f2-r2pp",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-wh4h-v3f2-r2pp"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv3",
+          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Uncontrolled Memory Consumption in Django",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-wh4h-v3f2-r2pp"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936"
+        }
+      ]
+    },
+    {
+      "bom-ref": "urn:uuid:4db664de-870a-4173-97e8-7e7afc662c11",
+      "id": "GHSA-wqvq-5m8c-6g24",
+      "source": {
+        "name": "github-language-python",
+        "url": "https://github.com/advisories/GHSA-wqvq-5m8c-6g24"
+      },
+      "references": [
+        {
+          "id": "GHSA-wqvq-5m8c-6g24",
+          "source": {
+            "name": "github-language-python",
+            "url": "https://github.com/advisories/GHSA-wqvq-5m8c-6g24"
+          }
+        }
+      ],
+      "ratings": [
+        {
+          "score": 6.5,
+          "severity": "medium",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+        }
+      ],
+      "description": "CRLF injection in urllib3",
+      "advisories": [
+        {
+          "url": "https://github.com/advisories/GHSA-wqvq-5m8c-6g24"
+        }
+      ],
+      "affects": [
+        {
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c"
+        }
+      ]
+    },
     {
       "id": "CVE-2018-16984",
       "source": {
@@ -800,7 +2683,7 @@
       "updated": "2026-06-17T01:45:10+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -942,70 +2825,46 @@
           "url": "https://linux.oracle.com/errata/ELSA-2019-1152.html"
         },
         {
-          "url": "https://lists.apache.org/thread.html/09fc842ff444cd43d9d4c510756fec625ef8eb1175f14fd21de2605f%40%3Cdevnull.infra.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/09fc842ff444cd43d9d4c510756fec625ef8eb1175f14fd21de2605f@%3Cdevnull.infra.apache.org%3E"
-        },
-        {
-          "url": "https://lists.apache.org/thread.html/2b52b9c8b9d6366a4f1b407a8bde6af28d9fc73fdb3b37695fd0d9ac%40%3Cdevnull.infra.apache.org%3E"
         },
         {
           "url": "https://lists.apache.org/thread.html/2b52b9c8b9d6366a4f1b407a8bde6af28d9fc73fdb3b37695fd0d9ac@%3Cdevnull.infra.apache.org%3E"
         },
         {
-          "url": "https://lists.apache.org/thread.html/320441dccbd9a545320f5f07306d711d4bbd31ba43dc9eebcfc602df%40%3Cdevnull.infra.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/320441dccbd9a545320f5f07306d711d4bbd31ba43dc9eebcfc602df@%3Cdevnull.infra.apache.org%3E"
-        },
-        {
-          "url": "https://lists.apache.org/thread.html/46c055e173b52d599c648a98199972dbd6a89d2b4c4647b0500f2284%40%3Cdevnull.infra.apache.org%3E"
         },
         {
           "url": "https://lists.apache.org/thread.html/46c055e173b52d599c648a98199972dbd6a89d2b4c4647b0500f2284@%3Cdevnull.infra.apache.org%3E"
         },
         {
-          "url": "https://lists.apache.org/thread.html/57673a78c4d5c870d3f21465c7e2946b9f8285c7c57e54c2ae552f02%40%3Ccommits.airflow.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/57673a78c4d5c870d3f21465c7e2946b9f8285c7c57e54c2ae552f02@%3Ccommits.airflow.apache.org%3E"
-        },
-        {
-          "url": "https://lists.apache.org/thread.html/7f39f01392d320dfb48e4901db68daeece62fd60ef20955966739993%40%3Ccommits.airflow.apache.org%3E"
         },
         {
           "url": "https://lists.apache.org/thread.html/7f39f01392d320dfb48e4901db68daeece62fd60ef20955966739993@%3Ccommits.airflow.apache.org%3E"
         },
         {
-          "url": "https://lists.apache.org/thread.html/b2380d147b508bbcb90d2cad443c159e63e12555966ab4f320ee22da%40%3Ccommits.airflow.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/b2380d147b508bbcb90d2cad443c159e63e12555966ab4f320ee22da@%3Ccommits.airflow.apache.org%3E"
-        },
-        {
-          "url": "https://lists.apache.org/thread.html/f0c4a03418bcfe70c539c5dbaf99c04c98da13bfa1d3266f08564316%40%3Ccommits.airflow.apache.org%3E"
         },
         {
           "url": "https://lists.apache.org/thread.html/f0c4a03418bcfe70c539c5dbaf99c04c98da13bfa1d3266f08564316@%3Ccommits.airflow.apache.org%3E"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/DSW3QZMFVVR7YE3UT4YRQA272TYAL5AF/"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/QCDYIS254EJMBNWOG4S5QY6AOTOR4TZU/"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/TS7IVZAJBWOHNRDMFJDIZVFCMRP6YIUQ/"
-        },
-        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DSW3QZMFVVR7YE3UT4YRQA272TYAL5AF"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DSW3QZMFVVR7YE3UT4YRQA272TYAL5AF/"
         },
         {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QCDYIS254EJMBNWOG4S5QY6AOTOR4TZU"
         },
         {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QCDYIS254EJMBNWOG4S5QY6AOTOR4TZU/"
+        },
+        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TS7IVZAJBWOHNRDMFJDIZVFCMRP6YIUQ"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TS7IVZAJBWOHNRDMFJDIZVFCMRP6YIUQ/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-10906"
@@ -1042,7 +2901,7 @@
       "updated": "2026-06-17T02:11:52+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/jinja2@2.10",
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
           "versions": [
             {
               "version": "2.10",
@@ -1253,28 +3112,28 @@
           "url": "https://lists.debian.org/debian-lts-announce/2023/10/msg00012.html"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/NKGPJLVLVYCL4L4B4G5TIOTVK4BKPG72/"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/R62XGEYPUTXMRHGX5I37EBCGQ5COHGKR/"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/TBI45HO533KYHNB5YRO43TBYKA3E3VRL/"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/XOSA2NT4DUQDBEIWE6O7KKD24XND7TE2/"
-        },
-        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NKGPJLVLVYCL4L4B4G5TIOTVK4BKPG72"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NKGPJLVLVYCL4L4B4G5TIOTVK4BKPG72/"
         },
         {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/R62XGEYPUTXMRHGX5I37EBCGQ5COHGKR"
         },
         {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/R62XGEYPUTXMRHGX5I37EBCGQ5COHGKR/"
+        },
+        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TBI45HO533KYHNB5YRO43TBYKA3E3VRL"
         },
         {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TBI45HO533KYHNB5YRO43TBYKA3E3VRL/"
+        },
+        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/XOSA2NT4DUQDBEIWE6O7KKD24XND7TE2"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/XOSA2NT4DUQDBEIWE6O7KKD24XND7TE2/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-11236"
@@ -1305,7 +3164,7 @@
       "updated": "2026-06-17T02:12:35+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2",
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
           "versions": [
             {
               "version": "1.24.2",
@@ -1696,115 +3555,58 @@
           "url": "https://linux.oracle.com/errata/ELSA-2022-7343.html"
         },
         {
-          "url": "https://lists.apache.org/thread.html/08720ef215ee7ab3386c05a1a90a7d1c852bf0706f176a7816bf65fc%40%3Ccommits.airflow.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/08720ef215ee7ab3386c05a1a90a7d1c852bf0706f176a7816bf65fc@%3Ccommits.airflow.apache.org%3E"
-        },
-        {
-          "url": "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f%40%3Cdev.drill.apache.org%3E"
         },
         {
           "url": "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f@%3Cdev.drill.apache.org%3E"
         },
         {
-          "url": "https://lists.apache.org/thread.html/5928aa293e39d248266472210c50f176cac1535220f2486e6a7fa844%40%3Ccommits.airflow.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/5928aa293e39d248266472210c50f176cac1535220f2486e6a7fa844@%3Ccommits.airflow.apache.org%3E"
-        },
-        {
-          "url": "https://lists.apache.org/thread.html/6097cdbd6f0a337bedd9bb5cc441b2d525ff002a96531de367e4259f%40%3Ccommits.airflow.apache.org%3E"
         },
         {
           "url": "https://lists.apache.org/thread.html/6097cdbd6f0a337bedd9bb5cc441b2d525ff002a96531de367e4259f@%3Ccommits.airflow.apache.org%3E"
         },
         {
-          "url": "https://lists.apache.org/thread.html/88fb0362fd40e5b605ea8149f63241537b8b6fb5bfa315391fc5cbb7%40%3Ccommits.airflow.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/88fb0362fd40e5b605ea8149f63241537b8b6fb5bfa315391fc5cbb7@%3Ccommits.airflow.apache.org%3E"
-        },
-        {
-          "url": "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442%40%3Cdev.drill.apache.org%3E"
         },
         {
           "url": "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442@%3Cdev.drill.apache.org%3E"
         },
         {
-          "url": "https://lists.apache.org/thread.html/b736d0784cf02f5a30fbb4c5902762a15ad6d47e17e2c5a17b7d6205%40%3Ccommits.airflow.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/b736d0784cf02f5a30fbb4c5902762a15ad6d47e17e2c5a17b7d6205@%3Ccommits.airflow.apache.org%3E"
-        },
-        {
-          "url": "https://lists.apache.org/thread.html/ba79cf1658741e9f146e4c59b50aee56656ea95d841d358d006c18b6%40%3Ccommits.roller.apache.org%3E"
         },
         {
           "url": "https://lists.apache.org/thread.html/ba79cf1658741e9f146e4c59b50aee56656ea95d841d358d006c18b6@%3Ccommits.roller.apache.org%3E"
         },
         {
-          "url": "https://lists.apache.org/thread.html/bcce5a9c532b386c68dab2f6b3ce8b0cc9b950ec551766e76391caa3%40%3Ccommits.nifi.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/bcce5a9c532b386c68dab2f6b3ce8b0cc9b950ec551766e76391caa3@%3Ccommits.nifi.apache.org%3E"
-        },
-        {
-          "url": "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc%40%3Cissues.drill.apache.org%3E"
         },
         {
           "url": "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc@%3Cissues.drill.apache.org%3E"
         },
         {
-          "url": "https://lists.apache.org/thread.html/r2041a75d3fc09dec55adfd95d598b38d22715303f65c997c054844c9%40%3Cissues.flink.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/r2041a75d3fc09dec55adfd95d598b38d22715303f65c997c054844c9@%3Cissues.flink.apache.org%3E"
-        },
-        {
-          "url": "https://lists.apache.org/thread.html/r2baacab6e0acb5a2092eb46ae04fd6c3e8277b4fd79b1ffb7f3254fa%40%3Cissues.flink.apache.org%3E"
         },
         {
           "url": "https://lists.apache.org/thread.html/r2baacab6e0acb5a2092eb46ae04fd6c3e8277b4fd79b1ffb7f3254fa@%3Cissues.flink.apache.org%3E"
         },
         {
-          "url": "https://lists.apache.org/thread.html/r38f0d1aa3c923c22977fe7376508f030f22e22c1379fbb155bf29766%40%3Cdev.syncope.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/r38f0d1aa3c923c22977fe7376508f030f22e22c1379fbb155bf29766@%3Cdev.syncope.apache.org%3E"
-        },
-        {
-          "url": "https://lists.apache.org/thread.html/r41b5bfe009c845f67d4f68948cc9419ac2d62e287804aafd72892b08%40%3Cissues.flink.apache.org%3E"
         },
         {
           "url": "https://lists.apache.org/thread.html/r41b5bfe009c845f67d4f68948cc9419ac2d62e287804aafd72892b08@%3Cissues.flink.apache.org%3E"
         },
         {
-          "url": "https://lists.apache.org/thread.html/r7aac081cbddb6baa24b75e74abf0929bf309b176755a53e3ed810355%40%3Cdev.flink.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/r7aac081cbddb6baa24b75e74abf0929bf309b176755a53e3ed810355@%3Cdev.flink.apache.org%3E"
-        },
-        {
-          "url": "https://lists.apache.org/thread.html/r7d64895cc4dff84d0becfc572b20c0e4bf9bfa7b10c6f5f73e783734%40%3Cdev.storm.apache.org%3E"
         },
         {
           "url": "https://lists.apache.org/thread.html/r7d64895cc4dff84d0becfc572b20c0e4bf9bfa7b10c6f5f73e783734@%3Cdev.storm.apache.org%3E"
         },
         {
-          "url": "https://lists.apache.org/thread.html/r7e8ebccb7c022e41295f6fdb7b971209b83702339f872ddd8cf8bf73%40%3Cissues.flink.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/r7e8ebccb7c022e41295f6fdb7b971209b83702339f872ddd8cf8bf73@%3Cissues.flink.apache.org%3E"
         },
         {
-          "url": "https://lists.apache.org/thread.html/rac25da84ecdcd36f6de5ad0d255f4e967209bbbebddb285e231da37d%40%3Cissues.flink.apache.org%3E"
-        },
-        {
           "url": "https://lists.apache.org/thread.html/rac25da84ecdcd36f6de5ad0d255f4e967209bbbebddb285e231da37d@%3Cissues.flink.apache.org%3E"
-        },
-        {
-          "url": "https://lists.apache.org/thread.html/rca37935d661f4689cb4119f1b3b224413b22be161b678e6e6ce0c69b%40%3Ccommits.nifi.apache.org%3E"
         },
         {
           "url": "https://lists.apache.org/thread.html/rca37935d661f4689cb4119f1b3b224413b22be161b678e6e6ce0c69b@%3Ccommits.nifi.apache.org%3E"
@@ -1822,58 +3624,40 @@
           "url": "https://lists.debian.org/debian-lts-announce/2023/08/msg00040.html"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/4UOAZIFCSZ3ENEFOR5IXX6NFAD3HV7FA"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/4UOAZIFCSZ3ENEFOR5IXX6NFAD3HV7FA/"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/5IABSKTYZ5JUGL735UKGXL5YPRYOPUYI"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/5IABSKTYZ5JUGL735UKGXL5YPRYOPUYI/"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/KYH3OAGR2RTCHRA5NOKX2TES7SNQMWGO"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/KYH3OAGR2RTCHRA5NOKX2TES7SNQMWGO/"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/QV3PKZC3PQCO3273HAT76PAQZFBEO4KP"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/QV3PKZC3PQCO3273HAT76PAQZFBEO4KP/"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/RLXRX23725JL366CNZGJZ7AQQB7LHQ6F"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/RLXRX23725JL366CNZGJZ7AQQB7LHQ6F/"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/WZW27UCJ5CYFL4KFFFMYMIBNMIU2ALG5"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/WZW27UCJ5CYFL4KFFFMYMIBNMIU2ALG5/"
-        },
-        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4UOAZIFCSZ3ENEFOR5IXX6NFAD3HV7FA"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4UOAZIFCSZ3ENEFOR5IXX6NFAD3HV7FA/"
         },
         {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5IABSKTYZ5JUGL735UKGXL5YPRYOPUYI"
         },
         {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5IABSKTYZ5JUGL735UKGXL5YPRYOPUYI/"
+        },
+        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KYH3OAGR2RTCHRA5NOKX2TES7SNQMWGO"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KYH3OAGR2RTCHRA5NOKX2TES7SNQMWGO/"
         },
         {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QV3PKZC3PQCO3273HAT76PAQZFBEO4KP"
         },
         {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QV3PKZC3PQCO3273HAT76PAQZFBEO4KP/"
+        },
+        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RLXRX23725JL366CNZGJZ7AQQB7LHQ6F"
         },
         {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RLXRX23725JL366CNZGJZ7AQQB7LHQ6F/"
+        },
+        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WZW27UCJ5CYFL4KFFFMYMIBNMIU2ALG5"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WZW27UCJ5CYFL4KFFFMYMIBNMIU2ALG5/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-11358"
@@ -1976,7 +3760,7 @@
       "updated": "2026-06-17T02:12:46+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -2133,10 +3917,10 @@
           "url": "https://lists.debian.org/debian-lts-announce/2019/07/msg00001.html"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/USYRARSYB7PE3S2ZQO7PZNWMH7RPGL5G/"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/USYRARSYB7PE3S2ZQO7PZNWMH7RPGL5G"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/USYRARSYB7PE3S2ZQO7PZNWMH7RPGL5G"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/USYRARSYB7PE3S2ZQO7PZNWMH7RPGL5G/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-12308"
@@ -2173,7 +3957,7 @@
       "updated": "2026-06-17T02:14:23+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -2288,10 +4072,10 @@
           "url": "https://groups.google.com/forum/#%21topic/django-announce/Is4kLY9ZcZQ"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/5VXXWIOQGXOB7JCGJ3CVUW673LDHKEYL/"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5VXXWIOQGXOB7JCGJ3CVUW673LDHKEYL"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5VXXWIOQGXOB7JCGJ3CVUW673LDHKEYL"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5VXXWIOQGXOB7JCGJ3CVUW673LDHKEYL/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-12781"
@@ -2331,7 +4115,7 @@
       "updated": "2026-06-17T02:15:27+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -2449,13 +4233,10 @@
           "url": "https://groups.google.com/forum/#%21topic/django-announce/jIoju2-KLDs"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK/"
-        },
-        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK/"
         },
         {
           "url": "https://lists.opensuse.org/archives/list/security-announce@lists.opensuse.org/message/3LGJSPCN3VEG2UJPYCUB6TU75JTIV2TQ"
@@ -2501,7 +4282,7 @@
       "updated": "2026-06-17T02:18:00+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -2610,10 +4391,10 @@
           "url": "https://groups.google.com/forum/#%21topic/django-announce/jIoju2-KLDs"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK/"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-14233"
@@ -2650,7 +4431,7 @@
       "updated": "2026-06-17T02:18:00+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -2765,10 +4546,10 @@
           "url": "https://groups.google.com/forum/#%21topic/django-announce/jIoju2-KLDs"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK/"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-14234"
@@ -2805,7 +4586,7 @@
       "updated": "2026-06-17T02:18:00+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -2914,10 +4695,10 @@
           "url": "https://groups.google.com/forum/#%21topic/django-announce/jIoju2-KLDs"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK/"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/STVX7X7IDWAH5SKE6MBMY3TEI6ZODBTK/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-14235"
@@ -2954,7 +4735,7 @@
       "updated": "2026-06-17T02:18:00+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -3060,10 +4841,10 @@
           "url": "https://groups.google.com/forum/#%21topic/django-announce/GjGqDvtNmWQ"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/6R4HD22PVEVQ45H2JA2NXH443AYJOPL5/"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6R4HD22PVEVQ45H2JA2NXH443AYJOPL5"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6R4HD22PVEVQ45H2JA2NXH443AYJOPL5"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6R4HD22PVEVQ45H2JA2NXH443AYJOPL5/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-19118"
@@ -3091,7 +4872,7 @@
       "updated": "2026-06-17T02:26:11+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -3209,10 +4990,10 @@
           "url": "https://groups.google.com/forum/#%21topic/django-announce/3oaB2rVH3a0"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/HCM2DPUI7TOZWN4A6JFQFUVQ2XGE7GUD/"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HCM2DPUI7TOZWN4A6JFQFUVQ2XGE7GUD"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HCM2DPUI7TOZWN4A6JFQFUVQ2XGE7GUD"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HCM2DPUI7TOZWN4A6JFQFUVQ2XGE7GUD/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-19844"
@@ -3258,7 +5039,7 @@
       "updated": "2026-06-17T02:27:20+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -3367,10 +5148,10 @@
           "url": "https://lists.debian.org/debian-lts-announce/2019/01/msg00005.html"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/HVXDOVCXLD74SHR2BENGCE2OOYYYWJHZ/"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HVXDOVCXLD74SHR2BENGCE2OOYYYWJHZ"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HVXDOVCXLD74SHR2BENGCE2OOYYYWJHZ"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HVXDOVCXLD74SHR2BENGCE2OOYYYWJHZ/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-3498"
@@ -3404,7 +5185,7 @@
       "updated": "2026-06-17T02:35:12+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -3599,12 +5380,6 @@
           "url": "https://linux.oracle.com/errata/ELSA-2019-3704.html"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/7ZZAYIQNUUYXGMKHSPEEXS4TRYFOUYE4"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/7ZZAYIQNUUYXGMKHSPEEXS4TRYFOUYE4/"
-        },
-        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/7ZZAYIQNUUYXGMKHSPEEXS4TRYFOUYE4"
         },
         {
@@ -3624,7 +5399,7 @@
       "updated": "2026-06-17T02:39:03+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/numpy@1.15.0",
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
           "versions": [
             {
               "version": "1.15.0",
@@ -3739,16 +5514,16 @@
           "url": "https://groups.google.com/forum/#%21topic/django-announce/WTwEAprR0IQ"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/66WMXHGBXD7GSM3PEXVCMCAGLMQYHZCU/"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/HVXDOVCXLD74SHR2BENGCE2OOYYYWJHZ/"
-        },
-        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/66WMXHGBXD7GSM3PEXVCMCAGLMQYHZCU"
         },
         {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/66WMXHGBXD7GSM3PEXVCMCAGLMQYHZCU/"
+        },
+        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HVXDOVCXLD74SHR2BENGCE2OOYYYWJHZ"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HVXDOVCXLD74SHR2BENGCE2OOYYYWJHZ/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-6975"
@@ -3788,7 +5563,7 @@
       "updated": "2026-06-17T02:39:51+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -3970,7 +5745,7 @@
       "updated": "2026-06-17T03:07:39+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2",
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
           "versions": [
             {
               "version": "1.24.2",
@@ -4175,10 +5950,10 @@
           "url": "https://linux.oracle.com/errata/ELSA-2021-4162.html"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/PVAKCOO7VBVUBM3Q6CBBTPBFNP5NDXF4/"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PVAKCOO7VBVUBM3Q6CBBTPBFNP5NDXF4"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PVAKCOO7VBVUBM3Q6CBBTPBFNP5NDXF4"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PVAKCOO7VBVUBM3Q6CBBTPBFNP5NDXF4/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-28493"
@@ -4203,7 +5978,7 @@
       "updated": "2026-06-17T03:10:32+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/jinja2@2.10",
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
           "versions": [
             {
               "version": "2.10",
@@ -4330,10 +6105,10 @@
           "url": "https://groups.google.com/forum/#%21topic/django-announce/X45S86X5bZI"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/4A2AP4T7RKPBCLTI2NNQG3T6MINDUUMZ/"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4A2AP4T7RKPBCLTI2NNQG3T6MINDUUMZ"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4A2AP4T7RKPBCLTI2NNQG3T6MINDUUMZ"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4A2AP4T7RKPBCLTI2NNQG3T6MINDUUMZ/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-7471"
@@ -4379,7 +6154,7 @@
       "updated": "2026-06-17T03:24:50+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -4512,10 +6287,10 @@
           "url": "https://linux.oracle.com/errata/ELSA-2022-9341.html"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/B4SQG2EAF4WCI2SLRL6XRDJ3RPK3ZRDV/"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/B4SQG2EAF4WCI2SLRL6XRDJ3RPK3ZRDV"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/B4SQG2EAF4WCI2SLRL6XRDJ3RPK3ZRDV"
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/B4SQG2EAF4WCI2SLRL6XRDJ3RPK3ZRDV/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-33203"
@@ -4546,7 +6321,7 @@
       "updated": "2026-06-17T03:54:20+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -4631,7 +6406,7 @@
           "url": "https://github.com/numpy/numpy"
         },
         {
-          "url": "https://github.com/numpy/numpy/commit/16f7824b4d935b6aee98298ca4123d57174a6f2e"
+          "url": "https://github.com/numpy/numpy/commit/16f7824b4d935b6aee98298ca4123d57174a6f2e%20%28v1.22.0.dev0%29"
         },
         {
           "url": "https://github.com/numpy/numpy/commit/ae317fd9ff3e79c0eac357d723bfc29cbd625f2e"
@@ -4659,7 +6434,7 @@
       "updated": "2026-06-17T03:54:32+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/numpy@1.15.0",
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
           "versions": [
             {
               "version": "1.15.0",
@@ -4738,7 +6513,7 @@
           "url": "https://github.com/numpy/numpy"
         },
         {
-          "url": "https://github.com/numpy/numpy/commit/eeef9d4646103c3b1afd3085f1393f2b3f9575b2"
+          "url": "https://github.com/numpy/numpy/commit/eeef9d4646103c3b1afd3085f1393f2b3f9575b2%20%28v1.23.0.dev0%29"
         },
         {
           "url": "https://github.com/numpy/numpy/issues/18993"
@@ -4766,7 +6541,7 @@
       "updated": "2026-06-17T03:55:30+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/numpy@1.15.0",
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
           "versions": [
             {
               "version": "1.15.0",
@@ -4857,7 +6632,7 @@
           "url": "https://github.com/numpy/numpy/pull/20960"
         },
         {
-          "url": "https://github.com/numpy/numpy/pull/20984"
+          "url": "https://github.com/numpy/numpy/pull/20984%20%28backport%29"
         },
         {
           "url": "https://github.com/pypa/advisory-database/tree/main/vulns/numpy/PYSEC-2021-856.yaml"
@@ -4879,7 +6654,7 @@
       "updated": "2026-06-17T04:08:33+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/numpy@1.15.0",
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
           "versions": [
             {
               "version": "1.15.0",
@@ -4992,7 +6767,7 @@
       "updated": "2026-06-17T04:08:34+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/numpy@1.15.0",
+          "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
           "versions": [
             {
               "version": "1.15.0",
@@ -5080,16 +6855,16 @@
           "url": "https://groups.google.com/g/django-announce/c/8cz--gvaJr4"
         },
         {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/HWY6DQWRVBALV73BPUVBXC3QIYUM24IK/"
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/LTZVAKU5ALQWOKFTPISE257VCVIYGFQI/"
-        },
-        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HWY6DQWRVBALV73BPUVBXC3QIYUM24IK"
         },
         {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HWY6DQWRVBALV73BPUVBXC3QIYUM24IK/"
+        },
+        {
           "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/LTZVAKU5ALQWOKFTPISE257VCVIYGFQI"
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/LTZVAKU5ALQWOKFTPISE257VCVIYGFQI/"
         },
         {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-36359"
@@ -5120,7 +6895,7 @@
       "updated": "2026-06-17T04:53:19+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -5217,7 +6992,7 @@
           "url": "https://avd.aquasec.com/nvd/cve-2023-32681"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2023:4350"
+          "url": "https://access.redhat.com/errata/RHSA-2023:7050"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2023-32681"
@@ -5226,13 +7001,16 @@
           "url": "https://bugzilla.redhat.com/2209469"
         },
         {
+          "url": "https://bugzilla.redhat.com/263261"
+        },
+        {
           "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2209469"
         },
         {
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-32681"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2023-4350.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2023-7050.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2023:4520"
@@ -5299,7 +7077,7 @@
       "updated": "2026-06-17T05:59:22+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/requests@2.20.0",
+          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
           "versions": [
             {
               "version": "2.20.0",
@@ -5411,13 +7189,25 @@
           "url": "https://avd.aquasec.com/nvd/cve-2023-43804"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2024:2159"
+          "url": "https://access.redhat.com/errata/RHSA-2024:2987"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2023-43804"
         },
         {
+          "url": "https://bugzilla.redhat.com/2158559"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2240059"
+        },
+        {
           "url": "https://bugzilla.redhat.com/2242493"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2249755"
+        },
+        {
+          "url": "https://bugzilla.redhat.com/2257854"
         },
         {
           "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2158559"
@@ -5450,7 +7240,7 @@
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22195"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2024-2159.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2024-2987.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2024:2987"
@@ -5526,7 +7316,7 @@
       "updated": "2026-06-17T06:26:29+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2",
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
           "versions": [
             {
               "version": "1.24.2",
@@ -5638,7 +7428,7 @@
           "url": "https://avd.aquasec.com/nvd/cve-2023-45803"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2024:2132"
+          "url": "https://access.redhat.com/errata/RHSA-2024:2968"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2023-45803"
@@ -5659,7 +7449,7 @@
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-45803"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2024-2132.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2024-2968.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2024:11238"
@@ -5738,7 +7528,7 @@
       "updated": "2026-06-17T06:29:33+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2",
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
           "versions": [
             {
               "version": "1.24.2",
@@ -5841,7 +7631,7 @@
           "url": "https://avd.aquasec.com/nvd/cve-2024-22195"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2024:2348"
+          "url": "https://access.redhat.com/errata/RHSA-2024:3102"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2024-22195"
@@ -5856,7 +7646,7 @@
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-22195"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2024-2348.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2024-3102.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2024:3102"
@@ -5917,7 +7707,7 @@
       "updated": "2026-06-17T07:10:54+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/jinja2@2.10",
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
           "versions": [
             {
               "version": "2.10",
@@ -6011,7 +7801,7 @@
           "url": "https://avd.aquasec.com/nvd/cve-2024-34064"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2024:9150"
+          "url": "https://access.redhat.com/errata/RHSA-2024:4231"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2024-34064"
@@ -6026,7 +7816,7 @@
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-34064"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2024-9150.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2024-4231.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2024:9150"
@@ -6087,7 +7877,7 @@
       "updated": "2026-06-17T07:32:50+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/jinja2@2.10",
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
           "versions": [
             {
               "version": "2.10",
@@ -6181,7 +7971,7 @@
           "url": "https://avd.aquasec.com/nvd/cve-2024-35195"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2025:7049"
+          "url": "https://access.redhat.com/errata/RHSA-2025:0012"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2024-35195"
@@ -6196,7 +7986,7 @@
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-35195"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2025-7049.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2025-0012.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2025:7049"
@@ -6245,7 +8035,7 @@
       "updated": "2026-06-17T07:34:31+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/requests@2.20.0",
+          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
           "versions": [
             {
               "version": "2.20.0",
@@ -6348,7 +8138,7 @@
           "url": "https://avd.aquasec.com/nvd/cve-2024-37891"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2024:9458"
+          "url": "https://access.redhat.com/errata/RHSA-2024:8843"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2024-37891"
@@ -6363,7 +8153,7 @@
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37891"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2024-9458.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2024-8843.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2024:9457"
@@ -6415,7 +8205,7 @@
       "updated": "2026-06-17T07:38:59+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2",
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
           "versions": [
             {
               "version": "1.24.2",
@@ -6537,7 +8327,7 @@
       "updated": "2026-06-17T07:53:48+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -6646,7 +8436,7 @@
           "url": "http://www.openwall.com/lists/oss-security/2025/06/04/6"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2025:12519"
+          "url": "https://access.redhat.com/errata/RHSA-2025:14999"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2024-47081"
@@ -6661,7 +8451,7 @@
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-47081"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2025-12519.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2025-14999.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2025:12519"
@@ -6710,7 +8500,7 @@
       "updated": "2026-06-17T07:56:30+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/requests@2.20.0",
+          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
           "versions": [
             {
               "version": "2.20.0",
@@ -6814,7 +8604,7 @@
           "url": "https://avd.aquasec.com/nvd/cve-2024-56326"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2025:0667"
+          "url": "https://access.redhat.com/errata/RHSA-2025:0711"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2024-56326"
@@ -6829,7 +8619,7 @@
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-56326"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2025-0667.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2025-0711.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2025:0667"
@@ -6872,7 +8662,7 @@
       "updated": "2026-06-17T08:12:03+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/jinja2@2.10",
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
           "versions": [
             {
               "version": "2.10",
@@ -6975,7 +8765,7 @@
           "url": "https://avd.aquasec.com/nvd/cve-2025-27516"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2025:3406"
+          "url": "https://access.redhat.com/errata/RHSA-2025:3388"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2025-27516"
@@ -6990,7 +8780,7 @@
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-27516"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2025-3406.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2025-3388.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2025:3406"
@@ -7030,7 +8820,7 @@
       "updated": "2026-06-17T09:03:44+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/jinja2@2.10",
+          "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
           "versions": [
             {
               "version": "2.10",
@@ -7161,7 +8951,7 @@
       "updated": "2026-06-17T09:29:38+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -7277,7 +9067,7 @@
       "updated": "2026-06-17T09:34:48+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2",
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
           "versions": [
             {
               "version": "1.24.2",
@@ -7402,7 +9192,7 @@
       "updated": "2026-06-17T09:43:30+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -7503,7 +9293,7 @@
       "updated": "2026-06-17T09:54:24+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -7622,7 +9412,7 @@
       "updated": "2026-06-17T09:54:24+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/django@2.1",
+          "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
           "versions": [
             {
               "version": "2.1",
@@ -7649,7 +9439,7 @@
           "source": {
             "name": "amazon"
           },
-          "severity": "medium"
+          "severity": "high"
         },
         {
           "source": {
@@ -7725,7 +9515,7 @@
           "url": "https://avd.aquasec.com/nvd/cve-2025-66418"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2026:1239"
+          "url": "https://access.redhat.com/errata/RHSA-2026:1254"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2025-66418"
@@ -7758,7 +9548,7 @@
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-21441"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2026-1239.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2026-1254.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2026:1087"
@@ -7801,7 +9591,7 @@
       "updated": "2026-06-17T09:56:48+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2",
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
           "versions": [
             {
               "version": "1.24.2",
@@ -7828,7 +9618,7 @@
           "source": {
             "name": "amazon"
           },
-          "severity": "medium"
+          "severity": "high"
         },
         {
           "source": {
@@ -7904,7 +9694,7 @@
           "url": "https://avd.aquasec.com/nvd/cve-2025-66471"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2026:1239"
+          "url": "https://access.redhat.com/errata/RHSA-2026:1254"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2025-66471"
@@ -7937,7 +9727,7 @@
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-21441"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2026-1239.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2026-1254.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2026:1087"
@@ -7989,7 +9779,7 @@
       "updated": "2026-06-17T09:56:53+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2",
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
           "versions": [
             {
               "version": "1.24.2",
@@ -8101,7 +9891,7 @@
           "url": "https://avd.aquasec.com/nvd/cve-2026-21441"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2026:1239"
+          "url": "https://access.redhat.com/errata/RHSA-2026:1254"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2026-21441"
@@ -8134,7 +9924,7 @@
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-21441"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2026-1239.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2026-1254.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2026:1087"
@@ -8177,7 +9967,7 @@
       "updated": "2026-06-17T10:18:40+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2",
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
           "versions": [
             {
               "version": "1.24.2",
@@ -8269,7 +10059,7 @@
       "updated": "2026-06-17T10:25:00+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/requests@2.20.0",
+          "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
           "versions": [
             {
               "version": "2.20.0",
@@ -8369,7 +10159,7 @@
           "url": "https://avd.aquasec.com/nvd/cve-2026-44431"
         },
         {
-          "url": "https://access.redhat.com/errata/RHSA-2026:28159"
+          "url": "https://access.redhat.com/errata/RHSA-2026:32992"
         },
         {
           "url": "https://access.redhat.com/security/cve/CVE-2026-44431"
@@ -8393,7 +10183,7 @@
           "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-44432"
         },
         {
-          "url": "https://errata.almalinux.org/9/ALSA-2026-28159.html"
+          "url": "https://errata.almalinux.org/8/ALSA-2026-32992.html"
         },
         {
           "url": "https://errata.rockylinux.org/RLSA-2026:28158"
@@ -8411,6 +10201,9 @@
           "url": "https://linux.oracle.com/errata/ELSA-2026-28159.html"
         },
         {
+          "url": "https://lists.debian.org/debian-lts-announce/2026/06/msg00040.html"
+        },
+        {
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44431"
         },
         {
@@ -8421,10 +10214,10 @@
         }
       ],
       "published": "2026-05-13T16:16:57+00:00",
-      "updated": "2026-06-17T10:50:38+00:00",
+      "updated": "2026-06-26T12:16:32+00:00",
       "affects": [
         {
-          "ref": "pkg:pypi/urllib3@1.24.2",
+          "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
           "versions": [
             {
               "version": "1.24.2",

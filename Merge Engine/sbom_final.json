@@ -1,10 +1,17 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
+<<<<<<< HEAD
   "serialNumber": "urn:uuid:ea460da1-17cf-4150-84fe-a61fa9b1408c",
   "version": 1,
   "metadata": {
     "timestamp": "2026-06-29T06:00:36Z",
+=======
+  "serialNumber": "urn:uuid:8492a2a5-39db-4499-8e79-66ff9aee0ff6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-06-29T05:45:28Z",
+>>>>>>> b4e29a41780985a7d7bdda67cf2e53f5c85b2af4
     "tools": {
       "components": [
         {
@@ -17,7 +24,11 @@
     "component": {
       "bom-ref": "unified-project",
       "type": "application",
+<<<<<<< HEAD
       "name": "C:\\Study\\Projects\\BOM\\mock_project"
+=======
+      "name": "C:\\Users\\ADMIN\\OneDrive\\Desktop\\BOM\\BOM\\mock_project"
+>>>>>>> b4e29a41780985a7d7bdda67cf2e53f5c85b2af4
     },
     "properties": [
       {
@@ -222,12 +233,21 @@
         "trivy"
       ],
       "evidence_sources": [
+<<<<<<< HEAD
         "Trivy Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
       "unique_component_id": "f6820710-1ada-4017-aed0-6077bc9090a8"
+=======
+        "\\requirements.txt",
+        "Trivy Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "01dc2d63-fc9e-404b-ab41-0629beb8f3f2"
+>>>>>>> b4e29a41780985a7d7bdda67cf2e53f5c85b2af4
     },
     {
       "bom-ref": "pkg:pypi/jinja2@2.10",
@@ -406,12 +426,21 @@
         "trivy"
       ],
       "evidence_sources": [
+<<<<<<< HEAD
         "Trivy Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
       "unique_component_id": "0b076622-4ffb-4a4e-9e15-4dcb48044bc3"
+=======
+        "\\requirements.txt",
+        "Trivy Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "4bdffd31-2c68-4b29-bad3-c1e4e8ac8087"
+>>>>>>> b4e29a41780985a7d7bdda67cf2e53f5c85b2af4
     },
     {
       "bom-ref": "pkg:pypi/numpy@1.15.0",
@@ -590,12 +619,21 @@
         "trivy"
       ],
       "evidence_sources": [
+<<<<<<< HEAD
         "Trivy Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
       "unique_component_id": "33356e28-f1cb-4158-a725-2f221d0166ec"
+=======
+        "\\requirements.txt",
+        "Trivy Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "a56b54f1-465b-4d32-ba6b-f82882e1c429"
+>>>>>>> b4e29a41780985a7d7bdda67cf2e53f5c85b2af4
     },
     {
       "bom-ref": "pkg:pypi/requests@2.20.0",
@@ -719,12 +757,21 @@
         "trivy"
       ],
       "evidence_sources": [
+<<<<<<< HEAD
         "Trivy Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
       "unique_component_id": "ec2e0ea4-f5e1-4ffe-8345-64a9f074cf65"
+=======
+        "\\requirements.txt",
+        "Trivy Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "d66be191-63d3-439b-afe1-fc6fa134b0e5"
+>>>>>>> b4e29a41780985a7d7bdda67cf2e53f5c85b2af4
     },
     {
       "bom-ref": "pkg:pypi/urllib3@1.24.2",
@@ -848,12 +895,21 @@
         "trivy"
       ],
       "evidence_sources": [
+<<<<<<< HEAD
         "Trivy Scan Discovery",
         "\\requirements.txt"
       ],
       "merge_confidence": "100%",
       "merge_status": "Merged",
       "unique_component_id": "3bf6e1fc-cb09-4fc7-8cab-cbad7e9d0a7e"
+=======
+        "\\requirements.txt",
+        "Trivy Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "36dd8524-fab6-432c-adcb-1b549f641e1a"
+>>>>>>> b4e29a41780985a7d7bdda67cf2e53f5c85b2af4
     },
     {
       "bom-ref": "pkg:generic/requirements.txt@unknown",
@@ -899,11 +955,19 @@
         },
         {
           "name": "release_date",
+<<<<<<< HEAD
           "value": "2026-06-29T06:00:40.270212Z"
         },
         {
           "name": "eol_date",
           "value": "2029-06-28T06:00:40Z"
+=======
+          "value": "2026-06-29T05:45:57.310425Z"
+        },
+        {
+          "name": "eol_date",
+          "value": "2029-06-28T05:45:57Z"
+>>>>>>> b4e29a41780985a7d7bdda67cf2e53f5c85b2af4
         },
         {
           "name": "criticality",
@@ -966,11 +1030,16 @@
       ],
       "merge_confidence": "100%",
       "merge_status": "Original",
+<<<<<<< HEAD
       "unique_component_id": "529b3d7a-82f8-4d8b-acad-0c22610bd706"
+=======
+      "unique_component_id": "5a56ed8b-2a82-4679-93cc-523fec7a3b90"
+>>>>>>> b4e29a41780985a7d7bdda67cf2e53f5c85b2af4
     }
   ],
   "dependencies": [
     {
+<<<<<<< HEAD
       "ref": "pkg:pypi/requests@2.20.0",
       "dependsOn": []
     },
@@ -980,6 +1049,17 @@
     },
     {
       "ref": "pkg:pypi/numpy@1.15.0",
+=======
+      "ref": "pkg:pypi/urllib3@1.24.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/numpy@1.15.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/jinja2@2.10",
+>>>>>>> b4e29a41780985a7d7bdda67cf2e53f5c85b2af4
       "dependsOn": []
     },
     {
@@ -987,12 +1067,17 @@
       "dependsOn": []
     },
     {
+<<<<<<< HEAD
       "ref": "pkg:pypi/urllib3@1.24.2",
+=======
+      "ref": "pkg:pypi/requests@2.20.0",
+>>>>>>> b4e29a41780985a7d7bdda67cf2e53f5c85b2af4
       "dependsOn": []
     },
     {
       "ref": "pkg:generic/requirements.txt@unknown",
       "dependsOn": [
+<<<<<<< HEAD
         "pkg:pypi/requests@2.20.0",
         "pkg:pypi/jinja2@2.10",
         "pkg:pypi/numpy@1.15.0",
@@ -1002,6 +1087,17 @@
     },
     {
       "ref": "c49d4784-9f24-4cc5-acae-4515f4344535",
+=======
+        "pkg:pypi/urllib3@1.24.2",
+        "pkg:pypi/numpy@1.15.0",
+        "pkg:pypi/jinja2@2.10",
+        "pkg:pypi/django@2.1",
+        "pkg:pypi/requests@2.20.0"
+      ]
+    },
+    {
+      "ref": "e5d6344d-060b-4a9b-8d4f-208bc75a6d7d",
+>>>>>>> b4e29a41780985a7d7bdda67cf2e53f5c85b2af4
       "dependsOn": [
         "pkg:generic/requirements.txt@unknown"
       ]

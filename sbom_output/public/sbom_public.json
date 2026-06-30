@@ -1,165 +1,168 @@
 {
-  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
-  "specVersion": "1.7",
-  "serialNumber": "urn:uuid:eb7918c7-3ef4-40d9-970b-6c6eca3c36db",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:8afca40a-4380-4885-a06c-b1ab610fa5a4",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-06-26T09:25:48Z",
+    "timestamp": "2026-06-30T07:03:56Z",
     "tools": {
       "components": [
         {
           "type": "application",
-          "manufacturer": {
-            "name": "Aqua Security Software Ltd."
-          },
-          "group": "aquasecurity",
-          "name": "trivy",
-          "version": "0.71.2"
+          "name": "Enterprise SBOM Merge Engine (manifest-cli logic)",
+          "version": "2.0.0"
         }
       ]
     },
     "component": {
-      "bom-ref": "b68f9330-d702-4d1f-b620-699d49b848e5",
+      "bom-ref": "unified-project",
       "type": "application",
-      "name": "C:/Users/ADMIN/OneDrive/Desktop/BOM/BOM/mock_project",
-      "properties": [
-        {
-          "name": "aquasecurity:trivy:SchemaVersion",
-          "value": "2"
-        }
-      ]
+      "name": "D:/College Work/Internship/BOM/mock_project"
     },
-    "authors": [
-      {
-        "name": "Compliance & Enrichment Specialist (Team Member 3)",
-        "email": "compliance-specialist@company.internal"
-      }
-    ],
     "properties": [
       {
+        "name": "merge_engine:syft_total",
+        "value": "5"
+      },
+      {
+        "name": "merge_engine:trivy_total",
+        "value": "6"
+      },
+      {
+        "name": "merge_engine:cdxgen_total",
+        "value": "5"
+      },
+      {
+        "name": "merge_engine:common_total",
+        "value": "5"
+      },
+      {
+        "name": "merge_engine:unique_final",
+        "value": "5"
+      },
+      {
         "name": "signature",
-        "value": "MEQCICwo3NXPOn140xS/GQRDAaknun8k1PswEZF8VsEAopFhAiBWbHnP0dmA71/r3RKEeu4nUyqcH1F9GpMcElJmnaxJdA=="
+        "value": "MEUCIEwZTg6AD2/W2tdtPuMhPBKl+WcSK19AuJBdHc5YrtS3AiEA85jc5MiGtlryVMZ67YeKezzEFEAbn9exCfG0iynwY38="
+      }
+    ],
+    "authors": [
+      {
+        "name": "Client-Assigned Scanning Service",
+        "email": "security@antigravity.ai"
       }
     ]
   },
   "components": [
     {
-      "bom-ref": "0ae73463-8087-4356-ac88-9644318a5c77",
-      "type": "application",
-      "name": "requirements.txt",
-      "properties": [
-        {
-          "name": "aquasecurity:trivy:Class",
-          "value": "lang-pkgs"
-        },
-        {
-          "name": "aquasecurity:trivy:Type",
-          "value": "pip"
-        },
-        {
-          "name": "origin",
-          "value": "open-source"
-        },
-        {
-          "name": "patch_status",
-          "value": "up-to-date"
-        },
-        {
-          "name": "release_date",
-          "value": "2026-06-26T09:25:49.183802Z"
-        },
-        {
-          "name": "eol_date",
-          "value": "2029-06-25T09:25:49Z"
-        },
-        {
-          "name": "criticality",
-          "value": "low"
-        },
-        {
-          "name": "usage_restrictions",
-          "value": "None"
-        },
-        {
-          "name": "comments",
-          "value": "Scanned and verified library"
-        },
-        {
-          "name": "executable",
-          "value": "false"
-        },
-        {
-          "name": "archive",
-          "value": "true"
-        },
-        {
-          "name": "structured",
-          "value": "CycloneDX JSON v1.6"
-        },
-        {
-          "name": "criticality_reason",
-          "value": "Score 15: component type='application' (+15)"
-        },
-        {
-          "name": "executable_evidence",
-          "value": "CycloneDX type=application"
-        },
-        {
-          "name": "executable_detection_method",
-          "value": "CycloneDX component type field"
-        },
-        {
-          "name": "trust_score",
-          "value": "60%"
-        },
-        {
-          "name": "trust_score_reasons",
-          "value": "+25: Hash/checksum verified\n+20: PURL identifier available\n+15: License identified (Apache-2.0)"
-        },
-        {
-          "name": "repository_registry",
-          "value": "PyPI"
-        },
-        {
-          "name": "repository_url",
-          "value": "https://pypi.org/project/requirements.txt/"
-        },
-        {
-          "name": "repository_ecosystem",
-          "value": "Python"
-        }
+      "bom-ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+      "type": "library",
+      "name": "django",
+      "version": "2.1",
+      "purl": "pkg:pypi/django@2.1",
+      "cpe": "cpe:2.3:a:django:django:2.1:*:*:*:*:*:*:*",
+      "cpes": [
+        "cpe:2.3:a:django:django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:django:python-django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:django:python_django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-django:django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-django:python-django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-django:python_django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:python-django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:python_django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_django:django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_django:python-django:2.1:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_django:python_django:2.1:*:*:*:*:*:*:*"
       ],
-      "version": "1.0.0",
-      "purl": "pkg:pypi/requirements.txt@1.0.0",
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "5a1746a9ad87d4184bd3c808b308163e2338567322000faed5d660162710a91b"
+          "content": "6a47faad96b2260a0c790126423204636c74da97f045941f158ec1fabb64d516"
         }
       ],
-      "description": "Python package requirements.txt",
-      "supplier": {
-        "name": "Unknown / Open Source Community"
-      },
       "licenses": [
         {
           "license": {
             "name": "Apache-2.0"
           }
         }
-      ]
-    },
-    {
-      "bom-ref": "pkg:pypi/django@2.1",
-      "type": "library",
-      "name": "django",
-      "version": "2.1",
-      "purl": "pkg:pypi/django@2.1",
+      ],
+      "description": "A high-level Python web framework that encourages rapid development and clean, pragmatic design.",
+      "supplier": {
+        "name": "Django Software Foundation (DSF)"
+      },
       "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-django:python_django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_django:python-django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_django:python_django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:django:python-django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:django:python_django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-django:django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_django:django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:django:django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:django:2.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        },
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
+        },
+        {
+          "name": "SrcFile",
+          "value": "mock_project\\requirements.txt"
         },
         {
           "name": "origin",
@@ -191,15 +194,15 @@
         },
         {
           "name": "executable",
-          "value": "false"
+          "value": "Library"
         },
         {
           "name": "archive",
-          "value": "true"
+          "value": "false"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6"
+          "value": "CycloneDX JSON v1.6 (Merged)"
         },
         {
           "name": "criticality_reason",
@@ -212,56 +215,132 @@
         {
           "name": "executable_detection_method",
           "value": "PURL contains 'pypi'"
-        },
-        {
-          "name": "trust_score",
-          "value": "100%"
-        },
-        {
-          "name": "trust_score_reasons",
-          "value": "+30: Version confirmed from package registry (API available)\n+25: Hash/checksum verified\n+20: PURL identifier available\n+15: License identified (Apache-2.0)\n+10: Manually reviewed in config overrides"
-        },
-        {
-          "name": "repository_registry",
-          "value": "PyPI"
-        },
-        {
-          "name": "repository_url",
-          "value": "https://pypi.org/project/django/"
-        },
-        {
-          "name": "repository_ecosystem",
-          "value": "Python"
         }
+      ],
+      "detected_by": [
+        "syft",
+        "trivy",
+        "cdxgen"
+      ],
+      "evidence_sources": [
+        "Trivy Scan Discovery",
+        "\\requirements.txt",
+        "cdxgen Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "5a8338fd-44ef-4ae3-954e-e9b6fed9e043"
+    },
+    {
+      "bom-ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
+      "type": "library",
+      "name": "jinja2",
+      "version": "2.10",
+      "purl": "pkg:pypi/jinja2@2.10",
+      "cpe": "cpe:2.3:a:jinja2:jinja2:2.10:*:*:*:*:*:*:*",
+      "cpes": [
+        "cpe:2.3:a:jinja2:jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:jinja2:python-jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:jinja2:python_jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-jinja2:jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-jinja2:python-jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-jinja2:python_jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:python-jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:python_jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_jinja2:jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_jinja2:python-jinja2:2.10:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_jinja2:python_jinja2:2.10:*:*:*:*:*:*:*"
       ],
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "6a47faad96b2260a0c790126423204636c74da97f045941f158ec1fabb64d516"
+          "content": "bea121f34d38d518061caf57e02bb1c4f665b69fb9fabb86adc06c5528c723b6"
         }
       ],
-      "description": "A high-level Python web framework that encourages rapid development and clean, pragmatic design.",
-      "supplier": {
-        "name": "Django Software Foundation (DSF)"
-      },
       "licenses": [
         {
           "license": {
             "name": "Apache-2.0"
           }
         }
-      ]
-    },
-    {
-      "bom-ref": "pkg:pypi/jinja2@2.10",
-      "type": "library",
-      "name": "jinja2",
-      "version": "2.10",
-      "purl": "pkg:pypi/jinja2@2.10",
+      ],
+      "description": "A very fast and expressive template engine.",
+      "supplier": {
+        "name": "Pallets Projects"
+      },
       "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-jinja2:python_jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_jinja2:python-jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_jinja2:python_jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jinja2:python-jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jinja2:python_jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-jinja2:jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_jinja2:jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:jinja2:jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:jinja2:2.10:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        },
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
+        },
+        {
+          "name": "SrcFile",
+          "value": "mock_project\\requirements.txt"
         },
         {
           "name": "origin",
@@ -281,7 +360,7 @@
         },
         {
           "name": "criticality",
-          "value": "low"
+          "value": "medium"
         },
         {
           "name": "usage_restrictions",
@@ -289,23 +368,23 @@
         },
         {
           "name": "comments",
-          "value": "Scanned and verified library"
+          "value": "Modern and designer-friendly templating language for Python"
         },
         {
           "name": "executable",
-          "value": "false"
+          "value": "Library"
         },
         {
           "name": "archive",
-          "value": "true"
+          "value": "false"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6"
+          "value": "CycloneDX JSON v1.6 (Merged)"
         },
         {
           "name": "criticality_reason",
-          "value": "Score 10: component type='library' (+10)"
+          "value": "Manually overridden in config to 'medium'"
         },
         {
           "name": "executable_evidence",
@@ -314,56 +393,132 @@
         {
           "name": "executable_detection_method",
           "value": "PURL contains 'pypi'"
-        },
-        {
-          "name": "trust_score",
-          "value": "90%"
-        },
-        {
-          "name": "trust_score_reasons",
-          "value": "+30: Version confirmed from package registry (API available)\n+25: Hash/checksum verified\n+20: PURL identifier available\n+15: License identified (Apache-2.0)"
-        },
-        {
-          "name": "repository_registry",
-          "value": "PyPI"
-        },
-        {
-          "name": "repository_url",
-          "value": "https://pypi.org/project/jinja2/"
-        },
-        {
-          "name": "repository_ecosystem",
-          "value": "Python"
         }
+      ],
+      "detected_by": [
+        "syft",
+        "trivy",
+        "cdxgen"
+      ],
+      "evidence_sources": [
+        "Trivy Scan Discovery",
+        "\\requirements.txt",
+        "cdxgen Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "61d74738-5061-4c3e-bee2-749015545632"
+    },
+    {
+      "bom-ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
+      "type": "library",
+      "name": "numpy",
+      "version": "1.15.0",
+      "purl": "pkg:pypi/numpy@1.15.0",
+      "cpe": "cpe:2.3:a:numpy:numpy:1.15.0:*:*:*:*:*:*:*",
+      "cpes": [
+        "cpe:2.3:a:numpy:numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:numpy:python-numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:numpy:python_numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-numpy:numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-numpy:python-numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python-numpy:python_numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:python-numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python:python_numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_numpy:numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_numpy:python-numpy:1.15.0:*:*:*:*:*:*:*",
+        "cpe:2.3:a:python_numpy:python_numpy:1.15.0:*:*:*:*:*:*:*"
       ],
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "bea121f34d38d518061caf57e02bb1c4f665b69fb9fabb86adc06c5528c723b6"
+          "content": "a890e78aadf77316231617827af6b351817d6b81592d7754f2c149a5f6acb461"
         }
       ],
-      "description": "A very fast and expressive template engine.",
-      "supplier": {
-        "name": "Unknown / Open Source Community"
-      },
       "licenses": [
         {
           "license": {
             "name": "Apache-2.0"
           }
         }
-      ]
-    },
-    {
-      "bom-ref": "pkg:pypi/numpy@1.15.0",
-      "type": "library",
-      "name": "numpy",
-      "version": "1.15.0",
-      "purl": "pkg:pypi/numpy@1.15.0",
+      ],
+      "description": "Fundamental package for array computing in Python",
+      "supplier": {
+        "name": "NumPy Developers"
+      },
       "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-numpy:python_numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_numpy:python-numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_numpy:python_numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python-numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:python_numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:numpy:python-numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:numpy:python_numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python-numpy:numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python_numpy:numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:python:numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:numpy:numpy:1.15.0:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        },
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
+        },
+        {
+          "name": "SrcFile",
+          "value": "mock_project\\requirements.txt"
         },
         {
           "name": "origin",
@@ -395,15 +550,15 @@
         },
         {
           "name": "executable",
-          "value": "false"
+          "value": "Library"
         },
         {
           "name": "archive",
-          "value": "true"
+          "value": "false"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6"
+          "value": "CycloneDX JSON v1.6 (Merged)"
         },
         {
           "name": "criticality_reason",
@@ -416,56 +571,77 @@
         {
           "name": "executable_detection_method",
           "value": "PURL contains 'pypi'"
-        },
-        {
-          "name": "trust_score",
-          "value": "100%"
-        },
-        {
-          "name": "trust_score_reasons",
-          "value": "+30: Version confirmed from package registry (API available)\n+25: Hash/checksum verified\n+20: PURL identifier available\n+15: License identified (Apache-2.0)\n+10: Manually reviewed in config overrides"
-        },
-        {
-          "name": "repository_registry",
-          "value": "PyPI"
-        },
-        {
-          "name": "repository_url",
-          "value": "https://pypi.org/project/numpy/"
-        },
-        {
-          "name": "repository_ecosystem",
-          "value": "Python"
         }
+      ],
+      "detected_by": [
+        "syft",
+        "trivy",
+        "cdxgen"
+      ],
+      "evidence_sources": [
+        "Trivy Scan Discovery",
+        "\\requirements.txt",
+        "cdxgen Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "378a12f6-87b8-4486-98fa-c70d241e2fbb"
+    },
+    {
+      "bom-ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
+      "type": "library",
+      "name": "requests",
+      "version": "2.20.0",
+      "purl": "pkg:pypi/requests@2.20.0",
+      "cpe": "cpe:2.3:a:python:requests:2.20.0:*:*:*:*:*:*:*",
+      "cpes": [
+        "cpe:2.3:a:python:requests:2.20.0:*:*:*:*:*:*:*"
       ],
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "a890e78aadf77316231617827af6b351817d6b81592d7754f2c149a5f6acb461"
+          "content": "29a9bb27fe60f04758f00863f6aa01ca04b0b56e4dcdec179843c3f3154d2060"
         }
       ],
-      "description": "Fundamental package for array computing in Python",
-      "supplier": {
-        "name": "NumPy Developers"
-      },
       "licenses": [
         {
           "license": {
             "name": "Apache-2.0"
           }
         }
-      ]
-    },
-    {
-      "bom-ref": "pkg:pypi/requests@2.20.0",
-      "type": "library",
-      "name": "requests",
-      "version": "2.20.0",
-      "purl": "pkg:pypi/requests@2.20.0",
+      ],
+      "description": "Python HTTP for Humans.",
+      "supplier": {
+        "name": "Kenneth Reitz & Requests Community"
+      },
       "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        },
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
+        },
+        {
+          "name": "SrcFile",
+          "value": "mock_project\\requirements.txt"
         },
         {
           "name": "origin",
@@ -497,15 +673,15 @@
         },
         {
           "name": "executable",
-          "value": "false"
+          "value": "Library"
         },
         {
           "name": "archive",
-          "value": "true"
+          "value": "false"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6"
+          "value": "CycloneDX JSON v1.6 (Merged)"
         },
         {
           "name": "criticality_reason",
@@ -518,56 +694,77 @@
         {
           "name": "executable_detection_method",
           "value": "PURL contains 'pypi'"
-        },
-        {
-          "name": "trust_score",
-          "value": "100%"
-        },
-        {
-          "name": "trust_score_reasons",
-          "value": "+30: Version confirmed from package registry (API available)\n+25: Hash/checksum verified\n+20: PURL identifier available\n+15: License identified (Apache-2.0)\n+10: Manually reviewed in config overrides"
-        },
-        {
-          "name": "repository_registry",
-          "value": "PyPI"
-        },
-        {
-          "name": "repository_url",
-          "value": "https://pypi.org/project/requests/"
-        },
-        {
-          "name": "repository_ecosystem",
-          "value": "Python"
         }
+      ],
+      "detected_by": [
+        "syft",
+        "trivy",
+        "cdxgen"
+      ],
+      "evidence_sources": [
+        "Trivy Scan Discovery",
+        "\\requirements.txt",
+        "cdxgen Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "657211e6-aff9-4348-81da-4f9c61bc4622"
+    },
+    {
+      "bom-ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+      "type": "library",
+      "name": "urllib3",
+      "version": "1.24.2",
+      "purl": "pkg:pypi/urllib3@1.24.2",
+      "cpe": "cpe:2.3:a:python:urllib3:1.24.2:*:*:*:*:*:*:*",
+      "cpes": [
+        "cpe:2.3:a:python:urllib3:1.24.2:*:*:*:*:*:*:*"
       ],
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "29a9bb27fe60f04758f00863f6aa01ca04b0b56e4dcdec179843c3f3154d2060"
+          "content": "889a9b94b689167429f8308130822e9a6214d91f8558a220c2814e7faeb48800"
         }
       ],
-      "description": "Python HTTP for Humans.",
-      "supplier": {
-        "name": "Kenneth Reitz & Requests Community"
-      },
       "licenses": [
         {
           "license": {
             "name": "Apache-2.0"
           }
         }
-      ]
-    },
-    {
-      "bom-ref": "pkg:pypi/urllib3@1.24.2",
-      "type": "library",
-      "name": "urllib3",
-      "version": "1.24.2",
-      "purl": "pkg:pypi/urllib3@1.24.2",
+      ],
+      "description": "HTTP library with thread-safe connection pooling, file post, and more.",
+      "supplier": {
+        "name": "urllib3 Contributors"
+      },
       "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "python-package-cataloger"
+        },
+        {
+          "name": "syft:package:language",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "python"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "python-pip-requirements-entry"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "\\requirements.txt"
+        },
         {
           "name": "aquasecurity:trivy:PkgType",
           "value": "pip"
+        },
+        {
+          "name": "SrcFile",
+          "value": "mock_project\\requirements.txt"
         },
         {
           "name": "origin",
@@ -599,15 +796,15 @@
         },
         {
           "name": "executable",
-          "value": "false"
+          "value": "Library"
         },
         {
           "name": "archive",
-          "value": "true"
+          "value": "false"
         },
         {
           "name": "structured",
-          "value": "CycloneDX JSON v1.6"
+          "value": "CycloneDX JSON v1.6 (Merged)"
         },
         {
           "name": "criticality_reason",
@@ -620,88 +817,68 @@
         {
           "name": "executable_detection_method",
           "value": "PURL contains 'pypi'"
-        },
-        {
-          "name": "trust_score",
-          "value": "100%"
-        },
-        {
-          "name": "trust_score_reasons",
-          "value": "+30: Version confirmed from package registry (API available)\n+25: Hash/checksum verified\n+20: PURL identifier available\n+15: License identified (Apache-2.0)\n+10: Manually reviewed in config overrides"
-        },
-        {
-          "name": "repository_registry",
-          "value": "PyPI"
-        },
-        {
-          "name": "repository_url",
-          "value": "https://pypi.org/project/urllib3/"
-        },
-        {
-          "name": "repository_ecosystem",
-          "value": "Python"
         }
       ],
-      "hashes": [
-        {
-          "alg": "SHA-256",
-          "content": "889a9b94b689167429f8308130822e9a6214d91f8558a220c2814e7faeb48800"
-        }
+      "detected_by": [
+        "syft",
+        "trivy",
+        "cdxgen"
       ],
-      "description": "HTTP library with thread-safe connection pooling, file post, and more.",
-      "supplier": {
-        "name": "urllib3 Contributors"
-      },
-      "licenses": [
-        {
-          "license": {
-            "name": "Apache-2.0"
-          }
-        }
-      ]
+      "evidence_sources": [
+        "Trivy Scan Discovery",
+        "\\requirements.txt",
+        "cdxgen Scan Discovery"
+      ],
+      "merge_confidence": "100%",
+      "merge_status": "Merged",
+      "unique_component_id": "7987dded-a29a-4989-ab89-91ad91fe1da9"
     }
   ],
   "dependencies": [
     {
-      "ref": "0ae73463-8087-4356-ac88-9644318a5c77",
+      "ref": "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40",
+      "dependsOn": []
+    },
+    {
+      "ref": "cf9bc59e-dc98-4d12-b5c2-1ed1787458a9",
       "dependsOn": [
-        "pkg:pypi/django@2.1",
-        "pkg:pypi/jinja2@2.10",
-        "pkg:pypi/numpy@1.15.0",
-        "pkg:pypi/requests@2.20.0",
-        "pkg:pypi/urllib3@1.24.2"
+        "pkg:pypi/numpy@1.15.0?package-id=4eb3d7aaf8a89c48",
+        "pkg:pypi/requests@2.20.0?package-id=cf1e4f5411560adc",
+        "pkg:pypi/urllib3@1.24.2?package-id=a292585d1913c25c",
+        "pkg:pypi/django@2.1?package-id=faaedda1a8b33936",
+        "pkg:pypi/jinja2@2.10?package-id=bd26a75a5bb6cb40"
       ]
     },
     {
-      "ref": "b68f9330-d702-4d1f-b620-699d49b848e5",
+      "ref": "353f8837-1a1d-4ad2-9e62-16b1729d9af3",
       "dependsOn": [
-        "0ae73463-8087-4356-ac88-9644318a5c77"
+        "cf9bc59e-dc98-4d12-b5c2-1ed1787458a9"
       ]
     },
     {
-      "ref": "pkg:pypi/django@2.1",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:pypi/jinja2@2.10",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:pypi/numpy@1.15.0",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:pypi/requests@2.20.0",
-      "dependsOn": []
-    },
-    {
-      "ref": "pkg:pypi/urllib3@1.24.2",
+      "ref": "pkg:pypi/mock-project@latest",
       "dependsOn": []
     }
   ],
   "signature": {
     "algorithm": "ECDSA-SHA256",
-    "value": "MEQCICwo3NXPOn140xS/GQRDAaknun8k1PswEZF8VsEAopFhAiBWbHnP0dmA71/r3RKEeu4nUyqcH1F9GpMcElJmnaxJdA==",
-    "publicKey": "-----BEGIN PUBLIC KEY-----\\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAET3LDlOUZsBogDwHvB43iTgilnHZW\\n7/sZr9KZirWo+KWUbnQrfWWQdoJjsjnqxuRkoHW/EUcXDfLivmtdIKG47w==\\n-----END PUBLIC KEY-----\\n"
+    "value": "MEUCIEwZTg6AD2/W2tdtPuMhPBKl+WcSK19AuJBdHc5YrtS3AiEA85jc5MiGtlryVMZ67YeKezzEFEAbn9exCfG0iynwY38=",
+    "publicKey": "-----BEGIN PUBLIC KEY-----\\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAErDvRVk+R716HwVgDfJPXVV2NcXW4\\ndGZ9pRkrA/iDl6tp7TeU/fdqtUY5SaU/Cj/NgmUn942OehY/SHcv3dzupg==\\n-----END PUBLIC KEY-----\\n"
   }
 }

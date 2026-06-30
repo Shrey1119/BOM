@@ -19,16 +19,16 @@ if not os.path.exists(VEX) and os.path.exists('sbom_output/vex.json'):
     VEX = 'sbom_output/vex.json'
 
 print("Loading enriched SBOM and configurations...")
-with open(ENRICHED) as f: 
+with open(ENRICHED, encoding='utf-8') as f: 
     sbom = json.load(f)
-with open(CONFIG) as f: 
+with open(CONFIG, encoding='utf-8') as f: 
     config = json.load(f)
 
 # Load VEX vulnerability statuses (keyed by CVE id)
 vex_status = {}
 if os.path.exists(VEX):
     print(f"Loading VEX classifications from {VEX}...")
-    with open(VEX) as f: 
+    with open(VEX, encoding='utf-8') as f: 
         vex = json.load(f)
     for v in vex.get('vulnerabilities', []):
         vex_status[v['id']] = v.get('analysis', {}).get('state', 'unknown')
@@ -82,7 +82,7 @@ for c in components:
     }
     internal_map["components"].append(entry)
 
-with open(OUTPUT, 'w') as f:
-    json.dump(internal_map, f, indent=2)
+with open(OUTPUT, 'w', encoding='utf-8') as f:
+    json.dump(internal_map, f, indent=2, ensure_ascii=False)
 
 print(f'[OK] internal_map.json written — {len(components)} components mapped.')

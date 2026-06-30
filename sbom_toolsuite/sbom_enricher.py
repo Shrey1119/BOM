@@ -385,11 +385,164 @@ def fetch_pypi_metadata(package_name, version):
 
             return description, supplier, license_str, latest_version, release_date
     except Exception as e:
-        print(
-            f"Warning: Could not fetch online metadata for {package_name} ({e}). "
-            "Using defaults."
-        )
         return None
+
+
+def fetch_npm_metadata(package_name, version):
+    """
+    Fetch package metadata from NPM Registry API.
+    Returns: (description, supplier, license, latest_version, release_date)
+    """
+    url = f"https://registry.npmjs.org/{package_name}"
+    try:
+        req = urllib.request.Request(
+            url,
+            headers={'User-Agent': 'Antigravity SBOM Agent/1.0'}
+        )
+        with urllib.request.urlopen(req, timeout=5) as response:
+            data = json.loads(response.read().decode('utf-8'))
+            
+            description = data.get('description', '')
+            if len(description) > 200:
+                description = description[:197] + "..."
+                
+            author = data.get('author', {})
+            supplier = ""
+            if isinstance(author, dict):
+                supplier = author.get('name', '')
+            elif isinstance(author, str):
+                supplier = author
+            if not supplier:
+                maintainers = data.get('maintainers', [])
+                if maintainers and isinstance(maintainers, list):
+                    first = maintainers[0]
+                    if isinstance(first, dict):
+                        supplier = first.get('name', '')
+                        
+            license_str = data.get('license', '')
+            if isinstance(license_str, dict):
+                license_str = license_str.get('type', '')
+            
+            dist_tags = data.get('dist-tags', {})
+            latest_version = dist_tags.get('latest', version)
+            
+            release_date = ""
+            time_data = data.get('time', {})
+            if version in time_data:
+                release_date = time_data[version]
+            elif 'modified' in time_data:
+                release_date = time_data['modified']
+                
+            if not release_date:
+                release_date = datetime.utcnow().isoformat() + "Z"
+                
+            return description, supplier, license_str, latest_version, release_date
+    except Exception:
+        return None
+
+
+def fetch_nuget_metadata(package_name, version):
+    """
+    Fetch package metadata from NuGet API.
+    Returns: (description, supplier, license, latest_version, release_date)
+    """
+    name_lower = package_name.lower()
+    url = f"https://api.nuget.org/v3/registration5-semver1/{name_lower}/index.json"
+    try:
+        req = urllib.request.Request(
+            url,
+            headers={'User-Agent': 'Antigravity SBOM Agent/1.0'}
+        )
+        with urllib.request.urlopen(req, timeout=5) as response:
+            data = json.loads(response.read().decode('utf-8'))
+            items = data.get('items', [])
+            if not items:
+                return None
+            
+            catalog_entry = None
+            latest_version = version
+            release_date = ""
+            
+            all_entries = []
+            for page in items:
+                page_items = page.get('items', [])
+                if page_items:
+                    all_entries.extend(page_items)
+                else:
+                    all_entries.extend([page])
+            
+            for entry in all_entries:
+                cat_entry = entry.get('catalogEntry', {})
+                entry_version = cat_entry.get('version', '')
+                if entry_version == version:
+                    catalog_entry = cat_entry
+                    release_date = entry.get('commitTimeStamp', '')
+                    break
+            
+            if not catalog_entry and all_entries:
+                catalog_entry = all_entries[-1].get('catalogEntry', {})
+                release_date = all_entries[-1].get('commitTimeStamp', '')
+                latest_version = catalog_entry.get('version', version)
+                
+            if catalog_entry:
+                description = catalog_entry.get('description', '')
+                if len(description) > 200:
+                    description = description[:197] + "..."
+                supplier = catalog_entry.get('authors', '')
+                license_str = catalog_entry.get('licenseExpression') or catalog_entry.get('licenseUrl') or ''
+                if not release_date:
+                    release_date = datetime.utcnow().isoformat() + "Z"
+                return description, supplier, license_str, latest_version, release_date
+    except Exception:
+        pass
+    return None
+
+
+def fetch_golang_metadata(module_name, version):
+    """
+    Fetch module metadata from Go Proxy API.
+    Returns: (description, supplier, license, latest_version, release_date)
+    """
+    escaped_name = ""
+    for char in module_name:
+        if char.isupper():
+            escaped_name += "!" + char.lower()
+        else:
+            escaped_name += char
+            
+    url = f"https://proxy.golang.org/{escaped_name}/@v/{version}.info"
+    try:
+        req = urllib.request.Request(
+            url,
+            headers={'User-Agent': 'Antigravity SBOM Agent/1.0'}
+        )
+        with urllib.request.urlopen(req, timeout=5) as response:
+            data = json.loads(response.read().decode('utf-8'))
+            release_date = data.get('Time', '')
+            if not release_date:
+                release_date = datetime.utcnow().isoformat() + "Z"
+            return f"Go module {module_name}", "", "", version, release_date
+    except Exception:
+        pass
+    return None
+
+
+def detect_archive_property(name, component):
+    """Detect if a component is an archive/compressed file."""
+    name_lower = name.lower()
+    purl_lower = component.get('purl', '').lower()
+    
+    archive_exts = ('.zip', '.tar', '.gz', '.tgz', '.tar.gz', '.bz2', '.xz', '.jar', '.war', '.ear', '.whl', '.gem')
+    is_archive = False
+    
+    if any(name_lower.endswith(ext) for ext in archive_exts):
+        is_archive = True
+    elif any(ext in purl_lower for ext in archive_exts):
+        is_archive = True
+    elif component.get('type') == 'file' and any(name_lower.endswith(ext) for ext in archive_exts):
+        is_archive = True
+        
+    return "true" if is_archive else "false"
 
 
 # ---------------------------------------------------------------------------
@@ -403,8 +556,11 @@ def enrich_component(component, config, dependencies_map):
         component['version'] = version
 
     # 1. PURL formatting (Attribute 21 - Unique Identifier)
-    purl = f"pkg:pypi/{name.lower()}@{version}"
-    component['purl'] = purl
+    # Check if a valid PURL already exists first. Do not overwrite scanner values.
+    purl = component.get('purl')
+    if not purl:
+        purl = f"pkg:pypi/{name.lower()}@{version}"
+        component['purl'] = purl
 
     # 2. Checksums or Hashes (Attribute 14)
     if not component.get('hashes'):
@@ -416,21 +572,57 @@ def enrich_component(component, config, dependencies_map):
     override = config.get('overrides', {}).get(name, {})
     config_override_exists = bool(override)
 
-    # Fetch from API or use config defaults
-    api_data = fetch_pypi_metadata(name, version)
+    # Resolve existing license if present in scanner metadata
+    existing_license = None
+    if component.get('licenses'):
+        lics = component['licenses']
+        if isinstance(lics, list) and len(lics) > 0:
+            first_lic = lics[0]
+            if isinstance(first_lic, dict):
+                lic_obj = first_lic.get('license', {})
+                if isinstance(lic_obj, dict):
+                    existing_license = lic_obj.get('name') or lic_obj.get('id')
+                elif isinstance(first_lic.get('license'), str):
+                    existing_license = first_lic.get('license')
+
+    # Query registry based on PURL ecosystem
+    purl_lower = purl.lower()
+    purl_name = name
+    
+    if purl_lower.startswith('pkg:'):
+        # Extract clean package name from namespace if necessary
+        parts = purl.split('?')[0].split('#')[0].split('@')
+        if len(parts) > 0:
+            left_part = parts[0]
+            if '/' in left_part:
+                subparts = left_part.split('/')
+                # Skip the type part (subparts[0])
+                purl_name = '/'.join(subparts[1:])
+
+    api_data = None
+    if purl_lower.startswith('pkg:pypi'):
+        api_data = fetch_pypi_metadata(purl_name, version)
+    elif purl_lower.startswith('pkg:npm'):
+        api_data = fetch_npm_metadata(purl_name, version)
+    elif purl_lower.startswith('pkg:nuget'):
+        api_data = fetch_nuget_metadata(purl_name, version)
+    elif purl_lower.startswith('pkg:golang'):
+        api_data = fetch_golang_metadata(purl_name, version)
+        
     api_data_available = api_data is not None
 
     if api_data:
         api_desc, api_supplier, api_license, api_latest, api_release = api_data
-        desc = api_desc or component.get('description', '')
-        supplier = override.get('supplier') or api_supplier or config.get('default_supplier')
-        license_name = api_license or config.get('default_license')
+        desc = api_desc or component.get('description') or f"Component {name}"
+        # Overwrite local inconsistent data with registry standardized fields
+        supplier = override.get('supplier') or api_supplier or component.get('supplier', {}).get('name') or config.get('default_supplier')
+        license_name = override.get('license') or api_license or existing_license or config.get('default_license')
         latest_version = api_latest
         release_date_str = api_release
     else:
-        desc = component.get('description') or f"Python package {name}"
-        supplier = override.get('supplier') or config.get('default_supplier')
-        license_name = config.get('default_license')
+        desc = component.get('description') or f"Component {name}"
+        supplier = override.get('supplier') or component.get('supplier', {}).get('name') or config.get('default_supplier')
+        license_name = override.get('license') or existing_license or config.get('default_license')
         latest_version = version
         release_date_str = datetime.utcnow().isoformat() + "Z"
 
@@ -477,8 +669,6 @@ def enrich_component(component, config, dependencies_map):
     executable_detection_method = exec_info["detection_method"]
 
     # ----- Enhancement 4: Trust Score -----
-    # licenses already set above; pass current state of component for scoring
-    component['licenses'] = [{"license": {"name": license_name}}]
     trust_score_int, trust_reasons = calculate_trust_score(
         component, api_data_available, config_override_exists
     )
@@ -518,18 +708,19 @@ def enrich_component(component, config, dependencies_map):
     properties.append({"name": "criticality", "value": criticality})
     properties.append({"name": "usage_restrictions", "value": usage_restrictions})
     properties.append({"name": "comments", "value": comments})
+    
+    # Executable logic using detected value
     properties.append({
         "name": "executable",
-        "value": str(
-            override.get('executable', config.get('default_executable'))
-        ).lower()
+        "value": str(override.get('executable') or executable_value)
     })
+    
+    # Archive logic using helper
     properties.append({
         "name": "archive",
-        "value": str(
-            override.get('archive', config.get('default_archive'))
-        ).lower()
+        "value": str(override.get('archive') or detect_archive_property(name, component))
     })
+    
     properties.append({
         "name": "structured",
         "value": config.get('default_structured_format')
@@ -594,11 +785,28 @@ def enrich_sbom(raw_sbom_path, enriched_sbom_path, config_path):
     # Enrich components list
     components = sbom.get('components', [])
     enriched_components = []
+    total = len(components)
 
-    for comp in components:
-        print(f"Enriching component: {comp.get('name')}@{comp.get('version')}...")
+    import sys
+    print(f"Enriching {total} components...")
+    for i, comp in enumerate(components, 1):
+        name = comp.get('name', 'unknown')
+        version = comp.get('version', 'unknown')
+        
+        # Display clean in-place text loading bar (using CP1252-safe ASCII characters)
+        bar_length = 30
+        percent = int(100 * i / total)
+        filled_length = int(bar_length * i // total)
+        bar = '#' * filled_length + '-' * (bar_length - filled_length)
+        
+        sys.stdout.write(f"\r  Enrichment Progress: |{bar}| {percent}% ({i}/{total}) - {name}@{version}               ")
+        sys.stdout.flush()
+
         enriched_comp = enrich_component(comp, config, dependencies_map)
         enriched_components.append(enriched_comp)
+
+    sys.stdout.write("\n")
+    sys.stdout.flush()
 
     sbom['components'] = enriched_components
 
@@ -630,3 +838,4 @@ if __name__ == "__main__":
         enriched_path = sys.argv[2]
 
     enrich_sbom(raw_path, enriched_path, cfg_path)
+

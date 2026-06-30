@@ -4,18 +4,18 @@
     "title": "Security Advisory \u2014 Client-Assigned Scanning Service",
     "publisher": {
       "name": "Security & Governance Lead (Antigravity AI)",
-      "namespace": "https://antigravity.ai/security",
+      "namespace": "https://company.security/advisory",
       "category": "vendor"
     },
     "tracking": {
-      "id": "AA-20260626-001",
+      "id": "CSAF-20260630-001",
       "status": "final",
       "version": "1",
-      "initial_release_date": "2026-06-26T09:25:50.790119+00:00Z",
-      "current_release_date": "2026-06-26T09:25:50.790119+00:00Z",
+      "initial_release_date": "2026-06-30T07:04:10.336639Z",
+      "current_release_date": "2026-06-30T07:04:10.336639Z",
       "revision_history": [
         {
-          "date": "2026-06-26T09:25:50.790119+00:00Z",
+          "date": "2026-06-30T07:04:10.336639Z",
           "number": "1",
           "summary": "Initial release"
         }
@@ -38,135 +38,9 @@
       {
         "category": "product_family",
         "name": "Client-Assigned Scanning Service",
-        "branches": [
-          {
-            "category": "product_version",
-            "name": "urllib3@1.24.2",
-            "product": {
-              "name": "urllib3",
-              "product_id": "urllib3"
-            }
-          }
-        ]
+        "branches": []
       }
     ]
   },
-  "vulnerabilities": [
-    {
-      "cve": "CVE-2019-11236",
-      "title": "Affected: urllib3 1.24.2",
-      "notes": [
-        {
-          "category": "description",
-          "text": "CRLF injection in HTTP headers \u00e2\u20ac\u201d component actively used"
-        }
-      ],
-      "product_status": {
-        "known_affected": [
-          "urllib3"
-        ],
-        "fixed": [
-          "urllib3"
-        ]
-      },
-      "remediations": [
-        {
-          "category": "vendor_fix",
-          "details": "Upgrade to urllib3 1.25.9",
-          "product_ids": [
-            "urllib3"
-          ]
-        }
-      ],
-      "scores": [
-        {
-          "source": {
-            "name": "alma"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "amazon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "cbl-mariner"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "ghsa"
-          },
-          "score": 5.3,
-          "severity": "medium",
-          "method": "CVSSv4",
-          "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 4.3,
-          "severity": "medium",
-          "method": "CVSSv2",
-          "vector": "AV:N/AC:M/Au:N/C:N/I:P/A:N"
-        },
-        {
-          "source": {
-            "name": "nvd"
-          },
-          "score": 6.1,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "oracle-oval"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "photon"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "redhat"
-          },
-          "score": 6.5,
-          "severity": "medium",
-          "method": "CVSSv3",
-          "vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
-        },
-        {
-          "source": {
-            "name": "rocky"
-          },
-          "severity": "medium"
-        },
-        {
-          "source": {
-            "name": "ubuntu"
-          },
-          "severity": "medium"
-        }
-      ]
-    }
-  ]
+  "vulnerabilities": []
 }

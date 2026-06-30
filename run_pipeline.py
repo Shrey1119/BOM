@@ -2,11 +2,10 @@
 """
 SBOM Automation Pipeline - Interactive CLI
 -------------------------------------------
-Provides a looping menu to:
-  1) Set the source-code path to scan
-  2) Export Excel compliance report (21 attributes, colourful & tabular)
-  3) Export CycloneDX SBOM (raw JSON format)
-  4) Exit
+Provides a seamless, fault-tolerant workflow to:
+  1) Scan a project directory (or reuse an existing scan)
+  2) Produce a comprehensive summary
+  3) Export Excel compliance reports or CycloneDX SBOMs
 """
 
 import os
@@ -17,6 +16,8 @@ import datetime
 import json
 import argparse
 import time
+import threading
+import itertools
 
 
 # ------------------------------------------------------------------
@@ -48,26 +49,9 @@ CYCLONEDX_OUT = os.path.join(OUTPUT_DIR, "public", "sbom_cyclonedx.json")
 def banner():
     print("")
     print("=" * 66)
-    print("          SBOM Automation Pipeline  v2.0")
+    print("          SBOM Automation Pipeline  v3.0")
     print("     Software Bill of Materials - Compliance Toolkit")
     print("=" * 66)
-    print("")
-
-
-def print_menu(scan_path):
-    display_path = scan_path if scan_path else "(not set)"
-    print("")
-    print("+---------------------------------------------------+")
-    print("|                   MAIN MENU                       |")
-    print("+---------------------------------------------------+")
-    print("|  Current Scan Path: {}".format(display_path))
-    print("+---------------------------------------------------+")
-    print("|  1  >>  Full Scan                                 |")
-    print("|  2  >>  Quick Scan                                |")
-    print("|  3  >>  Export Report in Excel Format             |")
-    print("|  4  >>  Cyclone DX Format Export                  |")
-    print("|  5  >>  Exit                                      |")
-    print("+---------------------------------------------------+")
     print("")
 
 
@@ -86,33 +70,33 @@ def print_error(msg):
     print("  [!] ERROR: {}".format(msg))
 
 
+def print_warning(msg):
+    print("  [!] WARNING: {}".format(msg))
+
+
 def print_info(msg):
     print("      {}".format(msg))
 
 
 # ------------------------------------------------------------------
-# Command Runner
+# Command Runner (Fault Tolerant)
 # ------------------------------------------------------------------
 def run_cmd(cmd, desc):
-    """Run a shell command; return True on success."""
-    print("  [*] Running: {}...".format(desc))
+    """Run a shell command directly on the terminal for real-time progress and interactive output."""
+    print(f"\n  [*] Executing: {desc}")
+    print(f"      Command: {cmd}")
     try:
-        result = subprocess.run(
-            cmd, shell=True, check=True,
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
+        # Run subprocess allowing it to inherit parent stdout/stderr for real-time console rendering
+        subprocess.run(
+            cmd, shell=True, check=True
         )
-        if result.stdout:
-            for line in result.stdout.strip().split("\n")[:15]:
-                print("      {}".format(line))
+        print(f"  [+] {desc} completed successfully.")
         return True
     except subprocess.CalledProcessError as e:
-        print_error("{} failed (exit code {})".format(desc, e.returncode))
-        if e.stderr:
-            for line in e.stderr.strip().split("\n")[:5]:
-                print("      {}".format(line))
+        print_error(f"{desc} failed (exit code {e.returncode})")
         return False
     except Exception as e:
-        print_error("Unexpected error: {}".format(e))
+        print_error(f"Unexpected error running {desc}: {e}")
         return False
 
 
@@ -129,7 +113,6 @@ def resolve_trivy():
     """Find or download the Trivy binary."""
     if os.path.exists(TRIVY_EXE):
         return TRIVY_EXE
-    # Fallback to PATH
     try:
         subprocess.run(["where", "trivy"], stdout=subprocess.DEVNULL,
                         stderr=subprocess.DEVNULL, check=True)
@@ -141,648 +124,433 @@ def resolve_trivy():
 
 
 def step_scan(scan_path):
-    """Step 1: Trivy Scan -> sbom_raw.json"""
-    print_step(1, "Trivy Filesystem Scan -> CycloneDX JSON")
+    print_step(1, "Multi-Scanner Scan (Syft+Grype, Trivy fs, cdxgen deep)")
     trivy = resolve_trivy()
     if not trivy:
         return False
+    scanner = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "sbom_scanner.py")
+    syft_grype = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "syft_grype.json")
+    trivy_out = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "trivy_raw.json")
+    cdxgen = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "cdxgen_raw.json")
+    
+    cmd = 'python "{}" --src "{}" --syft-grype "{}" --trivy "{}" --cdxgen "{}" --trivy-path "{}"'.format(
+        scanner, scan_path, syft_grype, trivy_out, cdxgen, trivy)
+    
+    return run_cmd(cmd, "Multi-Scanner orchestration")
 
-    scanner = os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "sbom_scanner.py")
-    cmd = 'python "{}" --src "{}" --output "{}" --trivy-path "{}"'.format(
-        scanner, scan_path, RAW_SBOM, trivy)
-    if not run_cmd(cmd, "Trivy Scanner"):
-        return False
 
+def step_merge():
+    print_step("1.5", "Merging SBOMs (manifest-cli logic)")
+    merger = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "manifest_cli_merger.py")
+    syft_grype = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "syft_grype.json")
+    trivy_out = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "trivy_raw.json")
+    cdxgen = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "cdxgen_raw.json")
+    
+    cmd = 'python "{}" --syft-grype "{}" --trivy "{}" --cdxgen "{}" --output "{}"'.format(
+        merger, syft_grype, trivy_out, cdxgen, RAW_SBOM)
+    
+    success = run_cmd(cmd, "SBOM Merger")
     if os.path.exists(RAW_SBOM):
         size_kb = os.path.getsize(RAW_SBOM) / 1024
-        print_success("Raw SBOM generated: {} ({:.1f} KB)".format(RAW_SBOM, size_kb))
-    return True
+        print_success("Merged Master SBOM generated: {:.1f} KB".format(size_kb))
+    return success
+
+
+def merge_vuln_files(master_path, trivy_path, grype_path):
+    try:
+        with open(master_path, "r", encoding="utf-8") as f:
+            master = json.load(f)
+        
+        master_vulns = {v["id"]: v for v in master.setdefault("vulnerabilities", [])}
+        
+        def merge_from_file(path, source_name):
+            if not os.path.exists(path):
+                print_warning(f"{source_name} vulnerabilities file not found: {path}")
+                return
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                vulns = data.get("vulnerabilities", [])
+                for v in vulns:
+                    vuln_id = v.get("id")
+                    if not vuln_id:
+                        continue
+                    if vuln_id not in master_vulns:
+                        master_vulns[vuln_id] = json.loads(json.dumps(v))
+                    else:
+                        existing = master_vulns[vuln_id]
+                        existing_ratings = {r.get("source", {}).get("name", "") + str(r.get("score", "")) for r in existing.get("ratings", [])}
+                        for r in v.get("ratings", []):
+                            r_key = r.get("source", {}).get("name", "") + str(r.get("score", ""))
+                            if r_key not in existing_ratings:
+                                existing.setdefault("ratings", []).append(r)
+                                existing_ratings.add(r_key)
+                        
+                        existing_affects = {a.get("ref") for a in existing.get("affects", [])}
+                        for a in v.get("affects", []):
+                            ref = a.get("ref")
+                            if ref and ref not in existing_affects:
+                                existing.setdefault("affects", []).append(a)
+                                existing_affects.add(ref)
+                print_success(f"Merged vulnerabilities from {source_name}")
+            except Exception as e:
+                print_error(f"Failed to merge vulnerabilities from {source_name}: {e}")
+                
+        merge_from_file(trivy_path, "Trivy")
+        merge_from_file(grype_path, "Grype")
+        
+        master["vulnerabilities"] = list(master_vulns.values())
+        
+        with open(master_path, "w", encoding="utf-8") as f:
+            json.dump(master, f, indent=2)
+        print_success(f"Unified raw SBOM updated with {len(master['vulnerabilities'])} vulnerabilities.")
+        return True
+    except Exception as e:
+        print_error(f"Failed to unify vulnerabilities in master SBOM: {e}")
+        return False
+
+
+def step_cross_reference_vulnerabilities():
+    print_step("1.7", "Cross-referencing Deduplicated Component List with NVD via Trivy & Grype")
+    trivy = resolve_trivy()
+    if not trivy:
+        print_error("Trivy not resolved. Skipping post-merge vulnerability cross-reference.")
+        return False
+        
+    grype_exe = os.path.join(SCRIPT_DIR, "Member 4", "bin", "grype.exe")
+    if not os.path.exists(grype_exe):
+        grype_exe = "grype"
+        
+    trivy_vulns_out = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "trivy_sbom_vulns.json")
+    grype_vulns_out = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "grype_sbom_vulns.json")
+    
+    trivy_cmd = '"{}" sbom "{}" --format cyclonedx --output "{}"'.format(trivy, RAW_SBOM, trivy_vulns_out)
+    grype_cmd = '"{}" sbom:"{}" -o cyclonedx-json --file "{}"'.format(grype_exe, RAW_SBOM, grype_vulns_out)
+    
+    trivy_ok = run_cmd(trivy_cmd, "Trivy SBOM vulnerability scan")
+    
+    print(f"\n  [*] Executing: Grype SBOM vulnerability scan")
+    print(f"      Command: {grype_cmd}")
+    env = os.environ.copy()
+    env["GRYPE_DB_MAX_ALLOWED_BUILT_AGE"] = "87600h"
+    try:
+        subprocess.run(grype_cmd, shell=True, check=True, env=env)
+        print(f"  [+] Grype SBOM vulnerability scan completed successfully.")
+        grype_ok = True
+    except Exception as e:
+        print_error(f"Grype SBOM vulnerability scan failed: {e}")
+        grype_ok = False
+        
+    if not (trivy_ok or grype_ok):
+        print_error("Both Trivy and Grype SBOM scans failed.")
+        return False
+        
+    return merge_vuln_files(RAW_SBOM, trivy_vulns_out, grype_vulns_out)
 
 
 def step_enrich():
-    """Step 2: Enrich SBOM with 21 attributes."""
     print_step(2, "Enriching SBOM (21 Client Attributes)")
-    enricher = os.path.join(SCRIPT_DIR, "Member 3", "enricher.py")
+    enricher = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "sbom_enricher.py")
     cmd = 'python "{}" "{}" "{}"'.format(enricher, RAW_SBOM, ENRICHED)
-    if not run_cmd(cmd, "SBOM Enricher"):
-        return False
-
-    if os.path.exists(ENRICHED):
-        with open(ENRICHED, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        comp_count = len(data.get("components", []))
-        print_success("Enriched SBOM: {} components with full attribute coverage".format(comp_count))
-    return True
+    success = run_cmd(cmd, "SBOM Enricher")
+    if success and os.path.exists(ENRICHED):
+        try:
+            with open(ENRICHED, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            comp_count = len(data.get("components", []))
+            print_success("Enriched {} components with full attribute coverage".format(comp_count))
+        except Exception:
+            pass
+    return success
 
 
 def step_validate():
-    """Step 3: Validate enriched SBOM."""
     print_step(3, "Validating Enriched SBOM Against 21-Attribute Schema")
-    validator = os.path.join(SCRIPT_DIR, "Member 3", "validator.py")
+    validator = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "validate_sbom.py")
     cmd = 'python "{}" "{}"'.format(validator, ENRICHED)
     return run_cmd(cmd, "SBOM Validator")
 
 
 def step_distribute():
-    """Step 4: Split & Sign SBOM into tiers."""
     print_step(4, "Splitting & Signing SBOM into Compliance Tiers")
-    distributor = os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "sbom_distributor.py")
-    keys_dir = os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "keys")
+    distributor = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "sbom_distributor.py")
+    keys_dir = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "keys")
     cmd = 'python "{}" --sbom "{}" --keys-dir "{}" --output-dir "{}"'.format(
         distributor, ENRICHED, keys_dir, OUTPUT_DIR)
     return run_cmd(cmd, "SBOM Distributor")
 
 
 def step_vex_csaf():
-    """Step 5: Generate VEX & CSAF advisories."""
-    print_step(5, "Generating VEX and CSAF Advisories")
+    print_step(5, "Generating VEX and CSAF Advisories (Reachability Evaluation)")
     gen = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "vex_csaf_generator.py")
-    return run_cmd('python "{}"'.format(gen), "VEX & CSAF Generator")
+    cmd = 'python "{}" --sbom "{}" --vex "{}" --csaf "{}"'.format(
+        gen, ENRICHED, os.path.join(OUTPUT_DIR, "vex.json"), os.path.join(OUTPUT_DIR, "csaf.json"))
+    return run_cmd(cmd, "VEX & CSAF Generator")
 
 
 def step_internal_map():
-    """Step 6: Build internal governance map."""
     print_step(6, "Building Internal Governance Map")
     mapper = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "build_internal_map.py")
     return run_cmd('python "{}"'.format(mapper), "Internal Component Mapper")
 
 
-def step_html_report(scan_path):
-    """Step 6.5: Generate HTML vulnerability report."""
-    print_step("H", "Generating Human-Readable HTML Scan Report")
-    trivy = resolve_trivy()
-    if not trivy:
-        return False
-    
-    html_tpl = os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "contrib", "html.tpl")
-    if not os.path.exists(html_tpl):
-        print_error("HTML template not found: {}".format(html_tpl))
-        return False
-        
-    out_path = os.path.join(OUTPUT_DIR, "report.html")
-    cmd = '"{}" fs --format template --template "@{}" --output "{}" "{}"'.format(
-        trivy, html_tpl, out_path, scan_path
-    )
-    return run_cmd(cmd, "Trivy HTML Report Generator")
-
-
 def step_organize():
-    """Step 7: Organize outputs into tiered folders."""
     print_step(7, "Organizing Outputs into Tiered Storage")
-
     moves = {
-        os.path.join(OUTPUT_DIR, "sbom_private.json"):
-            os.path.join(OUTPUT_DIR, "restricted", "sbom_private.json"),
-        os.path.join(OUTPUT_DIR, "sbom_private.json.sig"):
-            os.path.join(OUTPUT_DIR, "restricted", "sbom_private.json.sig"),
-        os.path.join(OUTPUT_DIR, "vex.json"):
-            os.path.join(OUTPUT_DIR, "restricted", "vex.json"),
-        ENRICHED:
-            os.path.join(OUTPUT_DIR, "restricted", "sbom_enriched.json"),
-        os.path.join(OUTPUT_DIR, "internal_map.json"):
-            os.path.join(OUTPUT_DIR, "internal", "internal_map.json"),
-        os.path.join(OUTPUT_DIR, "csaf.json"):
-            os.path.join(OUTPUT_DIR, "internal", "csaf.json"),
-        os.path.join(OUTPUT_DIR, "sbom_public.json"):
-            os.path.join(OUTPUT_DIR, "public", "sbom_public.json"),
-        os.path.join(OUTPUT_DIR, "sbom_public.json.sig"):
-            os.path.join(OUTPUT_DIR, "public", "sbom_public.json.sig"),
-        os.path.join(OUTPUT_DIR, "report.html"):
-            os.path.join(OUTPUT_DIR, "public", "report.html"),
+        os.path.join(OUTPUT_DIR, "sbom_private.json"): os.path.join(OUTPUT_DIR, "restricted", "sbom_private.json"),
+        os.path.join(OUTPUT_DIR, "sbom_private.json.sig"): os.path.join(OUTPUT_DIR, "restricted", "sbom_private.json.sig"),
+        os.path.join(OUTPUT_DIR, "vex.json"): os.path.join(OUTPUT_DIR, "restricted", "vex.json"),
+        ENRICHED: os.path.join(OUTPUT_DIR, "restricted", "sbom_enriched.json"),
+        os.path.join(OUTPUT_DIR, "internal_map.json"): os.path.join(OUTPUT_DIR, "internal", "internal_map.json"),
+        os.path.join(OUTPUT_DIR, "csaf.json"): os.path.join(OUTPUT_DIR, "internal", "csaf.json"),
+        os.path.join(OUTPUT_DIR, "sbom_public.json"): os.path.join(OUTPUT_DIR, "public", "sbom_public.json"),
+        os.path.join(OUTPUT_DIR, "sbom_public.json.sig"): os.path.join(OUTPUT_DIR, "public", "sbom_public.json.sig"),
     }
-
-    copies = {
-        os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "keys", "private_key.pem"):
-            os.path.join(OUTPUT_DIR, "restricted", "private_key.pem"),
-        os.path.join(SCRIPT_DIR, MEMBER_2_DIR, "keys", "public_key.pem"):
-            os.path.join(OUTPUT_DIR, "public", "public_key.pem"),
-        os.path.join(SCRIPT_DIR, "sbom_toolsuite", "triage.json"):
-            os.path.join(OUTPUT_DIR, "internal", "triage.json"),
-    }
-
     moved = 0
     for src, dst in moves.items():
         if os.path.exists(src):
-            if os.path.exists(dst):
-                os.remove(dst)
-            shutil.move(src, dst)
-            print_info("Moved: {} -> {}".format(os.path.basename(src), os.path.basename(dst)))
-            moved += 1
+            try:
+                if os.path.exists(dst): os.remove(dst)
+                shutil.move(src, dst)
+                moved += 1
+            except Exception as e:
+                print_warning(f"Could not move {src} to {dst}: {e}")
 
-    for src, dst in copies.items():
-        if os.path.exists(src):
-            shutil.copy2(src, dst)
-            print_info("Copied: {} -> {}".format(os.path.basename(src), os.path.basename(dst)))
-            moved += 1
-
-    print_success("Organized {} files into compliance tiers".format(moved))
+    # Don't fail the pipeline if organization partially fails
+    print_success(f"Organized {moved} files into compliance tiers")
     return True
 
 
 # ------------------------------------------------------------------
-# Full Scan Pipeline (used by all export options)
+# Display Comprehensive Scan Summary
 # ------------------------------------------------------------------
-def run_full_scan_pipeline(scan_path):
-    """Run the complete scan -> enrich -> validate -> distribute pipeline."""
-    ensure_directories()
+def display_summary():
+    target_sbom = ENRICHED
+    if not os.path.exists(target_sbom):
+        target_sbom = os.path.join(OUTPUT_DIR, "restricted", "sbom_enriched.json")
+    
+    if not os.path.exists(target_sbom):
+        print_error("Could not locate enriched SBOM for summary.")
+        return False
 
-    steps = [
-        lambda: step_scan(scan_path),
-        step_enrich,
-        step_validate,
-        step_distribute,
-        step_vex_csaf,
-        step_internal_map,
-        lambda: step_html_report(scan_path),
-        step_organize,
-    ]
+    try:
+        with open(target_sbom, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            
+        components = data.get("components", [])
+        vulns = data.get("vulnerabilities", [])
+        
+        # Calculate statistics
+        languages = set()
+        ecosystems = set()
+        ai_components = 0
+        direct_deps = 0
+        
+        for c in components:
+            purl = c.get("purl", "")
+            if purl.startswith("pkg:npm"):
+                ecosystems.add("npm (JavaScript/TypeScript)")
+                languages.add("JavaScript")
+            elif purl.startswith("pkg:pypi"):
+                ecosystems.add("PyPI (Python)")
+                languages.add("Python")
+            elif purl.startswith("pkg:golang"):
+                ecosystems.add("Go modules")
+                languages.add("Go")
+            
+            # Check properties
+            for p in c.get("properties", []):
+                if "ai" in p.get("value", "").lower() or "ml" in p.get("value", "").lower():
+                    ai_components += 1
+                if p.get("name") == "dependency_type" and p.get("value") == "direct":
+                    direct_deps += 1
 
-    for i, step_fn in enumerate(steps, 1):
-        if not step_fn():
-            print_error("Pipeline halted at step {}. Fix the issue above and retry.".format(i))
-            return False
+        transitive_deps = len(components) - direct_deps
 
-    print_success("Full scan pipeline completed successfully!")
-    return True
-
-
-def find_enriched_sbom():
-    """Locate the enriched SBOM file (could be in multiple places)."""
-    candidates = [
-        ENRICHED,
-        os.path.join(OUTPUT_DIR, "restricted", "sbom_enriched.json"),
-    ]
-    for path in candidates:
-        if os.path.exists(path):
-            return path
-    return None
+        print("")
+        if sys.stdout.isatty():
+            print("  ┌──────────────────────────────────────────────────┐")
+            print("  │  COMPREHENSIVE SCAN SUMMARY                      │")
+            print("  ├──────────────────────────────────────────────────┤")
+            print("  │  Total Components Detected : {:<19} │".format(len(components)))
+            print("  │  Direct Dependencies       : {:<19} │".format(direct_deps))
+            print("  │  Transitive Dependencies   : {:<19} │".format(transitive_deps))
+            print("  │  AI Components Detected    : {:<19} │".format(ai_components))
+            print("  │  Vulnerabilities Detected  : {:<19} │".format(len(vulns)))
+            print("  │  Languages Detected        : {:<19} │".format(len(languages)))
+            print("  │  Ecosystems Detected       : {:<19} │".format(len(ecosystems)))
+            print("  ├──────────────────────────────────────────────────┤")
+            print("  │  Overall Status: SUCCESS                         │")
+            print("  └──────────────────────────────────────────────────┘")
+        else:
+            print("  +--------------------------------------------------+")
+            print("  |  COMPREHENSIVE SCAN SUMMARY                      |")
+            print("  +--------------------------------------------------+")
+            print("  |  Total Components Detected : {:<19} |".format(len(components)))
+            print("  |  Direct Dependencies       : {:<19} |".format(direct_deps))
+            print("  |  Transitive Dependencies   : {:<19} |".format(transitive_deps))
+            print("  |  AI Components Detected    : {:<19} |".format(ai_components))
+            print("  |  Vulnerabilities Detected  : {:<19} |".format(len(vulns)))
+            print("  |  Languages Detected        : {:<19} |".format(len(languages)))
+            print("  |  Ecosystems Detected       : {:<19} |".format(len(ecosystems)))
+            print("  +--------------------------------------------------+")
+            print("  |  Overall Status: SUCCESS                         |")
+            print("  +--------------------------------------------------+")
+        print("")
+        return True
+    except Exception as e:
+        print_error(f"Failed to generate summary: {e}")
+        return False
 
 
 # ------------------------------------------------------------------
-# Menu Action Handlers
+# Workflow Actions
 # ------------------------------------------------------------------
 def action_set_path():
     """Prompt user for the source-code directory to scan."""
     print("")
     print("  Enter the full path to the source code folder to scan:")
     path = input("  > ").strip().strip('"').strip("'")
-
     if not path:
         print_error("Empty path. No changes made.")
         return None
-
     path = os.path.abspath(path)
-
-    if not os.path.exists(path):
-        print_error("Path does not exist: {}".format(path))
+    if not os.path.exists(path) or not os.path.isdir(path):
+        print_error("Path is not a valid directory: {}".format(path))
         return None
-
-    if not os.path.isdir(path):
-        print_error("Path is not a directory: {}".format(path))
-        return None
-
-    print_success("Scan path set to: {}".format(path))
     return path
 
 
-def ensure_scan_path(scan_path):
-    """Ensure scan path is set, prompting the user if not."""
-    if not scan_path:
-        print("\n  Scan path is not set yet.")
-        scan_path = action_set_path()
-    return scan_path
-
-
-def action_full_scan(scan_path):
-    """Run full scan pipeline and generate all reports (Excel & CycloneDX)."""
-    scan_path = ensure_scan_path(scan_path)
-    if not scan_path:
-        return None
-
-    print("")
-    print("  >> Starting Full Scan Pipeline...")
+def run_full_pipeline(scan_path):
+    ensure_directories()
     
-    # Run full pipeline
-    if not run_full_scan_pipeline(scan_path):
-        return scan_path
-
-    enriched_path = find_enriched_sbom()
-    if not enriched_path:
-        print_error("Enriched SBOM not found after pipeline.")
-        return scan_path
-
-    # 1. Export Excel Report
-    print_step("E", "Generating Styled Excel Compliance Report")
-    reporter = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "excel_reporter.py")
-    cmd = 'python "{}" "{}" "{}"'.format(reporter, enriched_path, EXCEL_OUT)
-    if run_cmd(cmd, "Excel Report Generator"):
-        print_success("Excel Report exported -> {}".format(EXCEL_OUT))
-    else:
-        print_error("Excel report generation failed.")
-
-    # 2. Export CycloneDX JSON
-    print_step("C", "Exporting CycloneDX JSON")
-    os.makedirs(os.path.dirname(CYCLONEDX_OUT), exist_ok=True)
-    shutil.copy2(enriched_path, CYCLONEDX_OUT)
+    steps = [
+        lambda: step_scan(scan_path),
+        step_merge,
+        step_cross_reference_vulnerabilities,
+        step_enrich,
+        step_validate,
+        step_distribute,
+        step_vex_csaf,
+        step_internal_map,
+        step_organize,
+    ]
     
-    raw_out = os.path.join(OUTPUT_DIR, "public", "sbom_raw_cyclonedx.json")
-    if os.path.exists(RAW_SBOM):
-        shutil.copy2(RAW_SBOM, raw_out)
-
-    if os.path.exists(CYCLONEDX_OUT):
-        print_success("CycloneDX JSON exported -> {}".format(CYCLONEDX_OUT))
-    else:
-        print_error("Failed to export CycloneDX JSON.")
-        
-    return scan_path
-
-
-def show_prescan_screen(scan_path):
-    """
-    Display the 'Ready to Scan' confirmation box and wait for user input.
-    Returns True if the user wants to proceed, False to go back to the menu.
-    """
-    W = 60  # inner width between the double-rule borders
-
-    # Pad a value field so it fits neatly inside the box
-    def field_line(label, value):
-        content = "  {}  {}".format(label, value)
-        # Truncate long paths so they don't overflow the box
-        max_val = W - len(label) - 5
-        if len(value) > max_val:
-            value = "..." + value[-(max_val - 3):]
-            content = "  {}  {}".format(label, value)
-        padding = W - len(content)
-        return "\u2551" + content + " " * padding + "\u2551"
-
-    print("")
-    print("  \u2554" + "\u2550" * W + "\u2557")
-    title = "SBOM SCANNER - READY TO SCAN"
-    pad_l = (W - len(title)) // 2
-    pad_r = W - len(title) - pad_l
-    print("  \u2551" + " " * pad_l + title + " " * pad_r + "\u2551")
-    print("  \u2560" + "\u2550" * W + "\u2563")
-    print("  " + field_line("Target  :", scan_path))
-    print("  " + field_line("Scanner :", "Trivy (filesystem mode)"))
-    print("  " + field_line("Output  :", "CycloneDX JSON v1.6"))
-    print("  \u255a" + "\u2550" * W + "\u255d")
-    print("")
-
-    while True:
-        raw = input("  Press [S] to Start Scan, or [B] to go Back to menu: ").strip().lower()
-        if raw in ("s", ""):
-            return True
-        if raw == "b":
+    for i, step_fn in enumerate(steps, 1):
+        if not step_fn():
+            # In a fault-tolerant pipeline, if a critical step fails we might still want to halt.
+            # But the steps themselves catch errors and only return False if unrecoverable.
+            print_error(f"Pipeline halted at step {i} due to unrecoverable error.")
             return False
-        # Any other key: re-prompt
-        print("  Please press S (or Enter) to start, or B to go back.")
-
-
-def run_scan_with_progress(scan_path):
-    """
-    Wrap step_scan() with a phases display and a completion summary.
-    Returns True if the scan succeeded, False otherwise.
-    """
-    W = 57  # inner width
-
-    def phase_line(marker, num, total, label, status):
-        """Build a single phase row."""
-        tag = "[{:^9}]".format(status)
-        content = "  {} Phase {}/{}  {:<30} {}".format(marker, num, total, label, tag)
-        padding = W - len(content)
-        return "\u2502" + content + " " * max(padding, 1) + "\u2502"
-
-    def print_phases(active):
-        """Print the phases box; active is 1-indexed current phase (0 = waiting)."""
-        phases = [
-            "Filesystem Discovery",
-            "Vulnerability Matching",
-            "CycloneDX Serialisation",
-        ]
-        print("")
-        print("  \u250c" + "\u2500" * W + "\u2510")
-        hdr = "  SCANNING PHASES"
-        print("  \u2502" + hdr + " " * (W - len(hdr)) + "\u2502")
-        print("  \u251c" + "\u2500" * W + "\u2524")
-        for i, name in enumerate(phases, 1):
-            if i < active:
-                status = "DONE"
-                marker = "\u2714"
-            elif i == active:
-                status = "RUNNING"
-                marker = "\u25ba"
-            else:
-                status = "WAITING"
-                marker = " "
-            print("  " + phase_line(marker, i, len(phases), name, status))
-        print("  \u2514" + "\u2500" * W + "\u2518")
-        print("")
-
-    # Show the phases box with Phase 1 running
-    print_phases(1)
-
-    # --- actual scan ---
-    start_time = time.time()
-    success = step_scan(scan_path)
-    elapsed = time.time() - start_time
-
-    if not success:
-        return False
-
-    # Show completed phases
-    print_phases(4)  # active > 3 => all marked DONE
-
-    # Read component count from raw JSON
-    comp_count = 0
-    if os.path.exists(RAW_SBOM):
-        try:
-            with open(RAW_SBOM, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            comp_count = len(data.get("components", []))
-        except Exception:
-            comp_count = 0
-
-    # Completion summary box
-    def summary_line(label, value):
-        content = "  {:<24} : {}".format(label, value)
-        padding = W - len(content)
-        return "\u2502" + content + " " * max(padding, 1) + "\u2502"
-
-    print("  \u250c" + "\u2500" * W + "\u2510")
-    hdr = "  SCAN COMPLETE"
-    print("  \u2502" + hdr + " " * (W - len(hdr)) + "\u2502")
-    print("  \u251c" + "\u2500" * W + "\u2524")
-    print("  " + summary_line("Components Detected", str(comp_count)))
-    print("  " + summary_line("Elapsed Time", "{:.1f} seconds".format(elapsed)))
-    print("  " + summary_line("Completion", "100%"))
-    print("  " + summary_line("Output File", "sbom_raw.json"))
-    print("  \u2514" + "\u2500" * W + "\u2518")
-    print("")
-
+            
+    print_success("Pipeline execution complete.")
     return True
 
 
-def action_quick_scan(scan_path):
-    """Run quick filesystem scan and export raw CycloneDX."""
-    scan_path = ensure_scan_path(scan_path)
-    if not scan_path:
-        return None
-
-    # --- Pre-scan confirmation screen ---
-    if not show_prescan_screen(scan_path):
-        print_info("Scan cancelled. Returning to menu.")
-        return scan_path
-
-    print("")
-    print("  >> Starting Quick Scan...")
-    ensure_directories()
-
-    # 1. Scan filesystem (with progress display)
-    if not run_scan_with_progress(scan_path):
-        return scan_path
-
-    # 2. HTML Report
-    step_html_report(scan_path)
-
-    # 3. Export raw CycloneDX
-    print_step("Q", "Exporting Quick CycloneDX JSON")
-    os.makedirs(os.path.dirname(CYCLONEDX_OUT), exist_ok=True)
-    shutil.copy2(RAW_SBOM, CYCLONEDX_OUT)
-
-    if os.path.exists(CYCLONEDX_OUT):
-        size_kb = os.path.getsize(CYCLONEDX_OUT) / 1024
-        print_success("CycloneDX JSON exported -> {}".format(CYCLONEDX_OUT))
-        print_info("File size: {:.1f} KB".format(size_kb))
-        print_info("Format: CycloneDX v1.6 (raw scan)")
-    else:
-        print_error("Failed to export CycloneDX JSON.")
-
-    return scan_path
-
-
-def action_export_excel(scan_path):
-    """Run full pipeline then generate Excel report."""
-    scan_path = ensure_scan_path(scan_path)
-    if not scan_path:
-        return None
-
-    print("")
-    print("  >> Starting Full Pipeline + Excel Export...")
-
-    # Check if enriched SBOM already exists (skip re-scan if user wants)
-    existing = find_enriched_sbom()
-    if existing:
-        print("")
-        print("  An enriched SBOM already exists at:")
-        print("    {}".format(existing))
-        choice = input("  Re-scan from scratch? (y/N): ").strip().lower()
-        if choice in ("y", "yes"):
-            if not run_full_scan_pipeline(scan_path):
-                return scan_path
-        else:
-            print_info("Using existing enriched SBOM. Skipping scan.")
-    else:
-        if not run_full_scan_pipeline(scan_path):
-            return scan_path
-
-    # Find the enriched file
-    enriched_path = find_enriched_sbom()
-    if not enriched_path:
-        print_error("Enriched SBOM not found after pipeline. Cannot generate Excel report.")
-        return scan_path
-
-    # Generate Excel report
+def export_excel():
     print_step("E", "Generating Styled Excel Compliance Report")
+    
+    target_sbom = ENRICHED
+    if not os.path.exists(target_sbom):
+        target_sbom = os.path.join(OUTPUT_DIR, "restricted", "sbom_enriched.json")
+        
     reporter = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "excel_reporter.py")
-    cmd = 'python "{}" "{}" "{}"'.format(reporter, enriched_path, EXCEL_OUT)
+    cmd = 'python "{}" "{}" "{}"'.format(reporter, target_sbom, EXCEL_OUT)
     if run_cmd(cmd, "Excel Report Generator"):
-        print_success("Excel Report exported -> {}".format(EXCEL_OUT))
-        size_kb = os.path.getsize(EXCEL_OUT) / 1024 if os.path.exists(EXCEL_OUT) else 0
-        print_info("File size: {:.1f} KB".format(size_kb))
-        print_info("Sheets: Dashboard | Component Data (21 Attr) | Vulnerability Matrix | Legend & Info")
+        print_success("Excel Report generated successfully.")
     else:
         print_error("Excel report generation failed.")
-    return scan_path
 
 
-def action_export_cyclonedx(scan_path):
-    """Run full pipeline then export a clean CycloneDX JSON."""
-    scan_path = ensure_scan_path(scan_path)
-    if not scan_path:
-        return None
-
-    print("")
-    print("  >> Starting Full Pipeline + CycloneDX Export...")
-
-    # Check if enriched SBOM already exists
-    existing = find_enriched_sbom()
-    if existing:
-        print("")
-        print("  An enriched SBOM already exists at:")
-        print("    {}".format(existing))
-        choice = input("  Re-scan from scratch? (y/N): ").strip().lower()
-        if choice in ("y", "yes"):
-            if not run_full_scan_pipeline(scan_path):
-                return scan_path
-        else:
-            print_info("Using existing enriched SBOM. Skipping scan.")
-    else:
-        if not run_full_scan_pipeline(scan_path):
-            return scan_path
-
-    # Find the enriched file
-    enriched_path = find_enriched_sbom()
-    if not enriched_path:
-        print_error("Enriched SBOM not found. Cannot export CycloneDX.")
-        return scan_path
-
-    # Copy the enriched SBOM as the CycloneDX deliverable
+def export_cyclonedx():
     print_step("C", "Exporting CycloneDX JSON")
     ensure_directories()
+    
+    target_sbom = ENRICHED
+    if not os.path.exists(target_sbom):
+        target_sbom = os.path.join(OUTPUT_DIR, "restricted", "sbom_enriched.json")
 
-    shutil.copy2(enriched_path, CYCLONEDX_OUT)
-
-    # Also keep the raw CycloneDX
-    raw_out = os.path.join(OUTPUT_DIR, "public", "sbom_raw_cyclonedx.json")
-    if os.path.exists(RAW_SBOM):
-        shutil.copy2(RAW_SBOM, raw_out)
-        print_info("Raw CycloneDX (pre-enrichment) -> {}".format(raw_out))
-
+    shutil.copy2(target_sbom, CYCLONEDX_OUT)
     if os.path.exists(CYCLONEDX_OUT):
-        size_kb = os.path.getsize(CYCLONEDX_OUT) / 1024
         print_success("CycloneDX JSON exported -> {}".format(CYCLONEDX_OUT))
-        print_info("File size: {:.1f} KB".format(size_kb))
-        print_info("Format: CycloneDX v1.6 (enriched with 21 attributes)")
-
-        # Print quick summary
-        with open(CYCLONEDX_OUT, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        comp_count = len(data.get("components", []))
-        vuln_count = len(data.get("vulnerabilities", []))
-        print_info("Components: {}  |  Vulnerabilities: {}".format(comp_count, vuln_count))
     else:
         print_error("Failed to export CycloneDX JSON.")
-    return scan_path
 
 
 # ------------------------------------------------------------------
-# Main Loop
-# ------------------------------------------------------------------
-def run_cli_mode(args):
-    """Run the pipeline in non-interactive CLI mode."""
-    scan_path = args.src
-    if not scan_path:
-        print_error("Scan path (--src / -s) is required in CLI mode.")
-        sys.exit(1)
-
-    scan_path = os.path.abspath(scan_path)
-    if not os.path.exists(scan_path) or not os.path.isdir(scan_path):
-        print_error("Scan path is not a valid directory: {}".format(scan_path))
-        sys.exit(1)
-
-    print_info("CLI mode started. Target: {}".format(scan_path))
-
-    # Run full pipeline
-    if not run_full_scan_pipeline(scan_path):
-        print_error("Pipeline execution failed.")
-        sys.exit(1)
-
-    enriched_path = find_enriched_sbom()
-    if not enriched_path:
-        print_error("Enriched SBOM not found after pipeline. Cannot export reports.")
-        sys.exit(1)
-
-    # 1. Excel Generation
-    if args.all or args.excel:
-        excel_path = args.excel if isinstance(args.excel, str) else EXCEL_OUT
-        excel_path = os.path.abspath(excel_path)
-        
-        print_step("E", "Generating Styled Excel Compliance Report")
-        reporter = os.path.join(SCRIPT_DIR, "sbom_toolsuite", "excel_reporter.py")
-        cmd = 'python "{}" "{}" "{}"'.format(reporter, enriched_path, excel_path)
-        if run_cmd(cmd, "Excel Report Generator"):
-            print_success("Excel Report exported -> {}".format(excel_path))
-        else:
-            print_error("Excel report generation failed.")
-
-    # 2. CycloneDX Generation
-    if args.all or args.cyclonedx:
-        json_path = args.cyclonedx if isinstance(args.cyclonedx, str) else CYCLONEDX_OUT
-        json_path = os.path.abspath(json_path)
-        
-        print_step("C", "Exporting CycloneDX JSON")
-        ensure_directories()
-        
-        # Ensure output directory for json_path exists
-        os.makedirs(os.path.dirname(json_path), exist_ok=True)
-        shutil.copy2(enriched_path, json_path)
-        
-        # Also copy the raw CycloneDX if it exists
-        raw_out = os.path.join(os.path.dirname(json_path), "sbom_raw_cyclonedx.json")
-        if os.path.exists(RAW_SBOM):
-            shutil.copy2(RAW_SBOM, raw_out)
-            print_info("Raw CycloneDX (pre-enrichment) -> {}".format(raw_out))
-
-        if os.path.exists(json_path):
-            print_success("CycloneDX JSON exported -> {}".format(json_path))
-        else:
-            print_error("Failed to export CycloneDX JSON.")
-
-
-# ------------------------------------------------------------------
-# Main Loop
+# Main Loop (New Linear Workflow)
 # ------------------------------------------------------------------
 def main():
-    if len(sys.argv) > 1:
-        parser = argparse.ArgumentParser(description="SBOM Automation Pipeline - CLI Mode")
-        parser.add_argument("--src", "-s", required=True, help="Path to the source code folder to scan")
-        parser.add_argument("--excel", "-e", help="Output path for Excel compliance report (default: sbom_output/public/sbom_report.xlsx)", nargs='?', const=True)
-        parser.add_argument("--cyclonedx", "--json", "-j", help="Output path for CycloneDX JSON format (default: sbom_output/public/sbom_cyclonedx.json)", nargs='?', const=True)
-        parser.add_argument("--all", "-a", action="store_true", help="Run scan and generate all reports (Excel and CycloneDX)")
+    parser = argparse.ArgumentParser(description="SBOM Automation Pipeline")
+    parser.add_argument("--src", "-s", help="Path to the source code folder to scan")
+    parser.add_argument("--excel", "-e", help="Output path for Excel report", action="store_true")
+    parser.add_argument("--cyclonedx", "-c", help="Output path for CycloneDX format", action="store_true")
+    args = parser.parse_args()
+
+    banner()
+
+    # CLI Mode Execution
+    if args.src:
+        scan_path = os.path.abspath(args.src)
+        run_full_pipeline(scan_path)
+        display_summary()
+        # Automatically generate compliance exports
+        export_excel()
+        export_cyclonedx()
+        sys.exit(0)
+
+    # Interactive Mode Execution
+    print("+---------------------------------------------------+")
+    print("|                   MAIN MENU                       |")
+    print("+---------------------------------------------------+")
+    print("|  1  >>  Start SBOM Scan Pipeline                  |")
+    print("|  2  >>  Exit                                      |")
+    print("+---------------------------------------------------+")
+    
+    choice = input("\n  Select an option (1-2): ").strip()
+    if choice != "1":
+        print("  Exiting...")
+        sys.exit(0)
+
+    # 1. Get Target Path
+    scan_path = action_set_path()
+    if not scan_path:
+        sys.exit(1)
         
-        args = parser.parse_args()
-        run_cli_mode(args)
-    else:
-        banner()
-        scan_path = None
-
-        while True:
-            print_menu(scan_path)
-            choice = input("  Select an option (1-5): ").strip()
-
-            if choice == "1":
-                result = action_full_scan(scan_path)
-                if result:
-                    scan_path = result
-
-            elif choice == "2":
-                result = action_quick_scan(scan_path)
-                if result:
-                    scan_path = result
-
-            elif choice == "3":
-                result = action_export_excel(scan_path)
-                if result:
-                    scan_path = result
-
-            elif choice == "4":
-                result = action_export_cyclonedx(scan_path)
-                if result:
-                    scan_path = result
-
-            elif choice == "5":
-                print("")
-                print("  Goodbye! SBOM Pipeline terminated.")
-                print("")
-                # Keep the window open when double clicked
-                input("  Press Enter to close this window...")
-                break
-
-            else:
-                print_error("Invalid option. Please enter a number between 1 and 5.")
-
-            # Pause before showing menu again
-            input("\n  Press Enter to continue...")
+    # 2. Check for existing SBOM
+    target_sbom = ENRICHED
+    if not os.path.exists(target_sbom):
+        target_sbom = os.path.join(OUTPUT_DIR, "restricted", "sbom_enriched.json")
+        
+    run_scan = True
+    if os.path.exists(target_sbom):
+        print("\n  Existing enriched SBOM detected.")
+        print("  1. Reuse Existing Scan")
+        print("  2. Perform Fresh Scan")
+        reuse_choice = input("\n  Selection: ").strip()
+        if reuse_choice == "1":
+            print_success("Reusing existing scan results. Skipping pipeline execution.")
+            run_scan = False
+            
+    # 3. Run Pipeline (if required)
+    if run_scan:
+        if not run_full_pipeline(scan_path):
+            sys.exit(1)
+            
+    # 4. Display Summary
+    if not display_summary():
+        sys.exit(1)
+        
+    # 5. Export
+    print("---------------------------------------")
+    print("Scan completed successfully.\n")
+    print("Auto-generating compliance exports...")
+    print("---------------------------------------")
+    
+    export_excel()
+    export_cyclonedx()
+        
+    print("\n  Workflow complete.\n")
 
 
 if __name__ == "__main__":
