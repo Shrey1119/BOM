@@ -1,0 +1,53 @@
+# ─── Python ───────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.py,cover
+.Python
+*.egg-info/
+dist/
+build/
+
+# ─── Pipeline intermediate scan artifacts ─────────────
+# These are regenerated every run — never commit them
+sbom_toolsuite/syft_grype.json
+sbom_toolsuite/trivy_raw.json
+sbom_toolsuite/cdxgen_raw.json
+sbom_toolsuite/trivy_sbom_vulns.json
+sbom_toolsuite/grype_sbom_vulns.json
+sbom_toolsuite/triage.json
+sbom_raw.json
+sbom_enriched.json
+
+# ─── Pipeline output artifacts ────────────────────────
+# Regenerated on every pipeline run
+sbom_output/public/sbom_public.json
+sbom_output/public/sbom_public.json.sig
+sbom_output/public/sbom_cyclonedx.json
+sbom_output/public/sbom_report.xlsx
+sbom_output/public/public_key.pem
+sbom_output/restricted/sbom_enriched.json
+sbom_output/restricted/sbom_private.json
+sbom_output/restricted/sbom_private.json.sig
+sbom_output/restricted/vex.json
+sbom_output/restricted/private_key.pem
+sbom_output/internal/internal_map.json
+sbom_output/internal/csaf.json
+sbom_output/internal/triage.json
+sbom_output/report.html
+
+# ─── Excel temp lock files ────────────────────────────
+~$*.xlsx
+~$*.xls
+
+# ─── OS & editor files ────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ─── Test/scratch artifacts ───────────────────────────
+sbom_toolsuite/*_test.json
+sbom_toolsuite/merged_test.json
