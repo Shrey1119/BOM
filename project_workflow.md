@@ -13,7 +13,7 @@ graph TD
     %% Phase 1
     subgraph "Phase 1: Extraction & Scanning"
         A[Target Source Code] --> B["Syft Scan (Unpacking)<br>+ Grype (CVE Injection)"]
-        A --> C["Trivy Scan<br>(Vuln/Config/Secrets)"]
+        A --> C["Trivy Scan<br>(Vuln/Config/Secrets)"] 
         A --> D["cdxgen Scan<br>(Static Slicing/Reachability)"]
     end
 
